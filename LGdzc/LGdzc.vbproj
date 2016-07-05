@@ -290,6 +290,8 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="DB\逻辑.ndml" />
+    <None Include="DB\逻辑2.ndml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
