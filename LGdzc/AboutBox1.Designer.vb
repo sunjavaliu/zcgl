@@ -167,7 +167,7 @@ Partial Class AboutBox1
         Me.Padding = New System.Windows.Forms.Padding(9, 8, 9, 8)
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "AboutBox1"
+        Me.Text = "关于资产管理系统"
         Me.TableLayoutPanel.ResumeLayout(False)
         Me.TableLayoutPanel.PerformLayout()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
