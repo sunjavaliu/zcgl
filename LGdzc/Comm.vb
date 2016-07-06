@@ -2,7 +2,7 @@
 
     '定义资产结构体
     Public Structure ZcInfo
-        Dim num As Integer
+        Dim id As Integer
         Dim name As String
         Dim sex As String
         Dim age As Integer
@@ -22,7 +22,7 @@
         Else
             e.Handled = False
         End If
-        Dim a As ZcInfo
+
     End Sub
 
 
