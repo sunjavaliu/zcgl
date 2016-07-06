@@ -159,7 +159,10 @@
     <Compile Include="AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Comm.vb" />
+    <Compile Include="Model\ComboBoxTreeView.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\Comm.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +218,7 @@
     <Compile Include="MDIParent1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Model\Defined.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -280,6 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DB\Lgdzc.db" />
+    <None Include="DB\字段定义.xlsx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

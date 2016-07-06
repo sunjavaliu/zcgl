@@ -63,10 +63,12 @@
             BindTreeView(0, TreeView1, G_dt)
             'OpreaRYDataBase("")
             'System.Threading.Thread.Sleep(10000)
-            TreeView1.ExpandAll()
+            'TreeView1.ExpandAll()
+
             DisableWrite()
             TreeView1.ShowNodeToolTips = True
-            'TreeView1.Nodes.
+            TreeView1.Nodes(0).Expand()
+            'TreeView1.ExpandAll()
         Catch ex As SQLite.SQLiteException
             MsgBox(ex.Message)
         End Try
@@ -165,12 +167,12 @@
             'rootnode.ToolTipText = "单击右键进行编辑操作"
             'rootnode.SelectedImageIndex = 0
             treeview.Nodes.Add(rootnode)
-
+            treeview.Nodes(0).Expand()
             'treeview.ImageList = 0
             '
             CreateChildNode(rootnode, dt)
         Next
-        System.Threading.Thread.Sleep(2000)
+        'System.Threading.Thread.Sleep(2000)
     End Sub
     Protected Sub CreateChildNode(parentNode As TreeNode, datatable As DataTable)
         Dim rowlist As DataRow() = datatable.[Select]("parentlbdm=" & Convert.ToString(parentNode.Name))

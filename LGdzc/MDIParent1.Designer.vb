@@ -37,6 +37,8 @@ Partial Class MDIParent1
         Me.JczlToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LbToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ZdToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZcglToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExploreZCToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -97,8 +99,6 @@ Partial Class MDIParent1
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.ZdToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -126,41 +126,41 @@ Partial Class MDIParent1
         'PasswrodToolStripMenuItem
         '
         Me.PasswrodToolStripMenuItem.Name = "PasswrodToolStripMenuItem"
-        Me.PasswrodToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PasswrodToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.PasswrodToolStripMenuItem.Text = "密码修改"
         '
         'SysLogToolStripMenuItem
         '
         Me.SysLogToolStripMenuItem.Name = "SysLogToolStripMenuItem"
-        Me.SysLogToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SysLogToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.SysLogToolStripMenuItem.Text = "操作日志"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(145, 6)
         '
         'InitToolStripMenuItem
         '
         Me.InitToolStripMenuItem.Name = "InitToolStripMenuItem"
-        Me.InitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InitToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.InitToolStripMenuItem.Text = "初始化系统"
         '
         'LogicCheckToolStripMenuItem
         '
         Me.LogicCheckToolStripMenuItem.Name = "LogicCheckToolStripMenuItem"
-        Me.LogicCheckToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LogicCheckToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.LogicCheckToolStripMenuItem.Text = "数据逻辑纠错"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(145, 6)
         '
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(148, 22)
         Me.ExitToolStripMenuItem1.Text = "退出"
         '
         'JczlToolStripMenuItem
@@ -181,6 +181,18 @@ Partial Class MDIParent1
         Me.LbToolStripMenuItem.Name = "LbToolStripMenuItem"
         Me.LbToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.LbToolStripMenuItem.Text = "资产类别管理"
+        '
+        'ZdToolStripMenuItem
+        '
+        Me.ZdToolStripMenuItem.Name = "ZdToolStripMenuItem"
+        Me.ZdToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.ZdToolStripMenuItem.Text = "通用信息管理"
+        '
+        'ImportToolStripMenuItem
+        '
+        Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.ImportToolStripMenuItem.Text = "数据导入"
         '
         'ZcglToolStripMenuItem
         '
@@ -611,18 +623,6 @@ Partial Class MDIParent1
         Me.SplitContainer1.SplitterWidth = 3
         Me.SplitContainer1.TabIndex = 9
         '
-        'ZdToolStripMenuItem
-        '
-        Me.ZdToolStripMenuItem.Name = "ZdToolStripMenuItem"
-        Me.ZdToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
-        Me.ZdToolStripMenuItem.Text = "通用信息管理"
-        '
-        'ImportToolStripMenuItem
-        '
-        Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
-        Me.ImportToolStripMenuItem.Text = "数据导入"
-        '
         'MDIParent1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -635,7 +635,7 @@ Partial Class MDIParent1
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "MDIParent1"
-        Me.Text = "固定资产管理系统"
+        Me.Text = "长沙市电子计算站：IT固定资产管理系统"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
