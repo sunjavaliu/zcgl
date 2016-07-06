@@ -81,6 +81,7 @@ Partial Class Form4
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         Me.SuspendLayout()
@@ -158,7 +159,7 @@ Partial Class Form4
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(540, 68)
+        Me.Label8.Location = New System.Drawing.Point(564, 68)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(41, 12)
         Me.Label8.TabIndex = 8
@@ -219,14 +220,14 @@ Partial Class Form4
         '
         'TextBox7
         '
-        Me.TextBox7.Location = New System.Drawing.Point(425, 64)
+        Me.TextBox7.Location = New System.Drawing.Point(611, 65)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(100, 21)
         Me.TextBox7.TabIndex = 16
         '
         'TextBox8
         '
-        Me.TextBox8.Location = New System.Drawing.Point(596, 64)
+        Me.TextBox8.Location = New System.Drawing.Point(624, 131)
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(100, 21)
         Me.TextBox8.TabIndex = 17
@@ -557,11 +558,20 @@ Partial Class Form4
         Me.Label21.TabIndex = 45
         Me.Label21.Text = "ID"
         '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(428, 64)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(121, 20)
+        Me.ComboBox2.TabIndex = 46
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(737, 416)
+        Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.BindingNavigator1)
@@ -674,4 +684,5 @@ Partial Class Form4
     Friend WithEvents BindingNavigatorSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
 End Class

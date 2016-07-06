@@ -6,6 +6,7 @@
         Dim sql As String
         sql = String.Format("select * from zc")
         OpenDataBase(sda, G_dt, sql)
+        GetJldw()
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
@@ -21,8 +22,7 @@
 
     Public Sub OpenDataBase(ByRef Sda As SQLiteDataAdapter, ByRef dt As DataTable, sql As String)
         Try
-            'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
-            'conn.Open()
+
             Sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
             Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(Sda)
             dt.Clear()
@@ -49,7 +49,29 @@
 
     End Sub
 
-    Private Sub 保存SToolStripButton_Click(sender As Object, e As EventArgs)
+    Private Sub GetJldw()
+        Dim sda_jldw As SQLite.SQLiteDataAdapter   ';//全局变量
+        Dim dt_jldw As DataTable = New DataTable()
+        Dim str_sql_jldw As String
+        str_sql_jldw = "select * from zd where item='计量单位'"
+        Try
 
+            sda_jldw = New SQLite.SQLiteDataAdapter(str_sql_jldw, CONN_STR)
+            Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_jldw)
+            dt_jldw.Clear()
+            sda_jldw.Fill(dt_jldw)
+
+            Dim bs_jldw As BindingSource = New BindingSource()
+            bs_jldw.DataSource = dt_jldw
+            ComboBox2.DataBindings.Add("Text", bs_jldw, "content", True)
+
+            'Me.BindingNavigator1.BindingSource = bs
+
+            'Me.BindingSource1 = bs
+
+            'TextBox1.DataBindings.Add("Text", bs, "zcbh", True)
+        Catch ex As SQLite.SQLiteException
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class
