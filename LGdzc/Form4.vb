@@ -90,7 +90,7 @@
         TextBox2.DataBindings.Add("Text", bs, "zcmc", True)
         TextBox3.DataBindings.Add("Text", bs, "lbid", True)
         ComboBoxTreeLB.DataBindings.Add("Text", bs, "lbmc", True)
-
+        DateTimePicker1.DataBindings.Add("Text", bs, "gzrq", True)
         'TextBox4.DataBindings.Add("Text", bs, "lbmc", True)
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click

@@ -25,10 +25,11 @@
             rootnode.StateImageIndex = 1
 
             treeview.Nodes.Add(rootnode)
-            treeview.Nodes(0).Expand()
+
 
             CommCreateTreeChildNode(rootnode, dt, WhereFiled1, "", TreeNodeText, TreeNodeName)
         Next
+        treeview.Nodes(0).Expand()
     End Sub
     Public Sub CommCreateTreeChildNode(ByRef parentNode As TreeNode, ByRef datatable As DataTable, WhereFiled1 As String, WhereFiledArg As String, TreeNodeText As String, TreeNodeName As String)
         Dim rowlist As DataRow() = datatable.[Select](WhereFiled1 & "=" & Convert.ToString(parentNode.Name))
