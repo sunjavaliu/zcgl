@@ -24,15 +24,20 @@
         'ComboBoxTreeLB.TreeView.ExpandAll()
 
 
-        BindTreeView(0, ComboBoxTreeLB.TreeView, G_dt)
+        'BindTreeView(0, ComboBoxTreeLB.TreeView, G_dt)
+        OpreaLBDataBase("")
+        CommBindTreeView(0, ComboBoxTreeLB.TreeView, G_dt, "parentlbdm", "0", "lbmc", "lbdm")
         'comboTrv.TreeView.Height = 400
 
 
 
         Dim ComboBoxTreeBM As ComboBoxTreeView
         ComboBoxTreeBM = New ComboBoxTreeView()
-        BindBMTreeView(0, ComboBoxTreeBM.TreeView, dt_BM)
+        'BindBMTreeView(0, ComboBoxTreeBM.TreeView, dt_BM)
 
+
+        OpreaBMDataBase()
+        CommBindTreeView(0, ComboBoxTreeBM.TreeView, dt_BM, "parentBMBH", "0", "BMMC", "BMBH")
         ComboBoxTreeBM.Dock = DockStyle.Fill
         Me.Panel2.Controls.Add(ComboBoxTreeBM)
 
@@ -77,49 +82,6 @@
 
     End Sub
 
-    Private Sub BindTreeView(ID As Long, treeview As TreeView, dt As DataTable)
-
-        OpreaLBDataBase("")
-
-        treeview.Nodes.Clear()
-        treeview.ImageList = ImageList1
-
-        Dim parentrow As DataRow() = dt.[Select]("parentlbdm=0")
-
-        For i As Integer = 0 To parentrow.Length - 1
-            Dim rootnode As New TreeNode()
-            rootnode.Text = parentrow(i)("lbmc").ToString() '+ "[" + parentrow(i)("lbdm").ToString() + "]"
-            'parentrow[i][3].ToString();
-            rootnode.Name = parentrow(i)("lbdm").ToString()
-
-            'rootnode.StateImageIndex = 1
-            treeview.Nodes.Add(rootnode)
-            treeview.Nodes(0).Expand()
-
-            'treeview.ImageList = 0
-            '
-            CreateChildNode(rootnode, dt)
-        Next
-        'System.Threading.Thread.Sleep(2000)
-    End Sub
-    Protected Sub CreateChildNode(parentNode As TreeNode, datatable As DataTable)
-        Dim rowlist As DataRow() = datatable.[Select]("parentlbdm=" & Convert.ToString(parentNode.Name))
-        For i As Integer = 0 To rowlist.Length - 1
-            Dim node As New TreeNode()
-            node.ToolTipText = "单击右键进行编辑操作"
-            If datatable.[Select]("parentlbdm=" & rowlist(i)("lbdm").ToString().Trim()).Length > 0 Then
-                node.Text = rowlist(i)("lbmc").ToString() '+ "[" + rowlist(i)("lbdm").ToString() + "]"
-                node.Name = rowlist(i)("lbdm").ToString()
-            Else
-                node.Text = rowlist(i)("lbmc").ToString() '+ "[" + rowlist(i)("lbdm").ToString() + "]"
-                node.Name = rowlist(i)("lbdm").ToString()
-            End If
-            'node.StateImageIndex = 1
-            parentNode.Nodes.Add(node)
-            '递归调用
-            CreateChildNode(node, datatable)
-        Next
-    End Sub
 
     Public Sub OpenDataBase(ByRef Sda As SQLiteDataAdapter, ByRef dt As DataTable, sql As String)
         Try
@@ -196,56 +158,5 @@
         'G_dt.Load(reader)
     End Sub
 
-    Private Sub BindBMTreeView(ID As Long, treeview As TreeView, dt As DataTable)
-
-        OpreaBMDataBase()
-
-        treeview.Nodes.Clear()
-        'treeview.ExpandAll()
-
-        'treeview.ImageList = ImageList1
-
-        Dim parentrow As DataRow() = dt.[Select]("parentBMBH=0")
-
-        For i As Integer = 0 To parentrow.Length - 1
-            Dim rootnode As New TreeNode()
-            rootnode.Text = parentrow(i)("BMMC").ToString() '+ "[" + parentrow(i)("BMBH").ToString() + "]"
-            'parentrow[i][3].ToString();
-            rootnode.Name = parentrow(i)("BMBH").ToString()
-            'rootnode.Value = parentrow(i)("ID").ToString()
-            'parentrow[i][1].ToString(); 主键
-            'rootnode. = True
-
-            'rootnode.Expanded = True
-            'rootnode.Selected = False
-            'rootnode.SelectAction = TreeNodeSelectAction.None
-            'rootnode.SelectedImageIndex = 0
-            rootnode.StateImageIndex = 1
-            'rootnode.ToolTipText = "单击右键进行编辑操作"
-            'rootnode.SelectedImageIndex = 0
-            treeview.Nodes.Add(rootnode)
-            treeview.Nodes(0).Expand()
-            'treeview.ImageList = 0
-            '
-            CreateBMChildNode(rootnode, dt)
-        Next
-    End Sub
-    Protected Sub CreateBMChildNode(parentNode As TreeNode, datatable As DataTable)
-        Dim rowlist As DataRow() = datatable.[Select]("parentBMBH=" & Convert.ToString(parentNode.Name))
-        For i As Integer = 0 To rowlist.Length - 1
-            Dim node As New TreeNode()
-            node.ToolTipText = "单击右键进行编辑操作"
-            If datatable.[Select]("parentBMBH=" & rowlist(i)("BMBH").ToString().Trim()).Length > 0 Then
-                node.Text = rowlist(i)("BMMC").ToString() '+ "[" + rowlist(i)("BMBH").ToString() + "]"
-                node.Name = rowlist(i)("BMBH").ToString()
-            Else
-                node.Text = rowlist(i)("BMMC").ToString() '+ "[" + rowlist(i)("BMBH").ToString() + "]"
-                node.Name = rowlist(i)("BMBH").ToString()
-            End If
-            'node.StateImageIndex = 1
-            parentNode.Nodes.Add(node)
-            '递归调用
-            CreateBMChildNode(node, datatable)
-        Next
-    End Sub
+   
 End Class

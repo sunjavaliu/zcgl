@@ -14,15 +14,16 @@
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
-            BindTreeView(0, TreeView1, G_dt)
+            'BindTreeView(0, TreeView1, G_dt)
             OpreaRYDataBase("")
-
-            TreeView1.ExpandAll()
+            OpreaBMDataBase()
+            CommBindTreeView(0, TreeView1, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
             DisableWrite()
             TreeView1.ShowNodeToolTips = True
             DataGridView1.ShowCellToolTips = True
             DataGridView1.Columns(0).ToolTipText = "双击单元格进行编辑操作"
             'TreeView1.Nodes.
+            TreeView1.Nodes(0).Expand()
         Catch ex As SQLite.SQLiteException
             MsgBox(ex.Message)
         End Try
@@ -190,47 +191,6 @@
         sda.Fill(G_dt)
 
         'G_dt.Load(reader)
-    End Sub
-
-    Private Sub BindTreeView(ID As Long, treeview As TreeView, dt As DataTable)
-
-        OpreaBMDataBase()
-
-        treeview.Nodes.Clear()
-        treeview.ImageList = ImageList1
-
-        Dim parentrow As DataRow() = dt.[Select]("parentBMBH=0")
-
-        For i As Integer = 0 To parentrow.Length - 1
-            Dim rootnode As New TreeNode()
-            rootnode.Text = parentrow(i)("BMMC").ToString() '+ "[" + parentrow(i)("BMBH").ToString() + "]"
-
-            rootnode.Name = parentrow(i)("BMBH").ToString()
-            rootnode.StateImageIndex = 1
-            treeview.Nodes.Add(rootnode)
-
-            'treeview.ImageList = 0
-            '
-            CreateChildNode(rootnode, dt)
-        Next
-    End Sub
-    Protected Sub CreateChildNode(parentNode As TreeNode, datatable As DataTable)
-        Dim rowlist As DataRow() = datatable.[Select]("parentBMBH=" & Convert.ToString(parentNode.Name))
-        For i As Integer = 0 To rowlist.Length - 1
-            Dim node As New TreeNode()
-            node.ToolTipText = "单击右键进行编辑操作"
-            If datatable.[Select]("parentBMBH=" & rowlist(i)("BMBH").ToString().Trim()).Length > 0 Then
-                node.Text = rowlist(i)("BMMC").ToString() '+ "[" + rowlist(i)("BMBH").ToString() + "]"
-                node.Name = rowlist(i)("BMBH").ToString()
-            Else
-                node.Text = rowlist(i)("BMMC").ToString() '+ "[" + rowlist(i)("BMBH").ToString() + "]"
-                node.Name = rowlist(i)("BMBH").ToString()
-            End If
-            'node.StateImageIndex = 1
-            parentNode.Nodes.Add(node)
-            '递归调用
-            CreateChildNode(node, datatable)
-        Next
     End Sub
 
 
