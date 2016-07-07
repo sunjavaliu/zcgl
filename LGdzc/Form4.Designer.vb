@@ -202,7 +202,7 @@ Partial Class Form4
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(696, 328)
+        Me.TextBox4.Location = New System.Drawing.Point(625, 332)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(100, 21)
         Me.TextBox4.TabIndex = 13

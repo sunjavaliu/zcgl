@@ -29,7 +29,6 @@
 
             CommCreateTreeChildNode(rootnode, dt, WhereFiled1, "", TreeNodeText, TreeNodeName)
         Next
-        'System.Threading.Thread.Sleep(2000)
     End Sub
     Public Sub CommCreateTreeChildNode(ByRef parentNode As TreeNode, ByRef datatable As DataTable, WhereFiled1 As String, WhereFiledArg As String, TreeNodeText As String, TreeNodeName As String)
         Dim rowlist As DataRow() = datatable.[Select](WhereFiled1 & "=" & Convert.ToString(parentNode.Name))

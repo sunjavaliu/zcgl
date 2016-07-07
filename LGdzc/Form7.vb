@@ -39,7 +39,8 @@ Public Class Form7
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
+        Me.Dispose()
+        Me.Close()
 
     End Sub
     Public Shared Function GetAllSheetName(ByVal strFilePath As String) As String()

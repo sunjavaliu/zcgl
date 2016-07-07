@@ -234,12 +234,12 @@
 
         DataGridView1.DataSource = G_dt_ry
         DataGridView1.Columns(0).ReadOnly = True
-        DataGridView1.Columns(0).HeaderText = "内部ID"
+        DataGridView1.Columns(0).HeaderText = "ID"
 
-        DataGridView1.Columns(1).HeaderText = "姓名"
-        DataGridView1.Columns(2).HeaderText = "性别"
-        DataGridView1.Columns(3).HeaderText = "部门编号"
-        DataGridView1.Columns(4).HeaderText = "固定电话"
+        DataGridView1.Columns(1).HeaderText = "资产编号"
+        DataGridView1.Columns(2).HeaderText = "资产名称"
+        DataGridView1.Columns(3).HeaderText = "资产类别编号"
+        DataGridView1.Columns(4).HeaderText = "资产类别"
         DataGridView1.Columns(3).Frozen = True
         'G_dt.Load(reader)
     End Sub
@@ -296,10 +296,13 @@
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Form4.ShowDialog()
+        Form4.StartPosition = FormStartPosition.CenterScreen
+        Form4.ShowDialog()  '被ShowDialog出来的窗体关闭后实际只是被隐藏了，而没有被销毁。既并没有执行Dispose。
+        Form4.Close()       '在这里关闭窗口就可以防止窗口窗体销毁不刷新主窗体
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Me.Dispose()
         Me.Close()
     End Sub
 
@@ -310,6 +313,10 @@
 
     Private Sub CollapseAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CollapseAllToolStripMenuItem.Click
         TreeView1.CollapseAll()
+    End Sub
+
+    Private Sub TreeView1_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseDoubleClick
+
     End Sub
 End Class
 

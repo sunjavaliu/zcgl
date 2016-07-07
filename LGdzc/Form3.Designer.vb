@@ -31,6 +31,8 @@ Partial Class Form3
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -49,8 +51,6 @@ Partial Class Form3
         Me.AddSubToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddSideWaysToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.ExpandAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CollapseAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
@@ -90,7 +90,6 @@ Partial Class Form3
         '
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(3, 17)
         Me.DataGridView1.Name = "DataGridView1"
@@ -130,6 +129,24 @@ Partial Class Form3
         Me.SplitContainer3.Size = New System.Drawing.Size(581, 420)
         Me.SplitContainer3.SplitterDistance = 377
         Me.SplitContainer3.TabIndex = 7
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(301, 10)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(75, 23)
+        Me.Button7.TabIndex = 9
+        Me.Button7.Text = "返回"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(205, 9)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.TabIndex = 8
+        Me.Button6.Text = "新增"
+        Me.Button6.UseVisualStyleBackColor = True
         '
         'Button5
         '
@@ -308,25 +325,7 @@ Partial Class Form3
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddSideWaysToolStripMenuItem, Me.AddSubToolStripMenuItem, Me.EditToolStripMenuItem, Me.ToolStripMenuItem2, Me.ExpandAllToolStripMenuItem, Me.CollapseAllToolStripMenuItem, Me.ToolStripMenuItem1, Me.DelSubToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 170)
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(205, 9)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 8
-        Me.Button6.Text = "新增"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(301, 10)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(75, 23)
-        Me.Button7.TabIndex = 9
-        Me.Button7.Text = "返回"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(149, 148)
         '
         'ExpandAllToolStripMenuItem
         '
@@ -337,7 +336,7 @@ Partial Class Form3
         'CollapseAllToolStripMenuItem
         '
         Me.CollapseAllToolStripMenuItem.Name = "CollapseAllToolStripMenuItem"
-        Me.CollapseAllToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CollapseAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.CollapseAllToolStripMenuItem.Text = "全部折叠"
         '
         'ToolStripMenuItem1

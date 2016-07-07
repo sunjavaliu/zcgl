@@ -24,17 +24,17 @@ Partial Class Form7
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -66,6 +66,49 @@ Partial Class Form7
         Me.TabPage1.Text = "第一步：选择要导入的文件"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 12
+        Me.ListBox1.Location = New System.Drawing.Point(18, 82)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(436, 124)
+        Me.ListBox1.TabIndex = 5
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(460, 209)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "下一步"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(16, 18)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(143, 12)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "请选择要导入的Excel文件"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(18, 43)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(436, 21)
+        Me.TextBox1.TabIndex = 3
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(460, 41)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "选择文件"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.Button4)
@@ -78,61 +121,14 @@ Partial Class Form7
         Me.TabPage2.Text = "第二步：选择对应表"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'Button1
+        'Button4
         '
-        Me.Button1.Location = New System.Drawing.Point(460, 209)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "下一步"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(460, 41)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "选择文件"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(18, 43)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(436, 21)
-        Me.TextBox1.TabIndex = 3
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 18)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(143, 12)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "请选择要导入的Excel文件"
-        '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 12
-        Me.ListBox1.Location = New System.Drawing.Point(18, 82)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(436, 124)
-        Me.ListBox1.TabIndex = 5
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(454, 322)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button4.Location = New System.Drawing.Point(445, 201)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 1
+        Me.Button4.Text = "Button4"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'ListBox2
         '
@@ -144,15 +140,6 @@ Partial Class Form7
         Me.ListBox2.Size = New System.Drawing.Size(165, 184)
         Me.ListBox2.TabIndex = 0
         '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(445, 201)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 1
-        Me.Button4.Text = "Button4"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
         'TabPage3
         '
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
@@ -162,6 +149,19 @@ Partial Class Form7
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "第三步：对应字段"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(454, 322)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "返回"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Form7
         '
