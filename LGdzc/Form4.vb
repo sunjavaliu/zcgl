@@ -1,10 +1,13 @@
 ﻿Public Class Form4
 
-    Dim sda As SQLite.SQLiteDataAdapter   ';//全局变量
-    Dim G_dt As DataTable = New DataTable()
+    Dim sda_zc As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim dt_zc As DataTable = New DataTable()
 
     Dim sda_BM As SQLite.SQLiteDataAdapter   ';//全局变量
     Dim dt_BM As DataTable = New DataTable()
+
+    Dim sda_LB As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim dt_LB As DataTable = New DataTable()
 
     Dim ComboBoxTreeLB As ComboBoxTreeView
     Dim ComboBoxTreeBM As ComboBoxTreeView
@@ -19,7 +22,7 @@
         Me.Panel1.Controls.Add(ComboBoxTreeLB)
 
         OpreaLBDataBase("")
-        CommBindTreeView(0, ComboBoxTreeLB.TreeView, G_dt, "parentlbdm", "0", "lbmc", "lbdm")
+        CommBindTreeView(0, ComboBoxTreeLB.TreeView, dt_LB, "parentlbdm", "0", "lbmc", "lbdm")
         'comboTrv.TreeView.Height = 400
 
 
@@ -30,9 +33,9 @@
         Me.Panel2.Controls.Add(ComboBoxTreeBM)
 
         sql = String.Format("select * from zc")
-        OpenDataBase(sda, G_dt, sql)
+        OpenDataBase(sda_zc, dt_zc, sql)
         GetJldw()
-        Me.BindingText(G_dt)
+        Me.BindingText(dt_zc)
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         'Me.Dispose()
@@ -57,21 +60,21 @@
             sql = "select * from lb  where lbdm >= " + bmbh + " and lbdm<=" + MAXBH.ToString
             Debug.Print(sql)
         End If
-        sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
-        G_dt.Clear()
-        sda.Fill(G_dt)
+        sda_LB = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_LB)
+        dt_LB.Clear()
+        sda_LB.Fill(dt_LB)
 
     End Sub
 
 
-    Public Sub OpenDataBase(ByRef Sda As SQLiteDataAdapter, ByRef dt As DataTable, sql As String)
+    Public Sub OpenDataBase(ByRef SQLda As SQLiteDataAdapter, ByRef dt As DataTable, sql As String)
         Try
 
-            Sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-            Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(Sda)
+            SQLda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+            Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(SQLda)
             dt.Clear()
-            Sda.Fill(dt)
+            SQLda.Fill(dt)
 
 
         Catch ex As SQLite.SQLiteException
@@ -149,7 +152,22 @@
 
    
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim SCB = New SQLite.SQLiteCommandBuilder(sda_zc)
+        Dim dr As DataRow = dt_zc.NewRow()
+        sda_zc.Update(dt_zc)
 
+        MsgBox("更新成功")
     End Sub
 
+
+    Private Function GetZcData() As ZcInfo
+        Dim zcData As ZcInfo
+        zcData = New ZcInfo()
+        zcData.id = TextBox1.Text
+        zcData.bmbh = TextBox2.Text
+
+        GetZcData = zcData
+    End Function
 End Class
+
+

@@ -32,8 +32,13 @@
         Dim num4 As Integer
         Dim num5 As Integer
         Dim num6 As Integer
+        Sub Initialize()
+            id = -99999
+            zcbh = ""
+        End Sub
 
     End Structure
+    'Public zcData As ZcInfo
 
     Public Const TREE_NONE = 0
     Public Const TREE_ADD_SUB_NODE = 1          '添加子节点
