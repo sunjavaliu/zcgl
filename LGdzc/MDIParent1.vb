@@ -2,7 +2,7 @@
 
 Public Class MDIParent1
 
-    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripMenuItem.Click, NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
+    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
         ' 创建此子窗体的一个新实例。
         Dim ChildForm As New System.Windows.Forms.Form
         ' 在显示该窗体前使其成为此 MDI 窗体的子窗体。
@@ -14,7 +14,7 @@ Public Class MDIParent1
         ChildForm.Show()
     End Sub
 
-    Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
+    Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripButton.Click
         Dim OpenFileDialog As New OpenFileDialog
         OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
         OpenFileDialog.Filter = "文本文件(*.txt)|*.txt|所有文件(*.*)|*.*"
@@ -24,10 +24,10 @@ Public Class MDIParent1
         End If
     End Sub
 
-    Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SaveAsToolStripMenuItem.Click
+    Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         Dim SaveFileDialog As New SaveFileDialog
         SaveFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
-        SaveFileDialog.Filter = "文本文件(*.txt)|*.txt|所有文件(*.*)|*.*" 
+        SaveFileDialog.Filter = "文本文件(*.txt)|*.txt|所有文件(*.*)|*.*"
 
         If (SaveFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
             Dim FileName As String = SaveFileDialog.FileName
@@ -36,19 +36,19 @@ Public Class MDIParent1
     End Sub
 
 
-    Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
+    Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         Me.Close()
     End Sub
 
-    Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CutToolStripMenuItem.Click
+    Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         ' 使用 My.Computer.Clipboard 将选择的文本或图像插入剪贴板
     End Sub
 
-    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CopyToolStripMenuItem.Click
+    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         ' 使用 My.Computer.Clipboard 将选择的文本或图像插入剪贴板
     End Sub
 
-    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PasteToolStripMenuItem.Click
+    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         '使用 My.Computer.Clipboard.GetText() 或 My.Computer.Clipboard.GetData 从剪贴板检索信息。
     End Sub
 
@@ -162,5 +162,13 @@ Public Class MDIParent1
         f.TopLevel = False
         Me.SplitContainer1.Panel2.Controls.Add(f)
         f.Show()
+    End Sub
+
+    Private Sub CaclToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CaclToolStripMenuItem.Click
+        System.Diagnostics.Process.Start("C:\WINDOWS\system32\calc.exe")
+    End Sub
+
+    Private Sub TxtToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TxtToolStripMenuItem.Click
+        System.Diagnostics.Process.Start("C:\WINDOWS\system32\notepad.exe")
     End Sub
 End Class

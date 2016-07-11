@@ -321,9 +321,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dw2.ico" />
+    <Content Include="ico\dw2.ico" />
+    <Content Include="ico\lb.ico" />
+    <Content Include="ico\ml.ico" />
+    <Content Include="ico\rw.ico" />
+    <Content Include="ico\xm.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ico\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
