@@ -1,4 +1,6 @@
 ﻿Imports System.Data.OleDb
+Imports System.Data
+
 Public Class Form7
     Dim TabPageIndex As Integer
     Dim strConn As String
@@ -73,7 +75,7 @@ Public Class Form7
 
 
 
-        If System.IO.Path.GetExtension(TextBox1.Text.ToLower) Like "*.xls*" And ListBox2.SelectedItem Is Nothing Then
+        If ListBox2.SelectedItem Is Nothing Then
             MsgBox("没有选择表")
         Else
 
@@ -93,24 +95,45 @@ Public Class Form7
         'BM_Field_Array(0) = "d"
         'Dim str As String = (My.Computer.FileSystem.ReadAllText("C:\QD51-R24_A.csv"))
 
-        Select Case ListBox2.SelectedItem(0).ToString
+        Select Case ListBox2.SelectedItem.ToString
             Case "部门"
-                For i = 0 To BM_Field_Array.Length
+                For i = 0 To BM_Field_Array.Length - 1
+                    Me.DataGridView1.Rows.Add()
                     Me.DataGridView1.Rows(i).Cells(0).Value = BM_Field_Array(i)
                 Next
             Case "资产"
-                For i = 0 To ZC_Field_Array.Length
+                For i = 0 To ZC_Field_Array.Length - 1
+                    Me.DataGridView1.Rows.Add()
                     Me.DataGridView1.Rows(i).Cells(0).Value = ZC_Field_Array(i)
                 Next
             Case "类别"
-                For i = 0 To LB_Field_Array.Length
+                For i = 0 To LB_Field_Array.Length - 1
                     Me.DataGridView1.Rows(i).Cells(0).Value = LB_Field_Array(i)
                 Next
             Case "通用"
                 For i = 0 To ZD_Field_Array.Length
+                    Me.DataGridView1.Rows.Add()
                     Me.DataGridView1.Rows(i).Cells(0).Value = ZD_Field_Array(i)
                 Next
         End Select
 
+    End Sub
+
+
+    Public adoConn As New ADODB.Connection
+
+    Private Sub csv()
+        adoConn.ConnectionString = "Driver={Microsoft Text Driver (*.txt; *.csv)};DefaultDir=C:\Documents and Settings\vinsonlu\Desktop\1400004"
+        adoConn.Open()
+        Dim rs As New ADODB.Recordset
+        rs.Open("select * from Orders_N.csv", adoConn, ADODB.CursorTypeEnum.adOpenStatic, ADODB.LockTypeEnum.adLockReadOnly)
+        If rs.RecordCount > 0 Then
+            rs.MoveFirst()
+            While Not rs.EOF
+                MessageBox.Show(CStr(rs.Fields(1).Value))
+                rs.MoveNext()
+            End While
+        End If
+        rs.Close()
     End Sub
 End Class
