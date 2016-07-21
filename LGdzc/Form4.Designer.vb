@@ -85,6 +85,7 @@ Partial Class Form4
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         Me.SuspendLayout()
@@ -162,7 +163,7 @@ Partial Class Form4
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(545, 144)
+        Me.Label8.Location = New System.Drawing.Point(509, 138)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(41, 12)
         Me.Label8.TabIndex = 8
@@ -223,7 +224,7 @@ Partial Class Form4
         '
         'TextBox7
         '
-        Me.TextBox7.Location = New System.Drawing.Point(592, 141)
+        Me.TextBox7.Location = New System.Drawing.Point(650, 305)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(100, 21)
         Me.TextBox7.TabIndex = 16
@@ -589,11 +590,20 @@ Partial Class Form4
         Me.Panel2.Size = New System.Drawing.Size(221, 21)
         Me.Panel2.TabIndex = 48
         '
+        'ComboBox3
+        '
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(556, 135)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(121, 20)
+        Me.ComboBox3.TabIndex = 49
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(825, 425)
+        Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ComboBox2)
@@ -713,4 +723,5 @@ Partial Class Form4
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
 End Class

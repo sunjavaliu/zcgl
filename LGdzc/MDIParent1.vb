@@ -40,17 +40,7 @@ Public Class MDIParent1
         Me.Close()
     End Sub
 
-    Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
-        ' 使用 My.Computer.Clipboard 将选择的文本或图像插入剪贴板
-    End Sub
 
-    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
-        ' 使用 My.Computer.Clipboard 将选择的文本或图像插入剪贴板
-    End Sub
-
-    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
-        '使用 My.Computer.Clipboard.GetText() 或 My.Computer.Clipboard.GetData 从剪贴板检索信息。
-    End Sub
 
     Private Sub ToolBarToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolBarToolStripMenuItem.Click
         Me.ToolStrip.Visible = Me.ToolBarToolStripMenuItem.Checked
@@ -60,22 +50,7 @@ Public Class MDIParent1
         Me.StatusStrip.Visible = Me.StatusBarToolStripMenuItem.Checked
     End Sub
 
-    Private Sub CascadeToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CascadeToolStripMenuItem.Click
-        Me.LayoutMdi(MdiLayout.Cascade)
 
-    End Sub
-
-    Private Sub TileVerticalToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles TileVerticalToolStripMenuItem.Click
-        Me.LayoutMdi(MdiLayout.TileVertical)
-    End Sub
-
-    Private Sub TileHorizontalToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles TileHorizontalToolStripMenuItem.Click
-        Me.LayoutMdi(MdiLayout.TileHorizontal)
-    End Sub
-
-    Private Sub ArrangeIconsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ArrangeIconsToolStripMenuItem.Click
-        Me.LayoutMdi(MdiLayout.ArrangeIcons)
-    End Sub
 
     Private Sub CloseAllToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CloseAllToolStripMenuItem.Click
         ' 关闭此父窗体的所有子窗体。
@@ -88,39 +63,16 @@ Public Class MDIParent1
 
 
     Private Sub BmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BmToolStripMenuItem.Click
-        Dim f As New Form1()
-        f.TopLevel = False
-        'Me.Controls.Add(f)
-        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
-
-
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-
-        f.Show()
+        Me.OpenBMRYGL()
     End Sub
 
     Private Sub LbToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LbToolStripMenuItem.Click
-        Dim f As New Form2()
-        f.TopLevel = False
-        'Me.Controls.Add(f)
-        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
+        Me.OpenZCLB()
 
-
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-
-        f.Show()
     End Sub
 
     Private Sub ExploreZCToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExploreZCToolStripMenuItem.Click
-        Dim f As New Form3()
-        f.TopLevel = False
-        'Me.Controls.Add(f)
-        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
-
-
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-
-        f.Show()
+        Me.OpenZC()
     End Sub
 
     Private Sub SplitContainer1_MouseClick(sender As Object, e As MouseEventArgs) Handles SplitContainer1.MouseClick
@@ -151,17 +103,11 @@ Public Class MDIParent1
     End Sub
 
     Private Sub ZdToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ZdToolStripMenuItem.Click
-        Dim f As New Form6()
-        f.TopLevel = False
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-        f.Show()
+        Me.OpenTYXX()
     End Sub
 
     Private Sub ImportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportToolStripMenuItem.Click
-        Dim f As New Form7()
-        f.TopLevel = False
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-        f.Show()
+        Me.ImportData()
     End Sub
 
     Private Sub CaclToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CaclToolStripMenuItem.Click
@@ -170,5 +116,79 @@ Public Class MDIParent1
 
     Private Sub TxtToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TxtToolStripMenuItem.Click
         System.Diagnostics.Process.Start("C:\WINDOWS\system32\notepad.exe")
+    End Sub
+
+    Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
+
+    End Sub
+
+    Private Sub TreeView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TreeView1.MouseDoubleClick
+        Dim SelectedNode As TreeNode = TreeView1.SelectedNode
+        Select Case SelectedNode.Text
+            Case "资产信息浏览"
+                Me.OpenZC()
+            Case "部门及人员管理"
+                Me.OpenBMRYGL()
+            Case "通用信息管理"
+                Me.OpenTYXX()
+            Case "资产类别管理"
+                Me.OpenZCLB()
+            Case "数据导入"
+                Me.ImportData()
+        End Select
+    End Sub
+
+    Private Sub OpenBMRYGL()
+        Dim f As New Form1()
+        f.TopLevel = False
+        'Me.Controls.Add(f)
+        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
+
+
+        Me.SplitContainer1.Panel2.Controls.Add(f)
+
+        f.Show()
+    End Sub
+
+    Private Sub OpenZCLB()
+        Dim f As New Form2()
+        f.TopLevel = False
+        'Me.Controls.Add(f)
+        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
+
+
+        Me.SplitContainer1.Panel2.Controls.Add(f)
+
+        f.Show()
+    End Sub
+    Private Sub OpenTYXX()
+        Dim f As New Form6()
+        f.TopLevel = False
+        Me.SplitContainer1.Panel2.Controls.Add(f)
+        f.Show()
+    End Sub
+
+
+    Private Sub OpenZC()
+        Dim f As New Form3()
+        f.TopLevel = False
+        'Me.Controls.Add(f)
+        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
+
+
+        Me.SplitContainer1.Panel2.Controls.Add(f)
+
+        f.Show()
+    End Sub
+    Private Sub ImportData()
+        Dim f As New Form7()
+        f.TopLevel = False
+        Me.SplitContainer1.Panel2.Controls.Add(f)
+        f.Show()
+    End Sub
+
+
+    Private Sub MDIParent1_Load(sender As Object, e As EventArgs) Handles Me.Load
+        TreeView1.ExpandAll()
     End Sub
 End Class

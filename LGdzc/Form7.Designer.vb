@@ -22,6 +22,7 @@ Partial Class Form7
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
@@ -33,11 +34,19 @@ Partial Class Form7
         Me.Button4 = New System.Windows.Forms.Button()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TableField = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContentField = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -89,9 +98,9 @@ Partial Class Form7
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(16, 18)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(143, 12)
+        Me.Label1.Size = New System.Drawing.Size(167, 12)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "请选择要导入的Excel文件"
+        Me.Label1.Text = "请选择要导入的Excel/CSV文件"
         '
         'TextBox1
         '
@@ -127,7 +136,7 @@ Partial Class Form7
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 1
-        Me.Button4.Text = "Button4"
+        Me.Button4.Text = "下一步"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'ListBox2
@@ -137,11 +146,12 @@ Partial Class Form7
         Me.ListBox2.Items.AddRange(New Object() {"部门", "资产", "类别", "通用（计量单位、职务等）"})
         Me.ListBox2.Location = New System.Drawing.Point(6, 6)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(165, 184)
+        Me.ListBox2.Size = New System.Drawing.Size(191, 184)
         Me.ListBox2.TabIndex = 0
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.DataGridView1)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
@@ -150,24 +160,54 @@ Partial Class Form7
         Me.TabPage3.Text = "第三步：对应字段"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TableField, Me.ContentField})
+        Me.DataGridView1.Location = New System.Drawing.Point(7, 8)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowTemplate.Height = 23
+        Me.DataGridView1.Size = New System.Drawing.Size(538, 220)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'TableField
+        '
+        Me.TableField.HeaderText = "表字段"
+        Me.TableField.Name = "TableField"
+        '
+        'ContentField
+        '
+        Me.ContentField.HeaderText = "内容字段"
+        Me.ContentField.Name = "ContentField"
+        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(454, 322)
+        Me.Button3.Location = New System.Drawing.Point(289, 320)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 2
         Me.Button3.Text = "返回"
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(208, 320)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 3
+        Me.Button5.Text = "Button5"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'Form7
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(587, 407)
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form7"
@@ -176,6 +216,9 @@ Partial Class Form7
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
+        Me.TabPage3.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -192,4 +235,9 @@ Partial Class Form7
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents TableField As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ContentField As System.Windows.Forms.DataGridViewComboBoxColumn
+    Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
 End Class

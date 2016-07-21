@@ -154,6 +154,7 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim SCB = New SQLite.SQLiteCommandBuilder(sda_zc)
         Dim dr As DataRow = dt_zc.NewRow()
+
         sda_zc.Update(dt_zc)
 
         MsgBox("更新成功")
