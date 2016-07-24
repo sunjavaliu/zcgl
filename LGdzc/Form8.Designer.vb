@@ -25,12 +25,12 @@ Partial Class Form8
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.aaa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bbb = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PresentAddress = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.ccc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -62,16 +62,6 @@ Partial Class Form8
         Me.DataGridView1.Size = New System.Drawing.Size(821, 236)
         Me.DataGridView1.TabIndex = 2
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"asdf", "asdffffffff", "adaaaaaaaaaa"})
-        Me.ComboBox1.Location = New System.Drawing.Point(222, 181)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 20)
-        Me.ComboBox1.TabIndex = 3
-        Me.ComboBox1.Visible = False
-        '
         'aaa
         '
         Me.aaa.HeaderText = "aaaa"
@@ -98,6 +88,16 @@ Partial Class Form8
         '
         Me.ccc.HeaderText = "ccc"
         Me.ccc.Name = "ccc"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"asdf", "asdffffffff", "adaaaaaaaaaa"})
+        Me.ComboBox1.Location = New System.Drawing.Point(222, 181)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 20)
+        Me.ComboBox1.TabIndex = 3
+        Me.ComboBox1.Visible = False
         '
         'Form8
         '
