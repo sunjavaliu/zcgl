@@ -35,7 +35,7 @@ Partial Class MDIParent1
         Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("通用信息管理")
         Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("数据导入")
         Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("基础资料管理", New System.Windows.Forms.TreeNode() {TreeNode6, TreeNode7, TreeNode8, TreeNode9})
-        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产信息浏览")
+        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产信息管理")
         Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产管理", New System.Windows.Forms.TreeNode() {TreeNode11})
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.SystemManagToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -401,8 +401,8 @@ Partial Class MDIParent1
         TreeNode9.Text = "数据导入"
         TreeNode10.Name = "节点2"
         TreeNode10.Text = "基础资料管理"
-        TreeNode11.Name = "资产信息浏览"
-        TreeNode11.Text = "资产信息浏览"
+        TreeNode11.Name = "资产信息管理"
+        TreeNode11.Text = "资产信息管理"
         TreeNode12.Name = "节点4"
         TreeNode12.Text = "资产管理"
         Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode5, TreeNode10, TreeNode12})

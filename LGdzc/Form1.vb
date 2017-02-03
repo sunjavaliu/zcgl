@@ -237,7 +237,7 @@
 
         DataGridView1.DataSource = G_dt_ry
         DataGridView1.Columns(0).ReadOnly = True
-        DataGridView1.Columns(0).HeaderText = "内部ID"
+        DataGridView1.Columns(0).HeaderText = "内部ID(不可编辑)"
         DataGridView1.Columns(1).HeaderText = "姓名"
         DataGridView1.Columns(2).HeaderText = "性别"
         DataGridView1.Columns(3).HeaderText = "部门编号"
@@ -288,11 +288,39 @@
 
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Me.Dispose()
-        Me.Close()
+        'DataGridView1.CellValueChanged()
+        Dim rs As DataGridViewRow
+        Debug.Print(DataGridView1.Rows.Count())
+        For Each rs In DataGridView1.Rows
+
+            If rs.State = DataRowState.Added Or rs.State = DataRowState.Detached Or rs.State = DataRowState.Modified Then
+                Debug.Print("bianji")
+            Else
+                Debug.Print("meiyou bianji")
+            End If
+
+
+        Next
+        If DataGridView1.IsCurrentCellInEditMode Then
+            If MsgBox("放弃正在编辑的数据吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
+                Me.Dispose()
+                Me.Close()
+            End If
+        Else
+            Me.Dispose()
+            Me.Close()
+        End If
+
     End Sub
 
 
+    Private Sub DataGridView1_CellStateChanged(sender As Object, e As DataGridViewCellStateChangedEventArgs) Handles DataGridView1.CellStateChanged
+        'MsgBox(DataGridView1.IsCurrentCellInEditMode)
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Form7.ShowDialog()
+    End Sub
 End Class
 
 

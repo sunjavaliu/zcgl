@@ -5,6 +5,9 @@ Public Class Form7
     Dim TabPageIndex As Integer
     Dim strConn As String
     Dim pbDT As DataTable = New DataTable()
+    Dim sda_imp As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim G_dt_imp As DataTable = New DataTable()
+    Dim tablename As String
 
     Private Sub Form7_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.TabPage2.Parent = Nothing
@@ -130,21 +133,25 @@ Public Class Form7
 
         Select Case ListBox2.SelectedItem.ToString
             Case "部门"
+                tablename = "bm"
                 For i = 0 To BM_Field_Array.Length - 1
                     Me.DataGridView1.Rows.Add()
                     Me.DataGridView1.Rows(i).Cells(0).Value = BM_Field_Array(i)
                 Next
             Case "资产"
+                tablename = "zc"
                 For i = 0 To ZC_Field_Array.Length - 1
                     Me.DataGridView1.Rows.Add()
                     Me.DataGridView1.Rows(i).Cells(0).Value = ZC_Field_Array(i)
                 Next
             Case "类别"
+                tablename = "lb"
                 For i = 0 To LB_Field_Array.Length - 1
                     Me.DataGridView1.Rows.Add()
                     Me.DataGridView1.Rows(i).Cells(0).Value = LB_Field_Array(i)
                 Next
             Case "通用"
+                tablename = "zd"
                 For i = 0 To ZD_Field_Array.Length
                     Me.DataGridView1.Rows.Add()
                     Me.DataGridView1.Rows(i).Cells(0).Value = ZD_Field_Array(i)
@@ -295,5 +302,24 @@ Public Class Form7
         ' //Method 2
         ' DataColumn dc = new DataColumn("column1", System.Type.GetType("System.Boolean"));
         ' dt.Columns.Add(dc); 
+        Button8.Visible = True
+        Button7.Visible = False
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Button8.Visible = False
+        Dim sql As String
+        Sql = "select * from " + tablename
+        sda_imp = New SQLite.SQLiteDataAdapter(Sql, CONN_STR)
+        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_imp)
+
+        G_dt_imp.Clear()
+        sda_imp.Fill(G_dt_imp)
+
+        'Dim SCB = New SQLite.SQLiteCommandBuilder(sda_imp)
+
+        sda_imp.Update(G_dt_imp)
+        MsgBox("更新成功")
+        'OpreaRYDataBase("")
     End Sub
 End Class

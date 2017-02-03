@@ -125,7 +125,7 @@ Public Class MDIParent1
     Private Sub TreeView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TreeView1.MouseDoubleClick
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
         Select Case SelectedNode.Text
-            Case "资产信息浏览"
+            Case "资产信息管理"
                 Me.OpenZC()
             Case "部门及人员管理"
                 Me.OpenBMRYGL()

@@ -34,25 +34,26 @@ Partial Class Form7
         Me.Button4 = New System.Windows.Forms.Button()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TableField = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContentField = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -168,6 +169,15 @@ Partial Class Form7
         Me.TabPage3.Text = "第三步：对应字段"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(439, 234)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.TabIndex = 1
+        Me.Button6.Text = "下一步 "
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -187,6 +197,37 @@ Partial Class Form7
         '
         Me.ContentField.HeaderText = "内容字段"
         Me.ContentField.Name = "ContentField"
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.Button8)
+        Me.TabPage4.Controls.Add(Me.Button7)
+        Me.TabPage4.Controls.Add(Me.DataGridView2)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(555, 262)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "第四步：导入数据"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(382, 232)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(75, 23)
+        Me.Button7.TabIndex = 1
+        Me.Button7.Text = "浏览"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(6, 6)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.RowTemplate.Height = 23
+        Me.DataGridView2.Size = New System.Drawing.Size(543, 214)
+        Me.DataGridView2.TabIndex = 0
         '
         'OpenFileDialog1
         '
@@ -210,44 +251,15 @@ Partial Class Form7
         Me.Button5.Text = "Button5"
         Me.Button5.UseVisualStyleBackColor = True
         '
-        'TabPage4
+        'Button8
         '
-        Me.TabPage4.Controls.Add(Me.Button7)
-        Me.TabPage4.Controls.Add(Me.DataGridView2)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(555, 262)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "第四步：导入数据"
-        Me.TabPage4.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(439, 234)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 1
-        Me.Button6.Text = "下一步 "
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(6, 6)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.RowTemplate.Height = 23
-        Me.DataGridView2.Size = New System.Drawing.Size(543, 214)
-        Me.DataGridView2.TabIndex = 0
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(433, 233)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(75, 23)
-        Me.Button7.TabIndex = 1
-        Me.Button7.Text = "导入"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.Button8.Location = New System.Drawing.Point(463, 233)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(75, 22)
+        Me.Button8.TabIndex = 2
+        Me.Button8.Text = "导入"
+        Me.Button8.UseVisualStyleBackColor = True
+        Me.Button8.Visible = False
         '
         'Form7
         '
@@ -265,9 +277,9 @@ Partial Class Form7
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -293,4 +305,5 @@ Partial Class Form7
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents Button8 As System.Windows.Forms.Button
 End Class

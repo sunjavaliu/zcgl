@@ -96,7 +96,7 @@ Partial Class Form2
         Me.DataGridView1.Location = New System.Drawing.Point(3, 17)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(521, 312)
+        Me.DataGridView1.Size = New System.Drawing.Size(692, 312)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
@@ -105,7 +105,7 @@ Partial Class Form2
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(527, 332)
+        Me.GroupBox2.Size = New System.Drawing.Size(698, 332)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         '
@@ -126,7 +126,7 @@ Partial Class Form2
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button6)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button5)
-        Me.SplitContainer3.Size = New System.Drawing.Size(527, 399)
+        Me.SplitContainer3.Size = New System.Drawing.Size(698, 399)
         Me.SplitContainer3.SplitterDistance = 332
         Me.SplitContainer3.TabIndex = 7
         '
@@ -169,7 +169,7 @@ Partial Class Form2
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(527, 56)
+        Me.GroupBox1.Size = New System.Drawing.Size(698, 56)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "类别信息"
@@ -257,7 +257,7 @@ Partial Class Form2
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(817, 459)
+        Me.SplitContainer1.Size = New System.Drawing.Size(988, 459)
         Me.SplitContainer1.SplitterDistance = 286
         Me.SplitContainer1.TabIndex = 4
         '
@@ -276,7 +276,7 @@ Partial Class Form2
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.SplitContainer3)
-        Me.SplitContainer2.Size = New System.Drawing.Size(527, 459)
+        Me.SplitContainer2.Size = New System.Drawing.Size(698, 459)
         Me.SplitContainer2.SplitterDistance = 56
         Me.SplitContainer2.TabIndex = 0
         '
@@ -331,7 +331,7 @@ Partial Class Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(817, 459)
+        Me.ClientSize = New System.Drawing.Size(988, 459)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Form2"
         Me.Text = "资产类别管理"
