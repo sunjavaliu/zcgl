@@ -1,4 +1,4 @@
-﻿Public Class Form8
+﻿Public Class test
 
 
     Dim dtTable As New DataTable("Employee")    ' CREATE A DATATABLE.

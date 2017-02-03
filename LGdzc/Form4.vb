@@ -150,7 +150,7 @@
         'G_dt.Load(reader)
     End Sub
 
-   
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim SCB = New SQLite.SQLiteCommandBuilder(sda_zc)
         Dim dr As DataRow = dt_zc.NewRow()
@@ -169,6 +169,10 @@
 
         GetZcData = zcData
     End Function
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
 End Class
 
 

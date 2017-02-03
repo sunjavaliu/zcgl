@@ -191,4 +191,21 @@ Public Class MDIParent1
     Private Sub MDIParent1_Load(sender As Object, e As EventArgs) Handles Me.Load
         TreeView1.ExpandAll()
     End Sub
+
+    Private Sub MenuStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip.ItemClicked
+
+    End Sub
+
+ 
+
+    Private Sub ToolStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip.ItemClicked
+
+    End Sub
+
+    Private Sub ZcrkToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ZcrkToolStripMenuItem1.Click
+        Dim f As New Form9()
+        f.TopLevel = False
+        Me.SplitContainer1.Panel2.Controls.Add(f)
+        f.Show()
+    End Sub
 End Class

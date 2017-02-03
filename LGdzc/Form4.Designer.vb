@@ -471,8 +471,8 @@ Partial Class Form4
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(32, 22)
-        Me.BindingNavigatorCountItem.Text = "/ {0}"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(39, 22)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "总项数"
         '
         'BindingNavigatorDeleteItem

@@ -296,9 +296,9 @@
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Form4.StartPosition = FormStartPosition.CenterScreen
-        Form4.ShowDialog()  '被ShowDialog出来的窗体关闭后实际只是被隐藏了，而没有被销毁。既并没有执行Dispose。
-        Form4.Close()       '在这里关闭窗口就可以防止窗口窗体销毁不刷新主窗体
+        Form9.StartPosition = FormStartPosition.CenterScreen
+        Form9.ShowDialog()  '被ShowDialog出来的窗体关闭后实际只是被隐藏了，而没有被销毁。既并没有执行Dispose。
+        Form9.Close()       '在这里关闭窗口就可以防止窗口窗体销毁不刷新主窗体
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
