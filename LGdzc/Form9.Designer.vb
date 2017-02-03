@@ -67,13 +67,15 @@ Partial Class Form9
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TextBox8
         '
-        Me.TextBox8.Location = New System.Drawing.Point(341, 39)
+        Me.TextBox8.Location = New System.Drawing.Point(530, 219)
         Me.TextBox8.Multiline = True
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(230, 72)
@@ -86,7 +88,7 @@ Partial Class Form9
         Me.BindingNavigator1.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.BindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem})
-        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 459)
+        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 372)
         Me.BindingNavigator1.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.BindingNavigator1.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.BindingNavigator1.MoveNextItem = Me.BindingNavigatorMoveNextItem
@@ -241,7 +243,7 @@ Partial Class Form9
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(283, 41)
+        Me.Label4.Location = New System.Drawing.Point(472, 221)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 12)
         Me.Label4.TabIndex = 82
@@ -345,14 +347,14 @@ Partial Class Form9
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(622, 376)
+        Me.TextBox4.Location = New System.Drawing.Point(347, 264)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(100, 21)
         Me.TextBox4.TabIndex = 61
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(119, 96)
+        Me.TextBox3.Location = New System.Drawing.Point(96, 96)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(100, 21)
         Me.TextBox3.TabIndex = 60
@@ -427,11 +429,29 @@ Partial Class Form9
         Me.TextBox1.Size = New System.Drawing.Size(100, 21)
         Me.TextBox1.TabIndex = 52
         '
+        'Panel2
+        '
+        Me.Panel2.Location = New System.Drawing.Point(324, 49)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(240, 21)
+        Me.Panel2.TabIndex = 84
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(265, 53)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(53, 12)
+        Me.Label1.TabIndex = 83
+        Me.Label1.Text = "资产类别"
+        '
         'Form9
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(869, 484)
+        Me.ClientSize = New System.Drawing.Size(869, 397)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox8)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.Controls.Add(Me.Label12)
@@ -515,4 +535,6 @@ Partial Class Form9
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class
