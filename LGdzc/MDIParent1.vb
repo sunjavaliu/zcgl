@@ -135,6 +135,8 @@ Public Class MDIParent1
                 Me.OpenZCLB()
             Case "数据导入"
                 Me.ImportData()
+            Case "资产入库"
+                Me.OpenZCRK()
         End Select
     End Sub
 
@@ -167,7 +169,12 @@ Public Class MDIParent1
         Me.SplitContainer1.Panel2.Controls.Add(f)
         f.Show()
     End Sub
-
+    Private Sub OpenZCRK()
+        Dim f As New Form9()
+        f.TopLevel = False
+        Me.SplitContainer1.Panel2.Controls.Add(f)
+        f.Show()
+    End Sub
 
     Private Sub OpenZC()
         Dim f As New Form3()

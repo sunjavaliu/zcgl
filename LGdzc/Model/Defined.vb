@@ -45,5 +45,5 @@
     Public Const TREE_ADD_SIDEWAYS_NODE = 2     '添加同级节点
     Public Const TREE_UPDATE_NODE = 3           '编辑更新节点
 
-    Public Const CONN_STR = "Data Source=d:\\lgdzc.db"
+    Public Const CONN_STR = "Data Source=E:\\LGdzc\\LGdzc\\db\\lgdzc.db"
 End Module

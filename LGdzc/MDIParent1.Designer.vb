@@ -25,18 +25,20 @@ Partial Class MDIParent1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MDIParent1))
-        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点1")
-        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点3")
-        Dim TreeNode15 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点4")
-        Dim TreeNode16 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点5")
-        Dim TreeNode17 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("系统管理", New System.Windows.Forms.TreeNode() {TreeNode13, TreeNode14, TreeNode15, TreeNode16})
-        Dim TreeNode18 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("部门及人员管理")
-        Dim TreeNode19 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产类别管理")
-        Dim TreeNode20 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("通用信息管理")
-        Dim TreeNode21 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("数据导入")
-        Dim TreeNode22 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("基础资料管理", New System.Windows.Forms.TreeNode() {TreeNode18, TreeNode19, TreeNode20, TreeNode21})
-        Dim TreeNode23 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产信息管理")
-        Dim TreeNode24 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产管理", New System.Windows.Forms.TreeNode() {TreeNode23})
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点1")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点3")
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点4")
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点5")
+        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("系统管理", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3, TreeNode4})
+        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("部门及人员管理")
+        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产类别管理")
+        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("通用信息管理")
+        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("数据导入")
+        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("基础资料管理", New System.Windows.Forms.TreeNode() {TreeNode6, TreeNode7, TreeNode8, TreeNode9})
+        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产信息管理")
+        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产入库")
+        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("浏览入库资产")
+        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产管理", New System.Windows.Forms.TreeNode() {TreeNode11, TreeNode12, TreeNode13})
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.SystemManagToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PasswrodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -51,8 +53,12 @@ Partial Class MDIParent1
         Me.LbToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZdToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.zcrkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ZcrkToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZcglToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExploreZCToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.zcczToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.资产报废ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CaclToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TxtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -90,10 +96,6 @@ Partial Class MDIParent1
         Me.HelpToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.zcrkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.zcczToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.资产报废ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ZcrkToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -190,6 +192,19 @@ Partial Class MDIParent1
         Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.ImportToolStripMenuItem.Text = "数据导入"
         '
+        'zcrkToolStripMenuItem
+        '
+        Me.zcrkToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ZcrkToolStripMenuItem1})
+        Me.zcrkToolStripMenuItem.Name = "zcrkToolStripMenuItem"
+        Me.zcrkToolStripMenuItem.Size = New System.Drawing.Size(68, 21)
+        Me.zcrkToolStripMenuItem.Text = "资产入库"
+        '
+        'ZcrkToolStripMenuItem1
+        '
+        Me.ZcrkToolStripMenuItem1.Name = "ZcrkToolStripMenuItem1"
+        Me.ZcrkToolStripMenuItem1.Size = New System.Drawing.Size(124, 22)
+        Me.ZcrkToolStripMenuItem1.Text = "资产入库"
+        '
         'ZcglToolStripMenuItem
         '
         Me.ZcglToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExploreZCToolStripMenuItem})
@@ -200,8 +215,21 @@ Partial Class MDIParent1
         'ExploreZCToolStripMenuItem
         '
         Me.ExploreZCToolStripMenuItem.Name = "ExploreZCToolStripMenuItem"
-        Me.ExploreZCToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExploreZCToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.ExploreZCToolStripMenuItem.Text = "资产信息浏览"
+        '
+        'zcczToolStripMenuItem
+        '
+        Me.zcczToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.资产报废ToolStripMenuItem})
+        Me.zcczToolStripMenuItem.Name = "zcczToolStripMenuItem"
+        Me.zcczToolStripMenuItem.Size = New System.Drawing.Size(68, 21)
+        Me.zcczToolStripMenuItem.Text = "资产处置"
+        '
+        '资产报废ToolStripMenuItem
+        '
+        Me.资产报废ToolStripMenuItem.Name = "资产报废ToolStripMenuItem"
+        Me.资产报废ToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.资产报废ToolStripMenuItem.Text = "资产报废"
         '
         'ToolsToolStripMenuItem
         '
@@ -213,13 +241,13 @@ Partial Class MDIParent1
         'CaclToolStripMenuItem
         '
         Me.CaclToolStripMenuItem.Name = "CaclToolStripMenuItem"
-        Me.CaclToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CaclToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.CaclToolStripMenuItem.Text = "计算器"
         '
         'TxtToolStripMenuItem
         '
         Me.TxtToolStripMenuItem.Name = "TxtToolStripMenuItem"
-        Me.TxtToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.TxtToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.TxtToolStripMenuItem.Text = "记事本"
         '
         'ViewMenu
@@ -235,7 +263,7 @@ Partial Class MDIParent1
         Me.ToolBarToolStripMenuItem.CheckOnClick = True
         Me.ToolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ToolBarToolStripMenuItem.Name = "ToolBarToolStripMenuItem"
-        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.ToolBarToolStripMenuItem.Text = "工具栏(&T)"
         '
         'StatusBarToolStripMenuItem
@@ -244,7 +272,7 @@ Partial Class MDIParent1
         Me.StatusBarToolStripMenuItem.CheckOnClick = True
         Me.StatusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.StatusBarToolStripMenuItem.Name = "StatusBarToolStripMenuItem"
-        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.StatusBarToolStripMenuItem.Text = "状态栏(&S)"
         '
         'WindowsMenu
@@ -257,49 +285,49 @@ Partial Class MDIParent1
         'NewWindowToolStripMenuItem
         '
         Me.NewWindowToolStripMenuItem.Name = "NewWindowToolStripMenuItem"
-        Me.NewWindowToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewWindowToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.NewWindowToolStripMenuItem.Text = "新建窗口(&N)"
         '
         'CascadeToolStripMenuItem
         '
         Me.CascadeToolStripMenuItem.Name = "CascadeToolStripMenuItem"
-        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.CascadeToolStripMenuItem.Text = "层叠(&C)"
         '
         'TileVerticalToolStripMenuItem
         '
         Me.TileVerticalToolStripMenuItem.Name = "TileVerticalToolStripMenuItem"
-        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.TileVerticalToolStripMenuItem.Text = "垂直平铺(&V)"
         '
         'TileHorizontalToolStripMenuItem
         '
         Me.TileHorizontalToolStripMenuItem.Name = "TileHorizontalToolStripMenuItem"
-        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.TileHorizontalToolStripMenuItem.Text = "水平平铺(&H)"
         '
         'CloseAllToolStripMenuItem
         '
         Me.CloseAllToolStripMenuItem.Name = "CloseAllToolStripMenuItem"
-        Me.CloseAllToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CloseAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.CloseAllToolStripMenuItem.Text = "全部关闭(&L)"
         '
         'ArrangeIconsToolStripMenuItem
         '
         Me.ArrangeIconsToolStripMenuItem.Name = "ArrangeIconsToolStripMenuItem"
-        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.ArrangeIconsToolStripMenuItem.Text = "排列图标(&A)"
         '
         'HideToolStripMenuItem
         '
         Me.HideToolStripMenuItem.Name = "HideToolStripMenuItem"
-        Me.HideToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.HideToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.HideToolStripMenuItem.Text = "隐藏左边菜单"
         '
         'ShowToolStripMenuItem
         '
         Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
-        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.ShowToolStripMenuItem.Text = "显示左边菜单"
         '
         'HelpMenu
@@ -385,31 +413,35 @@ Partial Class MDIParent1
         Me.TreeView1.ItemHeight = 36
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode13.Name = "节点1"
-        TreeNode13.Text = "节点1"
-        TreeNode14.Name = "节点3"
-        TreeNode14.Text = "节点3"
-        TreeNode15.Name = "节点4"
-        TreeNode15.Text = "节点4"
-        TreeNode16.Name = "节点5"
-        TreeNode16.Text = "节点5"
-        TreeNode17.Name = "系统管理"
-        TreeNode17.Text = "系统管理"
-        TreeNode18.Name = "部门及人员管理"
-        TreeNode18.Text = "部门及人员管理"
-        TreeNode19.Name = "资产类别管理"
-        TreeNode19.Text = "资产类别管理"
-        TreeNode20.Name = "通用信息管理"
-        TreeNode20.Text = "通用信息管理"
-        TreeNode21.Name = "数据导入"
-        TreeNode21.Text = "数据导入"
-        TreeNode22.Name = "节点2"
-        TreeNode22.Text = "基础资料管理"
-        TreeNode23.Name = "资产信息管理"
-        TreeNode23.Text = "资产信息管理"
-        TreeNode24.Name = "节点4"
-        TreeNode24.Text = "资产管理"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode17, TreeNode22, TreeNode24})
+        TreeNode1.Name = "节点1"
+        TreeNode1.Text = "节点1"
+        TreeNode2.Name = "节点3"
+        TreeNode2.Text = "节点3"
+        TreeNode3.Name = "节点4"
+        TreeNode3.Text = "节点4"
+        TreeNode4.Name = "节点5"
+        TreeNode4.Text = "节点5"
+        TreeNode5.Name = "系统管理"
+        TreeNode5.Text = "系统管理"
+        TreeNode6.Name = "部门及人员管理"
+        TreeNode6.Text = "部门及人员管理"
+        TreeNode7.Name = "资产类别管理"
+        TreeNode7.Text = "资产类别管理"
+        TreeNode8.Name = "通用信息管理"
+        TreeNode8.Text = "通用信息管理"
+        TreeNode9.Name = "数据导入"
+        TreeNode9.Text = "数据导入"
+        TreeNode10.Name = "节点2"
+        TreeNode10.Text = "基础资料管理"
+        TreeNode11.Name = "资产信息管理"
+        TreeNode11.Text = "资产信息管理"
+        TreeNode12.Name = "资产入库"
+        TreeNode12.Text = "资产入库"
+        TreeNode13.Name = "浏览入库资产"
+        TreeNode13.Text = "浏览入库资产"
+        TreeNode14.Name = "节点4"
+        TreeNode14.Text = "资产管理"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode5, TreeNode10, TreeNode14})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.ShowRootLines = False
         Me.TreeView1.Size = New System.Drawing.Size(214, 344)
@@ -503,32 +535,6 @@ Partial Class MDIParent1
         Me.ToolStrip.Size = New System.Drawing.Size(738, 25)
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
-        '
-        'zcrkToolStripMenuItem
-        '
-        Me.zcrkToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ZcrkToolStripMenuItem1})
-        Me.zcrkToolStripMenuItem.Name = "zcrkToolStripMenuItem"
-        Me.zcrkToolStripMenuItem.Size = New System.Drawing.Size(68, 21)
-        Me.zcrkToolStripMenuItem.Text = "资产入库"
-        '
-        'zcczToolStripMenuItem
-        '
-        Me.zcczToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.资产报废ToolStripMenuItem})
-        Me.zcczToolStripMenuItem.Name = "zcczToolStripMenuItem"
-        Me.zcczToolStripMenuItem.Size = New System.Drawing.Size(68, 21)
-        Me.zcczToolStripMenuItem.Text = "资产处置"
-        '
-        '资产报废ToolStripMenuItem
-        '
-        Me.资产报废ToolStripMenuItem.Name = "资产报废ToolStripMenuItem"
-        Me.资产报废ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.资产报废ToolStripMenuItem.Text = "资产报废"
-        '
-        'ZcrkToolStripMenuItem1
-        '
-        Me.ZcrkToolStripMenuItem1.Name = "ZcrkToolStripMenuItem1"
-        Me.ZcrkToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.ZcrkToolStripMenuItem1.Text = "资产入库"
         '
         'MDIParent1
         '

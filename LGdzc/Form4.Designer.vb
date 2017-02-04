@@ -654,7 +654,7 @@ Partial Class Form4
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form4"
-        Me.Text = "Form4"
+        Me.Text = "资产出库"
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
