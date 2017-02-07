@@ -7,7 +7,6 @@
         Else
             e.Handled = False
         End If
-        Dim a As ZcInfo
     End Sub
 
 

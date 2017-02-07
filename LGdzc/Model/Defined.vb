@@ -44,6 +44,11 @@
     Public Const TREE_ADD_SUB_NODE = 1          '添加子节点
     Public Const TREE_ADD_SIDEWAYS_NODE = 2     '添加同级节点
     Public Const TREE_UPDATE_NODE = 3           '编辑更新节点
+#If DEBUG Then
+    Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
+#Else
+    Public CONN_STR As String = "Data Source=" + Application.StartupPath + "db\\lgdzc.db"
+#End If
 
-    Public Const CONN_STR = "Data Source=E:\\LGdzc\\LGdzc\\db\\lgdzc.db"
+
 End Module

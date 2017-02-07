@@ -174,6 +174,8 @@ Public Class Form7
                 Exit Function
             End If
         Next
+        Return -1
+
     End Function
 
     Private Sub AddColumnToArray(ByVal dt As DataTable, ByVal columnIndex As String, ByRef ary As ArrayList)

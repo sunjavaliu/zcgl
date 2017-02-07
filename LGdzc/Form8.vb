@@ -2,8 +2,11 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+
         Dim TB As DataTable = New DataTable()
         Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+
+        ' MsgBox(System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
         '打开连接
         conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
