@@ -16,7 +16,7 @@
             SQLconn.ConnectionString = CONN_STR '链接数据库  
             SQLconn.Open()
             sqlcmd.Connection = SQLconn
-            sqlcmd.CommandText = "insert into rk ('lbmc','lbid','zcmc','gzrq','dhrq','qsr','cgxs') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "','" + TextBox7.Text + "','" + ComboBox3.Text + "')"
+            sqlcmd.CommandText = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "')"
             Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
             salda = New SQLite.SQLiteDataAdapter(sqlcmd.CommandText, SQLconn)
             'SQLite.SQLiteHelper.ExecuteDataset(constr, CommandType.Text, Sql)
