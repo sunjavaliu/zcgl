@@ -137,9 +137,21 @@ Public Class MDIParent1
                 Me.ImportData()
             Case "资产入库"
                 Me.OpenZCRK()
+            Case "浏览入库资产"
+                Me.OpenLLRKZC()
         End Select
     End Sub
+    Private Sub OpenLLRKZC()
+        Dim f As New Form8()
+        f.TopLevel = False
+        'Me.Controls.Add(f)
+        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
 
+
+        Me.SplitContainer1.Panel2.Controls.Add(f)
+
+        f.Show()
+    End Sub
     Private Sub OpenBMRYGL()
         Dim f As New Form1()
         f.TopLevel = False
