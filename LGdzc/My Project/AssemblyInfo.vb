@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' 查看程序集特性的值
 
-<Assembly: AssemblyTitle("固定资产管理系统")> 
+<Assembly: AssemblyTitle("IT设备管理系统")> 
 <Assembly: AssemblyDescription("本系统为内部使用版")> 
 <Assembly: AssemblyCompany("长沙市电子计算站")> 
 <Assembly: AssemblyProduct("LGdzc")> 
-<Assembly: AssemblyCopyright("Copyright ©  2016")> 
+<Assembly: AssemblyCopyright("Copyright ©  2016-2017")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 方法是按如下所示使用“*”: 
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.1.0")> 
-<Assembly: AssemblyFileVersion("1.0.1.0")> 
+<Assembly: AssemblyVersion("1.0.2.0")> 
+<Assembly: AssemblyFileVersion("1.0.2.0")> 
