@@ -23,21 +23,21 @@ Partial Class Form6
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("计量单位")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产状态")
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产来源")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("存放地点")
-        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("职务职位")
+        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("计量单位")
+        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产状态")
+        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产来源")
+        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("存放地点")
+        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("职务职位")
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form6))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -53,7 +53,9 @@ Partial Class Form6
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.SplitContainer1.IsSplitterFixed = True
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 10, 4, 4)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -63,8 +65,9 @@ Partial Class Form6
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(840, 438)
-        Me.SplitContainer1.SplitterDistance = 212
+        Me.SplitContainer1.Size = New System.Drawing.Size(2173, 1060)
+        Me.SplitContainer1.SplitterDistance = 220
+        Me.SplitContainer1.SplitterWidth = 6
         Me.SplitContainer1.TabIndex = 0
         '
         'TreeView1
@@ -73,20 +76,21 @@ Partial Class Form6
         Me.TreeView1.ImageIndex = 0
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
+        Me.TreeView1.Margin = New System.Windows.Forms.Padding(4, 10, 4, 4)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode1.Name = "节点0"
-        TreeNode1.Text = "计量单位"
-        TreeNode2.Name = "节点1"
-        TreeNode2.Text = "资产状态"
-        TreeNode3.Name = "节点2"
-        TreeNode3.Text = "资产来源"
-        TreeNode4.Name = "节点3"
-        TreeNode4.Text = "存放地点"
-        TreeNode5.Name = "节点4"
-        TreeNode5.Text = "职务职位"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3, TreeNode4, TreeNode5})
+        TreeNode6.Name = "节点0"
+        TreeNode6.Text = "计量单位"
+        TreeNode7.Name = "节点1"
+        TreeNode7.Text = "资产状态"
+        TreeNode8.Name = "节点2"
+        TreeNode8.Text = "资产来源"
+        TreeNode9.Name = "节点3"
+        TreeNode9.Text = "存放地点"
+        TreeNode10.Name = "节点4"
+        TreeNode10.Text = "职务职位"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode6, TreeNode7, TreeNode8, TreeNode9, TreeNode10})
         Me.TreeView1.SelectedImageIndex = 0
-        Me.TreeView1.Size = New System.Drawing.Size(212, 438)
+        Me.TreeView1.Size = New System.Drawing.Size(220, 1060)
         Me.TreeView1.TabIndex = 0
         '
         'ImageList1
@@ -102,6 +106,7 @@ Partial Class Form6
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer2.Name = "SplitContainer2"
         Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -115,8 +120,9 @@ Partial Class Form6
         Me.SplitContainer2.Panel2.Controls.Add(Me.Label1)
         Me.SplitContainer2.Panel2.Controls.Add(Me.Button2)
         Me.SplitContainer2.Panel2.Controls.Add(Me.Button1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(624, 438)
-        Me.SplitContainer2.SplitterDistance = 360
+        Me.SplitContainer2.Size = New System.Drawing.Size(1947, 1060)
+        Me.SplitContainer2.SplitterDistance = 946
+        Me.SplitContainer2.SplitterWidth = 6
         Me.SplitContainer2.TabIndex = 5
         '
         'DataGridView1
@@ -125,55 +131,62 @@ Partial Class Form6
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 40, 4, 4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(624, 360)
+        Me.DataGridView1.Size = New System.Drawing.Size(1947, 946)
         Me.DataGridView1.TabIndex = 1
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(248, 50)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(182, 34)
+        Me.Button3.TabIndex = 8
+        Me.Button3.Text = "删除所选数据(&D)"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 10)
+        Me.Label1.Location = New System.Drawing.Point(18, 15)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(617, 12)
+        Me.Label1.Size = New System.Drawing.Size(926, 18)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "当前正在查看【计量单位】的信息，【ID】和【项目名称】不能编辑，双击【项目内容】单元格可进行添加或修改。"
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(340, 33)
+        Me.Button2.Location = New System.Drawing.Point(510, 50)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.Size = New System.Drawing.Size(112, 34)
         Me.Button2.TabIndex = 6
         Me.Button2.Text = "返回(&C)"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 33)
+        Me.Button1.Location = New System.Drawing.Point(18, 50)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(99, 23)
+        Me.Button1.Size = New System.Drawing.Size(148, 34)
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "保存更新(&S)"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(165, 33)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(121, 23)
-        Me.Button3.TabIndex = 8
-        Me.Button3.Text = "删除所选数据(&D)"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'Form6
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(840, 438)
+        Me.ClientSize = New System.Drawing.Size(2173, 1060)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Form6"
         Me.Text = "通用信息管理"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()

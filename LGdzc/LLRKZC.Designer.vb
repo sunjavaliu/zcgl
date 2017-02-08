@@ -71,7 +71,7 @@ Partial Class LLRKZC
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(150, 46)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
+        Me.Button1.Text = "关闭"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'LLRKZC
