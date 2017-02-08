@@ -25,10 +25,10 @@ Public Class ComboBoxTreeView
 
     End Sub
 
-    Public Sub TextChange(sender As Object, e As TreeNodeMouseClickEventArgs)
-        Me.Text = TreeView.SelectedNode.Text
-        dropDownTree.Close()
-    End Sub
+    'Public Sub TextChange(sender As Object, e As TreeNodeMouseClickEventArgs)
+    '    Me.Text = TreeView.SelectedNode.Text
+    '    dropDownTree.Close()
+    'End Sub
 
     Public Sub treeView_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs)
         Me.Text = TreeView.SelectedNode.Text
@@ -116,6 +116,9 @@ Public Class ComboBoxTreeView
         End If
         MyBase.Dispose(disposing)
     End Sub
+
+
+
 End Class
 
 

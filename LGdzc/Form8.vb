@@ -32,8 +32,7 @@
         'G_dt.Load(reader)
     End Sub
     Private Sub GetKuCun()
-
-
+        'MsgBox(System.Environment.GetEnvironmentVariable("SYSTEMROOT"))
         Dim TB As DataTable = New DataTable()
         Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
 
@@ -41,6 +40,7 @@
         '打开连接
         conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
+        'Dim sql As String = "select * from rk where kucun>0 order by id desc"
         Dim sql As String = "select * from rk order by id desc"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
@@ -92,9 +92,6 @@
 
 
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
 
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
         'DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
@@ -105,7 +102,7 @@
         TextBox4.Text = DataGridView1.SelectedRows(0).Cells(13).Value.ToString()
         'DateTimePicker1.Text = DateTime.Parse(DataGridView1.SelectedRows(0).Cells(8).Value.ToString())
         DateTimePicker1.Value = CDate(DataGridView1.SelectedRows(0).Cells(6).Value.ToString())
-
+        'TextBox11.Text = CInt(TextBox10.Text) * CInt(TextBox9.Text)
     End Sub
 
     Private Sub Form8_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -113,14 +110,33 @@
         GetKuCun()
     End Sub
 
-    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
-
+    Private Sub TextBox9_KeyPress(sender As Object, e As KeyPressEventArgs)
+        IsInputNum(e)
     End Sub
 
 
+    Private Sub TextBox10_TextChanged(sender As Object, e As EventArgs) Handles TextBox10.TextChanged
+        JiSuanZongjia()
+    End Sub
 
-    Private Sub ComboBoxTreeBM_TextUpdate(sender As Object, e As EventArgs) Handles ComboBoxTreeBM.TextUpdate
+    Private Sub TextBox9_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
+        JiSuanZongjia()
+    End Sub
 
+    Private Sub JiSuanZongjia()
+        If TextBox9.Text <> "" And TextBox10.Text <> "" Then
+            TextBox11.Text = CInt(TextBox10.Text) * CInt(TextBox9.Text)
+        Else
+            TextBox11.Text = ""
+        End If
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Close()
     End Sub
 End Class
 

@@ -116,6 +116,7 @@ Public Class MDIParent1
 
     Private Sub TxtToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TxtToolStripMenuItem.Click
         System.Diagnostics.Process.Start("C:\WINDOWS\system32\notepad.exe")
+        'System.Environment.GetEnvironmentVariable("SYSTEMROOT")
     End Sub
 
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
@@ -137,19 +138,28 @@ Public Class MDIParent1
                 Me.ImportData()
             Case "资产入库"
                 Me.OpenZCRK()
+            Case "新入库资产分配"
+                Me.OpenFPRKZC()
             Case "浏览入库资产"
                 Me.OpenLLRKZC()
         End Select
     End Sub
     Private Sub OpenLLRKZC()
+        Dim f As New LLRKZC()
+        f.TopLevel = False
+        'Me.Controls.Add(f)
+        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
+        f.FormBorderStyle = FormBorderStyle.None
+        Me.SplitContainer1.Panel2.Controls.Add(f)
+        f.Show()
+    End Sub
+    Private Sub OpenFPRKZC()
         Dim f As New Form8()
         f.TopLevel = False
         'Me.Controls.Add(f)
         'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
-
-
+        f.FormBorderStyle = FormBorderStyle.None
         Me.SplitContainer1.Panel2.Controls.Add(f)
-
         f.Show()
     End Sub
     Private Sub OpenBMRYGL()
@@ -157,7 +167,7 @@ Public Class MDIParent1
         f.TopLevel = False
         'Me.Controls.Add(f)
         'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
-
+        f.FormBorderStyle = FormBorderStyle.None
 
         Me.SplitContainer1.Panel2.Controls.Add(f)
 
@@ -170,7 +180,7 @@ Public Class MDIParent1
         'Me.Controls.Add(f)
         'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
 
-
+        f.FormBorderStyle = FormBorderStyle.None
         Me.SplitContainer1.Panel2.Controls.Add(f)
 
         f.Show()
@@ -178,12 +188,14 @@ Public Class MDIParent1
     Private Sub OpenTYXX()
         Dim f As New Form6()
         f.TopLevel = False
+        f.FormBorderStyle = FormBorderStyle.None
         Me.SplitContainer1.Panel2.Controls.Add(f)
         f.Show()
     End Sub
     Private Sub OpenZCRK()
         Dim f As New Form9()
         f.TopLevel = False
+        f.FormBorderStyle = FormBorderStyle.None
         Me.SplitContainer1.Panel2.Controls.Add(f)
         f.Show()
     End Sub
@@ -194,7 +206,7 @@ Public Class MDIParent1
         'Me.Controls.Add(f)
         'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
 
-
+        f.FormBorderStyle = FormBorderStyle.None
         Me.SplitContainer1.Panel2.Controls.Add(f)
 
         f.Show()
@@ -202,6 +214,7 @@ Public Class MDIParent1
     Private Sub ImportData()
         Dim f As New Form7()
         f.TopLevel = False
+        f.FormBorderStyle = FormBorderStyle.None
         Me.SplitContainer1.Panel2.Controls.Add(f)
         f.Show()
     End Sub
@@ -224,7 +237,12 @@ Public Class MDIParent1
     Private Sub ZcrkToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ZcrkToolStripMenuItem1.Click
         Dim f As New Form9()
         f.TopLevel = False
+        f.FormBorderStyle = FormBorderStyle.None
         Me.SplitContainer1.Panel2.Controls.Add(f)
         f.Show()
+    End Sub
+
+    Private Sub SplitContainer1_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer1.Panel2.Paint
+
     End Sub
 End Class
