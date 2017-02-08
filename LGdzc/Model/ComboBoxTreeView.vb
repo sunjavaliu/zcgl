@@ -9,10 +9,13 @@ Public Class ComboBoxTreeView
     Private IsFind As Boolean
     Public Sub New()
         Dim treeView As New TreeView()
+        AddHandler Me.TextUpdate, New System.EventHandler(AddressOf ComboBoxTreeViewTextUpdate)
         AddHandler treeView.AfterSelect, New TreeViewEventHandler(AddressOf treeView_AfterSelect)
-
+        'AddHandler Me.TextChanged,New
         '添加鼠标双击事件
         AddHandler treeView.NodeMouseDoubleClick, New TreeNodeMouseClickEventHandler(AddressOf treeView_NodeMouseDoubleClick)
+        'AddHandler treeView, New TreeNodeMouseClickEventHandler(AddressOf treeView_NodeMouseDoubleClick)
+        'treeView_AfterSelect
 
         treeView.BorderStyle = BorderStyle.None
         treeViewHost = New ToolStripControlHost(treeView)
@@ -22,6 +25,11 @@ Public Class ComboBoxTreeView
 
     End Sub
 
+    Public Sub TextChange(sender As Object, e As TreeNodeMouseClickEventArgs)
+        Me.Text = TreeView.SelectedNode.Text
+        dropDownTree.Close()
+    End Sub
+
     Public Sub treeView_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs)
         Me.Text = TreeView.SelectedNode.Text
         dropDownTree.Close()
@@ -29,6 +37,12 @@ Public Class ComboBoxTreeView
     Public Sub treeView_AfterSelect(sender As Object, e As TreeViewEventArgs)
         'Me.Text = TreeView.SelectedNode.Text
         'dropDown.Close()
+        'MsgBox("ha")
+    End Sub
+    Public Sub ComboBoxTreeViewTextUpdate(sender As Object, e As System.EventArgs)
+        'Me.Text = TreeView.SelectedNode.Text
+        'dropDown.Close()
+        MsgBox("ha")
     End Sub
 
     Public Sub FindNode()

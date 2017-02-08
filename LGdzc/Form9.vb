@@ -3,11 +3,27 @@
 
     Private sda_LB As SQLite.SQLiteDataAdapter   ';//全局变量
     Private dt_LB As DataTable = New DataTable()
+    Private Sub SetNewAdd()
+        ComboBoxTreeLB.Text = ""
+        ComboBoxTreeLB.TreeView.SelectedNode.Name = ""
+        TextBox3.Text = ""
+        ComboBox3.Text = ""
+        TextBox4.Text = ""
+        DateTimePicker1.Text = ""
+        DateTimePicker2.Text = ""
+        TextBox5.Text = ""
+        TextBox1.Text = ""
+        ComboBox2.Text = ""
+        TextBox7.Text = ""
+        TextBox2.Text = ""
+        TextBox8.Text = ""
+    End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+        SetNewAdd()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Save()
         Dim SQLconn As New Data.SQLite.SQLiteConnection '定义数据库链接  
         Dim sqlcmd As New SQLite.SQLiteCommand '定义查询操作  
         Dim ds As New DataSet
@@ -16,7 +32,7 @@
             SQLconn.ConnectionString = CONN_STR '链接数据库  
             SQLconn.Open()
             sqlcmd.Connection = SQLconn
-            sqlcmd.CommandText = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "')"
+            sqlcmd.CommandText = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz','kucun') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "," + TextBox1.Text + "')"
             Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
             salda = New SQLite.SQLiteDataAdapter(sqlcmd.CommandText, SQLconn)
             'SQLite.SQLiteHelper.ExecuteDataset(constr, CommandType.Text, Sql)
@@ -30,6 +46,10 @@
             If Not (salda Is Nothing) Then salda.Dispose()
             salda = Nothing
         End Try
+    End Sub
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Save()
+
 
     End Sub
 
@@ -71,5 +91,11 @@
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Save()
+        SetNewAdd()
+
     End Sub
 End Class
