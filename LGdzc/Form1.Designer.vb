@@ -71,37 +71,38 @@ Partial Class Form1
         '
         'ContextMenuStrip1
         '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddSideWaysToolStripMenuItem, Me.AddSubToolStripMenuItem, Me.EditToolStripMenuItem, Me.ToolStripMenuItem2, Me.DelSubToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(149, 98)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(202, 130)
         '
         'AddSideWaysToolStripMenuItem
         '
         Me.AddSideWaysToolStripMenuItem.Name = "AddSideWaysToolStripMenuItem"
-        Me.AddSideWaysToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.AddSideWaysToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
         Me.AddSideWaysToolStripMenuItem.Text = "添加同级节点"
         '
         'AddSubToolStripMenuItem
         '
         Me.AddSubToolStripMenuItem.Name = "AddSubToolStripMenuItem"
-        Me.AddSubToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.AddSubToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
         Me.AddSubToolStripMenuItem.Text = "增加子节点"
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
         Me.EditToolStripMenuItem.Text = "编辑节点"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(145, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(198, 6)
         '
         'DelSubToolStripMenuItem
         '
         Me.DelSubToolStripMenuItem.Name = "DelSubToolStripMenuItem"
-        Me.DelSubToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.DelSubToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
         Me.DelSubToolStripMenuItem.Text = "删除节点"
         '
         'SplitContainer1
@@ -110,6 +111,7 @@ Partial Class Form1
         Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer1.IsSplitterFixed = True
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -119,8 +121,9 @@ Partial Class Form1
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(845, 471)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1268, 706)
         Me.SplitContainer1.SplitterDistance = 167
+        Me.SplitContainer1.SplitterWidth = 6
         Me.SplitContainer1.TabIndex = 3
         '
         'TreeView1
@@ -129,6 +132,7 @@ Partial Class Form1
         Me.TreeView1.ImageIndex = 2
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
+        Me.TreeView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TreeView1.Name = "TreeView1"
         TreeNode1.ImageKey = "(默认值)"
         TreeNode1.Name = "测试"
@@ -137,7 +141,7 @@ Partial Class Form1
         TreeNode2.Text = "根节点0"
         Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
         Me.TreeView1.SelectedImageIndex = 0
-        Me.TreeView1.Size = New System.Drawing.Size(167, 471)
+        Me.TreeView1.Size = New System.Drawing.Size(167, 706)
         Me.TreeView1.StateImageList = Me.ImageList1
         Me.TreeView1.TabIndex = 1
         '
@@ -154,6 +158,7 @@ Partial Class Form1
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer2.Name = "SplitContainer2"
         Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -164,8 +169,9 @@ Partial Class Form1
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.SplitContainer3)
-        Me.SplitContainer2.Size = New System.Drawing.Size(674, 471)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1095, 706)
         Me.SplitContainer2.SplitterDistance = 56
+        Me.SplitContainer2.SplitterWidth = 6
         Me.SplitContainer2.TabIndex = 0
         '
         'GroupBox1
@@ -179,68 +185,77 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(674, 54)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(1095, 81)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "部门信息"
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(536, 20)
+        Me.Button3.Location = New System.Drawing.Point(804, 30)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(72, 23)
+        Me.Button3.Size = New System.Drawing.Size(108, 34)
         Me.Button3.TabIndex = 6
         Me.Button3.Text = "导入Excel"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(455, 20)
+        Me.Button2.Location = New System.Drawing.Point(682, 30)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(60, 23)
+        Me.Button2.Size = New System.Drawing.Size(90, 34)
         Me.Button2.TabIndex = 5
         Me.Button2.Text = "取消"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(374, 20)
+        Me.Button1.Location = New System.Drawing.Point(561, 30)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(61, 23)
+        Me.Button1.Size = New System.Drawing.Size(92, 34)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "保存"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(228, 22)
+        Me.TextBox2.Location = New System.Drawing.Point(342, 33)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(140, 21)
+        Me.TextBox2.Size = New System.Drawing.Size(208, 28)
         Me.TextBox2.TabIndex = 3
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(66, 22)
+        Me.TextBox1.Location = New System.Drawing.Point(99, 33)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(70, 21)
+        Me.TextBox1.Size = New System.Drawing.Size(103, 28)
         Me.TextBox1.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(158, 25)
+        Me.Label2.Location = New System.Drawing.Point(237, 38)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 12)
+        Me.Label2.Size = New System.Drawing.Size(80, 18)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "部门名称"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 25)
+        Me.Label1.Location = New System.Drawing.Point(10, 38)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 12)
+        Me.Label1.Size = New System.Drawing.Size(80, 18)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "部门编码"
         '
@@ -249,6 +264,7 @@ Partial Class Form1
         Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
         Me.SplitContainer3.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer3.Name = "SplitContainer3"
         Me.SplitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -261,8 +277,9 @@ Partial Class Form1
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button6)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button5)
-        Me.SplitContainer3.Size = New System.Drawing.Size(674, 411)
-        Me.SplitContainer3.SplitterDistance = 368
+        Me.SplitContainer3.Size = New System.Drawing.Size(1095, 644)
+        Me.SplitContainer3.SplitterDistance = 599
+        Me.SplitContainer3.SplitterWidth = 6
         Me.SplitContainer3.TabIndex = 7
         '
         'GroupBox2
@@ -270,8 +287,10 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(674, 368)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(1095, 599)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "员工信息"
@@ -282,45 +301,50 @@ Partial Class Form1
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 17)
+        Me.DataGridView1.Location = New System.Drawing.Point(4, 25)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(668, 348)
+        Me.DataGridView1.Size = New System.Drawing.Size(1087, 570)
         Me.DataGridView1.TabIndex = 1
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(204, 8)
+        Me.Button6.Location = New System.Drawing.Point(306, 12)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.Size = New System.Drawing.Size(112, 34)
         Me.Button6.TabIndex = 8
         Me.Button6.Text = "返回"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(35, 7)
+        Me.Button4.Location = New System.Drawing.Point(52, 10)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(70, 26)
+        Me.Button4.Size = New System.Drawing.Size(105, 39)
         Me.Button4.TabIndex = 7
         Me.Button4.Text = "更新"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(120, 7)
+        Me.Button5.Location = New System.Drawing.Point(180, 10)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(69, 24)
+        Me.Button5.Size = New System.Drawing.Size(104, 36)
         Me.Button5.TabIndex = 6
         Me.Button5.Text = "删除"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(845, 471)
+        Me.ClientSize = New System.Drawing.Size(1268, 706)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Form1"
         Me.Text = "部门及人员管理"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

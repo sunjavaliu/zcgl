@@ -159,6 +159,12 @@
     <Compile Include="AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LLRKZC.Designer.vb">
+      <DependentUpon>LLRKZC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LLRKZC.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form8.Designer.vb">
       <DependentUpon>Form8.vb</DependentUpon>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form7.resx">
       <DependentUpon>Form7.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LLRKZC.resx">
+      <DependentUpon>LLRKZC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form8.resx">
       <DependentUpon>Form8.vb</DependentUpon>
