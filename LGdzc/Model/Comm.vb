@@ -48,4 +48,22 @@
             CommCreateTreeChildNode(node, datatable, WhereFiled1, "", TreeNodeText, TreeNodeName)
         Next
     End Sub
+    Public Function GetZCBH(lbid As String)
+        Dim zcbh As String
+        Dim d1970 As New System.DateTime(1970, 1, 1, 0, 0, 0, 0)
+        Dim iSeconds As Long
+
+        iSeconds = (Now.Ticks - d1970.Ticks) / 10000000
+        zcbh = "TJJ" + lbid + CStr(iSeconds)
+        Return zcbh
+    End Function
+    Public Function GetRKBH()
+        Dim RKBH As String
+        Dim d1970 As New System.DateTime(1970, 1, 1, 0, 0, 0, 0)
+        Dim iSeconds As Long
+
+        iSeconds = (Now.Ticks - d1970.Ticks) / 10000000
+        RKBH = "RKBH" + CStr(iSeconds)
+        Return RKBH
+    End Function
 End Module

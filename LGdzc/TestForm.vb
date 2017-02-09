@@ -1,6 +1,6 @@
 ﻿Public Class TestForm
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Dim datatable1 As New DataTable()
         Dim datatable2 As New DataTable()
 

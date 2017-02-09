@@ -75,8 +75,10 @@
         DataGridView1.Columns(12).HeaderText = "采购项目名称"
         DataGridView1.Columns(13).HeaderText = "简单配置"
         DataGridView1.Columns(14).HeaderText = "库存"
+        DataGridView1.Columns(15).HeaderText = "入库编号"
+        DataGridView1.Columns(16).HeaderText = "资产来源"
 
-        DataGridView1.Columns(3).Frozen = True
+        'DataGridView1.Columns(3).Frozen = True
 
 
         'dataAdapter.SelectCommand = cmd
@@ -102,6 +104,8 @@
         TextBox4.Text = DataGridView1.SelectedRows(0).Cells(13).Value.ToString()
         'DateTimePicker1.Text = DateTime.Parse(DataGridView1.SelectedRows(0).Cells(8).Value.ToString())
         DateTimePicker1.Value = CDate(DataGridView1.SelectedRows(0).Cells(6).Value.ToString())
+        TextBox6.Text = DataGridView1.SelectedRows(0).Cells(15).Value.ToString()
+        TextBox7.Text = DataGridView1.SelectedRows(0).Cells(16).Value.ToString()
         'TextBox11.Text = CInt(TextBox10.Text) * CInt(TextBox9.Text)
     End Sub
 
@@ -131,12 +135,114 @@
         End If
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Close()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        SaveData()
+        'MsgBox(GetZCBH("200232"))
+    End Sub
+
+    Private Sub SaveData()
+        Dim SQLconn As New Data.SQLite.SQLiteConnection '定义数据库链接  
+        Dim sqlcmd As New SQLite.SQLiteCommand '定义查询操作  
+        Dim ds As New DataSet
+        Dim salda As New SQLite.SQLiteDataAdapter
+
+        Dim zcbh As String  '资产编码（内部)
+        Dim zcmc As String  '资产名称
+        Dim lbid As String '类别ID
+        Dim lbmc As String '类别名称
+        Dim jldw As String '计量单位
+        Dim gzrq As String '购置日期
+        Dim zcly As String '资产来源
+        Dim zcsl As String '资产数量
+        Dim zcdj As String '单价
+        Dim zczj As String '总价
+        Dim zczt As String '资产状态
+        Dim bmbh As String '部门编号
+        Dim bmmc As String '部门名称
+        Dim zrr As String  '责任人
+        Dim cfwz As String '存放位置
+        Dim meno As String
+        Dim txt1 As String
+        Dim txt2 As String
+        Dim txt3 As String
+        Dim txt4 As String
+        Dim txt5 As String
+        Dim txt6 As String
+        Dim txt7 As String
+        Dim txt8 As String
+        Dim num1 As String
+        Dim num2 As String
+        Dim num3 As String
+        Dim num4 As String
+        Dim num5 As String
+        Dim num6 As String
+        Dim log As String   '资产流转日志，格式：bmbh,zrr@bmbh,zrr....往后递增
+        Dim rkbh As String  '入库编号
+
+
+        Try
+
+
+            zcmc = TextBox3.Text
+            lbid = ""
+
+            zcbh = GetZCBH(lbid)
+
+
+            lbmc = TextBox17.Text
+            jldw = TextBox18.Text
+            gzrq = DateTimePicker1.Text
+            zcly = TextBox7.Text
+            zcsl = TextBox9.Text
+            zcdj = TextBox10.Text
+            zczj = ""
+            zczt = "使用"
+            bmbh = ""
+            bmmc = ""
+            zrr = ComboBox3.Text
+            cfwz = ""
+            meno = ""
+            txt1 = ""
+            txt2 = ""
+            txt3 = ""
+            txt4 = ""
+            txt5 = ""
+            txt6 = ""
+            txt7 = ""
+            txt8 = ""
+            num1 = ""
+            num2 = ""
+            num3 = ""
+            num4 = ""
+            num5 = ""
+            num6 = ""
+            log = CStr(bmbh) + "," + zrr
+            rkbh = TextBox6.Text
+
+            SQLconn.ConnectionString = CONN_STR '链接数据库  
+            SQLconn.Open()
+            sqlcmd.Connection = SQLconn
+            sqlcmd.CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
+
+            'ComboBoxTreeLB.Text +"','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ")"
+            Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
+            salda = New SQLite.SQLiteDataAdapter(sqlcmd.CommandText, SQLconn)
+            'SQLite.SQLiteHelper.ExecuteDataset(constr, CommandType.Text, Sql)
+            'salda.Fill(ds, 0)
+            'DGV1.DataSource = ds.Tables(0)
+            MsgBox("添加成功！")
+
+        Finally
+            If Not (SQLconn Is Nothing) Then SQLconn.Dispose()
+            SQLconn = Nothing
+            If Not (salda Is Nothing) Then salda.Dispose()
+            salda = Nothing
+        End Try
     End Sub
 End Class
 

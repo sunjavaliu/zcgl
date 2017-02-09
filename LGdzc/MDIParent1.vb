@@ -63,16 +63,16 @@ Public Class MDIParent1
 
 
     Private Sub BmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BmToolStripMenuItem.Click
-        Me.OpenBMRYGL()
+
     End Sub
 
     Private Sub LbToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LbToolStripMenuItem.Click
-        Me.OpenZCLB()
+
 
     End Sub
 
     Private Sub ExploreZCToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExploreZCToolStripMenuItem.Click
-        Me.OpenZC()
+
     End Sub
 
     Private Sub SplitContainer1_MouseClick(sender As Object, e As MouseEventArgs) Handles SplitContainer1.MouseClick
@@ -103,11 +103,12 @@ Public Class MDIParent1
     End Sub
 
     Private Sub ZdToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ZdToolStripMenuItem.Click
-        Me.OpenTYXX()
+        'Me.OpenTYXX()
     End Sub
 
     Private Sub ImportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportToolStripMenuItem.Click
-        Me.ImportData()
+        Dim fm As New Form7()
+        Me.OpenChildWindow(fm)
     End Sub
 
     Private Sub CaclToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CaclToolStripMenuItem.Click
@@ -125,27 +126,39 @@ Public Class MDIParent1
 
     Private Sub TreeView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TreeView1.MouseDoubleClick
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
+        Dim fm As Form
         Select Case SelectedNode.Text
             Case "资产信息管理"
-                Me.OpenZC()
+                fm = New Form3()
+                Me.OpenChildWindow(fm)
             Case "部门及人员管理"
-                Me.OpenBMRYGL()
+                fm = New Form1()
+                Me.OpenChildWindow(fm)
             Case "通用信息管理"
-                Me.OpenTYXX()
+                fm = New Form6()
+                Me.OpenChildWindow(fm)
             Case "资产类别管理"
-                Me.OpenZCLB()
+                fm = New Form2()
+                Me.OpenChildWindow(fm)
             Case "数据导入"
-                Me.ImportData()
-            Case "资产入库"
-                Me.OpenZCRK()
-            Case "新入库资产分配"
-                Me.OpenFPRKZC()
-            Case "浏览入库资产"
-                Me.OpenLLRKZC()
+                fm = New Form7()
+                Me.OpenChildWindow(fm)
+            Case "设备入库"
+                fm = New Form9()
+                Me.OpenChildWindow(fm)
+            Case "新入库设备分配"
+                fm = New Form8()
+                Me.OpenChildWindow(fm)
+            Case "查看入库设备"
+                fm = New LLRKZC()
+                Me.OpenChildWindow(fm)
+            Case "归还设备"
+                fm = New Form10()
+                Me.OpenChildWindow(fm)
+
         End Select
     End Sub
-    Private Sub OpenLLRKZC()
-        Dim f As New LLRKZC()
+    Private Sub OpenChildWindow(f As Form)
         f.TopLevel = False
         'Me.Controls.Add(f)
         'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
@@ -153,72 +166,6 @@ Public Class MDIParent1
         Me.SplitContainer1.Panel2.Controls.Add(f)
         f.Show()
     End Sub
-    Private Sub OpenFPRKZC()
-        Dim f As New Form8()
-        f.TopLevel = False
-        'Me.Controls.Add(f)
-        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
-        f.FormBorderStyle = FormBorderStyle.None
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-        f.Show()
-    End Sub
-    Private Sub OpenBMRYGL()
-        Dim f As New Form1()
-        f.TopLevel = False
-        'Me.Controls.Add(f)
-        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
-        f.FormBorderStyle = FormBorderStyle.None
-
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-
-        f.Show()
-    End Sub
-
-    Private Sub OpenZCLB()
-        Dim f As New Form2()
-        f.TopLevel = False
-        'Me.Controls.Add(f)
-        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
-
-        f.FormBorderStyle = FormBorderStyle.None
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-
-        f.Show()
-    End Sub
-    Private Sub OpenTYXX()
-        Dim f As New Form6()
-        f.TopLevel = False
-        f.FormBorderStyle = FormBorderStyle.None
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-        f.Show()
-    End Sub
-    Private Sub OpenZCRK()
-        Dim f As New Form9()
-        f.TopLevel = False
-        f.FormBorderStyle = FormBorderStyle.None
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-        f.Show()
-    End Sub
-
-    Private Sub OpenZC()
-        Dim f As New Form3()
-        f.TopLevel = False
-        'Me.Controls.Add(f)
-        'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
-
-        f.FormBorderStyle = FormBorderStyle.None
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-
-        f.Show()
-    End Sub
-    Private Sub ImportData()
-        Dim f As New Form7()
-        f.TopLevel = False
-        f.FormBorderStyle = FormBorderStyle.None
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-        f.Show()
-    End Sub
-
 
     Private Sub MDIParent1_Load(sender As Object, e As EventArgs) Handles Me.Load
         TreeView1.ExpandAll()
@@ -228,18 +175,13 @@ Public Class MDIParent1
 
     End Sub
 
- 
-
     Private Sub ToolStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip.ItemClicked
 
     End Sub
 
     Private Sub ZcrkToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ZcrkToolStripMenuItem1.Click
         Dim f As New Form9()
-        f.TopLevel = False
-        f.FormBorderStyle = FormBorderStyle.None
-        Me.SplitContainer1.Panel2.Controls.Add(f)
-        f.Show()
+        Me.OpenChildWindow(f)
     End Sub
 
     Private Sub SplitContainer1_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer1.Panel2.Paint

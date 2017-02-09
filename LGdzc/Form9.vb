@@ -28,11 +28,13 @@
         Dim sqlcmd As New SQLite.SQLiteCommand '定义查询操作  
         Dim ds As New DataSet
         Dim salda As New SQLite.SQLiteDataAdapter
+        Dim rkbh As String
         Try
             SQLconn.ConnectionString = CONN_STR '链接数据库  
             SQLconn.Open()
             sqlcmd.Connection = SQLconn
-            sqlcmd.CommandText = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz','kucun') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ")"
+            rkbh = GetRKBH()
+            sqlcmd.CommandText = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz','kucun','rkbh') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ",'" + rkbh + "')"
             Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
             salda = New SQLite.SQLiteDataAdapter(sqlcmd.CommandText, SQLconn)
             'SQLite.SQLiteHelper.ExecuteDataset(constr, CommandType.Text, Sql)

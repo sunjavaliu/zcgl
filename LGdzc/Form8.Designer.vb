@@ -25,6 +25,11 @@ Partial Class Form8
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -54,7 +59,6 @@ Partial Class Form8
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -62,11 +66,15 @@ Partial Class Form8
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox1.Location = New System.Drawing.Point(17, 17)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(8)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1606, 740)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox1.Size = New System.Drawing.Size(1025, 213)
         Me.GroupBox1.TabIndex = 101
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "新入库暂未分配的IT设备列表"
@@ -76,15 +84,18 @@ Partial Class Form8
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 24)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
+        Me.DataGridView1.Location = New System.Drawing.Point(2, 16)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(1600, 713)
+        Me.DataGridView1.Size = New System.Drawing.Size(1021, 195)
         Me.DataGridView1.TabIndex = 3
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.TextBox7)
+        Me.GroupBox2.Controls.Add(Me.Label14)
+        Me.GroupBox2.Controls.Add(Me.TextBox6)
+        Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.TextBox2)
         Me.GroupBox2.Controls.Add(Me.Label20)
@@ -116,301 +127,308 @@ Partial Class Form8
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GroupBox2.Location = New System.Drawing.Point(0, 370)
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 246)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(8)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1606, 370)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox2.Size = New System.Drawing.Size(1059, 247)
         Me.GroupBox2.TabIndex = 102
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "分配资产"
         '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(320, 13)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.ReadOnly = True
+        Me.TextBox7.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox7.TabIndex = 133
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(261, 16)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(53, 12)
+        Me.Label14.TabIndex = 132
+        Me.Label14.Text = "资产来源"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(130, 13)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.ReadOnly = True
+        Me.TextBox6.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox6.TabIndex = 131
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(71, 16)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 12)
+        Me.Label6.TabIndex = 130
+        Me.Label6.Text = "入库编号"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(889, 182)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(104, 20)
+        Me.Button2.TabIndex = 129
+        Me.Button2.Text = "关闭"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(258, 144)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox2.Location = New System.Drawing.Point(166, 106)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(378, 28)
+        Me.TextBox2.Size = New System.Drawing.Size(259, 21)
         Me.TextBox2.TabIndex = 5
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(107, 149)
-        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label20.Location = New System.Drawing.Point(71, 109)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(134, 18)
+        Me.Label20.Size = New System.Drawing.Size(89, 12)
         Me.Label20.TabIndex = 128
         Me.Label20.Text = "操作系统序列号"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(1333, 97)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox1.Location = New System.Drawing.Point(889, 75)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(156, 28)
+        Me.TextBox1.Size = New System.Drawing.Size(105, 21)
         Me.TextBox1.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(1217, 102)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(811, 78)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(98, 18)
+        Me.Label1.Size = New System.Drawing.Size(65, 12)
         Me.Label1.TabIndex = 126
         Me.Label1.Text = "设备序列号"
         '
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(107, 192)
-        Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label22.Location = New System.Drawing.Point(71, 138)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(80, 18)
+        Me.Label22.Size = New System.Drawing.Size(53, 12)
         Me.Label22.TabIndex = 125
         Me.Label22.Text = "简单配置"
         '
         'TextBox18
         '
-        Me.TextBox18.Location = New System.Drawing.Point(1333, 45)
-        Me.TextBox18.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox18.Location = New System.Drawing.Point(889, 40)
         Me.TextBox18.Name = "TextBox18"
         Me.TextBox18.ReadOnly = True
-        Me.TextBox18.Size = New System.Drawing.Size(156, 28)
+        Me.TextBox18.Size = New System.Drawing.Size(105, 21)
         Me.TextBox18.TabIndex = 124
         '
         'TextBox17
         '
-        Me.TextBox17.Location = New System.Drawing.Point(195, 50)
-        Me.TextBox17.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox17.Location = New System.Drawing.Point(130, 43)
         Me.TextBox17.Name = "TextBox17"
         Me.TextBox17.ReadOnly = True
-        Me.TextBox17.Size = New System.Drawing.Size(156, 28)
+        Me.TextBox17.Size = New System.Drawing.Size(105, 21)
         Me.TextBox17.TabIndex = 123
         '
         'ComboBox3
         '
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(1141, 145)
-        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox3.Location = New System.Drawing.Point(761, 107)
         Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(174, 26)
+        Me.ComboBox3.Size = New System.Drawing.Size(117, 20)
         Me.ComboBox3.TabIndex = 4
         '
         'Panel2
         '
-        Me.Panel2.Location = New System.Drawing.Point(781, 141)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel2.Location = New System.Drawing.Point(521, 104)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(281, 30)
+        Me.Panel2.Size = New System.Drawing.Size(187, 20)
         Me.Panel2.TabIndex = 3
         '
         'TextBox11
         '
-        Me.TextBox11.Location = New System.Drawing.Point(780, 48)
-        Me.TextBox11.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox11.Location = New System.Drawing.Point(520, 42)
         Me.TextBox11.Name = "TextBox11"
         Me.TextBox11.ReadOnly = True
-        Me.TextBox11.Size = New System.Drawing.Size(156, 28)
+        Me.TextBox11.Size = New System.Drawing.Size(105, 21)
         Me.TextBox11.TabIndex = 120
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(693, 55)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Location = New System.Drawing.Point(462, 47)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(80, 18)
+        Me.Label13.Size = New System.Drawing.Size(53, 12)
         Me.Label13.TabIndex = 119
         Me.Label13.Text = "资产总价"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(978, 53)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Location = New System.Drawing.Point(652, 45)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(44, 18)
+        Me.Label12.Size = New System.Drawing.Size(29, 12)
         Me.Label12.TabIndex = 118
         Me.Label12.Text = "单价"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(978, 102)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Location = New System.Drawing.Point(652, 78)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(44, 18)
+        Me.Label11.Size = New System.Drawing.Size(29, 12)
         Me.Label11.TabIndex = 117
         Me.Label11.Text = "数量"
         '
         'DateTimePicker2
         '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(480, 97)
-        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(4)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(320, 75)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(156, 28)
+        Me.DateTimePicker2.Size = New System.Drawing.Size(105, 21)
         Me.DateTimePicker2.TabIndex = 116
         '
         'DateTimePicker1
         '
         Me.DateTimePicker1.Enabled = False
-        Me.DateTimePicker1.Location = New System.Drawing.Point(195, 97)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(130, 75)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(156, 28)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(105, 21)
         Me.DateTimePicker1.TabIndex = 115
         '
         'TextBox10
         '
-        Me.TextBox10.Location = New System.Drawing.Point(1030, 45)
-        Me.TextBox10.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox10.Location = New System.Drawing.Point(687, 40)
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.ReadOnly = True
-        Me.TextBox10.Size = New System.Drawing.Size(156, 28)
+        Me.TextBox10.Size = New System.Drawing.Size(105, 21)
         Me.TextBox10.TabIndex = 114
         '
         'TextBox9
         '
-        Me.TextBox9.Location = New System.Drawing.Point(1030, 97)
-        Me.TextBox9.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox9.Location = New System.Drawing.Point(687, 75)
         Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(156, 28)
+        Me.TextBox9.Size = New System.Drawing.Size(105, 21)
         Me.TextBox9.TabIndex = 1
         Me.TextBox9.Text = "1"
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(780, 97)
-        Me.TextBox5.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox5.Location = New System.Drawing.Point(520, 75)
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(156, 28)
+        Me.TextBox5.Size = New System.Drawing.Size(105, 21)
         Me.TextBox5.TabIndex = 0
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(249, 189)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox4.Location = New System.Drawing.Point(166, 136)
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(1066, 99)
+        Me.TextBox4.Size = New System.Drawing.Size(712, 67)
         Me.TextBox4.TabIndex = 6
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(480, 50)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox3.Location = New System.Drawing.Point(320, 43)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.ReadOnly = True
-        Me.TextBox3.Size = New System.Drawing.Size(156, 28)
+        Me.TextBox3.Size = New System.Drawing.Size(105, 21)
         Me.TextBox3.TabIndex = 110
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(392, 102)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Location = New System.Drawing.Point(261, 78)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(80, 18)
+        Me.Label10.Size = New System.Drawing.Size(53, 12)
         Me.Label10.TabIndex = 109
         Me.Label10.Text = "登记日期"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(107, 102)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(71, 78)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(80, 18)
+        Me.Label9.Size = New System.Drawing.Size(53, 12)
         Me.Label9.TabIndex = 108
         Me.Label9.Text = "购置日期"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(1070, 149)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(713, 109)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(62, 18)
+        Me.Label8.Size = New System.Drawing.Size(41, 12)
         Me.Label8.TabIndex = 107
         Me.Label8.Text = "责任人"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(1217, 53)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(811, 45)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(80, 18)
+        Me.Label7.Size = New System.Drawing.Size(53, 12)
         Me.Label7.TabIndex = 106
         Me.Label7.Text = "计量单位"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(693, 102)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(462, 78)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(80, 18)
+        Me.Label5.Size = New System.Drawing.Size(53, 12)
         Me.Label5.TabIndex = 105
         Me.Label5.Text = "资产品牌"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(693, 149)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(462, 109)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(80, 18)
+        Me.Label4.Size = New System.Drawing.Size(53, 12)
         Me.Label4.TabIndex = 104
         Me.Label4.Text = "归属部门"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(107, 55)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(71, 47)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(80, 18)
+        Me.Label3.Size = New System.Drawing.Size(53, 12)
         Me.Label3.TabIndex = 103
         Me.Label3.Text = "资产类别"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(392, 55)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(261, 47)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(80, 18)
+        Me.Label2.Size = New System.Drawing.Size(53, 12)
         Me.Label2.TabIndex = 102
         Me.Label2.Text = "资产名称"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(1333, 189)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Location = New System.Drawing.Point(889, 136)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(156, 30)
+        Me.Button1.Size = New System.Drawing.Size(104, 20)
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "分配"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(1333, 258)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(156, 30)
-        Me.Button2.TabIndex = 129
-        Me.Button2.Text = "关闭"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'Form8
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1606, 740)
+        Me.ClientSize = New System.Drawing.Size(1059, 493)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form8"
         Me.Text = "新入库资产分配"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -454,4 +472,8 @@ Partial Class Form8
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents Label14 As System.Windows.Forms.Label
 End Class
