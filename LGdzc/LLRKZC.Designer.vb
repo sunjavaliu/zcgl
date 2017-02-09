@@ -36,6 +36,7 @@ Partial Class LLRKZC
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -46,8 +47,9 @@ Partial Class LLRKZC
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.Button1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1606, 740)
-        Me.SplitContainer1.SplitterDistance = 557
+        Me.SplitContainer1.Size = New System.Drawing.Size(1071, 493)
+        Me.SplitContainer1.SplitterDistance = 371
+        Me.SplitContainer1.SplitterWidth = 3
         Me.SplitContainer1.TabIndex = 102
         '
         'DataGridView1
@@ -59,28 +61,27 @@ Partial Class LLRKZC
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(1606, 557)
+        Me.DataGridView1.Size = New System.Drawing.Size(1071, 371)
         Me.DataGridView1.TabIndex = 4
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(669, 44)
+        Me.Button1.Location = New System.Drawing.Point(446, 29)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(150, 46)
+        Me.Button1.Size = New System.Drawing.Size(100, 31)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "关闭"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'LLRKZC
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1606, 740)
+        Me.ClientSize = New System.Drawing.Size(1071, 493)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "LLRKZC"
         Me.Text = "浏览入库资产"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

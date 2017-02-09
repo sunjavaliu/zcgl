@@ -305,7 +305,7 @@ Partial Class Form9
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"自购", "省局下拨", "市直部门下拨"})
+        Me.ComboBox1.Items.AddRange(New Object() {"自购", "省局下拨", "市直部门调拨"})
         Me.ComboBox1.Location = New System.Drawing.Point(122, 249)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(239, 20)

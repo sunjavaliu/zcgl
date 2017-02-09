@@ -112,6 +112,7 @@
     Private Sub Form8_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DisplayBMTree()
         GetKuCun()
+        OnComboBoxTreeViewTextUpdate()   '激活OnComboBoxTreeViewTextUpdate事件
     End Sub
 
     Private Sub TextBox9_KeyPress(sender As Object, e As KeyPressEventArgs)
@@ -244,6 +245,38 @@
             salda = Nothing
         End Try
     End Sub
+
+
+    Public Sub OnComboBoxTreeViewTextUpdate()
+
+        If Not ComboBoxTreeBM Is Nothing Then
+            'ComboBoxTreeBM.AutoPostBack = True
+            AddHandler ComboBoxTreeBM.TextChanged, AddressOf ComboBoxTreeViewTextUpdate
+        End If
+    End Sub
+    Private Sub ComboBoxTreeViewTextUpdate()
+    
+
+        Dim dt = New DataTable()
+        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        '打开连接
+        conn.Open()
+        'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
+        Dim sql As String = "select xm from bm_ry where bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "'"
+        'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
+        'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
+        Dim sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
+
+        sda.Fill(dt)
+        ComboBox3.DataSource = dt
+        ComboBox3.DisplayMember = "xm"
+        If dt.Rows.Count = 0 Then
+            MsgBox("该部门下没有人员信息，请先添加人员信息")
+            ComboBox3.Text = ""
+        End If
+    End Sub
+
 End Class
 
 

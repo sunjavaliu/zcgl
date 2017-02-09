@@ -67,13 +67,17 @@
 
     End Sub
 
-    Private Sub Form8_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub LLRKZC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         GetKuCun()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
+    End Sub
+
+    Private Sub SplitContainer1_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer1.Panel2.Paint
+
     End Sub
 End Class
 

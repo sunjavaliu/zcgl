@@ -9,9 +9,9 @@ Public Class ComboBoxTreeView
     Private IsFind As Boolean
     Public Sub New()
         Dim treeView As New TreeView()
-        AddHandler Me.TextUpdate, New System.EventHandler(AddressOf ComboBoxTreeViewTextUpdate)
+        'AddHandler Me.TextUpdate, New System.EventHandler(AddressOf ComboBoxTreeViewTextUpdate)
         AddHandler treeView.AfterSelect, New TreeViewEventHandler(AddressOf treeView_AfterSelect)
-        'AddHandler Me.TextChanged,New
+
         '添加鼠标双击事件
         AddHandler treeView.NodeMouseDoubleClick, New TreeNodeMouseClickEventHandler(AddressOf treeView_NodeMouseDoubleClick)
         'AddHandler treeView, New TreeNodeMouseClickEventHandler(AddressOf treeView_NodeMouseDoubleClick)
@@ -39,11 +39,11 @@ Public Class ComboBoxTreeView
         'dropDown.Close()
         'MsgBox("ha")
     End Sub
-    Public Sub ComboBoxTreeViewTextUpdate(sender As Object, e As System.EventArgs)
-        'Me.Text = TreeView.SelectedNode.Text
-        'dropDown.Close()
-        MsgBox("ha")
-    End Sub
+    'Public Sub ComboBoxTreeViewTextUpdate(sender As Object, e As System.EventArgs)
+    'Me.Text = TreeView.SelectedNode.Text
+    'dropDown.Close()
+    '    MsgBox("ComboBoxTreeViewTextUpdate")
+    'End Sub
 
     Public Sub FindNode()
         IsFind = False

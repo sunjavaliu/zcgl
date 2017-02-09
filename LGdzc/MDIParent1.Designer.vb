@@ -231,7 +231,7 @@ Partial Class MDIParent1
         '资产报废ToolStripMenuItem
         '
         Me.资产报废ToolStripMenuItem.Name = "资产报废ToolStripMenuItem"
-        Me.资产报废ToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.资产报废ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.资产报废ToolStripMenuItem.Text = "资产报废"
         '
         'ToolsToolStripMenuItem

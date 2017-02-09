@@ -153,9 +153,11 @@ Public Class MDIParent1
                 fm = New LLRKZC()
                 Me.OpenChildWindow(fm)
             Case "归还设备"
-                fm = New Form10()
+                fm = New zcjh()
                 Me.OpenChildWindow(fm)
-
+            Case "资产调拨"
+                fm = New zclygh()
+                Me.OpenChildWindow(fm)
         End Select
     End Sub
     Private Sub OpenChildWindow(f As Form)

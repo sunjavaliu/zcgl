@@ -165,6 +165,18 @@
     <Compile Include="Form10.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="zcjh.Designer.vb">
+      <DependentUpon>zcjh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="zcjh.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zclygh.Designer.vb">
+      <DependentUpon>zclygh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="zclygh.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LLRKZC.Designer.vb">
       <DependentUpon>LLRKZC.vb</DependentUpon>
     </Compile>
@@ -284,6 +296,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="zcjh.resx">
+      <DependentUpon>zcjh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="zclygh.resx">
+      <DependentUpon>zclygh.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.vb</DependentUpon>
