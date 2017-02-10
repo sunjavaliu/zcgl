@@ -47,7 +47,7 @@
 #If DEBUG Then
     Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
 #Else
-    Public CONN_STR As String = "Data Source=" + Application.StartupPath + "db\\lgdzc.db"
+    Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\lgdzc.db"
 #End If
 
 

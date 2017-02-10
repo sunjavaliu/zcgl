@@ -1,7 +1,15 @@
 ﻿Public Class Form8
     Dim sda_BM As SQLite.SQLiteDataAdapter   ';//全局变量
     Dim dt_BM As DataTable = New DataTable()
+
+
+
+
     Dim ComboBoxTreeBM As ComboBoxTreeView
+    Dim Rk_tab_id As String = "" '保存入库表中选择行的ID表属性
+    Dim oldKucun As Integer = 0  '保存旧库数量属性
+
+
 
     Private Sub DisplayBMTree()
         ComboBoxTreeBM = New ComboBoxTreeView()
@@ -31,7 +39,7 @@
 
         'G_dt.Load(reader)
     End Sub
-    Private Sub GetKuCun()
+    Private Sub GetKuCunDevice()
         'MsgBox(System.Environment.GetEnvironmentVariable("SYSTEMROOT"))
         Dim TB As DataTable = New DataTable()
         Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
@@ -40,6 +48,8 @@
         '打开连接
         conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
+
+        '库存大于0的才能进行分配，否则不显示
         'Dim sql As String = "select * from rk where kucun>0 order by id desc"
         Dim sql As String = "select * from rk order by id desc"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
@@ -96,6 +106,14 @@
 
 
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
+        oldKucun = CInt(DataGridView1.SelectedRows(0).Cells(14).Value.ToString)
+        If oldKucun < 1 Then
+
+            MsgBox("库存小于0，不能再分配了")
+            Return
+
+        End If
+
         'DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
         TextBox3.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
         TextBox10.Text = DataGridView1.SelectedRows(0).Cells(8).Value.ToString()
@@ -106,12 +124,14 @@
         DateTimePicker1.Value = CDate(DataGridView1.SelectedRows(0).Cells(6).Value.ToString())
         TextBox6.Text = DataGridView1.SelectedRows(0).Cells(15).Value.ToString()
         TextBox7.Text = DataGridView1.SelectedRows(0).Cells(16).Value.ToString()
+        Rk_tab_id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+
         'TextBox11.Text = CInt(TextBox10.Text) * CInt(TextBox9.Text)
     End Sub
 
     Private Sub Form8_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DisplayBMTree()
-        GetKuCun()
+        GetKuCunDevice()
         OnComboBoxTreeViewTextUpdate()   '激活OnComboBoxTreeViewTextUpdate事件
     End Sub
 
@@ -144,6 +164,8 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         SaveData()
         'MsgBox(GetZCBH("200232"))
+        GetKuCunDevice()
+
     End Sub
 
     Private Sub SaveData()
@@ -151,6 +173,8 @@
         Dim sqlcmd As New SQLite.SQLiteCommand '定义查询操作  
         Dim ds As New DataSet
         Dim salda As New SQLite.SQLiteDataAdapter
+
+
 
         Dim zcbh As String  '资产编码（内部)
         Dim zcmc As String  '资产名称
@@ -186,9 +210,9 @@
         Dim rkbh As String  '入库编号
 
 
+        Dim newKucun As Integer = 0 '新库存数量
+
         Try
-
-
             zcmc = TextBox3.Text
             lbid = ""
 
@@ -200,11 +224,12 @@
             gzrq = DateTimePicker1.Text
             zcly = TextBox7.Text
             zcsl = TextBox9.Text
+
             zcdj = TextBox10.Text
             zczj = ""
             zczt = "使用"
-            bmbh = ""
-            bmmc = ""
+            bmbh = ComboBoxTreeBM.TreeView.SelectedNode.Name
+            bmmc = ComboBoxTreeBM.Text
             zrr = ComboBox3.Text
             cfwz = ""
             meno = ""
@@ -222,8 +247,17 @@
             num4 = ""
             num5 = ""
             num6 = ""
-            log = CStr(bmbh) + "," + zrr
+            log = bmmc + zrr
             rkbh = TextBox6.Text
+
+            If zcsl > oldKucun Then
+
+                MsgBox("分配数量大于库存数量")
+                Return
+            Else
+                newKucun = oldKucun - zcsl
+            End If
+
 
             SQLconn.ConnectionString = CONN_STR '链接数据库  
             SQLconn.Open()
@@ -233,6 +267,23 @@
             'ComboBoxTreeLB.Text +"','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ")"
             Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
             salda = New SQLite.SQLiteDataAdapter(sqlcmd.CommandText, SQLconn)
+
+            SQLconn.Close()
+
+
+            Dim sqlExecuteQuery As New SQLite.SQLiteCommand '定义查询操作  
+            Dim SQLconn2 As New Data.SQLite.SQLiteConnection '定义数据库链接  
+            SQLconn2.ConnectionString = CONN_STR '链接数据库
+            SQLconn2.Open()
+            sqlExecuteQuery.Connection = SQLconn2
+
+            sqlExecuteQuery.CommandText = "update rk set kucun= " + newKucun.ToString + "  where id=" + Rk_tab_id
+
+            sqlExecuteQuery.ExecuteNonQuery()
+            SQLconn2.Close()
+
+
+
             'SQLite.SQLiteHelper.ExecuteDataset(constr, CommandType.Text, Sql)
             'salda.Fill(ds, 0)
             'DGV1.DataSource = ds.Tables(0)

@@ -77,7 +77,7 @@ Partial Class Form8
         Me.GroupBox1.Size = New System.Drawing.Size(1025, 213)
         Me.GroupBox1.TabIndex = 101
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "新入库暂未分配的IT设备列表"
+        Me.GroupBox1.Text = "新入库待分配的IT设备列表"
         '
         'DataGridView1
         '

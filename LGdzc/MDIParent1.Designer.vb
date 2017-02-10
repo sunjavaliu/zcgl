@@ -231,7 +231,7 @@ Partial Class MDIParent1
         '资产报废ToolStripMenuItem
         '
         Me.资产报废ToolStripMenuItem.Name = "资产报废ToolStripMenuItem"
-        Me.资产报废ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.资产报废ToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.资产报废ToolStripMenuItem.Text = "资产报废"
         '
         'ToolsToolStripMenuItem
@@ -618,6 +618,10 @@ Partial Class MDIParent1
     Friend WithEvents ImportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents zcrkToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents zcczToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 资产报废ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ZcrkToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents NewToolStripButton As System.Windows.Forms.ToolStripButton
     Friend WithEvents OpenToolStripButton As System.Windows.Forms.ToolStripButton
     Friend WithEvents SaveToolStripButton As System.Windows.Forms.ToolStripButton
@@ -628,9 +632,5 @@ Partial Class MDIParent1
     Friend WithEvents HelpToolStripButton As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStrip As System.Windows.Forms.ToolStrip
-    Friend WithEvents zcrkToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents zcczToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 资产报废ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ZcrkToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

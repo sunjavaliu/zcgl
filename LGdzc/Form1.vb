@@ -27,6 +27,7 @@
         row("parentBMBH") = ParentID
         G_dt.Rows.Add(row)
         sda.Update(G_dt)
+        CommBindTreeView(0, TreeView1, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
     End Sub
     Private Sub SaveModiDB(dataNode As TreeNode, ParentID As Integer)
         Dim rows() As DataRow = G_dt.Select("bmbh=" + dataNode.Name)
@@ -36,6 +37,7 @@
             row("parentBMBH") = ParentID
         Next
         sda.Update(G_dt)
+        CommBindTreeView(0, TreeView1, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
     End Sub
     Private Sub SaveDelDB(dataNode As TreeNode)
         Dim rows() As DataRow = G_dt.Select("bmbh=" + dataNode.Name)
@@ -44,6 +46,7 @@
             row.Delete()
         Next
         sda.Update(G_dt)
+        CommBindTreeView(0, TreeView1, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
@@ -323,6 +326,10 @@
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub DataGridView1_EditModeChanged(sender As Object, e As EventArgs) Handles DataGridView1.EditModeChanged
 
     End Sub
 End Class

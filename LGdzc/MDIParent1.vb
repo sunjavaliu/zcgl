@@ -2,7 +2,7 @@
 
 Public Class MDIParent1
 
-    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
+    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewWindowToolStripMenuItem.Click, NewToolStripButton.Click
         ' 创建此子窗体的一个新实例。
         Dim ChildForm As New System.Windows.Forms.Form
         ' 在显示该窗体前使其成为此 MDI 窗体的子窗体。
