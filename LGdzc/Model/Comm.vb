@@ -48,6 +48,8 @@
             CommCreateTreeChildNode(node, datatable, WhereFiled1, "", TreeNodeText, TreeNodeName)
         Next
     End Sub
+
+    '获取统计局内部资产编号
     Public Function GetZCBH(lbid As String)
         Dim zcbh As String
         Dim d1970 As New System.DateTime(1970, 1, 1, 0, 0, 0, 0)
@@ -57,6 +59,9 @@
         zcbh = "TJJ" + lbid + CStr(iSeconds)
         Return zcbh
     End Function
+
+
+    '获取入库编号
     Public Function GetRKBH()
         Dim RKBH As String
         Dim d1970 As New System.DateTime(1970, 1, 1, 0, 0, 0, 0)
@@ -66,4 +71,28 @@
         RKBH = "RKBH" + CStr(iSeconds)
         Return RKBH
     End Function
+
+
+    '获取通用字典
+    Public Sub GetComboBoxDICT(item As String, combox As ComboBox)
+        Dim dt = New DataTable()
+        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        '打开连接
+        conn.Open()
+        'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
+        Dim sql As String = "select content from zd where item='" + item + "'"
+        'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
+        'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
+        Dim sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
+
+        sda.Fill(dt)
+        combox.DataSource = dt
+        combox.DisplayMember = "content"
+        If dt.Rows.Count = 0 Then
+            'MsgBox("该部门下没有人员信息，请先添加人员信息")
+            combox.Text = ""
+        End If
+    End Sub
+
 End Module

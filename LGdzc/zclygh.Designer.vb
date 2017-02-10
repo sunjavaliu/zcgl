@@ -24,13 +24,46 @@ Partial Class zclygh
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(zclygh))
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode3})
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode1})
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.TextBox18 = New System.Windows.Forms.TextBox()
+        Me.TextBox17 = New System.Windows.Forms.TextBox()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -75,14 +108,13 @@ Partial Class zclygh
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(198, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(145, 6)
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(52, 14)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button4.Location = New System.Drawing.Point(35, 9)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(105, 34)
+        Me.Button4.Size = New System.Drawing.Size(70, 23)
         Me.Button4.TabIndex = 7
         Me.Button4.Text = "更新"
         Me.Button4.UseVisualStyleBackColor = True
@@ -92,11 +124,10 @@ Partial Class zclygh
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(4, 25)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 17)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(1099, 592)
+        Me.DataGridView1.Size = New System.Drawing.Size(1307, 160)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
@@ -104,10 +135,8 @@ Partial Class zclygh
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1107, 621)
+        Me.GroupBox2.Size = New System.Drawing.Size(1313, 180)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "资产信息"
@@ -117,7 +146,6 @@ Partial Class zclygh
         Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
         Me.SplitContainer3.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer3.Name = "SplitContainer3"
         Me.SplitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -127,51 +155,356 @@ Partial Class zclygh
         '
         'SplitContainer3.Panel2
         '
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label5)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.ComboBox1)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox7)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label14)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox6)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label6)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox4)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label3)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label22)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox18)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox17)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox11)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label13)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label12)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label11)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.DateTimePicker2)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.DateTimePicker1)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox10)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox9)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox5)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox8)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox12)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label10)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label9)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label7)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label15)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label17)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label18)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Button9)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.ComboBox3)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Panel2)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label8)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button7)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button6)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button5)
-        Me.SplitContainer3.Size = New System.Drawing.Size(1107, 666)
-        Me.SplitContainer3.SplitterDistance = 621
-        Me.SplitContainer3.SplitterWidth = 6
+        Me.SplitContainer3.Size = New System.Drawing.Size(1313, 508)
+        Me.SplitContainer3.SplitterDistance = 180
         Me.SplitContainer3.TabIndex = 7
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(770, 121)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(77, 12)
+        Me.Label5.TabIndex = 169
+        Me.Label5.Text = "流转后的状态"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(853, 113)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 20)
+        Me.ComboBox1.TabIndex = 168
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(293, 52)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.ReadOnly = True
+        Me.TextBox7.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox7.TabIndex = 167
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(234, 55)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(53, 12)
+        Me.Label14.TabIndex = 166
+        Me.Label14.Text = "资产来源"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(103, 52)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.ReadOnly = True
+        Me.TextBox6.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox6.TabIndex = 165
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(44, 55)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 12)
+        Me.Label6.TabIndex = 164
+        Me.Label6.Text = "入库编号"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(848, 86)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox4.TabIndex = 136
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(770, 89)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(65, 12)
+        Me.Label3.TabIndex = 161
+        Me.Label3.Text = "设备序列号"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(44, 177)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(53, 12)
+        Me.Label22.TabIndex = 160
+        Me.Label22.Text = "简单配置"
+        '
+        'TextBox18
+        '
+        Me.TextBox18.Location = New System.Drawing.Point(848, 55)
+        Me.TextBox18.Name = "TextBox18"
+        Me.TextBox18.ReadOnly = True
+        Me.TextBox18.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox18.TabIndex = 159
+        '
+        'TextBox17
+        '
+        Me.TextBox17.Location = New System.Drawing.Point(103, 82)
+        Me.TextBox17.Name = "TextBox17"
+        Me.TextBox17.ReadOnly = True
+        Me.TextBox17.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox17.TabIndex = 158
+        '
+        'TextBox11
+        '
+        Me.TextBox11.Location = New System.Drawing.Point(479, 57)
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.ReadOnly = True
+        Me.TextBox11.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox11.TabIndex = 157
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(421, 62)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(53, 12)
+        Me.Label13.TabIndex = 156
+        Me.Label13.Text = "资产总价"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(611, 60)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(29, 12)
+        Me.Label12.TabIndex = 155
+        Me.Label12.Text = "单价"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(611, 89)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(29, 12)
+        Me.Label11.TabIndex = 154
+        Me.Label11.Text = "数量"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(293, 140)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(105, 21)
+        Me.DateTimePicker2.TabIndex = 153
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Enabled = False
+        Me.DateTimePicker1.Location = New System.Drawing.Point(103, 140)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(105, 21)
+        Me.DateTimePicker1.TabIndex = 152
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Location = New System.Drawing.Point(646, 55)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.ReadOnly = True
+        Me.TextBox10.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox10.TabIndex = 151
+        '
+        'TextBox9
+        '
+        Me.TextBox9.Location = New System.Drawing.Point(646, 86)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox9.TabIndex = 135
+        Me.TextBox9.Text = "1"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(479, 86)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox5.TabIndex = 134
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(139, 175)
+        Me.TextBox8.Multiline = True
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(712, 67)
+        Me.TextBox8.TabIndex = 140
+        '
+        'TextBox12
+        '
+        Me.TextBox12.Location = New System.Drawing.Point(293, 82)
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.ReadOnly = True
+        Me.TextBox12.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox12.TabIndex = 150
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(234, 143)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(53, 12)
+        Me.Label10.TabIndex = 149
+        Me.Label10.Text = "登记日期"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(44, 143)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(53, 12)
+        Me.Label9.TabIndex = 148
+        Me.Label9.Text = "购置日期"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(770, 60)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(53, 12)
+        Me.Label7.TabIndex = 146
+        Me.Label7.Text = "计量单位"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(421, 89)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(53, 12)
+        Me.Label15.TabIndex = 145
+        Me.Label15.Text = "资产品牌"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(44, 86)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(53, 12)
+        Me.Label17.TabIndex = 143
+        Me.Label17.Text = "资产类别"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(234, 86)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(53, 12)
+        Me.Label18.TabIndex = 142
+        Me.Label18.Text = "资产名称"
+        '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(862, 175)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(104, 20)
+        Me.Button9.TabIndex = 141
+        Me.Button9.Text = "调入"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(734, 146)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(117, 20)
+        Me.ComboBox3.TabIndex = 109
+        '
+        'Panel2
+        '
+        Me.Panel2.Location = New System.Drawing.Point(494, 143)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(187, 20)
+        Me.Panel2.TabIndex = 108
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(686, 148)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(41, 12)
+        Me.Label8.TabIndex = 111
+        Me.Label8.Text = "责任人"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(435, 148)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(53, 12)
+        Me.Label4.TabIndex = 110
+        Me.Label4.Text = "调入部门"
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(452, 15)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button7.Location = New System.Drawing.Point(301, 10)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(112, 34)
+        Me.Button7.Size = New System.Drawing.Size(75, 23)
         Me.Button7.TabIndex = 9
         Me.Button7.Text = "返回"
         Me.Button7.UseVisualStyleBackColor = True
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(308, 14)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button6.Location = New System.Drawing.Point(205, 9)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(112, 34)
+        Me.Button6.Size = New System.Drawing.Size(75, 23)
         Me.Button6.TabIndex = 8
         Me.Button6.Text = "新增"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(180, 14)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button5.Location = New System.Drawing.Point(120, 9)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(105, 34)
+        Me.Button5.Size = New System.Drawing.Size(70, 23)
         Me.Button5.TabIndex = 6
         Me.Button5.Text = "删除"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(804, 30)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button3.Location = New System.Drawing.Point(536, 20)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(108, 34)
+        Me.Button3.Size = New System.Drawing.Size(72, 23)
         Me.Button3.TabIndex = 6
         Me.Button3.Text = "导入Excel"
         Me.Button3.UseVisualStyleBackColor = True
@@ -187,67 +520,59 @@ Partial Class zclygh
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(1107, 81)
+        Me.GroupBox1.Size = New System.Drawing.Size(1313, 54)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "部门信息"
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(682, 30)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Location = New System.Drawing.Point(455, 20)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 34)
+        Me.Button2.Size = New System.Drawing.Size(60, 23)
         Me.Button2.TabIndex = 5
         Me.Button2.Text = "取消"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(561, 30)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Location = New System.Drawing.Point(374, 20)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(92, 34)
+        Me.Button1.Size = New System.Drawing.Size(61, 23)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "保存"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(342, 33)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox2.Location = New System.Drawing.Point(228, 22)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(208, 28)
+        Me.TextBox2.Size = New System.Drawing.Size(140, 21)
         Me.TextBox2.TabIndex = 3
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(99, 33)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox1.Location = New System.Drawing.Point(66, 22)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(103, 28)
+        Me.TextBox1.Size = New System.Drawing.Size(70, 21)
         Me.TextBox1.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(237, 38)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(158, 25)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(80, 18)
+        Me.Label2.Size = New System.Drawing.Size(53, 12)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "部门名称"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(10, 38)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(7, 25)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(80, 18)
+        Me.Label1.Size = New System.Drawing.Size(53, 12)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "部门编码"
         '
@@ -265,16 +590,15 @@ Partial Class zclygh
         Me.TreeView1.ImageIndex = 2
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
-        Me.TreeView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode3.ImageKey = "(默认值)"
-        TreeNode3.Name = "测试"
-        TreeNode3.Text = "节点0"
-        TreeNode4.Name = ""
-        TreeNode4.Text = "根节点0"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
+        TreeNode1.ImageKey = "(默认值)"
+        TreeNode1.Name = "测试"
+        TreeNode1.Text = "节点0"
+        TreeNode2.Name = ""
+        TreeNode2.Text = "根节点0"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
         Me.TreeView1.SelectedImageIndex = 0
-        Me.TreeView1.Size = New System.Drawing.Size(167, 728)
+        Me.TreeView1.Size = New System.Drawing.Size(167, 568)
         Me.TreeView1.StateImageList = Me.ImageList1
         Me.TreeView1.TabIndex = 1
         '
@@ -284,7 +608,6 @@ Partial Class zclygh
         Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer1.IsSplitterFixed = True
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -294,9 +617,8 @@ Partial Class zclygh
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1280, 728)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1484, 568)
         Me.SplitContainer1.SplitterDistance = 167
-        Me.SplitContainer1.SplitterWidth = 6
         Me.SplitContainer1.TabIndex = 4
         '
         'SplitContainer2
@@ -304,7 +626,6 @@ Partial Class zclygh
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer2.Name = "SplitContainer2"
         Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -315,33 +636,32 @@ Partial Class zclygh
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.SplitContainer3)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1107, 728)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1313, 568)
         Me.SplitContainer2.SplitterDistance = 56
-        Me.SplitContainer2.SplitterWidth = 6
         Me.SplitContainer2.TabIndex = 0
         '
         'DelSubToolStripMenuItem
         '
         Me.DelSubToolStripMenuItem.Name = "DelSubToolStripMenuItem"
-        Me.DelSubToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
+        Me.DelSubToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.DelSubToolStripMenuItem.Text = "删除节点"
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.EditToolStripMenuItem.Text = "编辑节点"
         '
         'AddSubToolStripMenuItem
         '
         Me.AddSubToolStripMenuItem.Name = "AddSubToolStripMenuItem"
-        Me.AddSubToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
+        Me.AddSubToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.AddSubToolStripMenuItem.Text = "增加子节点"
         '
         'AddSideWaysToolStripMenuItem
         '
         Me.AddSideWaysToolStripMenuItem.Name = "AddSideWaysToolStripMenuItem"
-        Me.AddSideWaysToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
+        Me.AddSideWaysToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.AddSideWaysToolStripMenuItem.Text = "添加同级节点"
         '
         'ContextMenuStrip1
@@ -349,39 +669,39 @@ Partial Class zclygh
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddSideWaysToolStripMenuItem, Me.AddSubToolStripMenuItem, Me.EditToolStripMenuItem, Me.ToolStripMenuItem2, Me.ExpandAllToolStripMenuItem, Me.CollapseAllToolStripMenuItem, Me.ToolStripMenuItem1, Me.DelSubToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(202, 196)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(149, 148)
         '
         'ExpandAllToolStripMenuItem
         '
         Me.ExpandAllToolStripMenuItem.Name = "ExpandAllToolStripMenuItem"
-        Me.ExpandAllToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
+        Me.ExpandAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.ExpandAllToolStripMenuItem.Text = "全部展开"
         '
         'CollapseAllToolStripMenuItem
         '
         Me.CollapseAllToolStripMenuItem.Name = "CollapseAllToolStripMenuItem"
-        Me.CollapseAllToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
+        Me.CollapseAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.CollapseAllToolStripMenuItem.Text = "全部折叠"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(198, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(145, 6)
         '
-        'Form3
+        'zclygh
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1280, 728)
+        Me.ClientSize = New System.Drawing.Size(1484, 568)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Name = "Form3"
-        Me.Text = "资产管理"
+        Me.Name = "zclygh"
+        Me.Text = "资产调拨"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.SplitContainer3.Panel1.ResumeLayout(False)
         Me.SplitContainer3.Panel2.ResumeLayout(False)
+        Me.SplitContainer3.Panel2.PerformLayout()
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer3.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
@@ -426,4 +746,37 @@ Partial Class zclygh
     Friend WithEvents ExpandAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CollapseAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents TextBox18 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox17 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox11 As System.Windows.Forms.TextBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Button9 As System.Windows.Forms.Button
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
 End Class

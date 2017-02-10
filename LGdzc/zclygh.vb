@@ -10,7 +10,17 @@
     Dim sda_ry As SQLite.SQLiteDataAdapter   ';//全局变量
     Dim G_dt_ry As DataTable = New DataTable()
 
+    Dim ComboBoxTreeBM As ComboBoxTreeView
+    Dim sda_BM As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim dt_BM As DataTable = New DataTable()
+    Private Sub DisplayBMTree()
+        ComboBoxTreeBM = New ComboBoxTreeView()
+        ComboBoxTreeBM.Dock = DockStyle.Fill
+        Me.Panel2.Controls.Add(ComboBoxTreeBM)
 
+        'OpreaBMDataBase()
+        CommBindTreeView(0, ComboBoxTreeBM.TreeView, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
+    End Sub
     Private Sub zclygh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -24,6 +34,9 @@
             DataGridView1.Columns(0).ToolTipText = "双击单元格进行编辑操作"
             'TreeView1.Nodes.
             TreeView1.Nodes(0).Expand()
+            DisplayBMTree()
+            OnComboBoxTreeViewTextUpdate()
+            GetComboBoxDICT(ZC_STATE, ComboBox1)
         Catch ex As SQLite.SQLiteException
             MsgBox(ex.Message)
         End Try
@@ -239,8 +252,38 @@
 
         DataGridView1.Columns(1).HeaderText = "资产编号"
         DataGridView1.Columns(2).HeaderText = "资产名称"
-        DataGridView1.Columns(3).HeaderText = "资产类别编号"
-        DataGridView1.Columns(4).HeaderText = "资产类别"
+        DataGridView1.Columns(3).HeaderText = "资产类别编号（国标）"
+        DataGridView1.Columns(4).HeaderText = "资产类别名称（国标）"
+        DataGridView1.Columns(5).HeaderText = "计量单位"
+        DataGridView1.Columns(6).HeaderText = "购置日期"
+        DataGridView1.Columns(7).HeaderText = "登记日期"
+        DataGridView1.Columns(8).HeaderText = "资产来源"
+        DataGridView1.Columns(9).HeaderText = "购置数量"
+        DataGridView1.Columns(10).HeaderText = "单价"
+        DataGridView1.Columns(11).HeaderText = "总价"
+        DataGridView1.Columns(12).HeaderText = "资产状态"
+        DataGridView1.Columns(13).HeaderText = "部门编号"
+        DataGridView1.Columns(14).HeaderText = "部门名称"
+        DataGridView1.Columns(15).HeaderText = "责任人"
+        DataGridView1.Columns(16).HeaderText = "存放位置"
+        DataGridView1.Columns(17).HeaderText = "备注"
+        DataGridView1.Columns(18).HeaderText = "备用1"
+        DataGridView1.Columns(19).HeaderText = "备用2"
+        DataGridView1.Columns(20).HeaderText = "备用3"
+        DataGridView1.Columns(21).HeaderText = "备用4"
+        DataGridView1.Columns(22).HeaderText = "备用5"
+        DataGridView1.Columns(23).HeaderText = "备用6"
+        DataGridView1.Columns(24).HeaderText = "备用7"
+        DataGridView1.Columns(25).HeaderText = "备用8"
+        DataGridView1.Columns(26).HeaderText = "备用N1"
+        DataGridView1.Columns(27).HeaderText = "备用N2"
+        DataGridView1.Columns(28).HeaderText = "备用N3"
+        DataGridView1.Columns(29).HeaderText = "备用N4"
+        DataGridView1.Columns(30).HeaderText = "备用N5"
+        DataGridView1.Columns(31).HeaderText = "备用N6"
+        DataGridView1.Columns(32).HeaderText = "流转记录"
+        DataGridView1.Columns(33).HeaderText = "入库编号"
+
         DataGridView1.Columns(3).Frozen = True
         'G_dt.Load(reader)
     End Sub
@@ -324,6 +367,59 @@
         Form7.ShowDialog()
 
     End Sub
+
+    Public Sub OnComboBoxTreeViewTextUpdate()
+
+        If Not ComboBoxTreeBM Is Nothing Then
+            'ComboBoxTreeBM.AutoPostBack = True
+            AddHandler ComboBoxTreeBM.TextChanged, AddressOf ComboBoxTreeViewTextUpdate
+        End If
+    End Sub
+    Private Sub ComboBoxTreeViewTextUpdate()
+
+
+        Dim dt = New DataTable()
+        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        '打开连接
+        conn.Open()
+        'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
+        Dim sql As String = "select xm from bm_ry where bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "'"
+        'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
+        'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
+        Dim sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
+
+        sda.Fill(dt)
+        ComboBox3.DataSource = dt
+        ComboBox3.DisplayMember = "xm"
+        If dt.Rows.Count = 0 Then
+            MsgBox("该部门下没有人员信息，请先添加人员信息")
+            ComboBox3.Text = ""
+        End If
+    End Sub
+
+
+    Private Sub TextBox9_TextChanged_1(sender As Object, e As EventArgs)
+
+    End Sub
+    Private Sub TextBox10_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub SplitContainer3_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer3.Panel2.Paint
+
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+
+    End Sub
+
+
+
+
+
+
+
 End Class
 
 

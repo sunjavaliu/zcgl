@@ -23,11 +23,13 @@ Partial Class Form6
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("计量单位")
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产来源")
         Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产状态")
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产来源")
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("计量单位")
         Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("存放地点")
         Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("职务职位")
+        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("采购方式")
+        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("常用字典信息", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3, TreeNode4, TreeNode5, TreeNode6})
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form6))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
@@ -77,17 +79,21 @@ Partial Class Form6
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode1.Name = "节点0"
-        TreeNode1.Text = "计量单位"
+        TreeNode1.Name = "节点2"
+        TreeNode1.Text = "资产来源"
         TreeNode2.Name = "节点1"
         TreeNode2.Text = "资产状态"
-        TreeNode3.Name = "节点2"
-        TreeNode3.Text = "资产来源"
+        TreeNode3.Name = "节点0"
+        TreeNode3.Text = "计量单位"
         TreeNode4.Name = "节点3"
         TreeNode4.Text = "存放地点"
         TreeNode5.Name = "节点4"
         TreeNode5.Text = "职务职位"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3, TreeNode4, TreeNode5})
+        TreeNode6.Name = "节点1"
+        TreeNode6.Text = "采购方式"
+        TreeNode7.Name = "节点0"
+        TreeNode7.Text = "常用字典信息"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode7})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.Size = New System.Drawing.Size(220, 703)
         Me.TreeView1.TabIndex = 0
@@ -177,7 +183,7 @@ Partial Class Form6
         Me.ClientSize = New System.Drawing.Size(1279, 703)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Form6"
-        Me.Text = "通用信息管理"
+        Me.Text = "常用字典信息管理"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)

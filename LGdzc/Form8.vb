@@ -2,14 +2,9 @@
     Dim sda_BM As SQLite.SQLiteDataAdapter   ';//全局变量
     Dim dt_BM As DataTable = New DataTable()
 
-
-
-
     Dim ComboBoxTreeBM As ComboBoxTreeView
     Dim Rk_tab_id As String = "" '保存入库表中选择行的ID表属性
     Dim oldKucun As Integer = 0  '保存旧库数量属性
-
-
 
     Private Sub DisplayBMTree()
         ComboBoxTreeBM = New ComboBoxTreeView()
@@ -18,8 +13,6 @@
 
         OpreaBMDataBase()
         CommBindTreeView(0, ComboBoxTreeBM.TreeView, dt_BM, "parentBMBH", "0", "BMMC", "BMBH")
-
-
     End Sub
 
     Private Sub OpreaBMDataBase()
@@ -182,6 +175,7 @@
         Dim lbmc As String '类别名称
         Dim jldw As String '计量单位
         Dim gzrq As String '购置日期
+        Dim djrq As String '登记日期
         Dim zcly As String '资产来源
         Dim zcsl As String '资产数量
         Dim zcdj As String '单价
@@ -222,11 +216,12 @@
             lbmc = TextBox17.Text
             jldw = TextBox18.Text
             gzrq = DateTimePicker1.Text
+            djrq = DateTimePicker2.Text
             zcly = TextBox7.Text
             zcsl = TextBox9.Text
 
             zcdj = TextBox10.Text
-            zczj = ""
+            zczj = TextBox11.Text
             zczt = "使用"
             bmbh = ComboBoxTreeBM.TreeView.SelectedNode.Name
             bmmc = ComboBoxTreeBM.Text
@@ -247,7 +242,7 @@
             num4 = ""
             num5 = ""
             num6 = ""
-            log = bmmc + zrr
+            log = bmmc + zrr + DateTimePicker2.Text
             rkbh = TextBox6.Text
 
             If zcsl > oldKucun Then
@@ -262,7 +257,7 @@
             SQLconn.ConnectionString = CONN_STR '链接数据库  
             SQLconn.Open()
             sqlcmd.Connection = SQLconn
-            sqlcmd.CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
+            sqlcmd.CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','djrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
 
             'ComboBoxTreeLB.Text +"','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ")"
             Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
@@ -327,7 +322,7 @@
             ComboBox3.Text = ""
         End If
     End Sub
-
+ 
 End Class
 
 

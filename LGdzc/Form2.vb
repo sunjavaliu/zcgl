@@ -131,6 +131,7 @@
         sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
         Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
         G_dt.Clear()
+        sda.FillSchema(G_dt, SchemaType.Mapped)
         sda.Fill(G_dt)
         DataGridView1.DataSource = G_dt
         DataGridView1.Columns(0).ReadOnly = True

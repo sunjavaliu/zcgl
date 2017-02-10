@@ -57,8 +57,7 @@ Partial Class AboutBox1
         Me.TableLayoutPanel.Controls.Add(Me.TextBoxDescription, 1, 4)
         Me.TableLayoutPanel.Controls.Add(Me.OKButton, 1, 5)
         Me.TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel.Location = New System.Drawing.Point(14, 12)
-        Me.TableLayoutPanel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel.Location = New System.Drawing.Point(9, 8)
         Me.TableLayoutPanel.Name = "TableLayoutPanel"
         Me.TableLayoutPanel.RowCount = 6
         Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
@@ -67,18 +66,17 @@ Partial Class AboutBox1
         Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.Size = New System.Drawing.Size(593, 358)
+        Me.TableLayoutPanel.Size = New System.Drawing.Size(396, 239)
         Me.TableLayoutPanel.TabIndex = 0
         '
         'LogoPictureBox
         '
         Me.LogoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LogoPictureBox.Image = CType(resources.GetObject("LogoPictureBox.Image"), System.Drawing.Image)
-        Me.LogoPictureBox.Location = New System.Drawing.Point(4, 4)
-        Me.LogoPictureBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LogoPictureBox.Location = New System.Drawing.Point(3, 3)
         Me.LogoPictureBox.Name = "LogoPictureBox"
         Me.TableLayoutPanel.SetRowSpan(Me.LogoPictureBox, 6)
-        Me.LogoPictureBox.Size = New System.Drawing.Size(187, 350)
+        Me.LogoPictureBox.Size = New System.Drawing.Size(124, 233)
         Me.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.LogoPictureBox.TabIndex = 0
         Me.LogoPictureBox.TabStop = False
@@ -86,11 +84,11 @@ Partial Class AboutBox1
         'LabelProductName
         '
         Me.LabelProductName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelProductName.Location = New System.Drawing.Point(204, 0)
-        Me.LabelProductName.Margin = New System.Windows.Forms.Padding(9, 0, 4, 0)
-        Me.LabelProductName.MaximumSize = New System.Drawing.Size(0, 24)
+        Me.LabelProductName.Location = New System.Drawing.Point(136, 0)
+        Me.LabelProductName.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
+        Me.LabelProductName.MaximumSize = New System.Drawing.Size(0, 16)
         Me.LabelProductName.Name = "LabelProductName"
-        Me.LabelProductName.Size = New System.Drawing.Size(385, 24)
+        Me.LabelProductName.Size = New System.Drawing.Size(257, 16)
         Me.LabelProductName.TabIndex = 0
         Me.LabelProductName.Text = "产品名称"
         Me.LabelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -98,11 +96,11 @@ Partial Class AboutBox1
         'LabelVersion
         '
         Me.LabelVersion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelVersion.Location = New System.Drawing.Point(204, 35)
-        Me.LabelVersion.Margin = New System.Windows.Forms.Padding(9, 0, 4, 0)
-        Me.LabelVersion.MaximumSize = New System.Drawing.Size(0, 24)
+        Me.LabelVersion.Location = New System.Drawing.Point(136, 23)
+        Me.LabelVersion.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
+        Me.LabelVersion.MaximumSize = New System.Drawing.Size(0, 16)
         Me.LabelVersion.Name = "LabelVersion"
-        Me.LabelVersion.Size = New System.Drawing.Size(385, 24)
+        Me.LabelVersion.Size = New System.Drawing.Size(257, 16)
         Me.LabelVersion.TabIndex = 0
         Me.LabelVersion.Text = "版本"
         Me.LabelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -110,11 +108,11 @@ Partial Class AboutBox1
         'LabelCopyright
         '
         Me.LabelCopyright.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCopyright.Location = New System.Drawing.Point(204, 70)
-        Me.LabelCopyright.Margin = New System.Windows.Forms.Padding(9, 0, 4, 0)
-        Me.LabelCopyright.MaximumSize = New System.Drawing.Size(0, 24)
+        Me.LabelCopyright.Location = New System.Drawing.Point(136, 46)
+        Me.LabelCopyright.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
+        Me.LabelCopyright.MaximumSize = New System.Drawing.Size(0, 16)
         Me.LabelCopyright.Name = "LabelCopyright"
-        Me.LabelCopyright.Size = New System.Drawing.Size(385, 24)
+        Me.LabelCopyright.Size = New System.Drawing.Size(257, 16)
         Me.LabelCopyright.TabIndex = 0
         Me.LabelCopyright.Text = "版权"
         Me.LabelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -122,11 +120,11 @@ Partial Class AboutBox1
         'LabelCompanyName
         '
         Me.LabelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCompanyName.Location = New System.Drawing.Point(204, 105)
-        Me.LabelCompanyName.Margin = New System.Windows.Forms.Padding(9, 0, 4, 0)
-        Me.LabelCompanyName.MaximumSize = New System.Drawing.Size(0, 24)
+        Me.LabelCompanyName.Location = New System.Drawing.Point(136, 69)
+        Me.LabelCompanyName.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
+        Me.LabelCompanyName.MaximumSize = New System.Drawing.Size(0, 16)
         Me.LabelCompanyName.Name = "LabelCompanyName"
-        Me.LabelCompanyName.Size = New System.Drawing.Size(385, 24)
+        Me.LabelCompanyName.Size = New System.Drawing.Size(257, 16)
         Me.LabelCompanyName.TabIndex = 0
         Me.LabelCompanyName.Text = "公司名称"
         Me.LabelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -134,13 +132,13 @@ Partial Class AboutBox1
         'TextBoxDescription
         '
         Me.TextBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxDescription.Location = New System.Drawing.Point(204, 144)
-        Me.TextBoxDescription.Margin = New System.Windows.Forms.Padding(9, 4, 4, 4)
+        Me.TextBoxDescription.Location = New System.Drawing.Point(136, 95)
+        Me.TextBoxDescription.Margin = New System.Windows.Forms.Padding(6, 3, 3, 3)
         Me.TextBoxDescription.Multiline = True
         Me.TextBoxDescription.Name = "TextBoxDescription"
         Me.TextBoxDescription.ReadOnly = True
         Me.TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxDescription.Size = New System.Drawing.Size(385, 171)
+        Me.TextBoxDescription.Size = New System.Drawing.Size(257, 113)
         Me.TextBoxDescription.TabIndex = 0
         Me.TextBoxDescription.TabStop = False
         Me.TextBoxDescription.Text = "说明 :" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(在运行时，将用应用程序的程序集信息替换这些标签的文本。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "在"
@@ -149,26 +147,24 @@ Partial Class AboutBox1
         '
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OKButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.OKButton.Location = New System.Drawing.Point(477, 323)
-        Me.OKButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.OKButton.Location = New System.Drawing.Point(318, 215)
         Me.OKButton.Name = "OKButton"
-        Me.OKButton.Size = New System.Drawing.Size(112, 31)
+        Me.OKButton.Size = New System.Drawing.Size(75, 21)
         Me.OKButton.TabIndex = 0
         Me.OKButton.Text = "确定(&O)"
         '
         'AboutBox1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.OKButton
-        Me.ClientSize = New System.Drawing.Size(621, 382)
+        Me.ClientSize = New System.Drawing.Size(414, 255)
         Me.Controls.Add(Me.TableLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "AboutBox1"
-        Me.Padding = New System.Windows.Forms.Padding(14, 12, 14, 12)
+        Me.Padding = New System.Windows.Forms.Padding(9, 8, 9, 8)
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "关于资产管理系统"

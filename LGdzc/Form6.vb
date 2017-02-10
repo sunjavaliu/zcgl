@@ -4,8 +4,8 @@
     Dim G_dt As DataTable = New DataTable()
     Public Sub OpenDataBase2DataGrideView(ByRef Sda As SQLiteDataAdapter, ByRef dt As DataTable, ByRef dg As DataGridView, sql As String)
         Try
-            'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
-            'conn.Open()
+            Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+            conn.Open()
             Sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
             Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(Sda)
             dt.Clear()
@@ -22,9 +22,10 @@
 
     End Sub
     Private Sub Form6_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim sql As String
-        sql = "select * from  zd where item like '%计量单位%'"
-        OpenDataBase2DataGrideView(sda, G_dt, DataGridView1, sql)
+        ' Dim sql As String
+        'sql = "select * from  zd "
+        'OpenDataBase2DataGrideView(sda, G_dt, DataGridView1, sql)
+        TreeView1.ExpandAll()
 
     End Sub
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
@@ -99,5 +100,9 @@
             sda.Update(G_dt)
             MsgBox("删除成功")
         End If
+    End Sub
+
+    Private Sub SplitContainer2_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer2.Panel2.Paint
+
     End Sub
 End Class

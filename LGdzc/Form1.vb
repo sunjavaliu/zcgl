@@ -27,7 +27,7 @@
         row("parentBMBH") = ParentID
         G_dt.Rows.Add(row)
         sda.Update(G_dt)
-        CommBindTreeView(0, TreeView1, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
+        'OpreaBMDataBase()
     End Sub
     Private Sub SaveModiDB(dataNode As TreeNode, ParentID As Integer)
         Dim rows() As DataRow = G_dt.Select("bmbh=" + dataNode.Name)
@@ -37,7 +37,7 @@
             row("parentBMBH") = ParentID
         Next
         sda.Update(G_dt)
-        CommBindTreeView(0, TreeView1, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
+        'OpreaBMDataBase()
     End Sub
     Private Sub SaveDelDB(dataNode As TreeNode)
         Dim rows() As DataRow = G_dt.Select("bmbh=" + dataNode.Name)
@@ -46,7 +46,7 @@
             row.Delete()
         Next
         sda.Update(G_dt)
-        CommBindTreeView(0, TreeView1, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
+
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
@@ -62,15 +62,12 @@
                 'node.Nodes.Add(TextBox1.Text & (node.GetNodeCount(False) + 1))
                 TreeView1.SelectedNode.Parent.Nodes.Add(node)
                 Me.SaveAddDB(node, SelectedNode.Parent.Name)
-            End If
-
-            If TreeOperateType = TREE_ADD_SUB_NODE Then
+            ElseIf TreeOperateType = TREE_ADD_SUB_NODE Then
                 'node.Nodes.Add(TextBox1.Text & (node.GetNodeCount(False) + 1))
 
                 TreeView1.SelectedNode.Nodes.Add(node)
                 Me.SaveAddDB(node, SelectedNode.Name)
-            End If
-            If TreeOperateType = TREE_UPDATE_NODE Then
+            ElseIf TreeOperateType = TREE_UPDATE_NODE Then
                 TreeView1.SelectedNode.Name = node.Name
                 TreeView1.SelectedNode.Text = node.Text
                 TreeView1.Refresh()
@@ -190,6 +187,21 @@
         sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
         Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
 
+
+        '#############################################################################################################
+        '1.新增-1行/多行-保存-OK
+        '2.新增-1行/多行-保存-修改/删除-保存-发生错误
+        '3.重新启动界面保存OK()
+        '对具有自增列的表进行新增并多次保存，由于第一次保存（插入）后没有获得到自增列的值，再次保存（更新）时失败。
+        '解决方法，在获取数据时增加FillSchema（）操作：
+        '下面这句太有用了
+        '如果不调用FillSchema, 缺省情况下不会填如PrimaryKey信息
+        'FillSchema是用来向DataTable中填入详细的元数据信息的，例如(column names, primary key, constraints等)，但不填入数据。
+        'Fill主要是用来填入数据的，它在缺省情况下只填入少量必要的元数据信息，例如(column names, data types)。 
+        '所以, 一般先用FillSchema来填入详细的元数据信息, 再用Fill来填充数据,
+        sda.FillSchema(G_dt, SchemaType.Mapped)
+        '#############################################################################################################
+
         sda.Fill(G_dt)
 
         'G_dt.Load(reader)
@@ -233,6 +245,8 @@
         Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_ry)
 
         G_dt_ry.Clear()
+
+        sda_ry.FillSchema(G_dt_ry, SchemaType.Mapped)
         sda_ry.Fill(G_dt_ry)
 
 
@@ -245,6 +259,7 @@
         DataGridView1.Columns(2).HeaderText = "性别"
         DataGridView1.Columns(3).HeaderText = "部门编号"
         DataGridView1.Columns(4).HeaderText = "固定电话"
+        DataGridView1.Refresh()
         'G_dt.Load(reader)
     End Sub
 
@@ -255,7 +270,6 @@
         Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
         sda_ry.Update(G_dt_ry)
         MsgBox("更新成功")
-        OpreaRYDataBase("")
     End Sub
 
 
@@ -316,21 +330,28 @@
 
     End Sub
 
+    Private Sub DataGridView1_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridView1.CellBeginEdit
+        If DataGridView1.SelectedRows(0).IsNewRow Then      '如果是新行
+            If TextBox1.Text = 1 Then                       '如果是根节点
+                If MsgBox("您确定是在根节点下添加人员信息吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
+                    DataGridView1.SelectedRows(0).Cells(3).Value = TextBox1.Text
+                Else
+                    '取消cell的编辑状态
+                    'DataGridView1.EndEdit()
+                    e.Cancel = True
+                    'DataGridView1.CurrentCell = Null
+                    'SendKeys.Send("{ESCAPE} ")
+                    'endKeys.Send("{ESCAPE}")
+                End If
+            Else
+                DataGridView1.SelectedRows(0).Cells(3).Value = TextBox1.Text
+            End If
 
-    Private Sub DataGridView1_CellStateChanged(sender As Object, e As DataGridViewCellStateChangedEventArgs) Handles DataGridView1.CellStateChanged
-        'MsgBox(DataGridView1.IsCurrentCellInEditMode)
+        End If
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Form7.ShowDialog()
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
-
-    Private Sub DataGridView1_EditModeChanged(sender As Object, e As EventArgs) Handles DataGridView1.EditModeChanged
-
     End Sub
 End Class
 

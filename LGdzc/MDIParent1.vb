@@ -134,7 +134,7 @@ Public Class MDIParent1
             Case "部门及人员管理"
                 fm = New Form1()
                 Me.OpenChildWindow(fm)
-            Case "通用信息管理"
+            Case "常用字典信息管理"
                 fm = New Form6()
                 Me.OpenChildWindow(fm)
             Case "资产类别管理"

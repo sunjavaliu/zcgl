@@ -80,9 +80,10 @@ Partial Class Form2
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(35, 7)
+        Me.Button4.Enabled = False
+        Me.Button4.Location = New System.Drawing.Point(150, 17)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(70, 26)
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 7
         Me.Button4.Text = "更新"
         Me.Button4.UseVisualStyleBackColor = True
@@ -132,7 +133,7 @@ Partial Class Form2
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(217, 9)
+        Me.Button6.Location = New System.Drawing.Point(413, 17)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 23)
         Me.Button6.TabIndex = 8
@@ -141,9 +142,9 @@ Partial Class Form2
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(120, 7)
+        Me.Button5.Location = New System.Drawing.Point(282, 17)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(69, 24)
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
         Me.Button5.TabIndex = 6
         Me.Button5.Text = "删除"
         Me.Button5.UseVisualStyleBackColor = True

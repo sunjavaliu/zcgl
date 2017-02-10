@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("本系统为内部使用版")> 
 <Assembly: AssemblyCompany("长沙市电子计算站")> 
 <Assembly: AssemblyProduct("LGdzc")> 
-<Assembly: AssemblyCopyright("Copyright ©  2016-2017")> 
+<Assembly: AssemblyCopyright("Copyright ©  2016-2017 程序设计 By 刘权")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
