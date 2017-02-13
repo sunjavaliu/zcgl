@@ -356,6 +356,10 @@
         Form7.ShowDialog()
 
     End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        ExportToCSV(DataGridView1)
+    End Sub
 End Class
 
 

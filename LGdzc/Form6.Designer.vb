@@ -40,6 +40,7 @@ Partial Class Form6
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -120,6 +121,7 @@ Partial Class Form6
         '
         'SplitContainer2.Panel2
         '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.Button4)
         Me.SplitContainer2.Panel2.Controls.Add(Me.Button3)
         Me.SplitContainer2.Panel2.Controls.Add(Me.Label1)
         Me.SplitContainer2.Panel2.Controls.Add(Me.Button2)
@@ -142,7 +144,7 @@ Partial Class Form6
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(245, 40)
+        Me.Button3.Location = New System.Drawing.Point(278, 40)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(121, 23)
         Me.Button3.TabIndex = 8
@@ -169,12 +171,21 @@ Partial Class Form6
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(92, 40)
+        Me.Button1.Location = New System.Drawing.Point(158, 40)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(99, 23)
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "保存更新(&S)"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(516, 40)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 9
+        Me.Button4.Text = "导出数据"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'Form6
         '
@@ -207,4 +218,5 @@ Partial Class Form6
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As System.Windows.Forms.Button
 End Class

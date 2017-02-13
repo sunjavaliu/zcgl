@@ -95,4 +95,63 @@
         End If
     End Sub
 
+    '导出CSV数据
+    Public Sub ExportToCSV(ByVal dgv As DataGridView, Optional ByVal strfilename As String = "")
+        Dim saveFileDialog As New SaveFileDialog()
+        'saveFileDialog.Filter = "Execl files (*.xls)|*.xls"
+        saveFileDialog.Filter = "CSV文件(*.csv)|*.csv|所有文件(*.*)|*.*"
+        saveFileDialog.FilterIndex = 0
+        saveFileDialog.FileName = strfilename
+        saveFileDialog.RestoreDirectory = True
+        'saveFileDialog.CreatePrompt = True
+        saveFileDialog.Title = "保存为CSV文件"
+        saveFileDialog.ShowDialog()
+
+        If saveFileDialog.FileName.IndexOf(":") < 0 Then
+            Exit Sub
+        End If
+        '被点了"取消" 
+        Dim myStream As IO.FileStream
+        myStream = saveFileDialog.OpenFile()
+        Dim sw As New IO.StreamWriter(myStream, System.Text.Encoding.GetEncoding(-0))
+        Dim columnTitle As String = ""
+        Try
+            '写入列标题 
+            For i As Integer = 0 To dgv.ColumnCount - 1
+                If i > 0 Then
+                    ColumnTitle += ","
+                End If
+                columnTitle += dgv.Columns(i).HeaderText
+            Next
+
+            sw.WriteLine(columnTitle)
+
+            '写入列内容 
+            For j As Integer = 0 To dgv.Rows.Count - 1
+                Dim columnValue As String = ""
+                For k As Integer = 0 To dgv.Columns.Count - 1
+                    If k > 0 Then
+                        columnValue += ","
+                    End If
+                    If dgv.Rows(j).Cells(k).Value Is Nothing Then
+                        columnValue += ","
+                    Else
+                        columnValue += dgv.Rows(j).Cells(k).FormattedValue.ToString.Trim()
+                    End If
+                Next
+
+                '过滤去全空的行，一般为最后一行空数据
+                If columnValue <> ",,,,," Then
+                    sw.WriteLine(columnValue)
+                End If
+            Next
+            sw.Close()
+            myStream.Close()
+        Catch e As Exception
+            MessageBox.Show(e.ToString())
+        Finally
+            sw.Close()
+            myStream.Close()
+        End Try
+    End Sub
 End Module

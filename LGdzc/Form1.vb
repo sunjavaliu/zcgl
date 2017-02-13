@@ -353,6 +353,10 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Form7.ShowDialog()
     End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        ExportToCSV(DataGridView1)
+    End Sub
 End Class
 
 

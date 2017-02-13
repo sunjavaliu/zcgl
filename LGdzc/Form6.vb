@@ -25,14 +25,19 @@
         ' Dim sql As String
         'sql = "select * from  zd "
         'OpenDataBase2DataGrideView(sda, G_dt, DataGridView1, sql)
+
         TreeView1.ExpandAll()
 
     End Sub
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
         Dim sql, tip As String
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
+        If SelectedNode.Text = "常用字典信息" Then
+            sql = "select * from  zd"
+        Else
+            sql = "select * from  zd where item like '%" + SelectedNode.Text + "%'"
+        End If
 
-        sql = "select * from  zd where item like '%" + SelectedNode.Text + "%'"
         OpenDataBase2DataGrideView(sda, G_dt, DataGridView1, sql)
         tip = "当前正在查看【" + SelectedNode.Text + "】的信息，【ID】和【项目名称】不能编辑，双击【项目内容】单元格可进行添加或修改。"
         Label1.Text = tip
@@ -104,5 +109,9 @@
 
     Private Sub SplitContainer2_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer2.Panel2.Paint
 
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        ExportToCSV(DataGridView1)
     End Sub
 End Class
