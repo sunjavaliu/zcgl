@@ -54,6 +54,7 @@ Partial Class Form3
         Me.ExpandAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CollapseAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Button8 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,7 +95,7 @@ Partial Class Form3
         Me.DataGridView1.Location = New System.Drawing.Point(3, 17)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(663, 360)
+        Me.DataGridView1.Size = New System.Drawing.Size(712, 360)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
@@ -103,7 +104,7 @@ Partial Class Form3
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(669, 380)
+        Me.GroupBox2.Size = New System.Drawing.Size(718, 380)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "资产信息"
@@ -126,7 +127,7 @@ Partial Class Form3
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button6)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button5)
-        Me.SplitContainer3.Size = New System.Drawing.Size(669, 425)
+        Me.SplitContainer3.Size = New System.Drawing.Size(718, 425)
         Me.SplitContainer3.SplitterDistance = 380
         Me.SplitContainer3.TabIndex = 7
         '
@@ -159,7 +160,7 @@ Partial Class Form3
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(536, 20)
+        Me.Button3.Location = New System.Drawing.Point(525, 20)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(72, 23)
         Me.Button3.TabIndex = 6
@@ -168,6 +169,7 @@ Partial Class Form3
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button8)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Button1)
@@ -178,14 +180,14 @@ Partial Class Form3
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(669, 54)
+        Me.GroupBox1.Size = New System.Drawing.Size(718, 54)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "部门信息"
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(455, 20)
+        Me.Button2.Location = New System.Drawing.Point(450, 20)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(60, 23)
         Me.Button2.TabIndex = 5
@@ -203,14 +205,14 @@ Partial Class Form3
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(228, 22)
+        Me.TextBox2.Location = New System.Drawing.Point(228, 21)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(140, 21)
         Me.TextBox2.TabIndex = 3
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(66, 22)
+        Me.TextBox1.Location = New System.Drawing.Point(66, 21)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(70, 21)
         Me.TextBox1.TabIndex = 2
@@ -274,7 +276,7 @@ Partial Class Form3
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(853, 485)
+        Me.SplitContainer1.Size = New System.Drawing.Size(902, 485)
         Me.SplitContainer1.SplitterDistance = 180
         Me.SplitContainer1.TabIndex = 4
         '
@@ -293,7 +295,7 @@ Partial Class Form3
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.SplitContainer3)
-        Me.SplitContainer2.Size = New System.Drawing.Size(669, 485)
+        Me.SplitContainer2.Size = New System.Drawing.Size(718, 485)
         Me.SplitContainer2.SplitterDistance = 56
         Me.SplitContainer2.TabIndex = 0
         '
@@ -345,11 +347,20 @@ Partial Class Form3
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(145, 6)
         '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(612, 20)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(75, 23)
+        Me.Button8.TabIndex = 7
+        Me.Button8.Text = "导出数据"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(853, 485)
+        Me.ClientSize = New System.Drawing.Size(902, 485)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Form3"
         Me.Text = "资产管理"
@@ -402,4 +413,5 @@ Partial Class Form3
     Friend WithEvents ExpandAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CollapseAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents Button8 As System.Windows.Forms.Button
 End Class

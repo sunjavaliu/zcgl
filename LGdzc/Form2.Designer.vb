@@ -24,8 +24,8 @@ Partial Class Form2
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode1})
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode3})
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -35,6 +35,7 @@ Partial Class Form2
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -85,7 +86,7 @@ Partial Class Form2
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 7
-        Me.Button4.Text = "更新"
+        Me.Button4.Text = "修改"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'DataGridView1
@@ -97,7 +98,7 @@ Partial Class Form2
         Me.DataGridView1.Location = New System.Drawing.Point(3, 17)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(692, 312)
+        Me.DataGridView1.Size = New System.Drawing.Size(716, 312)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
@@ -106,9 +107,10 @@ Partial Class Form2
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(698, 332)
+        Me.GroupBox2.Size = New System.Drawing.Size(722, 332)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "固定资产分类与代码（GBT14885-2010）"
         '
         'SplitContainer3
         '
@@ -127,7 +129,7 @@ Partial Class Form2
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button6)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button5)
-        Me.SplitContainer3.Size = New System.Drawing.Size(698, 399)
+        Me.SplitContainer3.Size = New System.Drawing.Size(722, 399)
         Me.SplitContainer3.SplitterDistance = 332
         Me.SplitContainer3.TabIndex = 7
         '
@@ -151,7 +153,7 @@ Partial Class Form2
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(536, 20)
+        Me.Button3.Location = New System.Drawing.Point(529, 20)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(72, 23)
         Me.Button3.TabIndex = 6
@@ -160,6 +162,7 @@ Partial Class Form2
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button7)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Button1)
@@ -170,14 +173,23 @@ Partial Class Form2
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(698, 56)
+        Me.GroupBox1.Size = New System.Drawing.Size(722, 56)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "类别信息"
         '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(618, 20)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(92, 23)
+        Me.Button7.TabIndex = 7
+        Me.Button7.Text = "导出所选数据"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(455, 20)
+        Me.Button2.Location = New System.Drawing.Point(452, 20)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(60, 23)
         Me.Button2.TabIndex = 5
@@ -232,12 +244,12 @@ Partial Class Form2
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode1.ImageKey = "(默认值)"
-        TreeNode1.Name = "测试"
-        TreeNode1.Text = "节点0"
-        TreeNode2.Name = ""
-        TreeNode2.Text = "根节点0"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
+        TreeNode3.ImageKey = "(默认值)"
+        TreeNode3.Name = "测试"
+        TreeNode3.Text = "节点0"
+        TreeNode4.Name = ""
+        TreeNode4.Text = "根节点0"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.Size = New System.Drawing.Size(286, 459)
         Me.TreeView1.StateImageList = Me.ImageList1
@@ -258,7 +270,7 @@ Partial Class Form2
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(988, 459)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1012, 459)
         Me.SplitContainer1.SplitterDistance = 286
         Me.SplitContainer1.TabIndex = 4
         '
@@ -277,7 +289,7 @@ Partial Class Form2
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.SplitContainer3)
-        Me.SplitContainer2.Size = New System.Drawing.Size(698, 459)
+        Me.SplitContainer2.Size = New System.Drawing.Size(722, 459)
         Me.SplitContainer2.SplitterDistance = 56
         Me.SplitContainer2.TabIndex = 0
         '
@@ -332,7 +344,7 @@ Partial Class Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(988, 459)
+        Me.ClientSize = New System.Drawing.Size(1012, 459)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Form2"
         Me.Text = "资产类别管理"
@@ -383,4 +395,5 @@ Partial Class Form2
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents ExpandAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CollapseAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 End Class

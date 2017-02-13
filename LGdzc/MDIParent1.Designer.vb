@@ -463,7 +463,8 @@ Partial Class MDIParent1
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         Me.ImageList1.Images.SetKeyName(0, "dw2.ico")
-        Me.ImageList1.Images.SetKeyName(1, "lb.ico")
+        Me.ImageList1.Images.SetKeyName(1, "ok")
+        Me.ImageList1.Images.SetKeyName(2, "lb.ico")
         '
         'NewToolStripButton
         '

@@ -51,6 +51,7 @@ Partial Class Form1
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -259,6 +260,7 @@ Partial Class Form1
         '
         'SplitContainer3.Panel2
         '
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Button7)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button6)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button5)
@@ -292,30 +294,39 @@ Partial Class Form1
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(402, 7)
+        Me.Button6.Location = New System.Drawing.Point(401, 7)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.Size = New System.Drawing.Size(86, 23)
         Me.Button6.TabIndex = 8
         Me.Button6.Text = "返回"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(178, 7)
+        Me.Button4.Location = New System.Drawing.Point(191, 7)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(85, 23)
+        Me.Button4.Size = New System.Drawing.Size(86, 23)
         Me.Button4.TabIndex = 7
         Me.Button4.Text = "保存人员信息"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(286, 7)
+        Me.Button5.Location = New System.Drawing.Point(296, 7)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(93, 23)
+        Me.Button5.Size = New System.Drawing.Size(86, 23)
         Me.Button5.TabIndex = 6
         Me.Button5.Text = "删除所选人员"
         Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(86, 7)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(86, 23)
+        Me.Button7.TabIndex = 9
+        Me.Button7.Text = "导出人员信息"
+        Me.Button7.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -370,5 +381,6 @@ Partial Class Form1
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 
 End Class

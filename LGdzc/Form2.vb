@@ -300,4 +300,142 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Form7.ShowDialog()
     End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        ExportToCSV(DataGridView1)
+    End Sub
+
+    'Private Sub SaveCsv(ByVal dt As DataTable, ByVal csvPath As String, ByVal RecName As String)
+    '    Dim enc As System.Text.Encoding = _
+    '        System.Text.Encoding.GetEncoding("UTF-8")
+    '    Try
+    '        If System.IO.File.Exists(csvPath) Then
+    '            System.IO.File.Delete(csvPath)
+    '        End If
+    '    Catch ex As Exception
+    '        MessageBox.Show(csvPath & vbCrLf & "was failed to delete.", "ParameterEdit", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '    End Try
+
+    '    Dim filePath As String = CreatePath(csvPath, RecName)
+
+    '    Dim sr As New System.IO.StreamWriter(filePath, False, enc)
+
+    '    Dim fileName As String = filePath.Substring(filePath.LastIndexOf("\") + 1)
+    '    Dim Dtype As String = DataAttribute.GetUnitName(DataAttribute.GetUnitID(RecName.Substring(0, RecName.IndexOf("\"))))
+    '    Dim colCount As Integer = dt.Columns.Count
+    '    Dim lastColIndex As Integer = colCount - 1
+    '    sr.Write("'*******************************************************************************")
+    '    sr.Write(ControlChars.Cr + ControlChars.Lf)
+    '    sr.Write("' Machine Name : " & MACHIN_NAME)
+    '    sr.Write(ControlChars.Cr + ControlChars.Lf)
+    '    sr.Write("' Version      :  " & VERSION)
+    '    sr.Write(ControlChars.Cr + ControlChars.Lf)
+    '    sr.Write("' Data Type    : " & Dtype)
+    '    sr.Write(ControlChars.Cr + ControlChars.Lf)
+    '    sr.Write("' File Name    : " & fileName)
+    '    sr.Write(ControlChars.Cr + ControlChars.Lf)
+    '    sr.Write("' Save Date    : " & Now.ToString("yyyy/MM/dd HH:mm:ss"))
+    '    sr.Write(ControlChars.Cr + ControlChars.Lf)
+    '    sr.Write("'*******************************************************************************")
+    '    sr.Write(ControlChars.Cr + ControlChars.Lf)
+
+    '    Dim uid As Int32 = GetUnitID(RecName)
+
+    '    Dim i As Integer
+    '    For i = 0 To colCount - 1
+    '        Dim field As String = dt.Columns(i).Caption
+    '        If field.IndexOf(ControlChars.Quote) > -1 OrElse _
+    '            field.IndexOf(","c) > -1 OrElse _
+    '            field.IndexOf(ControlChars.Cr) > -1 OrElse _
+    '            field.IndexOf(ControlChars.Lf) > -1 OrElse _
+    '            field.StartsWith(" ") OrElse _
+    '            field.StartsWith(ControlChars.Tab) OrElse _
+    '            field.EndsWith(" ") OrElse _
+    '            field.EndsWith(ControlChars.Tab) Then
+    '            If field.IndexOf(ControlChars.Quote) > -1 Then
+    '                field = field.Replace("""", """""")
+    '            End If
+    '            field = """" + field + """"
+    '        End If
+    '        sr.Write(field)
+    '        If lastColIndex > i Then
+    '            sr.Write(","c)
+    '        End If
+    '    Next i
+
+    '    sr.Write(ControlChars.Cr + ControlChars.Lf)
+
+    '    Dim row As DataRow
+    '    For Each row In dt.Rows
+    '        For i = 0 To colCount - 1
+    '            'フィールドの取得
+    '            Dim field As String = row(i).ToString()
+    '            If field.IndexOf(ControlChars.Quote) > -1 OrElse _
+    '                field.IndexOf(","c) > -1 OrElse _
+    '                field.IndexOf(ControlChars.Cr) > -1 OrElse _
+    '                field.IndexOf(ControlChars.Lf) > -1 OrElse _
+    '                field.StartsWith(" ") OrElse _
+    '                field.StartsWith(ControlChars.Tab) OrElse _
+    '                field.EndsWith(" ") OrElse _
+    '                field.EndsWith(ControlChars.Tab) Then
+    '                If field.IndexOf(ControlChars.Quote) > -1 Then
+    '                    field = field.Replace("""", """""")
+    '                End If
+    '                field = """" + field + """"
+    '            End If
+    '            sr.Write(field)
+    '            If lastColIndex > i Then
+    '                sr.Write(","c)
+    '            End If
+    '        Next i
+    '        sr.Write(ControlChars.Cr + ControlChars.Lf)
+    '    Next row
+
+    '    sr.Close()
+    'End Sub
+
+
+    'Private Sub GetDtCsv(ByVal path As String, ByVal uid As Int32, ByVal ds As DataSet, ByVal recName As String)
+
+    '    Try
+    '        Dim objFile As New System.IO.StreamReader(path)
+
+    '        Dim strLine As String
+    '        Dim strTemp() As String
+    '        Dim RecItem As String
+
+    '        Dim MstItem As String = ""
+    '        Dim startLine As Int32 = 7
+
+    '        For iL As Int32 = 1 To startLine
+    '            strLine = objFile.ReadLine()
+    '        Next
+    '        strLine = objFile.ReadLine()
+
+    '        strLine = objFile.ReadLine()
+    '        Dim ColCnt As Int32 = startLine + 2
+
+    '        While (strLine <> "")
+    '            strTemp = Split(strLine, ",")
+    '            RecItem = strTemp(0)
+    '            If strTemp(strTemp.Length - 1) = "" Then
+    '                strLine = objFile.ReadLine()
+    '                ColCnt = ColCnt + 1
+    '                Continue While
+    '            End If
+
+    '            strLine = objFile.ReadLine()
+    '            ColCnt = ColCnt + 1
+    '        End While
+
+    '        ds.AcceptChanges()
+    '    Catch ex As Exception
+
+    '    End Try
+
+
+    'End Sub
+
+    
+
 End Class
