@@ -2,8 +2,6 @@
 
     Private TreeOperateType As String
 
-
-
     Dim sda As SQLite.SQLiteDataAdapter   ';//全局变量
     Dim G_dt As DataTable = New DataTable()
 
@@ -42,14 +40,7 @@
         End Try
 
     End Sub
-    Private Sub TreeView1_MouseUp(sender As Object, e As MouseEventArgs) Handles TreeView1.MouseUp
-        'PopupMenu()
-        If e.Button = Windows.Forms.MouseButtons.Right Then
-            Me.ContextMenuStrip1.Show(Me, e.Location)
-            'Me.ContextMenuStrip2.Show(MousePosition.X, MousePosition.Y) '直接获取鼠标的X,Y坐标，这个方法最好，最精确
-        End If
 
-    End Sub
 
     Private Sub SaveAddDB(dataNode As TreeNode, ParentID As Integer)
         Dim row As DataRow = G_dt.NewRow()
@@ -76,59 +67,14 @@
         Next
         sda.Update(G_dt)
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim SelectedNode As TreeNode = TreeView1.SelectedNode
 
-        Dim node As New TreeNode()
-        node.Name = TextBox1.Text
-        node.Text = TextBox2.Text
-
-        If Not SelectedNode Is Nothing Then
-
-            'If TreeView1.Nodes.Find(node.Name, True) Is Nothing Then
-            If TreeOperateType = TREE_ADD_SIDEWAYS_NODE Then
-                'node.Nodes.Add(TextBox1.Text & (node.GetNodeCount(False) + 1))
-                TreeView1.SelectedNode.Parent.Nodes.Add(node)
-                Me.SaveAddDB(node, SelectedNode.Parent.Name)
-            End If
-
-            If TreeOperateType = TREE_ADD_SUB_NODE Then
-                'node.Nodes.Add(TextBox1.Text & (node.GetNodeCount(False) + 1))
-
-                TreeView1.SelectedNode.Nodes.Add(node)
-                Me.SaveAddDB(node, SelectedNode.Name)
-            End If
-            If TreeOperateType = TREE_UPDATE_NODE Then
-                TreeView1.SelectedNode.Name = node.Name
-                TreeView1.SelectedNode.Text = node.Text
-                TreeView1.Refresh()
-                If SelectedNode.Name = 1 Then
-                    Me.SaveModiDB(node, 0)
-                Else
-                    Me.SaveModiDB(node, SelectedNode.Parent.Name)
-                End If
-
-            End If
-        Else
-
-            MessageBox.Show("没有选中任何节点")
-
-        End If
-        DisableWrite()
-        TreeOperateType = TREE_NONE
-    End Sub
     Private Sub EnableWrite()
-        TextBox1.Enabled = True
-        TextBox2.Enabled = True
+
         'TreeView1.Refresh()
         TreeView1.Enabled = False
 
     End Sub
     Private Sub DisableWrite()
-        TextBox1.Text = ""
-        TextBox2.Text = ""
-        TextBox1.Enabled = False
-        TextBox2.Enabled = False
         'TreeView1.Refresh()
         TreeView1.Enabled = True
         TreeOperateType = TREE_NONE
@@ -136,16 +82,12 @@
     Private Sub AddSideWaysToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddSideWaysToolStripMenuItem.Click
         TreeOperateType = TREE_ADD_SIDEWAYS_NODE
         EnableWrite()
-        TextBox1.Text = TreeView1.GetNodeCount(True) + CStr(1)
-        TextBox2.Text = ""
-        TextBox2.Focus()
+
     End Sub
     Private Sub AddSubToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddSubToolStripMenuItem.Click
         TreeOperateType = TREE_ADD_SUB_NODE
         EnableWrite()
-        TextBox1.Text = TreeView1.GetNodeCount(True) + CStr(1)
-        TextBox2.Text = ""
-        TextBox2.Focus()
+
 
 
     End Sub
@@ -163,7 +105,7 @@
             End If
         End If
     End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         DisableWrite()
         TreeOperateType = TREE_NONE
     End Sub
@@ -172,14 +114,11 @@
     Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
         EnableWrite()
-        TextBox1.Text = SelectedNode.Name
-        TextBox2.Text = SelectedNode.Text
-        TreeOperateType = TREE_UPDATE_NODE
-        TextBox1.Enabled = False
+
 
     End Sub
 
-    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs)
         If (Not Char.IsNumber(e.KeyChar) And e.KeyChar <> Chr(8)) Then
             e.Handled = True
         Else
@@ -212,8 +151,6 @@
 
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
-        TextBox1.Text = SelectedNode.Name
-        TextBox2.Text = SelectedNode.Text
         'sda_ry = SQLite.SQLiteDataAdapter("select * from bm_ry where bmbh=" + SelectedNode.Name, CONN_STR)
         'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_ry)
         'sda_ry.SelectCommand.ExecuteReader("select * from bm_ry where bmbh=" + SelectedNode.Name)
@@ -363,7 +300,7 @@
 
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
         Form7.ShowDialog()
 
     End Sub
@@ -420,6 +357,20 @@
 
 
 
+    Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
+        TextBox6.Text = DataGridView1.SelectedRows(0).Cells(33).Value.ToString()
+        TextBox7.Text = DataGridView1.SelectedRows(0).Cells(8).Value.ToString()
+        TextBox17.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
+        TextBox12.Text = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
+        TextBox11.Text = DataGridView1.SelectedRows(0).Cells(11).Value.ToString()
+
+        TextBox10.Text = DataGridView1.SelectedRows(0).Cells(11).Value.ToString()
+        'DateTimePicker1.Text = DateTime.Parse(DataGridView1.SelectedRows(0).Cells(8).Value.ToString())
+        DateTimePicker1.Value = CDate(DataGridView1.SelectedRows(0).Cells(6).Value.ToString())
+        TextBox6.Text = DataGridView1.SelectedRows(0).Cells(15).Value.ToString()
+        TextBox7.Text = DataGridView1.SelectedRows(0).Cells(16).Value.ToString()
+        'Rk_tab_id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+    End Sub
 End Class
 
 
