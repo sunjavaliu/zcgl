@@ -52,6 +52,7 @@
 
 #If DEBUG Then
     Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
+    'Public CONN_STR As String = "Data Source=" +"Server=myServerAddress;Database=myDataBase;Uid=myUsername;Pwd=myPassword;default command timeout=20;"
 #Else
     Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\lgdzc.db"
 #End If
