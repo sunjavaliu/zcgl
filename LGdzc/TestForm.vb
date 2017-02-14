@@ -1,5 +1,7 @@
-﻿Public Class TestForm
+﻿Imports MySql.Data.MySqlClient
 
+Public Class TestForm
+    Dim conn As New MySqlConnection
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Dim datatable1 As New DataTable()
         Dim datatable2 As New DataTable()
@@ -30,6 +32,60 @@
         DataGridView1.DataSource = datatable2
     End Sub
 
+    Public Sub connect()
 
+        Dim DatabaseName As String = "gdzc"
 
+        Dim server As String = "127.0.0.1"
+
+        Dim userName As String = "root"
+
+        Dim password As String = ""
+
+        If Not conn Is Nothing Then conn.Close()
+
+        conn.ConnectionString = String.Format("server={0}; user id={1}; password={2}; database={3}; pooling=false", server, userName, password, DatabaseName)
+
+        Try
+
+            conn.Open()
+
+            MsgBox("数据库链接正常")
+
+        Catch ex As Exception
+
+            MsgBox(ex.Message)
+
+        End Try
+
+        conn.Close()
+
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+
+            conn.Open()
+
+        Catch ex As Exception
+
+        End Try
+        Dim sql As String
+        sql = String.Format("INSERT INTO `Products` (`upc` , `qty`) VALUES ('{0}' , '{1}')", "upc Value", "Quantity")
+        Dim cmd As New MySqlCommand(sql)
+        cmd.Connection = conn
+        cmd.ExecuteNonQuery()
+
+        conn.Close()
+
+    End Sub
+
+    Private Sub TestForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        connect()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        MySqlHelper.ExecuteNonQuery(MySqlHelper.Conn, CommandType.Text, String.Format("INSERT INTO `Products` (`upc` , `qty`) VALUES ('{0}' , '{1}')", "upc Value", "222Quantity"))
+        DataGridView1.DataSource = MySqlHelper.GetDataSet(MySqlHelper.Conn, CommandType.Text, "select * from bm").Tables(0).DefaultView
+    End Sub
 End Class

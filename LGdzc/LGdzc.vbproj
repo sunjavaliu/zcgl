@@ -168,6 +168,7 @@
     <Compile Include="Form10.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MySqlHelper.vb" />
     <Compile Include="zcjh.Designer.vb">
       <DependentUpon>zcjh.vb</DependentUpon>
     </Compile>
