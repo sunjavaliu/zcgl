@@ -34,40 +34,41 @@ Partial Class TestForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(15, 14)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(40, 38, 40, 38)
+        Me.DataGridView1.Location = New System.Drawing.Point(11, 11)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(30, 30, 30, 30)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(773, 188)
+        Me.DataGridView1.Size = New System.Drawing.Size(580, 150)
         Me.DataGridView1.TabIndex = 1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(365, 273)
+        Me.Button1.Location = New System.Drawing.Point(274, 218)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(177, 73)
+        Me.Button1.Size = New System.Drawing.Size(133, 58)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(93, 243)
+        Me.Button2.Location = New System.Drawing.Point(274, 289)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(177, 73)
+        Me.Button2.Size = New System.Drawing.Size(133, 58)
         Me.Button2.TabIndex = 3
         Me.Button2.Text = "Button2"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'TestForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(805, 559)
+        Me.ClientSize = New System.Drawing.Size(604, 447)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "TestForm"
         Me.Text = "TestForm"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -36,11 +36,11 @@ Public Class TestForm
 
         Dim DatabaseName As String = "gdzc"
 
-        Dim server As String = "127.0.0.1"
+        Dim server As String = "10.43.18.42"
 
-        Dim userName As String = "root"
+        Dim userName As String = "mysql"
 
-        Dim password As String = ""
+        Dim password As String = "mysqlpwd"
 
         If Not conn Is Nothing Then conn.Close()
 

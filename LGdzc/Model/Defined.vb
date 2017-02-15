@@ -1,4 +1,9 @@
-﻿Module Defined
+﻿'#Const IS_MYSQL_DB = True
+#Const IS_SQLITE_DB = True
+Module Defined
+
+
+    '#Const IS_SQLITE_DB =TRUE
     '定义资产结构体
     Public Structure ZcInfo
         Dim id As Integer
@@ -51,13 +56,23 @@
     Public Const CAIGOUFANGSHI = "采购方式"
 
 #If DEBUG Then
+#If IS_SQLITE_DB Then
     Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
+#End If
+#If IS_MYSQL_DB Then
+
     'Public CONN_STR As String = "Data Source=" +"Server=myServerAddress;Database=myDataBase;Uid=myUsername;Pwd=myPassword;default command timeout=20;"
-    'Public CONN_STR As String = "Database='gdzc';Data Source='localhost';User Id='root';Password='root';charset='utf8';pooling=true"
+    Public CONN_STR As String = "Database='gdzc';Data Source='10.43.18.42';User Id='mysql';Password='mysqlpwd';charset='utf8';pooling=true"
+#End If
+
 
 #Else
-    Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\lgdzc.db"
+    #If IS_SQLITE_DB THEN   
+
+        Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\lgdzc.db"
+    #End If
 #End If
+
 
 
 End Module

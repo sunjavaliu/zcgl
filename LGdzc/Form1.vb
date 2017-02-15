@@ -1,12 +1,20 @@
 ﻿Public Class Form1
 
     Private TreeOperateType As String
-
-
+#If IS_MYSQL_DB Then
+    Dim sda As MySql.Data.MySqlClient.MySqlDataAdapter
+#Else
     Dim sda As SQLite.SQLiteDataAdapter   ';//全局变量
+#End If
+
     Dim G_dt As DataTable = New DataTable()
 
+#If IS_MYSQL_DB Then
+    Dim sda_ry As MySql.Data.MySqlClient.MySqlDataAdapter  '//全局变量
+#Else
+
     Dim sda_ry As SQLite.SQLiteDataAdapter   ';//全局变量
+#End If
     Dim G_dt_ry As DataTable = New DataTable()
 
 

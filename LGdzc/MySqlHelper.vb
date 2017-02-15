@@ -10,7 +10,9 @@ Imports System.Data
 ''' </summary>
 Public MustInherit Class MySqlHelper
     '数据库连接字符串
-    Public Shared Conn As String = "Database='gdzc';Data Source='localhost';User Id='root';Password='';charset='utf8';pooling=true"
+    'Public Shared Conn As String = "Database='gdzc';Data Source='localhost';User Id='root';Password='';charset='utf8';pooling=true"
+
+    Public Shared Conn As String = CONN_STR
 
     ' 用于缓存参数的HASH表
     Private Shared parmCache As Hashtable = Hashtable.Synchronized(New Hashtable())
