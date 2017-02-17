@@ -36,13 +36,18 @@
             rkbh = GetRKBH()
             'sqlcmd.CommandText = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz','kucun','rkbh') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ",'" + rkbh + "')"
             Dim sql As String
-            sql = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz','kucun','rkbh') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ",'" + rkbh + "')"
+            'sql = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz','kucun','rkbh') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ",'" + rkbh + "')"
+            sql = "insert into rk (lbmc,lbid,zcmc,cgfs,ghs,gzrq,dhrq,price,cgsl,jldw,qsr,cgxmmc,pz,kucun,rkbh,zcly,zcxh,zcpp) values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ",'" + rkbh + "','" + ComboBox1.Text + "','" + TextBox6.Text + "','" + TextBox9.Text + "')"
             'Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
-            salda = New LiuDataAdapter(sql, CONN_STR)
+            'salda = New LiuDataAdapter(sql, CONN_STR)
+            salda = New LiuDataAdapter()
+            salda.ExecuteNonQuery(sql)
+
             'SQLite.SQLiteHelper.ExecuteDataset(constr, CommandType.Text, Sql)
             'salda.Fill(ds, 0)
             'DGV1.DataSource = ds.Tables(0)
             MsgBox("添加成功！")
+ 
 
         Finally
             'If Not (SQLconn Is Nothing) Then SQLconn.Dispose()
@@ -51,11 +56,7 @@
             salda = Nothing
         End Try
     End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        Save()
 
-
-    End Sub
 
     Private Sub Form9_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GetComboBoxDICT(JILIANGDANWEI, ComboBox2)
@@ -104,5 +105,13 @@
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs)
+        Save()
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
+
     End Sub
 End Class

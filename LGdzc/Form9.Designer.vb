@@ -46,8 +46,6 @@ Partial Class Form9
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -55,6 +53,10 @@ Partial Class Form9
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -68,6 +70,10 @@ Partial Class Form9
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.TextBox9)
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.TextBox6)
+        Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.TextBox2)
@@ -89,8 +95,6 @@ Partial Class Form9
         Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.Button3)
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.TextBox7)
         Me.GroupBox1.Controls.Add(Me.TextBox3)
         Me.GroupBox1.Controls.Add(Me.Label10)
@@ -128,7 +132,7 @@ Partial Class Form9
         Me.TextBox2.Location = New System.Drawing.Point(478, 256)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(239, 21)
-        Me.TextBox2.TabIndex = 106
+        Me.TextBox2.TabIndex = 5
         '
         'Label3
         '
@@ -144,7 +148,7 @@ Partial Class Form9
         Me.TextBox5.Location = New System.Drawing.Point(478, 133)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(239, 21)
-        Me.TextBox5.TabIndex = 103
+        Me.TextBox5.TabIndex = 2
         '
         'Label14
         '
@@ -160,7 +164,7 @@ Partial Class Form9
         Me.TextBox4.Location = New System.Drawing.Point(478, 92)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(239, 21)
-        Me.TextBox4.TabIndex = 102
+        Me.TextBox4.TabIndex = 1
         '
         'Label13
         '
@@ -176,7 +180,7 @@ Partial Class Form9
         Me.TextBox1.Location = New System.Drawing.Point(478, 174)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(239, 21)
-        Me.TextBox1.TabIndex = 104
+        Me.TextBox1.TabIndex = 3
         '
         'Label5
         '
@@ -208,8 +212,8 @@ Partial Class Form9
         Me.TextBox8.Location = New System.Drawing.Point(134, 301)
         Me.TextBox8.Multiline = True
         Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(582, 67)
-        Me.TextBox8.TabIndex = 107
+        Me.TextBox8.Size = New System.Drawing.Size(239, 67)
+        Me.TextBox8.TabIndex = 8
         '
         'ComboBox2
         '
@@ -261,53 +265,35 @@ Partial Class Form9
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(398, 401)
+        Me.Button4.Location = New System.Drawing.Point(298, 401)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(108, 23)
-        Me.Button4.TabIndex = 111
-        Me.Button4.Text = "保存并继续新增"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 9
+        Me.Button4.Text = "保存"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(531, 401)
+        Me.Button3.Location = New System.Drawing.Point(478, 401)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 110
+        Me.Button3.TabIndex = 10
         Me.Button3.Text = "返回"
         Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(298, 401)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 108
-        Me.Button2.Text = "保存"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(198, 401)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 109
-        Me.Button1.Text = "新增"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox7
         '
         Me.TextBox7.Location = New System.Drawing.Point(478, 215)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(239, 21)
-        Me.TextBox7.TabIndex = 105
+        Me.TextBox7.TabIndex = 4
         '
         'TextBox3
         '
         Me.TextBox3.Location = New System.Drawing.Point(477, 51)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(239, 21)
-        Me.TextBox3.TabIndex = 101
+        Me.TextBox3.TabIndex = 0
         '
         'Label10
         '
@@ -354,6 +340,38 @@ Partial Class Form9
         Me.Label2.TabIndex = 112
         Me.Label2.Text = "资产名称"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(396, 305)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(53, 12)
+        Me.Label11.TabIndex = 126
+        Me.Label11.Text = "设备型号"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(478, 301)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(239, 21)
+        Me.TextBox6.TabIndex = 6
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(396, 341)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(53, 12)
+        Me.Label12.TabIndex = 128
+        Me.Label12.Text = "资产品牌"
+        '
+        'TextBox9
+        '
+        Me.TextBox9.Location = New System.Drawing.Point(478, 341)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(239, 21)
+        Me.TextBox9.TabIndex = 7
+        '
         'Form9
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -391,8 +409,6 @@ Partial Class Form9
     Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
@@ -400,4 +416,8 @@ Partial Class Form9
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
 End Class

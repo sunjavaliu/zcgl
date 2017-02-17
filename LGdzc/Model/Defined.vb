@@ -54,7 +54,7 @@ Module Defined
     Public Const ZC_FROM = "资产来源"
     Public Const CAIGOUFANGSHI = "采购方式"
 
-    Public CONN_STR As String = "Database='gdzc';Data Source='10.43.18.42';User Id='mysql';Password='mysqlpwd';charset='utf8';pooling=true"
+    Public CONN_STR As String = "Database='testgdzc';Data Source='10.43.18.42';User Id='mysql';Password='mysqlpwd';charset='utf8';pooling=true"
 
 
 

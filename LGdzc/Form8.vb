@@ -80,7 +80,8 @@
         DataGridView1.Columns(14).HeaderText = "库存"
         DataGridView1.Columns(15).HeaderText = "入库编号"
         DataGridView1.Columns(16).HeaderText = "资产来源"
-
+        DataGridView1.Columns(17).HeaderText = "资产型号"
+        DataGridView1.Columns(18).HeaderText = "资产品牌"
         'DataGridView1.Columns(3).Frozen = True
 
 
@@ -111,12 +112,16 @@
         TextBox3.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
         TextBox10.Text = DataGridView1.SelectedRows(0).Cells(8).Value.ToString()
         TextBox17.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
+        TextBox5.Text = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
         TextBox18.Text = DataGridView1.SelectedRows(0).Cells(10).Value.ToString()
         TextBox4.Text = DataGridView1.SelectedRows(0).Cells(13).Value.ToString()
         'DateTimePicker1.Text = DateTime.Parse(DataGridView1.SelectedRows(0).Cells(8).Value.ToString())
         DateTimePicker1.Value = CDate(DataGridView1.SelectedRows(0).Cells(6).Value.ToString())
         TextBox6.Text = DataGridView1.SelectedRows(0).Cells(15).Value.ToString()
         TextBox7.Text = DataGridView1.SelectedRows(0).Cells(16).Value.ToString()
+        TextBox8.Text = DataGridView1.SelectedRows(0).Cells(17).Value.ToString()
+        TextBox12.Text = DataGridView1.SelectedRows(0).Cells(18).Value.ToString()
+
         Rk_tab_id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
 
         'TextBox11.Text = CInt(TextBox10.Text) * CInt(TextBox9.Text)
@@ -258,23 +263,27 @@
             'SQLconn.Open()
             'sqlcmd.Connection = SQLconn
             Dim CommandText As String
-            CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','djrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
+
+            'SQLite可以在字段上加单引号，MYsql就不行
+            'CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','djrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
+
+            CommandText = "insert into zc (zcbh,zcmc,lbid,lbmc,jldw,gzrq,djrq,zcly,zcsl,zcdj,zczj,zczt,bmbh,bmmc,zrr,cfwz,meno,txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8,num1,num2,num3,num4,num5,num6,log,rkbh) values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
 
             'ComboBoxTreeLB.Text +"','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ")"
             'Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
-            salda = New LiuDataAdapter(CommandText, CONN_STR)
-
+            salda = New LiuDataAdapter()
+            salda.ExecuteNonQuery(CommandText)
             'SQLconn.Close()
 
 
-            Dim sqlExecuteQuery As LiuDataAdapter '定义查询操作  
+            'Dim sqlExecuteQuery As LiuDataAdapter '定义查询操作  
             'Dim SQLconn2 As New Data.SQLite.SQLiteConnection '定义数据库链接  
             'SQLconn2.ConnectionString = CONN_STR '链接数据库
             'SQLconn2.Open()
             'sqlExecuteQuery.Connection = SQLconn2
 
             CommandText = "update rk set kucun= " + newKucun.ToString + "  where id=" + Rk_tab_id
-            sqlExecuteQuery = New LiuDataAdapter(CommandText, CONN_STR)
+            salda.ExecuteNonQuery(CommandText)
 
             'sqlExecuteQuery.ExecuteNonQuery()
             'SQLconn2.Close()
@@ -325,7 +334,20 @@
         End If
     End Sub
  
-
+    Private Sub SetNew()
+        TextBox3.Text = ""
+        TextBox17.Text = ""
+        TextBox18.Text = ""
+        DateTimePicker1.Text = ""
+        DateTimePicker2.Text = ""
+        TextBox7.Text = ""
+        TextBox9.Text = ""
+        TextBox10.Text = ""
+        TextBox11.Text = ""
+        ComboBox3.Text = ""
+        DateTimePicker2.Text = ""
+        TextBox6.Text = ""
+    End Sub
 End Class
 
 
