@@ -1,7 +1,7 @@
 ﻿Imports System.Data
 
-#Const IS_MYSQL_DB = True
-#Const IS_SQLITE_DB = False
+#Const IS_MYSQL_DB = False
+#Const IS_SQLITE_DB = True
 
 
 
@@ -46,7 +46,7 @@ Public Class LiuDataAdapter
     End Sub
     Public Function Update(dataTable As DataTable) As Integer
 #If IS_SQLITE_DB Then
-    Dim scb As SQLite.SQLiteCommandBuilder = SQLite.SQLiteCommandBuilder(Adapter)
+        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(Adapter)
 #Else
         Dim scb As MySql.Data.MySqlClient.MySqlCommandBuilder = New MySql.Data.MySqlClient.MySqlCommandBuilder(Adapter)
 #End If
@@ -64,10 +64,11 @@ Public Class LiuDataAdapter
     End Function
     Public Function Fill(dataTable As DataTable) As Integer
 #If IS_SQLITE_DB Then
-    Dim scb As SQLite.SQLiteCommandBuilder = SQLite.SQLiteCommandBuilder(Adapter)
+        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(Adapter)
 #Else
         Dim scb As MySql.Data.MySqlClient.MySqlCommandBuilder = New MySql.Data.MySqlClient.MySqlCommandBuilder(Adapter)
 #End If
+
         Return Adapter.Fill(dataTable)
     End Function
     Public Function GetConn() As String

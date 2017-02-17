@@ -24,13 +24,18 @@ Partial Class zclygh
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(zclygh))
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode1})
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode3})
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
@@ -66,7 +71,6 @@ Partial Class zclygh
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -100,26 +104,16 @@ Partial Class zclygh
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(171, 6)
         '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(47, 11)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(93, 29)
-        Me.Button4.TabIndex = 7
-        Me.Button4.Text = "更新"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(4, 22)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(1521, 325)
+        Me.DataGridView1.Size = New System.Drawing.Size(1521, 321)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
@@ -127,10 +121,10 @@ Partial Class zclygh
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1529, 351)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Size = New System.Drawing.Size(1529, 347)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "资产信息"
@@ -140,7 +134,7 @@ Partial Class zclygh
         Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
         Me.SplitContainer3.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SplitContainer3.Margin = New System.Windows.Forms.Padding(4)
         Me.SplitContainer3.Name = "SplitContainer3"
         Me.SplitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -150,6 +144,12 @@ Partial Class zclygh
         '
         'SplitContainer3.Panel2
         '
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label16)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox3)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox2)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label2)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox1)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label1)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Label5)
         Me.SplitContainer3.Panel2.Controls.Add(Me.ComboBox1)
         Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox7)
@@ -185,17 +185,72 @@ Partial Class zclygh
         Me.SplitContainer3.Panel2.Controls.Add(Me.Label4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button7)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button6)
-        Me.SplitContainer3.Panel2.Controls.Add(Me.Button4)
-        Me.SplitContainer3.Panel2.Controls.Add(Me.Button5)
         Me.SplitContainer3.Size = New System.Drawing.Size(1529, 680)
-        Me.SplitContainer3.SplitterDistance = 351
+        Me.SplitContainer3.SplitterDistance = 347
         Me.SplitContainer3.SplitterWidth = 5
         Me.SplitContainer3.TabIndex = 7
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(560, 146)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(67, 15)
+        Me.Label16.TabIndex = 175
+        Me.Label16.Text = "资产编号"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(637, 141)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.ReadOnly = True
+        Me.TextBox3.Size = New System.Drawing.Size(249, 25)
+        Me.TextBox3.TabIndex = 174
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(983, 74)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.ReadOnly = True
+        Me.TextBox2.Size = New System.Drawing.Size(155, 25)
+        Me.TextBox2.TabIndex = 173
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(893, 79)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(82, 15)
+        Me.Label2.TabIndex = 172
+        Me.Label2.Text = "调出责任人"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(637, 74)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.Size = New System.Drawing.Size(249, 25)
+        Me.TextBox1.TabIndex = 171
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(560, 79)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(67, 15)
+        Me.Label1.TabIndex = 170
+        Me.Label1.Text = "调出部门"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(1131, 112)
+        Me.Label5.Location = New System.Drawing.Point(1151, 113)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(97, 15)
@@ -205,8 +260,8 @@ Partial Class zclygh
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(1235, 108)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox1.Location = New System.Drawing.Point(1255, 109)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(139, 23)
         Me.ComboBox1.TabIndex = 168
@@ -214,7 +269,7 @@ Partial Class zclygh
         'TextBox7
         '
         Me.TextBox7.Location = New System.Drawing.Point(395, 74)
-        Me.TextBox7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox7.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.ReadOnly = True
         Me.TextBox7.Size = New System.Drawing.Size(139, 25)
@@ -233,7 +288,7 @@ Partial Class zclygh
         'TextBox6
         '
         Me.TextBox6.Location = New System.Drawing.Point(115, 74)
-        Me.TextBox6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox6.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.ReadOnly = True
         Me.TextBox6.Size = New System.Drawing.Size(139, 25)
@@ -252,8 +307,9 @@ Partial Class zclygh
         'TextBox4
         '
         Me.TextBox4.Location = New System.Drawing.Point(395, 242)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.ReadOnly = True
         Me.TextBox4.Size = New System.Drawing.Size(139, 25)
         Me.TextBox4.TabIndex = 136
         '
@@ -280,7 +336,7 @@ Partial Class zclygh
         'TextBox18
         '
         Me.TextBox18.Location = New System.Drawing.Point(115, 209)
-        Me.TextBox18.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox18.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox18.Name = "TextBox18"
         Me.TextBox18.ReadOnly = True
         Me.TextBox18.Size = New System.Drawing.Size(139, 25)
@@ -289,7 +345,7 @@ Partial Class zclygh
         'TextBox17
         '
         Me.TextBox17.Location = New System.Drawing.Point(115, 108)
-        Me.TextBox17.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox17.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox17.Name = "TextBox17"
         Me.TextBox17.ReadOnly = True
         Me.TextBox17.Size = New System.Drawing.Size(139, 25)
@@ -298,7 +354,7 @@ Partial Class zclygh
         'TextBox11
         '
         Me.TextBox11.Location = New System.Drawing.Point(115, 141)
-        Me.TextBox11.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox11.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox11.Name = "TextBox11"
         Me.TextBox11.ReadOnly = True
         Me.TextBox11.Size = New System.Drawing.Size(139, 25)
@@ -337,7 +393,7 @@ Partial Class zclygh
         'DateTimePicker2
         '
         Me.DateTimePicker2.Location = New System.Drawing.Point(395, 175)
-        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(139, 25)
         Me.DateTimePicker2.TabIndex = 153
@@ -346,7 +402,7 @@ Partial Class zclygh
         '
         Me.DateTimePicker1.Enabled = False
         Me.DateTimePicker1.Location = New System.Drawing.Point(115, 175)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(139, 25)
         Me.DateTimePicker1.TabIndex = 152
@@ -354,7 +410,7 @@ Partial Class zclygh
         'TextBox10
         '
         Me.TextBox10.Location = New System.Drawing.Point(395, 141)
-        Me.TextBox10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox10.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.ReadOnly = True
         Me.TextBox10.Size = New System.Drawing.Size(139, 25)
@@ -363,24 +419,25 @@ Partial Class zclygh
         'TextBox9
         '
         Me.TextBox9.Location = New System.Drawing.Point(115, 242)
-        Me.TextBox9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox9.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.ReadOnly = True
         Me.TextBox9.Size = New System.Drawing.Size(139, 25)
         Me.TextBox9.TabIndex = 135
-        Me.TextBox9.Text = "1"
         '
         'TextBox5
         '
         Me.TextBox5.Location = New System.Drawing.Point(395, 209)
-        Me.TextBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox5.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.ReadOnly = True
         Me.TextBox5.Size = New System.Drawing.Size(139, 25)
         Me.TextBox5.TabIndex = 134
         '
         'TextBox8
         '
-        Me.TextBox8.Location = New System.Drawing.Point(639, 175)
-        Me.TextBox8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox8.Location = New System.Drawing.Point(637, 175)
+        Me.TextBox8.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox8.Multiline = True
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(475, 99)
@@ -389,7 +446,7 @@ Partial Class zclygh
         'TextBox12
         '
         Me.TextBox12.Location = New System.Drawing.Point(395, 108)
-        Me.TextBox12.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox12.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox12.Name = "TextBox12"
         Me.TextBox12.ReadOnly = True
         Me.TextBox12.Size = New System.Drawing.Size(139, 25)
@@ -448,7 +505,7 @@ Partial Class zclygh
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(289, 112)
+        Me.Label18.Location = New System.Drawing.Point(289, 113)
         Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(67, 15)
@@ -457,10 +514,10 @@ Partial Class zclygh
         '
         'Button9
         '
-        Me.Button9.Location = New System.Drawing.Point(1236, 176)
-        Me.Button9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button9.Location = New System.Drawing.Point(1273, 178)
+        Me.Button9.Margin = New System.Windows.Forms.Padding(4)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(139, 25)
+        Me.Button9.Size = New System.Drawing.Size(100, 29)
         Me.Button9.TabIndex = 141
         Me.Button9.Text = "调入"
         Me.Button9.UseVisualStyleBackColor = True
@@ -468,8 +525,8 @@ Partial Class zclygh
         'ComboBox3
         '
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(957, 108)
-        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox3.Location = New System.Drawing.Point(983, 109)
+        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(155, 23)
         Me.ComboBox3.TabIndex = 109
@@ -477,7 +534,7 @@ Partial Class zclygh
         'Panel2
         '
         Me.Panel2.Location = New System.Drawing.Point(637, 108)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(249, 25)
         Me.Panel2.TabIndex = 108
@@ -485,17 +542,17 @@ Partial Class zclygh
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(893, 112)
+        Me.Label8.Location = New System.Drawing.Point(893, 113)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(52, 15)
+        Me.Label8.Size = New System.Drawing.Size(82, 15)
         Me.Label8.TabIndex = 111
-        Me.Label8.Text = "责任人"
+        Me.Label8.Text = "接收责任人"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(559, 112)
+        Me.Label4.Location = New System.Drawing.Point(560, 113)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(67, 15)
@@ -504,8 +561,8 @@ Partial Class zclygh
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(401, 12)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button7.Location = New System.Drawing.Point(1138, 238)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(100, 29)
         Me.Button7.TabIndex = 9
@@ -514,23 +571,13 @@ Partial Class zclygh
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(273, 11)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button6.Location = New System.Drawing.Point(1138, 178)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(100, 29)
         Me.Button6.TabIndex = 8
         Me.Button6.Text = "新增"
         Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(160, 11)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(93, 29)
-        Me.Button5.TabIndex = 6
-        Me.Button5.Text = "删除"
-        Me.Button5.UseVisualStyleBackColor = True
         '
         'ImageList1
         '
@@ -546,14 +593,14 @@ Partial Class zclygh
         Me.TreeView1.ImageIndex = 2
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
-        Me.TreeView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TreeView1.Margin = New System.Windows.Forms.Padding(4)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode1.ImageKey = "(默认值)"
-        TreeNode1.Name = "测试"
-        TreeNode1.Text = "节点0"
-        TreeNode2.Name = ""
-        TreeNode2.Text = "根节点0"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
+        TreeNode3.ImageKey = "(默认值)"
+        TreeNode3.Name = "测试"
+        TreeNode3.Text = "节点0"
+        TreeNode4.Name = ""
+        TreeNode4.Text = "根节点0"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.Size = New System.Drawing.Size(167, 710)
         Me.TreeView1.StateImageList = Me.ImageList1
@@ -565,7 +612,7 @@ Partial Class zclygh
         Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer1.IsSplitterFixed = True
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -585,7 +632,7 @@ Partial Class zclygh
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(4)
         Me.SplitContainer2.Name = "SplitContainer2"
         Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -651,7 +698,7 @@ Partial Class zclygh
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1701, 710)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "zclygh"
         Me.Text = "资产调拨"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -674,11 +721,9 @@ Partial Class zclygh
 
     End Sub
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
-    Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
@@ -726,4 +771,10 @@ Partial Class zclygh
     Friend WithEvents Button9 As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
 End Class

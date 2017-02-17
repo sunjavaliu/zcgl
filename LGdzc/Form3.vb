@@ -252,24 +252,10 @@
         DataGridView1.Columns(14).HeaderText = "部门名称"
         DataGridView1.Columns(15).HeaderText = "责任人"
         DataGridView1.Columns(16).HeaderText = "存放位置"
-        DataGridView1.Columns(17).HeaderText = "备注"
-        DataGridView1.Columns(18).HeaderText = "备用1"
-        DataGridView1.Columns(19).HeaderText = "备用2"
-        DataGridView1.Columns(20).HeaderText = "备用3"
-        DataGridView1.Columns(21).HeaderText = "备用4"
-        DataGridView1.Columns(22).HeaderText = "备用5"
-        DataGridView1.Columns(23).HeaderText = "备用6"
-        DataGridView1.Columns(24).HeaderText = "备用7"
-        DataGridView1.Columns(25).HeaderText = "备用8"
-        DataGridView1.Columns(26).HeaderText = "备用N1"
-        DataGridView1.Columns(27).HeaderText = "备用N2"
-        DataGridView1.Columns(28).HeaderText = "备用N3"
-        DataGridView1.Columns(29).HeaderText = "备用N4"
-        DataGridView1.Columns(30).HeaderText = "备用N5"
-        DataGridView1.Columns(31).HeaderText = "备用N6"
-        DataGridView1.Columns(32).HeaderText = "流转记录"
-        DataGridView1.Columns(33).HeaderText = "入库编号"
-
+        DataGridView1.Columns(17).HeaderText = "流转记录"
+        DataGridView1.Columns(18).HeaderText = "入库编号"
+        DataGridView1.Columns(19).HeaderText = "设备型号"
+        DataGridView1.Columns(20).HeaderText = "设备品牌"
 
 
 

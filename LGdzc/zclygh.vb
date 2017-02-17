@@ -2,31 +2,34 @@
 
     Private TreeOperateType As String
 
-    Dim sda As LiuDataAdapter   ';//全局变量
-    Dim G_dt As DataTable = New DataTable()
+    'Dim sda As LiuDataAdapter   ';//全局变量
+    'Dim G_dt As DataTable = New DataTable()
 
-    Dim sda_ry As LiuDataAdapter   ';//全局变量
-    Dim G_dt_ry As DataTable = New DataTable()
+    Dim sda_zc As LiuDataAdapter   ';//全局变量
+    Dim G_dt_zc As DataTable = New DataTable()
 
     Dim ComboBoxTreeBM As ComboBoxTreeView
+
     Dim sda_BM As LiuDataAdapter   ';//全局变量
     Dim dt_BM As DataTable = New DataTable()
+
+    Dim bmbh As String = ""   '部门编号
+    Dim selectRowNum As Integer = -1 '选中的行数
     Private Sub DisplayBMTree()
         ComboBoxTreeBM = New ComboBoxTreeView()
         ComboBoxTreeBM.Dock = DockStyle.Fill
         Me.Panel2.Controls.Add(ComboBoxTreeBM)
 
         'OpreaBMDataBase()
-        CommBindTreeView(0, ComboBoxTreeBM.TreeView, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
+        CommBindTreeView(0, ComboBoxTreeBM.TreeView, dt_BM, "parentBMBH", "0", "BMMC", "BMBH")
     End Sub
     Private Sub zclygh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             'BindTreeView(0, TreeView1, G_dt)
-            OpreaRYDataBase("")
+            OpreaZCDataBase("")
             OpreaBMDataBase()
-            CommBindTreeView(0, TreeView1, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
-            DisableWrite()
+            CommBindTreeView(0, TreeView1, dt_BM, "parentBMBH", "0", "BMMC", "BMBH")
             TreeView1.ShowNodeToolTips = True
             DataGridView1.ShowCellToolTips = True
             DataGridView1.Columns(0).ToolTipText = "双击单元格进行编辑操作"
@@ -35,98 +38,11 @@
             DisplayBMTree()
             OnComboBoxTreeViewTextUpdate()
             GetComboBoxDICT(ZC_STATE, ComboBox1)
-        Catch ex As SQLite.SQLiteException
+        Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
     End Sub
-
-
-    Private Sub SaveAddDB(dataNode As TreeNode, ParentID As Integer)
-        Dim row As DataRow = G_dt.NewRow()
-        row("BMMC") = dataNode.Text
-        row("bmbh") = dataNode.Name
-        row("parentBMBH") = ParentID
-        G_dt.Rows.Add(row)
-        sda.Update(G_dt)
-    End Sub
-    Private Sub SaveModiDB(dataNode As TreeNode, ParentID As Integer)
-        Dim rows() As DataRow = G_dt.Select("bmbh=" + dataNode.Name)
-        Dim row As DataRow
-        For Each row In rows
-            row("bmmc") = dataNode.Text
-            row("parentBMBH") = ParentID
-        Next
-        sda.Update(G_dt)
-    End Sub
-    Private Sub SaveDelDB(dataNode As TreeNode)
-        Dim rows() As DataRow = G_dt.Select("bmbh=" + dataNode.Name)
-        Dim row As DataRow
-        For Each row In rows
-            row.Delete()
-        Next
-        sda.Update(G_dt)
-    End Sub
-
-    Private Sub EnableWrite()
-
-        'TreeView1.Refresh()
-        TreeView1.Enabled = False
-
-    End Sub
-    Private Sub DisableWrite()
-        'TreeView1.Refresh()
-        TreeView1.Enabled = True
-        TreeOperateType = TREE_NONE
-    End Sub
-    Private Sub AddSideWaysToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddSideWaysToolStripMenuItem.Click
-        TreeOperateType = TREE_ADD_SIDEWAYS_NODE
-        EnableWrite()
-
-    End Sub
-    Private Sub AddSubToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddSubToolStripMenuItem.Click
-        TreeOperateType = TREE_ADD_SUB_NODE
-        EnableWrite()
-
-
-
-    End Sub
-
-    Private Sub DelSubToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DelSubToolStripMenuItem.Click
-        Dim SelectedNode As TreeNode = TreeView1.SelectedNode
-        If MsgBox("你确认要删除该记录吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
-            If SelectedNode Is Nothing Then
-                MessageBox.Show("没有选中任何节点")
-            ElseIf SelectedNode.Name <> 1 Then
-                Me.SaveDelDB(SelectedNode)
-                TreeView1.Nodes.Remove(SelectedNode)
-            Else
-                MsgBox("该节点为根节点或含有下级子节点，请删除所有下级节点才能删除该节点！")
-            End If
-        End If
-    End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        DisableWrite()
-        TreeOperateType = TREE_NONE
-    End Sub
-
-
-    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
-        Dim SelectedNode As TreeNode = TreeView1.SelectedNode
-        EnableWrite()
-
-
-    End Sub
-
-    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs)
-        If (Not Char.IsNumber(e.KeyChar) And e.KeyChar <> Chr(8)) Then
-            e.Handled = True
-        Else
-            e.Handled = False
-        End If
-    End Sub
-
-
 
 
 
@@ -138,16 +54,13 @@
         Dim sql As String = "select * from bm"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        sda = New LiuDataAdapter(sql, CONN_STR)
+        sda_BM = New LiuDataAdapter(sql, CONN_STR)
         'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
 
-        sda.Fill(G_dt)
+        sda_BM.Fill(dt_BM)
 
         'G_dt.Load(reader)
     End Sub
-
-
-
 
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
@@ -157,16 +70,17 @@
         'sda_ry.Fill(G_dt_ry)
         'DataGridView1.DataSource = G_dt_ry
         'DataGridView1.Refresh()
-        OpreaRYDataBase(SelectedNode.Name)
+        bmbh = SelectedNode.Name
+        OpreaZCDataBase(bmbh)
     End Sub
 
 
-    Private Sub OpreaRYDataBase(bmbh As String)
+    Private Sub OpreaZCDataBase(bmbh As String)
 
 
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
         '打开连接
-        conn.Open()
+        'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String
         If bmbh = "" Or bmbh = "1" Then
@@ -177,13 +91,14 @@
 
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        sda_ry = New LiuDataAdapter(sql, CONN_STR)
+        sda_zc = New LiuDataAdapter(sql, CONN_STR)
         ' Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_ry)
 
-        G_dt_ry.Clear()
-        sda_ry.Fill(G_dt_ry)
+        G_dt_zc.Clear()
+        sda_zc.FillSchema(G_dt_zc, SchemaType.Mapped)
+        sda_zc.Fill(G_dt_zc)
 
-        DataGridView1.DataSource = G_dt_ry
+        DataGridView1.DataSource = G_dt_zc
         DataGridView1.Columns(0).ReadOnly = True
         DataGridView1.Columns(0).HeaderText = "ID"
 
@@ -203,77 +118,16 @@
         DataGridView1.Columns(14).HeaderText = "部门名称"
         DataGridView1.Columns(15).HeaderText = "责任人"
         DataGridView1.Columns(16).HeaderText = "存放位置"
-        DataGridView1.Columns(17).HeaderText = "备注"
-        DataGridView1.Columns(18).HeaderText = "备用1"
-        DataGridView1.Columns(19).HeaderText = "备用2"
-        DataGridView1.Columns(20).HeaderText = "备用3"
-        DataGridView1.Columns(21).HeaderText = "备用4"
-        DataGridView1.Columns(22).HeaderText = "备用5"
-        DataGridView1.Columns(23).HeaderText = "备用6"
-        DataGridView1.Columns(24).HeaderText = "备用7"
-        DataGridView1.Columns(25).HeaderText = "备用8"
-        DataGridView1.Columns(26).HeaderText = "备用N1"
-        DataGridView1.Columns(27).HeaderText = "备用N2"
-        DataGridView1.Columns(28).HeaderText = "备用N3"
-        DataGridView1.Columns(29).HeaderText = "备用N4"
-        DataGridView1.Columns(30).HeaderText = "备用N5"
-        DataGridView1.Columns(31).HeaderText = "备用N6"
-        DataGridView1.Columns(32).HeaderText = "流转记录"
-        DataGridView1.Columns(33).HeaderText = "入库编号"
-
+        DataGridView1.Columns(17).HeaderText = "流转记录"
+        DataGridView1.Columns(18).HeaderText = "入库编号"
+        DataGridView1.Columns(19).HeaderText = "设备型号"
+        DataGridView1.Columns(20).HeaderText = "设备品牌"
         DataGridView1.Columns(3).Frozen = True
         'G_dt.Load(reader)
     End Sub
 
-
-
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        'Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
-        sda_ry.Update(G_dt_ry)
-        MsgBox("更新成功")
-        OpreaRYDataBase("")
-    End Sub
-
-
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Dim i, rowN As Integer
-        Dim tmpList As New List(Of DataGridViewRow)()
-
-        If MsgBox("你确认要删除该记录吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
-            '删除选中行
-            rowN = DataGridView1.Rows.Count
-            rowN = rowN - 1
-            For i = rowN To 0 Step -1
-                If DataGridView1.Rows(i).Selected = True Then
-                    DataGridView1.Rows.RemoveAt(DataGridView1.Rows(i).Index)
-                    'G_dt_ry.[Delete]("id="+dataGridv_AdminIma.Rows[i].Cells[0].Value.ToString())
-                    'Debug.Print(i)
-                    'MsgBox(DataGridView1.Rows(i).Cells(0).Value.ToString())
-                    'tmpList.Add(DataGridView1.Rows(i))
-                End If
-
-
-
-            Next
-            'DataGridView1.Rows.Remove(tmpList)
-            'DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
-            '数据库中进行删除()
-            'Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
-            sda_ry.Update(G_dt_ry)
-            MsgBox("删除成功")
-        End If
-
-    End Sub
-
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-        MsgBox("DataGridView1_CellContentClick标题单击")
-    End Sub
-
-
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
-        'MsgBox("DataGridView1_CellDoubleClick")
+        FenPeiZC()
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -294,15 +148,6 @@
 
     Private Sub CollapseAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CollapseAllToolStripMenuItem.Click
         TreeView1.CollapseAll()
-    End Sub
-
-    Private Sub TreeView1_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseDoubleClick
-
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs)
-        Form7.ShowDialog()
-
     End Sub
 
     Public Sub OnComboBoxTreeViewTextUpdate()
@@ -335,30 +180,43 @@
         End If
     End Sub
 
-
-    Private Sub TextBox9_TextChanged_1(sender As Object, e As EventArgs)
-
-    End Sub
-    Private Sub TextBox10_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub SplitContainer3_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer3.Panel2.Paint
-
-    End Sub
-
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
 
+        Dim sql As String
+        Dim log As String
+        Dim zcbh As String
+        zcbh = TextBox3.Text
+        If zcbh = "" Then Return
+        log = DataGridView1.SelectedRows(0).Cells(17).Value.ToString() + "->" + DateTimePicker2.Text + ComboBoxTreeBM.Text + ComboBox3.Text
+        sql = "update zc set bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',bmmc='" + ComboBoxTreeBM.Text + "', log='" + log + "', zrr='" + ComboBox3.Text + "' ,zczt='" + ComboBox1.Text + "'  where zcbh='" + zcbh + "'"
+        sda_zc.ExecuteNonQuery(sql)
+
+        'If selectRowNum = -1 Then Return
+        ''log = DataGridView1.SelectedRows(0).Cells(17).Value.ToString() + "->" + ComboBoxTreeBM.Text + ComboBox3.Text
+        'DataGridView1.Rows(selectRowNum).Cells(7).Value = DateTimePicker2.Text     '登记日期
+        'DataGridView1.Rows(selectRowNum).Cells(12).Value = ComboBox1.Text        '"资产状态"
+        'DataGridView1.Rows(selectRowNum).Cells(13).Value = ComboBoxTreeBM.TreeView.SelectedNode.Name '部门编号
+        'DataGridView1.Rows(selectRowNum).Cells(14).Value = ComboBoxTreeBM.Text   '部门名称
+        'DataGridView1.Rows(selectRowNum).Cells(17).Value = DataGridView1.Rows(selectRowNum).Cells(17).Value.ToString() + "->" + DateTimePicker2.Text + ComboBoxTreeBM.Text + ComboBox3.Text    '流转记录
+        'DataGridView1.Rows(selectRowNum).Cells(15).Value = ComboBox3.Text   '部门名称
+
+        'sda_zc.Update(G_dt_zc)
+        'DataGridView1.Update()
+        'selectRowNum = -1
+
+        MsgBox("设备由" + TextBox2.Text + "调入" + ComboBox3.Text)
+        SetNew()
+        OpreaZCDataBase(bmbh)
+
     End Sub
 
-
-
-
-
-
-
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
-        TextBox6.Text = DataGridView1.SelectedRows(0).Cells(33).Value.ToString()
+        FenPeiZC()
+    End Sub
+    Private Sub FenPeiZC()
+        selectRowNum = DataGridView1.SelectedRows(0).Index
+
+        TextBox6.Text = DataGridView1.SelectedRows(0).Cells(18).Value.ToString()
         TextBox7.Text = DataGridView1.SelectedRows(0).Cells(8).Value.ToString()
         TextBox17.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
         TextBox12.Text = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
@@ -367,10 +225,31 @@
         TextBox10.Text = DataGridView1.SelectedRows(0).Cells(11).Value.ToString()
         'DateTimePicker1.Text = DateTime.Parse(DataGridView1.SelectedRows(0).Cells(8).Value.ToString())
         DateTimePicker1.Value = CDate(DataGridView1.SelectedRows(0).Cells(6).Value.ToString())
-        TextBox6.Text = DataGridView1.SelectedRows(0).Cells(15).Value.ToString()
-        TextBox7.Text = DataGridView1.SelectedRows(0).Cells(16).Value.ToString()
+        'TextBox6.Text = DataGridView1.SelectedRows(0).Cells(15).Value.ToString()
+        TextBox18.Text = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
         'Rk_tab_id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+        TextBox1.Text = DataGridView1.SelectedRows(0).Cells(14).Value.ToString()
+        TextBox2.Text = DataGridView1.SelectedRows(0).Cells(15).Value.ToString()
+        TextBox3.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()         '资产编号
     End Sub
+
+    Private Sub SetNew()
+        TextBox6.Text = ""
+        TextBox7.Text = ""
+        TextBox17.Text = ""
+        TextBox12.Text = ""
+        TextBox11.Text = ""
+
+        TextBox10.Text = ""
+
+
+        TextBox18.Text = ""
+
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+    End Sub
+
 End Class
 
 

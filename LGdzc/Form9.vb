@@ -107,11 +107,15 @@
         Me.Close()
     End Sub
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs)
-        Save()
+
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
+        IsInputNum(e)
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
-
+    Private Sub TextBox5_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox5.KeyPress
+        IsInputDigit(e, TextBox5)
     End Sub
+ 
+ 
 End Class

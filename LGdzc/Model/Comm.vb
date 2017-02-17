@@ -8,8 +8,26 @@
             e.Handled = False
         End If
     End Sub
+    ''' <summary>
+    ''' 实现textbox只能输入X.Y的小数，最大7位，Y最大5位。
+    ''' </summary>
+    ''' <param name="e"></param>
+    ''' <param name="t"></param>
+    ''' <remarks></remarks>
+    Public Sub IsInputDigit(e As KeyPressEventArgs, t As TextBox)
+        If e.KeyChar = Chr(8) Then Exit Sub
 
+        If InStr(t.Text, ".") = 0 Then t.MaxLength = 12 Else t.MaxLength = 13
+        If Len(t.Text) - InStr(t.Text, ".") = 5 And Len(t.Text) <> 5 Then e.KeyChar = Chr(0)
+        If Len(t.Text) = 7 And InStr(t.Text, ".") = 0 Then
+            e.KeyChar = "."
+        Else
+            e.Handled = False
+        End If
+        If e.KeyChar = Chr(46) And InStr(t.Text, ".") = 0 Then Exit Sub
+        If e.KeyChar < Chr(48) Or e.KeyChar > Chr(57) Then e.KeyChar = Chr(0)
 
+    End Sub
 
     Public Sub CommBindTreeView(ID As Long, ByRef treeview As TreeView, ByRef dt As DataTable, WhereFiled1 As String, WhereFiledArg As String, TreeNodeText As String, TreeNodeName As String)
 
