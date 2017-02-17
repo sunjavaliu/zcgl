@@ -5,7 +5,7 @@ Public Class Form7
     Dim TabPageIndex As Integer
     Dim strConn As String
     Dim pbDT As DataTable = New DataTable()
-    Dim sda_imp As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim sda_imp As LiuDataAdapter   ';//全局变量
     Dim G_dt_imp As DataTable = New DataTable()
     Dim tablename As String
 
@@ -312,8 +312,7 @@ Public Class Form7
         Button8.Visible = False
         Dim sql As String
         Sql = "select * from " + tablename
-        sda_imp = New SQLite.SQLiteDataAdapter(Sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_imp)
+        sda_imp = New LiuDataAdapter(sql, CONN_STR)
 
         G_dt_imp.Clear()
         sda_imp.Fill(G_dt_imp)

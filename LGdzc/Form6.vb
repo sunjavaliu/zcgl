@@ -1,13 +1,13 @@
 ﻿Public Class Form6
 
-    Dim sda As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim sda As LiuDataAdapter   ';//全局变量
     Dim G_dt As DataTable = New DataTable()
-    Public Sub OpenDataBase2DataGrideView(ByRef Sda As SQLiteDataAdapter, ByRef dt As DataTable, ByRef dg As DataGridView, sql As String)
+    Public Sub OpenDataBase2DataGrideView(ByRef Sda As LiuDataAdapter, ByRef dt As DataTable, ByRef dg As DataGridView, sql As String)
         Try
-            Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
-            conn.Open()
-            Sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-            Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(Sda)
+            'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+            'conn.Open()
+            Sda = New LiuDataAdapter(sql, CONN_STR)
+
             dt.Clear()
             Sda.Fill(dt)
             dg.DataSource = dt
@@ -66,7 +66,7 @@
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim SCB = New SQLite.SQLiteCommandBuilder(sda)
+
         sda.Update(G_dt)
         MsgBox("更新成功")
     End Sub
@@ -101,7 +101,7 @@
                 End If
             Next
             '数据库中进行删除()
-            Dim SCB = New SQLite.SQLiteCommandBuilder(sda)
+
             sda.Update(G_dt)
             MsgBox("删除成功")
         End If

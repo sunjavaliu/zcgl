@@ -85,7 +85,7 @@ Public Class TestForm
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        MySqlHelper.ExecuteNonQuery(MySqlHelper.Conn, CommandType.Text, String.Format("INSERT INTO `Products` (`upc` , `qty`) VALUES ('{0}' , '{1}')", "upc Value", "222Quantity"))
-        DataGridView1.DataSource = MySqlHelper.GetDataSet(MySqlHelper.Conn, CommandType.Text, "select * from bm").Tables(0).DefaultView
+        'MySqlHelper.ExecuteNonQuery(MySqlHelper.Conn, CommandType.Text, String.Format("INSERT INTO `Products` (`upc` , `qty`) VALUES ('{0}' , '{1}')", "upc Value", "222Quantity"))
+        'DataGridView1.DataSource = MySqlHelper.GetDataSet(MySqlHelper.Conn, CommandType.Text, "select * from bm").Tables(0).DefaultView
     End Sub
 End Class

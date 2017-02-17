@@ -76,14 +76,14 @@
     '获取通用字典
     Public Sub GetComboBoxDICT(item As String, combox As ComboBox)
         Dim dt = New DataTable()
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
         '打开连接
-        conn.Open()
+        'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String = "select content from zd where item='" + item + "'"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        Dim sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+        Dim sda = New LiuDataAdapter(sql, CONN_STR)
         'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
 
         sda.Fill(dt)

@@ -1,5 +1,4 @@
-﻿'#Const IS_MYSQL_DB = True
-#Const IS_SQLITE_DB = True
+﻿
 Module Defined
 
 
@@ -55,23 +54,7 @@ Module Defined
     Public Const ZC_FROM = "资产来源"
     Public Const CAIGOUFANGSHI = "采购方式"
 
-#If DEBUG Then
-#If IS_SQLITE_DB Then
-    Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
-#End If
-#If IS_MYSQL_DB Then
-
-    'Public CONN_STR As String = "Data Source=" +"Server=myServerAddress;Database=myDataBase;Uid=myUsername;Pwd=myPassword;default command timeout=20;"
     Public CONN_STR As String = "Database='gdzc';Data Source='10.43.18.42';User Id='mysql';Password='mysqlpwd';charset='utf8';pooling=true"
-#End If
-
-
-#Else
-    #If IS_SQLITE_DB THEN   
-
-        Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\lgdzc.db"
-    #End If
-#End If
 
 
 

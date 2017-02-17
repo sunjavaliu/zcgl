@@ -2,14 +2,14 @@
 
     Private TreeOperateType As String
 
-    Dim sda As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim sda As LiuDataAdapter   ';//全局变量
     Dim G_dt As DataTable = New DataTable()
 
-    Dim sda_ry As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim sda_ry As LiuDataAdapter   ';//全局变量
     Dim G_dt_ry As DataTable = New DataTable()
 
     Dim ComboBoxTreeBM As ComboBoxTreeView
-    Dim sda_BM As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim sda_BM As LiuDataAdapter   ';//全局变量
     Dim dt_BM As DataTable = New DataTable()
     Private Sub DisplayBMTree()
         ComboBoxTreeBM = New ComboBoxTreeView()
@@ -138,8 +138,8 @@
         Dim sql As String = "select * from bm"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
+        sda = New LiuDataAdapter(sql, CONN_STR)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
 
         sda.Fill(G_dt)
 
@@ -177,8 +177,8 @@
 
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        sda_ry = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_ry)
+        sda_ry = New LiuDataAdapter(sql, CONN_STR)
+        ' Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_ry)
 
         G_dt_ry.Clear()
         sda_ry.Fill(G_dt_ry)
@@ -229,7 +229,7 @@
 
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
+        'Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
         sda_ry.Update(G_dt_ry)
         MsgBox("更新成功")
         OpreaRYDataBase("")
@@ -259,7 +259,7 @@
             'DataGridView1.Rows.Remove(tmpList)
             'DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
             '数据库中进行删除()
-            Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
+            'Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
             sda_ry.Update(G_dt_ry)
             MsgBox("删除成功")
         End If
@@ -316,14 +316,14 @@
 
 
         Dim dt = New DataTable()
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
         '打开连接
-        conn.Open()
+        'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String = "select xm from bm_ry where bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "'"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        Dim sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+        Dim sda = New LiuDataAdapter(sql, CONN_STR)
         'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
 
         sda.Fill(dt)

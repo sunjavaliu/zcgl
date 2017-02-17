@@ -5,257 +5,258 @@ Imports MySql.Data
 Imports MySql.Data.MySqlClient
 Imports System.Data
 
-''' <summary>
-'''MYSQLHelper 的摘要说明
-''' </summary>
-Public MustInherit Class MySqlHelper
-    '数据库连接字符串
-    'Public Shared Conn As String = "Database='gdzc';Data Source='localhost';User Id='root';Password='';charset='utf8';pooling=true"
-
-    Public Shared Conn As String = CONN_STR
-
-    ' 用于缓存参数的HASH表
-    Private Shared parmCache As Hashtable = Hashtable.Synchronized(New Hashtable())
-
+Namespace DBUtility.MySQL
     ''' <summary>
-    '''  给定连接的数据库用假设参数执行一个sql命令（不返回数据集）
+    '''MYSQLHelper 的摘要说明
     ''' </summary>
-    ''' <param name="connectionString">一个有效的连接字符串</param>
-    ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
-    ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
-    ''' <param name="commandParameters">执行命令所用参数的集合</param>
-    ''' <returns>执行命令所影响的行数</returns>
-    Public Shared Function ExecuteNonQuery(connectionString As String, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As Integer
+    Public MustInherit Class MySqlHelper
+        '数据库连接字符串
+        'Public Shared Conn As String = "Database='gdzc';Data Source='localhost';User Id='root';Password='';charset='utf8';pooling=true"
 
-        Dim cmd As New MySqlCommand()
+        Public Shared Conn As String = CONN_STR
 
-        Using conn As New MySqlConnection(connectionString)
-            PrepareCommand(cmd, conn, Nothing, cmdType, cmdText, commandParameters)
+        ' 用于缓存参数的HASH表
+        Private Shared parmCache As Hashtable = Hashtable.Synchronized(New Hashtable())
+
+        ''' <summary>
+        '''  给定连接的数据库用假设参数执行一个sql命令（不返回数据集）
+        ''' </summary>
+        ''' <param name="connectionString">一个有效的连接字符串</param>
+        ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
+        ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
+        ''' <param name="commandParameters">执行命令所用参数的集合</param>
+        ''' <returns>执行命令所影响的行数</returns>
+        Public Shared Function ExecuteNonQuery(connectionString As String, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As Integer
+
+            Dim cmd As New MySqlCommand()
+
+            Using conn As New MySqlConnection(connectionString)
+                PrepareCommand(cmd, conn, Nothing, cmdType, cmdText, commandParameters)
+                Dim val As Integer = cmd.ExecuteNonQuery()
+                cmd.Parameters.Clear()
+                Return val
+            End Using
+        End Function
+
+        ''' <summary>
+        ''' 用现有的数据库连接执行一个sql命令（不返回数据集）
+        ''' </summary>
+        ''' <param name="connection">一个现有的数据库连接</param>
+        ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
+        ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
+        ''' <param name="commandParameters">执行命令所用参数的集合</param>
+        ''' <returns>执行命令所影响的行数</returns>
+        Public Shared Function ExecuteNonQuery(connection As MySqlConnection, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As Integer
+
+            Dim cmd As New MySqlCommand()
+
+            PrepareCommand(cmd, connection, Nothing, cmdType, cmdText, commandParameters)
             Dim val As Integer = cmd.ExecuteNonQuery()
             cmd.Parameters.Clear()
             Return val
-        End Using
-    End Function
+        End Function
 
-    ''' <summary>
-    ''' 用现有的数据库连接执行一个sql命令（不返回数据集）
-    ''' </summary>
-    ''' <param name="connection">一个现有的数据库连接</param>
-    ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
-    ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
-    ''' <param name="commandParameters">执行命令所用参数的集合</param>
-    ''' <returns>执行命令所影响的行数</returns>
-    Public Shared Function ExecuteNonQuery(connection As MySqlConnection, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As Integer
-
-        Dim cmd As New MySqlCommand()
-
-        PrepareCommand(cmd, connection, Nothing, cmdType, cmdText, commandParameters)
-        Dim val As Integer = cmd.ExecuteNonQuery()
-        cmd.Parameters.Clear()
-        Return val
-    End Function
-
-    ''' <summary>
-    '''使用现有的SQL事务执行一个sql命令（不返回数据集）
-    ''' </summary>
-    ''' <remarks>
-    '''举例:
-    '''  int result = ExecuteNonQuery(connString, CommandType.StoredProcedure, "PublishOrders", new MySqlParameter("@prodid", 24));
-    ''' </remarks>
-    ''' <param name="trans">一个现有的事务</param>
-    ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
-    ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
-    ''' <param name="commandParameters">执行命令所用参数的集合</param>
-    ''' <returns>执行命令所影响的行数</returns>
-    Public Shared Function ExecuteNonQuery(trans As MySqlTransaction, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As Integer
-        Dim cmd As New MySqlCommand()
-        PrepareCommand(cmd, trans.Connection, trans, cmdType, cmdText, commandParameters)
-        Dim val As Integer = cmd.ExecuteNonQuery()
-        cmd.Parameters.Clear()
-        Return val
-    End Function
-
-    ''' <summary>
-    ''' 用执行的数据库连接执行一个返回数据集的sql命令
-    ''' </summary>
-    ''' <remarks>
-    ''' 举例:
-    '''  MySqlDataReader r = ExecuteReader(connString, CommandType.StoredProcedure, "PublishOrders", new MySqlParameter("@prodid", 24));
-    ''' </remarks>
-    ''' <param name="connectionString">一个有效的连接字符串</param>
-    ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
-    ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
-    ''' <param name="commandParameters">执行命令所用参数的集合</param>
-    ''' <returns>包含结果的读取器</returns>
-    Public Shared Function ExecuteReader(connectionString As String, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As MySqlDataReader
-        '创建一个MySqlCommand对象
-        Dim cmd As New MySqlCommand()
-        '创建一个MySqlConnection对象
-        Dim conn As New MySqlConnection(connectionString)
-
-        '在这里我们用一个try/catch结构执行sql文本命令/存储过程，因为如果这个方法产生一个异常我们要关闭连接，因为没有读取器存在，
-        '因此commandBehaviour.CloseConnection 就不会执行
-        Try
-            '调用 PrepareCommand 方法，对 MySqlCommand 对象设置参数
-            PrepareCommand(cmd, conn, Nothing, cmdType, cmdText, commandParameters)
-            '调用 MySqlCommand  的 ExecuteReader 方法
-            Dim reader As MySqlDataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection)
-            '清除参数
+        ''' <summary>
+        '''使用现有的SQL事务执行一个sql命令（不返回数据集）
+        ''' </summary>
+        ''' <remarks>
+        '''举例:
+        '''  int result = ExecuteNonQuery(connString, CommandType.StoredProcedure, "PublishOrders", new MySqlParameter("@prodid", 24));
+        ''' </remarks>
+        ''' <param name="trans">一个现有的事务</param>
+        ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
+        ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
+        ''' <param name="commandParameters">执行命令所用参数的集合</param>
+        ''' <returns>执行命令所影响的行数</returns>
+        Public Shared Function ExecuteNonQuery(trans As MySqlTransaction, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As Integer
+            Dim cmd As New MySqlCommand()
+            PrepareCommand(cmd, trans.Connection, trans, cmdType, cmdText, commandParameters)
+            Dim val As Integer = cmd.ExecuteNonQuery()
             cmd.Parameters.Clear()
-            Return reader
-        Catch
-            '关闭连接，抛出异常
-            conn.Close()
-            Throw
-        End Try
-    End Function
+            Return val
+        End Function
 
-    ''' <summary>
-    ''' 返回DataSet
-    ''' </summary>
-    ''' <param name="connectionString">一个有效的连接字符串</param>
-    ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
-    ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
-    ''' <param name="commandParameters">执行命令所用参数的集合</param>
-    ''' <returns></returns>
-    Public Shared Function GetDataSet(connectionString As String, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As DataSet
-        '创建一个MySqlCommand对象
-        Dim cmd As New MySqlCommand()
-        '创建一个MySqlConnection对象
-        Dim conn As New MySqlConnection(connectionString)
+        ''' <summary>
+        ''' 用执行的数据库连接执行一个返回数据集的sql命令
+        ''' </summary>
+        ''' <remarks>
+        ''' 举例:
+        '''  MySqlDataReader r = ExecuteReader(connString, CommandType.StoredProcedure, "PublishOrders", new MySqlParameter("@prodid", 24));
+        ''' </remarks>
+        ''' <param name="connectionString">一个有效的连接字符串</param>
+        ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
+        ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
+        ''' <param name="commandParameters">执行命令所用参数的集合</param>
+        ''' <returns>包含结果的读取器</returns>
+        Public Shared Function ExecuteReader(connectionString As String, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As MySqlDataReader
+            '创建一个MySqlCommand对象
+            Dim cmd As New MySqlCommand()
+            '创建一个MySqlConnection对象
+            Dim conn As New MySqlConnection(connectionString)
 
-        '在这里我们用一个try/catch结构执行sql文本命令/存储过程，因为如果这个方法产生一个异常我们要关闭连接，因为没有读取器存在，
+            '在这里我们用一个try/catch结构执行sql文本命令/存储过程，因为如果这个方法产生一个异常我们要关闭连接，因为没有读取器存在，
+            '因此commandBehaviour.CloseConnection 就不会执行
+            Try
+                '调用 PrepareCommand 方法，对 MySqlCommand 对象设置参数
+                PrepareCommand(cmd, conn, Nothing, cmdType, cmdText, commandParameters)
+                '调用 MySqlCommand  的 ExecuteReader 方法
+                Dim reader As MySqlDataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+                '清除参数
+                cmd.Parameters.Clear()
+                Return reader
+            Catch
+                '关闭连接，抛出异常
+                conn.Close()
+                Throw
+            End Try
+        End Function
 
-        Try
-            '调用 PrepareCommand 方法，对 MySqlCommand 对象设置参数
-            PrepareCommand(cmd, conn, Nothing, cmdType, cmdText, commandParameters)
-            '调用 MySqlCommand  的 ExecuteReader 方法
-            Dim adapter As New MySqlDataAdapter()
-            adapter.SelectCommand = cmd
-            Dim ds As New DataSet()
+        ''' <summary>
+        ''' 返回DataSet
+        ''' </summary>
+        ''' <param name="connectionString">一个有效的连接字符串</param>
+        ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
+        ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
+        ''' <param name="commandParameters">执行命令所用参数的集合</param>
+        ''' <returns></returns>
+        Public Shared Function GetDataSet(connectionString As String, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As DataSet
+            '创建一个MySqlCommand对象
+            Dim cmd As New MySqlCommand()
+            '创建一个MySqlConnection对象
+            Dim conn As New MySqlConnection(connectionString)
 
-            adapter.Fill(ds)
-            '清除参数
-            cmd.Parameters.Clear()
-            conn.Close()
-            Return ds
-        Catch e As Exception
-            Throw e
-        End Try
-    End Function
+            '在这里我们用一个try/catch结构执行sql文本命令/存储过程，因为如果这个方法产生一个异常我们要关闭连接，因为没有读取器存在，
+
+            Try
+                '调用 PrepareCommand 方法，对 MySqlCommand 对象设置参数
+                PrepareCommand(cmd, conn, Nothing, cmdType, cmdText, commandParameters)
+                '调用 MySqlCommand  的 ExecuteReader 方法
+                Dim adapter As New MySqlDataAdapter()
+                adapter.SelectCommand = cmd
+                Dim ds As New DataSet()
+
+                adapter.Fill(ds)
+                '清除参数
+                cmd.Parameters.Clear()
+                conn.Close()
+                Return ds
+            Catch e As Exception
+                Throw e
+            End Try
+        End Function
 
 
 
-    ''' <summary>
-    ''' 用指定的数据库连接字符串执行一个命令并返回一个数据集的第一列
-    ''' </summary>
-    ''' <remarks>
-    '''例如:
-    '''  Object obj = ExecuteScalar(connString, CommandType.StoredProcedure, "PublishOrders", new MySqlParameter("@prodid", 24));
-    ''' </remarks>
-    '''<param name="connectionString">一个有效的连接字符串</param>
-    ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
-    ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
-    ''' <param name="commandParameters">执行命令所用参数的集合</param>
-    ''' <returns>用 Convert.To{Type}把类型转换为想要的 </returns>
-    Public Shared Function ExecuteScalar(connectionString As String, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As Object
-        Dim cmd As New MySqlCommand()
+        ''' <summary>
+        ''' 用指定的数据库连接字符串执行一个命令并返回一个数据集的第一列
+        ''' </summary>
+        ''' <remarks>
+        '''例如:
+        '''  Object obj = ExecuteScalar(connString, CommandType.StoredProcedure, "PublishOrders", new MySqlParameter("@prodid", 24));
+        ''' </remarks>
+        '''<param name="connectionString">一个有效的连接字符串</param>
+        ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
+        ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
+        ''' <param name="commandParameters">执行命令所用参数的集合</param>
+        ''' <returns>用 Convert.To{Type}把类型转换为想要的 </returns>
+        Public Shared Function ExecuteScalar(connectionString As String, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As Object
+            Dim cmd As New MySqlCommand()
 
-        Using connection As New MySqlConnection(connectionString)
+            Using connection As New MySqlConnection(connectionString)
+                PrepareCommand(cmd, connection, Nothing, cmdType, cmdText, commandParameters)
+                Dim val As Object = cmd.ExecuteScalar()
+                cmd.Parameters.Clear()
+                Return val
+            End Using
+        End Function
+
+        ''' <summary>
+        ''' 用指定的数据库连接执行一个命令并返回一个数据集的第一列
+        ''' </summary>
+        ''' <remarks>
+        ''' 例如:
+        '''  Object obj = ExecuteScalar(connString, CommandType.StoredProcedure, "PublishOrders", new MySqlParameter("@prodid", 24));
+        ''' </remarks>
+        ''' <param name="connection">一个存在的数据库连接</param>
+        ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
+        ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
+        ''' <param name="commandParameters">执行命令所用参数的集合</param>
+        ''' <returns>用 Convert.To{Type}把类型转换为想要的 </returns>
+        Public Shared Function ExecuteScalar(connection As MySqlConnection, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As Object
+
+            Dim cmd As New MySqlCommand()
+
             PrepareCommand(cmd, connection, Nothing, cmdType, cmdText, commandParameters)
             Dim val As Object = cmd.ExecuteScalar()
             cmd.Parameters.Clear()
             Return val
-        End Using
-    End Function
+        End Function
 
-    ''' <summary>
-    ''' 用指定的数据库连接执行一个命令并返回一个数据集的第一列
-    ''' </summary>
-    ''' <remarks>
-    ''' 例如:
-    '''  Object obj = ExecuteScalar(connString, CommandType.StoredProcedure, "PublishOrders", new MySqlParameter("@prodid", 24));
-    ''' </remarks>
-    ''' <param name="connection">一个存在的数据库连接</param>
-    ''' <param name="cmdType">命令类型(存储过程, 文本, 等等)</param>
-    ''' <param name="cmdText">存储过程名称或者sql命令语句</param>
-    ''' <param name="commandParameters">执行命令所用参数的集合</param>
-    ''' <returns>用 Convert.To{Type}把类型转换为想要的 </returns>
-    Public Shared Function ExecuteScalar(connection As MySqlConnection, cmdType As CommandType, cmdText As String, ParamArray commandParameters As MySqlParameter()) As Object
+        ''' <summary>
+        ''' 将参数集合添加到缓存
+        ''' </summary>
+        ''' <param name="cacheKey">添加到缓存的变量</param>
+        ''' <param name="commandParameters">一个将要添加到缓存的sql参数集合</param>
+        Public Shared Sub CacheParameters(cacheKey As String, ParamArray commandParameters As MySqlParameter())
+            parmCache(cacheKey) = commandParameters
+        End Sub
 
-        Dim cmd As New MySqlCommand()
+        ''' <summary>
+        ''' 找回缓存参数集合
+        ''' </summary>
+        ''' <param name="cacheKey">用于找回参数的关键字</param>
+        ''' <returns>缓存的参数集合</returns>
+        Public Shared Function GetCachedParameters(cacheKey As String) As MySqlParameter()
+            Dim cachedParms As MySqlParameter() = DirectCast(parmCache(cacheKey), MySqlParameter())
 
-        PrepareCommand(cmd, connection, Nothing, cmdType, cmdText, commandParameters)
-        Dim val As Object = cmd.ExecuteScalar()
-        cmd.Parameters.Clear()
-        Return val
-    End Function
+            If cachedParms Is Nothing Then
+                Return Nothing
+            End If
 
-    ''' <summary>
-    ''' 将参数集合添加到缓存
-    ''' </summary>
-    ''' <param name="cacheKey">添加到缓存的变量</param>
-    ''' <param name="commandParameters">一个将要添加到缓存的sql参数集合</param>
-    Public Shared Sub CacheParameters(cacheKey As String, ParamArray commandParameters As MySqlParameter())
-        parmCache(cacheKey) = commandParameters
-    End Sub
+            Dim clonedParms As MySqlParameter() = New MySqlParameter(cachedParms.Length - 1) {}
 
-    ''' <summary>
-    ''' 找回缓存参数集合
-    ''' </summary>
-    ''' <param name="cacheKey">用于找回参数的关键字</param>
-    ''' <returns>缓存的参数集合</returns>
-    Public Shared Function GetCachedParameters(cacheKey As String) As MySqlParameter()
-        Dim cachedParms As MySqlParameter() = DirectCast(parmCache(cacheKey), MySqlParameter())
+            Dim i As Integer = 0, j As Integer = cachedParms.Length
+            While i < j
+                clonedParms(i) = DirectCast(DirectCast(cachedParms(i), ICloneable).Clone(), MySqlParameter)
+                i += 1
+            End While
 
-        If cachedParms Is Nothing Then
-            Return Nothing
-        End If
+            Return clonedParms
+        End Function
 
-        Dim clonedParms As MySqlParameter() = New MySqlParameter(cachedParms.Length - 1) {}
+        ''' <summary>
+        ''' 准备执行一个命令
+        ''' </summary>
+        ''' <param name="cmd">sql命令</param>
+        ''' <param name="conn">OleDb连接</param>
+        ''' <param name="trans">OleDb事务</param>
+        ''' <param name="cmdType">命令类型例如 存储过程或者文本</param>
+        ''' <param name="cmdText">命令文本,例如:Select * from Products</param>
+        ''' <param name="cmdParms">执行命令的参数</param>
+        Private Shared Sub PrepareCommand(cmd As MySqlCommand, conn As MySqlConnection, trans As MySqlTransaction, cmdType As CommandType, cmdText As String, cmdParms As MySqlParameter())
 
-        Dim i As Integer = 0, j As Integer = cachedParms.Length
-        While i < j
-            clonedParms(i) = DirectCast(DirectCast(cachedParms(i), ICloneable).Clone(), MySqlParameter)
-            i += 1
-        End While
+            If conn.State <> ConnectionState.Open Then
+                conn.Open()
+            End If
 
-        Return clonedParms
-    End Function
+            cmd.Connection = conn
+            cmd.CommandText = cmdText
 
-    ''' <summary>
-    ''' 准备执行一个命令
-    ''' </summary>
-    ''' <param name="cmd">sql命令</param>
-    ''' <param name="conn">OleDb连接</param>
-    ''' <param name="trans">OleDb事务</param>
-    ''' <param name="cmdType">命令类型例如 存储过程或者文本</param>
-    ''' <param name="cmdText">命令文本,例如:Select * from Products</param>
-    ''' <param name="cmdParms">执行命令的参数</param>
-    Private Shared Sub PrepareCommand(cmd As MySqlCommand, conn As MySqlConnection, trans As MySqlTransaction, cmdType As CommandType, cmdText As String, cmdParms As MySqlParameter())
+            If trans IsNot Nothing Then
+                cmd.Transaction = trans
+            End If
 
-        If conn.State <> ConnectionState.Open Then
-            conn.Open()
-        End If
+            cmd.CommandType = cmdType
 
-        cmd.Connection = conn
-        cmd.CommandText = cmdText
+            If cmdParms IsNot Nothing Then
+                For Each parm As MySqlParameter In cmdParms
+                    cmd.Parameters.Add(parm)
+                Next
+            End If
+        End Sub
 
-        If trans IsNot Nothing Then
-            cmd.Transaction = trans
-        End If
-
-        cmd.CommandType = cmdType
-
-        If cmdParms IsNot Nothing Then
-            For Each parm As MySqlParameter In cmdParms
-                cmd.Parameters.Add(parm)
-            Next
-        End If
-    End Sub
-
-End Class
-
+    End Class
+End Namespace
 '=======================================================
 'Service provided by Telerik (www.telerik.com)
 'Conversion powered by NRefactory.

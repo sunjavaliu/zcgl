@@ -4,18 +4,18 @@
     Private Sub GetKuCun()
         'MsgBox(System.Environment.GetEnvironmentVariable("SYSTEMROOT"))
         Dim TB As DataTable = New DataTable()
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
 
         ' MsgBox(System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
         '打开连接
-        conn.Open()
+        'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         'Dim sql As String = "select * from rk where kucun>0 order by id desc"
         Dim sql As String = "select * from rk order by id desc"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        Dim sda As SQLite.SQLiteDataAdapter = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
+        Dim sda As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
 
         'sda.Fill(G_dt)
         sda.Fill(TB)

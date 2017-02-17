@@ -1,7 +1,8 @@
 ﻿Public Class Form2
     Private TreeOperateType As String
 
-    Dim sda As SQLite.SQLiteDataAdapter   ';//全局变量
+    'Dim sda As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim sda As LiuDataAdapter  ';//全局变量
     Dim G_dt As DataTable = New DataTable()
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -128,8 +129,8 @@
         End If
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
+        sda = New LiuDataAdapter(sql, CONN_STR)
+
         G_dt.Clear()
         sda.FillSchema(G_dt, SchemaType.Mapped)
         sda.Fill(G_dt)
@@ -273,7 +274,6 @@
             'DataGridView1.Rows.Remove(tmpList)
             'DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
             '数据库中进行删除()
-            Dim SCB = New SQLite.SQLiteCommandBuilder(sda)
             sda.Update(G_dt)
             MsgBox("删除成功")
         End If

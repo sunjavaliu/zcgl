@@ -1,12 +1,12 @@
 ﻿Public Class Form4
 
-    Dim sda_zc As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim sda_zc As LiuDataAdapter   ';//全局变量
     Dim dt_zc As DataTable = New DataTable()
 
-    Dim sda_BM As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim sda_BM As LiuDataAdapter   ';//全局变量
     Dim dt_BM As DataTable = New DataTable()
 
-    Dim sda_LB As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim sda_LB As LiuDataAdapter   ';//全局变量
     Dim dt_LB As DataTable = New DataTable()
 
     Dim ComboBoxTreeLB As ComboBoxTreeView
@@ -60,19 +60,19 @@
             sql = "select * from lb  where lbdm >= " + bmbh + " and lbdm<=" + MAXBH.ToString
             Debug.Print(sql)
         End If
-        sda_LB = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_LB)
+        sda_LB = New LiuDataAdapter(sql, CONN_STR)
+
         dt_LB.Clear()
         sda_LB.Fill(dt_LB)
 
     End Sub
 
 
-    Public Sub OpenDataBase(ByRef SQLda As SQLiteDataAdapter, ByRef dt As DataTable, sql As String)
+    Public Sub OpenDataBase(ByRef SQLda As LiuDataAdapter, ByRef dt As DataTable, sql As String)
         Try
 
-            SQLda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-            Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(SQLda)
+            SQLda = New LiuDataAdapter(sql, CONN_STR)
+
             dt.Clear()
             SQLda.Fill(dt)
 
@@ -105,14 +105,14 @@
     End Sub
 
     Private Sub GetJldw()
-        Dim sda_jldw As SQLite.SQLiteDataAdapter
+        Dim sda_jldw As LiuDataAdapter
         Dim dt_jldw As DataTable = New DataTable()
         Dim str_sql_jldw As String
         str_sql_jldw = "select * from zd where item='计量单位'"
         Try
 
-            sda_jldw = New SQLite.SQLiteDataAdapter(str_sql_jldw, CONN_STR)
-            Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_jldw)
+            sda_jldw = New LiuDataAdapter(str_sql_jldw, CONN_STR)
+
             dt_jldw.Clear()
             sda_jldw.Fill(dt_jldw)
 
@@ -142,8 +142,7 @@
         Dim sql As String = "select * from bm"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        sda_BM = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_BM)
+        sda_BM = New LiuDataAdapter(sql, CONN_STR)
 
         sda_BM.Fill(dt_BM)
 
@@ -152,7 +151,7 @@
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim SCB = New SQLite.SQLiteCommandBuilder(sda_zc)
+        'Dim SCB = New SQLite.SQLiteCommandBuilder(sda_zc)
         Dim dr As DataRow = dt_zc.NewRow()
 
         sda_zc.Update(dt_zc)

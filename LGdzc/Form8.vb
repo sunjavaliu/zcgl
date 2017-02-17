@@ -1,5 +1,5 @@
 ﻿Public Class Form8
-    Dim sda_BM As SQLite.SQLiteDataAdapter   ';//全局变量
+    Dim sda_BM As LiuDataAdapter   ';//全局变量
     Dim dt_BM As DataTable = New DataTable()
 
     Dim ComboBoxTreeBM As ComboBoxTreeView
@@ -16,15 +16,15 @@
     End Sub
 
     Private Sub OpreaBMDataBase()
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
         '打开连接
-        conn.Open()
+        'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String = "select * from bm"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        sda_BM = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_BM)
+        sda_BM = New LiuDataAdapter(sql, CONN_STR)
+
 
         dt_BM.Clear()
         sda_BM.Fill(dt_BM)
@@ -35,11 +35,11 @@
     Private Sub GetKuCunDevice()
         'MsgBox(System.Environment.GetEnvironmentVariable("SYSTEMROOT"))
         Dim TB As DataTable = New DataTable()
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
 
         ' MsgBox(System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
         '打开连接
-        conn.Open()
+        'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
 
         '库存大于0的才能进行分配，否则不显示
@@ -47,8 +47,8 @@
         Dim sql As String = "select * from rk order by id desc"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        Dim sda As SQLite.SQLiteDataAdapter = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
+        Dim sda As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
+
 
         'sda.Fill(G_dt)
         sda.Fill(TB)
@@ -162,10 +162,10 @@
     End Sub
 
     Private Sub SaveData()
-        Dim SQLconn As New Data.SQLite.SQLiteConnection '定义数据库链接  
-        Dim sqlcmd As New SQLite.SQLiteCommand '定义查询操作  
-        Dim ds As New DataSet
-        Dim salda As New SQLite.SQLiteDataAdapter
+        'Dim SQLconn As New Data.SQLite.SQLiteConnection '定义数据库链接  
+        'Dim sqlcmd As New SQLite.SQLiteCommand '定义查询操作  
+        'Dim ds As New DataSet
+        Dim salda As LiuDataAdapter
 
 
 
@@ -254,28 +254,30 @@
             End If
 
 
-            SQLconn.ConnectionString = CONN_STR '链接数据库  
-            SQLconn.Open()
-            sqlcmd.Connection = SQLconn
-            sqlcmd.CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','djrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
+            'SQLconn.ConnectionString = CONN_STR '链接数据库  
+            'SQLconn.Open()
+            'sqlcmd.Connection = SQLconn
+            Dim CommandText As String
+            CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','djrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
 
             'ComboBoxTreeLB.Text +"','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ")"
-            Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
-            salda = New SQLite.SQLiteDataAdapter(sqlcmd.CommandText, SQLconn)
+            'Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
+            salda = New LiuDataAdapter(CommandText, CONN_STR)
 
-            SQLconn.Close()
+            'SQLconn.Close()
 
 
-            Dim sqlExecuteQuery As New SQLite.SQLiteCommand '定义查询操作  
-            Dim SQLconn2 As New Data.SQLite.SQLiteConnection '定义数据库链接  
-            SQLconn2.ConnectionString = CONN_STR '链接数据库
-            SQLconn2.Open()
-            sqlExecuteQuery.Connection = SQLconn2
+            Dim sqlExecuteQuery As LiuDataAdapter '定义查询操作  
+            'Dim SQLconn2 As New Data.SQLite.SQLiteConnection '定义数据库链接  
+            'SQLconn2.ConnectionString = CONN_STR '链接数据库
+            'SQLconn2.Open()
+            'sqlExecuteQuery.Connection = SQLconn2
 
-            sqlExecuteQuery.CommandText = "update rk set kucun= " + newKucun.ToString + "  where id=" + Rk_tab_id
+            CommandText = "update rk set kucun= " + newKucun.ToString + "  where id=" + Rk_tab_id
+            sqlExecuteQuery = New LiuDataAdapter(CommandText, CONN_STR)
 
-            sqlExecuteQuery.ExecuteNonQuery()
-            SQLconn2.Close()
+            'sqlExecuteQuery.ExecuteNonQuery()
+            'SQLconn2.Close()
 
 
 
@@ -285,9 +287,9 @@
             MsgBox("添加成功！")
 
         Finally
-            If Not (SQLconn Is Nothing) Then SQLconn.Dispose()
-            SQLconn = Nothing
-            If Not (salda Is Nothing) Then salda.Dispose()
+            'If Not (SQLconn Is Nothing) Then SQLconn.Dispose()
+            'SQLconn = Nothing
+            'If Not (salda Is Nothing) Then salda.Dispose()
             salda = Nothing
         End Try
     End Sub
@@ -304,14 +306,14 @@
     
 
         Dim dt = New DataTable()
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
         '打开连接
-        conn.Open()
+        'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String = "select xm from bm_ry where bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "'"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        Dim sda = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+        Dim sda = New LiuDataAdapter(sql, CONN_STR)
         'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
 
         sda.Fill(dt)

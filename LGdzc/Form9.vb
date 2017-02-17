@@ -1,7 +1,7 @@
 ﻿Public Class Form9
     Private ComboBoxTreeLB As ComboBoxTreeView
 
-    Private sda_LB As SQLite.SQLiteDataAdapter   ';//全局变量
+    Private sda_LB As LiuDataAdapter   ';//全局变量
     Private dt_LB As DataTable = New DataTable()
     Private Sub SetNewAdd()
         ComboBoxTreeLB.Text = ""
@@ -24,27 +24,29 @@
     End Sub
 
     Private Sub Save()
-        Dim SQLconn As New Data.SQLite.SQLiteConnection '定义数据库链接  
-        Dim sqlcmd As New SQLite.SQLiteCommand '定义查询操作  
+        'Dim SQLconn As New Data.SQLite.SQLiteConnection '定义数据库链接  
+        'Dim sqlcmd As New SQLite.SQLiteCommand '定义查询操作  
         Dim ds As New DataSet
-        Dim salda As New SQLite.SQLiteDataAdapter
+        Dim salda As LiuDataAdapter
         Dim rkbh As String
         Try
-            SQLconn.ConnectionString = CONN_STR '链接数据库  
-            SQLconn.Open()
-            sqlcmd.Connection = SQLconn
+            'SQLconn.ConnectionString = CONN_STR '链接数据库  
+            'SQLconn.Open()
+            'sqlcmd.Connection = SQLconn
             rkbh = GetRKBH()
-            sqlcmd.CommandText = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz','kucun','rkbh') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ",'" + rkbh + "')"
-            Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
-            salda = New SQLite.SQLiteDataAdapter(sqlcmd.CommandText, SQLconn)
+            'sqlcmd.CommandText = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz','kucun','rkbh') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ",'" + rkbh + "')"
+            Dim sql As String
+            sql = "insert into rk ('lbmc','lbid','zcmc','cgfs','ghs','gzrq','dhrq','price','cgsl','jldw','qsr','cgxmmc','pz','kucun','rkbh') values('" + ComboBoxTreeLB.Text + "','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ",'" + rkbh + "')"
+            'Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
+            salda = New LiuDataAdapter(sql, CONN_STR)
             'SQLite.SQLiteHelper.ExecuteDataset(constr, CommandType.Text, Sql)
             'salda.Fill(ds, 0)
             'DGV1.DataSource = ds.Tables(0)
             MsgBox("添加成功！")
 
         Finally
-            If Not (SQLconn Is Nothing) Then SQLconn.Dispose()
-            SQLconn = Nothing
+            'If Not (SQLconn Is Nothing) Then SQLconn.Dispose()
+            'SQLconn = Nothing
             If Not (salda Is Nothing) Then salda.Dispose()
             salda = Nothing
         End Try
@@ -86,8 +88,8 @@
             sql = "select * from lb  where lbdm >= " + bmbh + " and lbdm<=" + MAXBH.ToString
             Debug.Print(sql)
         End If
-        sda_LB = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_LB)
+        sda_LB = New LiuDataAdapter(sql, CONN_STR)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_LB)
         dt_LB.Clear()
         sda_LB.Fill(dt_LB)
 
