@@ -10,6 +10,7 @@
 
     Dim G_dt_ry As DataTable = New DataTable()
 
+    Dim G_BMBH As String                '部门编号全局信息
     'Dim sda_ry As LiuDataAdapter
  
     ''' <summary>
@@ -233,7 +234,8 @@
         'sda_ry.Fill(G_dt_ry)
         'DataGridView1.DataSource = G_dt_ry
         'DataGridView1.Refresh()
-        OpreaRYDataBase(SelectedNode.Name)
+        G_BMBH = SelectedNode.Name
+        OpreaRYDataBase(G_BMBH)
     End Sub
 
 
@@ -280,7 +282,16 @@
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 
         sda_ry.Update(G_dt_ry)
-        MsgBox("更新成功")
+        Dim sql As String
+        '这个更新语句是将在部门信息改变后对资产信息里面的部门及人员信息进行更新，SQLITE与mysql的语法还不一样，不能通用
+        sql = "update zc set bmbh=(select  bm_ry.bmbh from bm_ry where bm_ry.xm=zc.zrr),bmmc=(select bminfo.bmmc from bminfo where bminfo.xm=zc.zrr),zrr=(select bminfo.xm from bminfo where bminfo.xm=zc.zrr)"
+        Dim da As LiuDataAdapter = New LiuDataAdapter()
+        Dim howUpdate As Integer = 0
+        howUpdate = da.ExecuteNonQuery(sql)
+        Debug.Print("更新记录")
+        Debug.Print(howUpdate)
+        MsgBox("部门人员信息更新成功，同时更新了人员所属设备记录信息！")
+        OpreaRYDataBase(G_BMBH)
     End Sub
 
 

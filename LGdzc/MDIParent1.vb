@@ -123,7 +123,56 @@ Public Class MDIParent1
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
 
     End Sub
+    ''' <summary>
+    ''' 
+    ''' 使用泛型。打开窗口，防止窗口重复打开，永远只打开点击的那个窗口，并把前面的窗口关闭掉
+    ''' </summary>
+    ''' <typeparam name="T"></typeparam>
+    ''' <remarks></remarks>
+    Private Sub Jump(Of T As {Form, New})()
 
+
+        Dim find As Boolean = False
+
+        For Each f As Form In Me.SplitContainer1.Panel2.Controls
+
+
+            '直接用类型来判断，不用text属性了 
+
+            If TypeOf f Is T Then
+
+
+                find = True
+                'Me.SplitContainer1.Panel2.Controls.
+                'f.Show()
+                'f.Dispose()
+                'f.Close()
+                'f.Activate()
+            Else
+                f.Close()
+                f.Dispose()
+            End If
+        Next
+
+        If find = False Then
+
+
+            Dim tt As New T()
+
+
+            tt.TopLevel = False
+            'Me.Controls.Add(f)
+            'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow
+            tt.FormBorderStyle = FormBorderStyle.None
+            Me.SplitContainer1.Panel2.Controls.Add(tt)
+            tt.Show()
+        End If
+
+
+
+    End Sub
+
+  
     Private Sub TreeView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TreeView1.MouseDoubleClick
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
         Dim fm As Form
@@ -132,38 +181,54 @@ Public Class MDIParent1
         SelectedNode.SelectedImageIndex = 1
         Select Case SelectedNode.Text
             Case "资产信息管理"
-                fm = New Form3()
-                Me.OpenChildWindow(fm)
+                'fm = New Form3()
+                'Me.OpenChildWindow(fm)
+                Jump(Of Form3)()
             Case "部门及人员管理"
-                fm = New Form1()
-                Me.OpenChildWindow(fm)
+                Jump(Of Form1)()
+                'fm = New Form1()
+                'Me.OpenChildWindow(fm)
             Case "常用字典信息管理"
-                fm = New Form6()
-                Me.OpenChildWindow(fm)
+                Jump(Of Form6)()
+                'fm = New Form6()
+                'Me.OpenChildWindow(fm)
             Case "资产类别管理"
-                fm = New Form2()
-                Me.OpenChildWindow(fm)
+                Jump(Of Form2)()
+                'fm = New Form2()
+                'Me.OpenChildWindow(fm)
             Case "数据导入"
-                fm = New Form7()
-                Me.OpenChildWindow(fm)
+                Jump(Of Form7)()
+                'fm = New Form7()
+                'Me.OpenChildWindow(fm)
             Case "设备入库"
-                fm = New Form9()
-                Me.OpenChildWindow(fm)
+                Jump(Of Form9)()
+                'fm = New Form9()
+                'Me.OpenChildWindow(fm)
             Case "新入库设备分配"
-                fm = New Form8()
-                Me.OpenChildWindow(fm)
+                Jump(Of Form8)()
+                'fm = New Form8()
+                'Me.OpenChildWindow(fm)
             Case "查看入库设备"
-                fm = New LLRKZC()
-                Me.OpenChildWindow(fm)
+                Jump(Of Form1)()
+                'fm = New LLRKZC()
+                'Me.OpenChildWindow(fm)
             Case "归还设备"
-                fm = New zcjh()
-                Me.OpenChildWindow(fm)
+                Jump(Of zcjh)()
+                'fm = New zcjh()
+                'Me.OpenChildWindow(fm)
             Case "资产调拨"
-                fm = New zclygh()
-                Me.OpenChildWindow(fm)
+                Jump(Of zclygh)()
+                'fm = New zclygh()
+                'Me.OpenChildWindow(fm)
         End Select
     End Sub
     Private Sub OpenChildWindow(f As Form)
+        For Each frm As Form In Me.SplitContainer1.Panel2.Controls
+            '注意，这里是form在遍历
+            'frm.Close()
+            Debug.Print(frm.Name)
+        Next
+
         f.TopLevel = False
         'Me.Controls.Add(f)
         'f.FormBorderStyle = Windows.Forms.FormBorderStyle.SizableToolWindow

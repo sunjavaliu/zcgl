@@ -70,7 +70,6 @@ Partial Class zclygh
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -113,7 +112,7 @@ Partial Class zclygh
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(1521, 321)
+        Me.DataGridView1.Size = New System.Drawing.Size(1521, 319)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
@@ -124,7 +123,7 @@ Partial Class zclygh
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1529, 347)
+        Me.GroupBox2.Size = New System.Drawing.Size(1529, 345)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "资产信息"
@@ -184,9 +183,8 @@ Partial Class zclygh
         Me.SplitContainer3.Panel2.Controls.Add(Me.Label8)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Label4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button7)
-        Me.SplitContainer3.Panel2.Controls.Add(Me.Button6)
         Me.SplitContainer3.Size = New System.Drawing.Size(1529, 680)
-        Me.SplitContainer3.SplitterDistance = 347
+        Me.SplitContainer3.SplitterDistance = 345
         Me.SplitContainer3.SplitterWidth = 5
         Me.SplitContainer3.TabIndex = 7
         '
@@ -386,9 +384,9 @@ Partial Class zclygh
         Me.Label11.Location = New System.Drawing.Point(36, 248)
         Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(37, 15)
+        Me.Label11.Size = New System.Drawing.Size(67, 15)
         Me.Label11.TabIndex = 154
-        Me.Label11.Text = "数量"
+        Me.Label11.Text = "领用数量"
         '
         'DateTimePicker2
         '
@@ -514,12 +512,12 @@ Partial Class zclygh
         '
         'Button9
         '
-        Me.Button9.Location = New System.Drawing.Point(1273, 178)
+        Me.Button9.Location = New System.Drawing.Point(1138, 182)
         Me.Button9.Margin = New System.Windows.Forms.Padding(4)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(100, 29)
         Me.Button9.TabIndex = 141
-        Me.Button9.Text = "调入"
+        Me.Button9.Text = "执行"
         Me.Button9.UseVisualStyleBackColor = True
         '
         'ComboBox3
@@ -566,18 +564,8 @@ Partial Class zclygh
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(100, 29)
         Me.Button7.TabIndex = 9
-        Me.Button7.Text = "返回"
+        Me.Button7.Text = "关闭"
         Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(1138, 178)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(100, 29)
-        Me.Button6.TabIndex = 8
-        Me.Button6.Text = "新增"
-        Me.Button6.UseVisualStyleBackColor = True
         '
         'ImageList1
         '
@@ -733,7 +721,6 @@ Partial Class zclygh
     Friend WithEvents AddSubToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddSideWaysToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents Button7 As System.Windows.Forms.Button
     Friend WithEvents ExpandAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CollapseAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

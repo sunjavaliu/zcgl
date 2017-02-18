@@ -159,7 +159,12 @@
         MsgBox("更新成功")
     End Sub
 
-
+    ''' <summary>
+    ''' 
+    ''' 通过ZC结构体传递参数
+    ''' </summary>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Private Function GetZcData() As ZcInfo
         Dim zcData As ZcInfo
         zcData = New ZcInfo()

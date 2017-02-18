@@ -52,7 +52,7 @@
         Dim rowlist As DataRow() = datatable.[Select](WhereFiled1 & "=" & Convert.ToString(parentNode.Name))
         For i As Integer = 0 To rowlist.Length - 1
             Dim node As New TreeNode()
-            node.ToolTipText = "单击右键进行编辑操作"
+            node.ToolTipText = "单击左键或右键进行选择操作"
             If datatable.[Select](WhereFiled1 & "=" & rowlist(i)(TreeNodeName).ToString().Trim()).Length > 0 Then
                 node.Text = rowlist(i)(TreeNodeText).ToString() '+ "[" + rowlist(i)("lbdm").ToString() + "]"
                 node.Name = rowlist(i)(TreeNodeName).ToString()

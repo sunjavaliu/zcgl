@@ -110,7 +110,7 @@
         DataGridView1.Columns(6).HeaderText = "购置日期"
         DataGridView1.Columns(7).HeaderText = "登记日期"
         DataGridView1.Columns(8).HeaderText = "资产来源"
-        DataGridView1.Columns(9).HeaderText = "购置数量"
+        DataGridView1.Columns(9).HeaderText = "领用数量"
         DataGridView1.Columns(10).HeaderText = "单价"
         DataGridView1.Columns(11).HeaderText = "总价"
         DataGridView1.Columns(12).HeaderText = "资产状态"
@@ -122,18 +122,16 @@
         DataGridView1.Columns(18).HeaderText = "入库编号"
         DataGridView1.Columns(19).HeaderText = "设备型号"
         DataGridView1.Columns(20).HeaderText = "设备品牌"
+        DataGridView1.Columns(21).HeaderText = "配置"
+        DataGridView1.Columns(22).HeaderText = "设备序列号"
+        DataGridView1.Columns(23).HeaderText = "操作系统序列号"
+
         DataGridView1.Columns(3).Frozen = True
         'G_dt.Load(reader)
     End Sub
 
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
         FenPeiZC()
-    End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Form4.StartPosition = FormStartPosition.CenterScreen
-        Form4.ShowDialog()  '被ShowDialog出来的窗体关闭后实际只是被隐藏了，而没有被销毁。既并没有执行Dispose。
-        Form4.Close()       '在这里关闭窗口就可以防止窗口窗体销毁不刷新主窗体
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -185,10 +183,12 @@
         Dim sql As String
         Dim log As String
         Dim zcbh As String
+        Dim pz As String
         zcbh = TextBox3.Text
+        pz = TextBox8.Text
         If zcbh = "" Then Return
         log = DataGridView1.SelectedRows(0).Cells(17).Value.ToString() + "->" + DateTimePicker2.Text + ComboBoxTreeBM.Text + ComboBox3.Text
-        sql = "update zc set bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',bmmc='" + ComboBoxTreeBM.Text + "', log='" + log + "', zrr='" + ComboBox3.Text + "' ,zczt='" + ComboBox1.Text + "'  where zcbh='" + zcbh + "'"
+        sql = "update zc set bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',bmmc='" + ComboBoxTreeBM.Text + "', log='" + log + "', zrr='" + ComboBox3.Text + "' ,zczt='" + ComboBox1.Text + "',pz='" + pz + "'  where zcbh='" + zcbh + "'"
         sda_zc.ExecuteNonQuery(sql)
 
         'If selectRowNum = -1 Then Return
@@ -204,7 +204,7 @@
         'DataGridView1.Update()
         'selectRowNum = -1
 
-        MsgBox("设备由" + TextBox2.Text + "调入" + ComboBox3.Text)
+        MsgBox("设备由 【" + TextBox2.Text + "】 调拨给 【" + ComboBox3.Text + "】")
         SetNew()
         OpreaZCDataBase(bmbh)
 
@@ -231,6 +231,10 @@
         TextBox1.Text = DataGridView1.SelectedRows(0).Cells(14).Value.ToString()
         TextBox2.Text = DataGridView1.SelectedRows(0).Cells(15).Value.ToString()
         TextBox3.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()         '资产编号
+        TextBox8.Text = DataGridView1.SelectedRows(0).Cells(21).Value.ToString()       '配置信息
+        TextBox9.Text = DataGridView1.SelectedRows(0).Cells(9).Value.ToString()            '领用数量
+        TextBox4.Text = DataGridView1.SelectedRows(0).Cells(22).Value.ToString()    '设备序列号
+        TextBox5.Text = DataGridView1.SelectedRows(0).Cells(20).Value.ToString()        '资产品牌
     End Sub
 
     Private Sub SetNew()

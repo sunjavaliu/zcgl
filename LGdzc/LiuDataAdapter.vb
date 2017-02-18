@@ -77,14 +77,14 @@ Public Class LiuDataAdapter
     End Function
 
 
-    Public Sub ExecuteNonQuery(SQL As String)
+    Public Function ExecuteNonQuery(SQL As String)
 #If IS_SQLITE_DB Then
-            Dim conn As SQLite.SQLiteConnection = New SQLite.SQLiteConnection()
-
+        Dim conn As SQLite.SQLiteConnection = New SQLite.SQLiteConnection()
+        Dim howUpdate As Integer
         conn.ConnectionString = CONN_STR
         conn.Open()
 
-        Dim cmd As  SQLite.SQLiteCommand = New  SQLite.SQLiteCommand(SQL, conn)
+        Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(SQL, conn)
 #Else
         Dim conn As MySql.Data.MySqlClient.MySqlConnection = New MySql.Data.MySqlClient.MySqlConnection()
 
@@ -94,7 +94,7 @@ Public Class LiuDataAdapter
         Dim cmd As MySql.Data.MySqlClient.MySqlCommand = New MySql.Data.MySqlClient.MySqlCommand(SQL, conn)
 #End If
 
-        cmd.ExecuteNonQuery()
+        howUpdate = cmd.ExecuteNonQuery()
 
         Try
             conn.Close()
@@ -102,6 +102,8 @@ Public Class LiuDataAdapter
             conn.Close()
             Throw
         End Try
-    End Sub
+        Return howUpdate
+    End Function
+
 End Class
 

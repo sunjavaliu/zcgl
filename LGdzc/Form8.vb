@@ -205,7 +205,9 @@
         Dim rkbh As String  '入库编号
         Dim zcxh As String  '资产型号
         Dim zcpp As String  '资产品牌   
-
+        Dim pz As String    '配置
+        Dim sbsn As String  '设备SN
+        Dim ossn As String  '操作系统SN
 
         Dim newKucun As Integer = 0 '新库存数量
 
@@ -241,7 +243,9 @@
             rkbh = TextBox6.Text
             zcxh = TextBox8.Text
             zcpp = TextBox12.Text
-
+            pz = TextBox4.Text
+            ossn = TextBox2.Text
+            sbsn = TextBox1.Text
             If zcsl > oldKucun Then
 
                 MsgBox("分配数量大于库存数量")
@@ -259,7 +263,7 @@
             'SQLite可以在字段上加单引号，MYsql就不行
             'CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','djrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
 
-            CommandText = "insert into zc (zcbh,zcmc,lbid,lbmc,jldw,gzrq,djrq,zcly,zcsl,zcdj,zczj,zczt,bmbh,bmmc,zrr,cfwz,log,rkbh,zcxh,zcpp) values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + log + "','" + rkbh + "','" + zcxh + "','" + zcpp + "')"
+            CommandText = "insert into zc (zcbh,zcmc,lbid,lbmc,jldw,gzrq,djrq,zcly,zcsl,zcdj,zczj,zczt,bmbh,bmmc,zrr,cfwz,log,rkbh,zcxh,zcpp,pz,devicesn,ossn) values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + log + "','" + rkbh + "','" + zcxh + "','" + zcpp + "','" + pz + "','" + sbsn + "','" + ossn + "')"
 
             'ComboBoxTreeLB.Text +"','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ")"
             'Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
