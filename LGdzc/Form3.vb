@@ -128,10 +128,11 @@
         DataGridView1.Columns(22).HeaderText = "设备序列号"
         DataGridView1.Columns(23).HeaderText = "操作系统序列号"
 
-
+        '更改显示序号
         DataGridView1.Columns(14).DisplayIndex = 1
         DataGridView1.Columns(15).DisplayIndex = 2
         DataGridView1.Columns(19).DisplayIndex = 3
+        DataGridView1.Columns(12).DisplayIndex = 4
 
         'DataGridView1.Columns("zcbh").HeaderText = "资产编号"
         'DataGridView1.Columns("zcmc").HeaderText = "资产名称"

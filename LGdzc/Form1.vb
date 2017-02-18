@@ -10,9 +10,13 @@
 
     Dim G_dt_ry As DataTable = New DataTable()
 
+    Dim selectRow As Integer
+
     Dim G_BMBH As String                '部门编号全局信息
     'Dim sda_ry As LiuDataAdapter
- 
+    Dim ComboBoxTreeBM As ComboBoxTreeView
+    Dim oldName As String           ' 修改前的姓名
+    Dim modifyID As String          '修改的ID信息
     ''' <summary>
     ''' 右键弹出窗口
     ''' </summary>
@@ -101,15 +105,16 @@
         TreeOperateType = TREE_NONE
     End Sub
     Private Sub EnableWrite()
-        TextBox1.Enabled = True
+        TextBox1.Enabled = False
         TextBox2.Enabled = True
         'TreeView1.Refresh()
         TreeView1.Enabled = False
-
+        Button1.Enabled = True
     End Sub
     Private Sub DisableWrite()
         TextBox1.Text = ""
         TextBox2.Text = ""
+        Button1.Enabled = False
         TextBox1.Enabled = False
         TextBox2.Enabled = False
         'TreeView1.Refresh()
@@ -177,7 +182,8 @@
             OpreaBMDataBase()
             CommBindTreeView(0, TreeView1, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
 
-
+            DisplayBMTree()
+            ComboBoxTreeBM.Enabled = False
             DisableWrite()
             TreeView1.ShowNodeToolTips = True
             'TreeView1.Nodes.
@@ -272,26 +278,43 @@
         DataGridView1.Columns(2).HeaderText = "性别"
         DataGridView1.Columns(3).HeaderText = "部门编号"
         DataGridView1.Columns(4).HeaderText = "固定电话"
+        'DataGridView1.Rows(selectRow).Selected = True
+        'DataGridView1.FirstDisplayedScrollingRowIndex = DataGridView1.Rows(selectRow).Index
         DataGridView1.Refresh()
         'G_dt.Load(reader)
     End Sub
 
-
-
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
+    Private Sub SaveBMRYinfo()
         sda_ry.Update(G_dt_ry)
+        UpdateDB_BMRY_ZC()
+    End Sub
+
+    Private Sub UpdateDB_BMRY_ZC()
         Dim sql As String
-        '这个更新语句是将在部门信息改变后对资产信息里面的部门及人员信息进行更新，SQLITE与mysql的语法还不一样，不能通用
-        sql = "update zc set bmbh=(select  bm_ry.bmbh from bm_ry where bm_ry.xm=zc.zrr),bmmc=(select bminfo.bmmc from bminfo where bminfo.xm=zc.zrr),zrr=(select bminfo.xm from bminfo where bminfo.xm=zc.zrr)"
         Dim da As LiuDataAdapter = New LiuDataAdapter()
         Dim howUpdate As Integer = 0
+
+
+        '这个更新语句是将在部门信息改变后对资产信息里面的部门及人员信息进行更新，SQLITE与mysql的语法还不一样，不能通用
+        sql = "update zc set bmbh=(select  bm_ry.bmbh from bm_ry where bm_ry.xm=zc.zrr),bmmc=(select bminfo.bmmc from bminfo where bminfo.xm=zc.zrr),zrr=(select bminfo.xm from bminfo where bminfo.xm=zc.zrr)"
+
+        'sql = ""
+
         howUpdate = da.ExecuteNonQuery(sql)
         Debug.Print("更新记录")
         Debug.Print(howUpdate)
-        MsgBox("部门人员信息更新成功，同时更新了人员所属设备记录信息！")
+
         OpreaRYDataBase(G_BMBH)
+        'FirstDisplayedScrollingRowIndex()
+        'DataGridView1.FirstDisplayedScrollingRowIndex = DataGridView1.Rows(selectRow).Index
+        'DataGridView1.CurrentRow.Index = DataGridView1.Rows(selectRow).Index
+
+        'MsgBox("部门人员信息更新成功，同时更新了人员所属设备记录信息！")
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        SaveBMRYinfo()
+
     End Sub
 
 
@@ -320,6 +343,7 @@
             '数据库中进行删除()
             sda_ry.Update(G_dt_ry)
             MsgBox("删除成功")
+            Button3.Visible = False
         End If
 
     End Sub
@@ -329,16 +353,16 @@
         'DataGridView1.CellValueChanged()
         Dim rs As DataGridViewRow
         Debug.Print(DataGridView1.Rows.Count())
-        For Each rs In DataGridView1.Rows
+        'For Each rs In DataGridView1.Rows
 
-            If rs.State = DataRowState.Added Or rs.State = DataRowState.Detached Or rs.State = DataRowState.Modified Then
-                Debug.Print("bianji")
-            Else
-                Debug.Print("meiyou bianji")
-            End If
+        '    If rs.State = DataRowState.Added Or rs.State = DataRowState.Detached Or rs.State = DataRowState.Modified Then
+        '        Debug.Print("bianji")
+        '    Else
+        '        Debug.Print("meiyou bianji")
+        '    End If
 
 
-        Next
+        'Next
         If DataGridView1.IsCurrentCellInEditMode Then
             If MsgBox("放弃正在编辑的数据吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
                 Me.Dispose()
@@ -371,12 +395,142 @@
         End If
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Form7.ShowDialog()
-    End Sub
-
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         ExportToCSV(DataGridView1)
+    End Sub
+
+    Private Sub DisplayBMTree()
+        ComboBoxTreeBM = New ComboBoxTreeView()
+        ComboBoxTreeBM.Dock = DockStyle.Fill
+        Me.Panel2.Controls.Add(ComboBoxTreeBM)
+
+        'OpreaBMDataBase()
+        CommBindTreeView(0, ComboBoxTreeBM.TreeView, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+        Dim sql As String
+        Dim bmbh As String
+        If ComboBoxTreeBM.TreeView.SelectedNode Is Nothing Or TextBox3.Text = "" Or ComboBoxTreeBM.Text = "" Then
+            MsgBox("姓名和所属部门不能为空！")
+            Return
+        End If
+        bmbh = ComboBoxTreeBM.TreeView.SelectedNode.Name
+
+        If Button3.Text = "保存新增信息" Then
+            sql = "insert into bm_ry(xm,xb,bmbh,tel) values ('" + TextBox3.Text + "','" + ComboBox1.Text + "','" + bmbh + "','" + TextBox5.Text + "')"
+            sda_ry.ExecuteNonQuery(sql)
+            UpdateDB_BMRY_ZC()
+            '添加信息后将光标定在最后一行
+            DataGridView1.CurrentCell = DataGridView1(0, DataGridView1.Rows.Count - 1)
+
+            'MsgBox("添加成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
+
+        End If
+        If Button3.Text = "保存修改信息" Then
+            'sql = "insert into bm_ry(xm,xb,bmbh,tel) values ('" + TextBox3.Text + "','" + ComboBox1.Text + "','" + bmbh + "','" + TextBox5.Text + "')"
+            sql = "update bm_ry set xm='" + TextBox3.Text + "',xb='" + ComboBox1.Text + "',bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',tel='" + TextBox5.Text + "' where id=" + modifyID
+            sda_ry.ExecuteNonQuery(sql)
+            UpdateDB_BMRY_ZC()
+            modifyID = "NULL"
+
+            '修改信息后将光标定在修改的行上
+            DataGridView1.CurrentCell = DataGridView1(0, selectRow)
+
+            'MsgBox("添加成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
+
+        End If
+
+        Button3.Text = "保存"
+        Button3.Enabled = False
+        SetNew()
+        SetAddEditDisable()
+    End Sub
+    Private Sub SetNew()
+        TextBox3.Text = ""
+        TextBox5.Text = ""
+    End Sub
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+  
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Button3.Text = "保存修改信息"
+        Button3.Visible = True
+
+        SetAddEditEnable()
+        selectRow = DataGridView1.SelectedRows(0).Index
+        modifyID = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+
+        TextBox3.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
+        ComboBox1.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
+        TextBox5.Text = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
+
+        'ComboBoxTreeBM.TreeView.SelectedNode.Name = DataGridView1.SelectedRows(0).Cells(3).Value.ToString
+        'DataGridView1.Enabled = False
+
+        Dim bmbh As String = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
+
+        ComboBoxTreeBM.TreeView.Focus()
+        For i As Integer = 0 To ComboBoxTreeBM.TreeView.Nodes.Count - 1
+            For j As Integer = 0 To ComboBoxTreeBM.TreeView.Nodes(i).Nodes.Count - 1
+                If ComboBoxTreeBM.TreeView.Nodes(i).Nodes(j).Name = bmbh Then
+                    ComboBoxTreeBM.TreeView.SelectedNode = ComboBoxTreeBM.TreeView.Nodes(i).Nodes(j)
+                    ComboBoxTreeBM.Text = ComboBoxTreeBM.TreeView.Nodes(i).Nodes(j).Text
+                    '选中
+                    'treeView.Nodes[i].Nodes[j].Checked = true;
+                    ComboBoxTreeBM.TreeView.Nodes(i).Expand()
+                    '展开父级
+                    Return
+                End If
+            Next
+        Next
+
+
+
+
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        TextBox3.Text = ""
+        TextBox5.Text = ""
+        ComboBoxTreeBM.Text = ""
+        ComboBox1.Text = ""
+        Button3.Text = "保存新增信息"
+        SetAddEditEnable()
+    End Sub
+    Private Sub SetAddEditEnable()
+        TextBox3.Enabled = True
+        TextBox5.Enabled = True
+        ComboBoxTreeBM.Enabled = True
+        ComboBox1.Enabled = True
+        Button3.Enabled = True
+    End Sub
+    Private Sub SetAddEditDisable()
+        TextBox3.Enabled = False
+        TextBox5.Enabled = False
+        ComboBoxTreeBM.Enabled = False
+        ComboBox1.Enabled = False
+        Button3.Enabled = False
+    End Sub
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        Button3.Visible = False
+        SetNew()
+    End Sub
+
+    Private Sub TextBox5_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox5.KeyPress
+
+    End Sub
+
+    Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
+
     End Sub
 End Class
 

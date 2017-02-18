@@ -1,4 +1,4 @@
-﻿Public Class zclygh
+﻿Public Class xzsb
 
     Private TreeOperateType As String
 
@@ -23,7 +23,7 @@
         'OpreaBMDataBase()
         CommBindTreeView(0, ComboBoxTreeBM.TreeView, dt_BM, "parentBMBH", "0", "BMMC", "BMBH")
     End Sub
-    Private Sub zclygh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub xzsb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             'BindTreeView(0, TreeView1, G_dt)
@@ -84,9 +84,9 @@
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String
         If bmbh = "" Or bmbh = "1" Then
-            sql = "select * from zc"
+            sql = "select * from zc where zczt='闲置'"
         Else
-            sql = "select * from zc where bmbh=" + bmbh
+            sql = "select * from zc where  zczt='闲置' and bmbh=" + bmbh
         End If
 
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)

@@ -1,6 +1,8 @@
 ﻿Public Class test
 
 
+    Dim G_dt As DataTable = New DataTable()
+    Dim ComboBoxTreeBM As ComboBoxTreeView
     Dim dtTable As New DataTable("Employee")    ' CREATE A DATATABLE.
 
     Private Sub Form8_Load(ByVal sender As Object, ByVal e As System.EventArgs) _
@@ -115,6 +117,7 @@
         Width = rect.Width
         height = rect.Height
 
+
         With ComboBox1
             .SetBounds(x, y, Width, height)
             .Visible = True
@@ -122,7 +125,4 @@
         End With
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-    End Sub
 End Class

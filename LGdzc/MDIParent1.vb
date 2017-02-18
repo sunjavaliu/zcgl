@@ -2,7 +2,7 @@
 
 Public Class MDIParent1
 
-    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewWindowToolStripMenuItem.Click, NewToolStripButton.Click
+    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripButton.Click
         ' 创建此子窗体的一个新实例。
         Dim ChildForm As New System.Windows.Forms.Form
         ' 在显示该窗体前使其成为此 MDI 窗体的子窗体。
@@ -52,7 +52,7 @@ Public Class MDIParent1
 
 
 
-    Private Sub CloseAllToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CloseAllToolStripMenuItem.Click
+    Private Sub CloseAllToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         ' 关闭此父窗体的所有子窗体。
         For Each ChildForm As Form In Me.MdiChildren
             ChildForm.Close()
@@ -81,12 +81,12 @@ Public Class MDIParent1
 
 
 
-    Private Sub HideToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HideToolStripMenuItem.Click
+    Private Sub HideToolStripMenuItem_Click(sender As Object, e As EventArgs)
         SplitContainer1.Panel1Collapsed = True
         'SplitContainer1.Panel2.Controls.GetEnumerator.Current
     End Sub
 
-    Private Sub ShowToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToolStripMenuItem.Click
+    Private Sub ShowToolStripMenuItem_Click(sender As Object, e As EventArgs)
         SplitContainer1.Panel1Collapsed = False
     End Sub
 
@@ -209,7 +209,7 @@ Public Class MDIParent1
                 'fm = New Form8()
                 'Me.OpenChildWindow(fm)
             Case "查看入库设备"
-                Jump(Of Form1)()
+                Jump(Of LLRKZC)()
                 'fm = New LLRKZC()
                 'Me.OpenChildWindow(fm)
             Case "归还设备"
@@ -220,6 +220,8 @@ Public Class MDIParent1
                 Jump(Of zclygh)()
                 'fm = New zclygh()
                 'Me.OpenChildWindow(fm)
+            Case "闲置设备再分配"
+                Jump(Of xzsb)()
         End Select
     End Sub
     Private Sub OpenChildWindow(f As Form)
@@ -250,11 +252,19 @@ Public Class MDIParent1
     End Sub
 
     Private Sub ZcrkToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ZcrkToolStripMenuItem1.Click
-        Dim f As New Form9()
-        Me.OpenChildWindow(f)
+
+        Jump(Of Form9)()
     End Sub
 
     Private Sub SplitContainer1_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer1.Panel2.Paint
 
+    End Sub
+
+    Private Sub rkzcfpToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles rkzcfpToolStripMenuItem3.Click
+        Jump(Of Form8)()
+    End Sub
+
+    Private Sub llrkzcToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles llrkzcToolStripMenuItem3.Click
+        Jump(Of LLRKZC)()
     End Sub
 End Class

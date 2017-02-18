@@ -1,4 +1,6 @@
-﻿Module Comm
+﻿Imports System.Text.RegularExpressions
+
+Module Comm
 
 
     Public Sub IsInputNum(e As KeyPressEventArgs)
@@ -137,7 +139,7 @@
             '写入列标题 
             For i As Integer = 0 To dgv.ColumnCount - 1
                 If i > 0 Then
-                    ColumnTitle += ","
+                    columnTitle += ","
                 End If
                 columnTitle += dgv.Columns(i).HeaderText
             Next
@@ -172,4 +174,63 @@
             myStream.Close()
         End Try
     End Sub
+
+    ''' <summary>
+    ''' 防止SQL注入
+    ''' </summary>
+    ''' <param name="parms"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function ValiParms(parms As String) As Boolean
+        If parms Is Nothing Then
+            Return False
+        End If
+
+        Dim re1 As New Regex("sp_", RegexOptions.IgnoreCase)
+        Dim re2 As New Regex("'", RegexOptions.IgnoreCase)
+        Dim re3 As New Regex("create", RegexOptions.IgnoreCase)
+        Dim re4 As New Regex("drop", RegexOptions.IgnoreCase)
+        Dim re5 As New Regex("select", RegexOptions.IgnoreCase)
+        Dim re6 As New Regex("""", RegexOptions.IgnoreCase)
+        Dim re7 As New Regex("exec", RegexOptions.IgnoreCase)
+        Dim re8 As New Regex("xp_", RegexOptions.IgnoreCase)
+        Dim re9 As New Regex("insert", RegexOptions.IgnoreCase)
+        Dim re10 As New Regex("update", RegexOptions.IgnoreCase)
+
+        If re1.IsMatch(parms) Then
+            Return True
+        End If
+        If re2.IsMatch(parms) Then
+            Return True
+        End If
+        If re3.IsMatch(parms) Then
+            Return True
+        End If
+        If re4.IsMatch(parms) Then
+            Return True
+        End If
+        If re5.IsMatch(parms) Then
+            Return True
+        End If
+        If re6.IsMatch(parms) Then
+            Return True
+        End If
+        If re7.IsMatch(parms) Then
+            Return True
+        End If
+        If re8.IsMatch(parms) Then
+            Return True
+        End If
+        If re9.IsMatch(parms) Then
+            Return True
+        End If
+        If re10.IsMatch(parms) Then
+            Return True
+        End If
+
+        Return False
+    End Function
+
+
+
 End Module

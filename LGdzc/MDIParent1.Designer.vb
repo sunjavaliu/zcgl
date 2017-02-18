@@ -29,7 +29,7 @@ Partial Class MDIParent1
         Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产类别管理")
         Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("常用字典信息管理")
         Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("基础资料管理", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3})
-        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("设备入库")
+        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("新设备入库")
         Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("新入库设备分配")
         Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("查看入库设备")
         Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("入库设备管理", New System.Windows.Forms.TreeNode() {TreeNode5, TreeNode6, TreeNode7})
@@ -67,15 +67,6 @@ Partial Class MDIParent1
         Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NewWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CascadeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TileVerticalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TileHorizontalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CloseAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ArrangeIconsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HideToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -98,6 +89,8 @@ Partial Class MDIParent1
         Me.HelpToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.rkzcfpToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.llrkzcToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,11 +102,11 @@ Partial Class MDIParent1
         'MenuStrip
         '
         Me.MenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SystemManagToolStripMenuItem, Me.JczlToolStripMenuItem, Me.zcrkToolStripMenuItem, Me.ZcglToolStripMenuItem, Me.zcczToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.ViewMenu, Me.WindowsMenu, Me.HelpMenu})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SystemManagToolStripMenuItem, Me.JczlToolStripMenuItem, Me.zcrkToolStripMenuItem, Me.ZcglToolStripMenuItem, Me.zcczToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.ViewMenu, Me.HelpMenu})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(738, 25)
+        Me.MenuStrip.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
+        Me.MenuStrip.Size = New System.Drawing.Size(984, 28)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -121,143 +114,143 @@ Partial Class MDIParent1
         '
         Me.SystemManagToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PasswrodToolStripMenuItem, Me.SysLogToolStripMenuItem, Me.ToolStripMenuItem1, Me.InitToolStripMenuItem, Me.LogicCheckToolStripMenuItem, Me.ToolStripMenuItem2, Me.ExitToolStripMenuItem1})
         Me.SystemManagToolStripMenuItem.Name = "SystemManagToolStripMenuItem"
-        Me.SystemManagToolStripMenuItem.Size = New System.Drawing.Size(68, 21)
+        Me.SystemManagToolStripMenuItem.Size = New System.Drawing.Size(81, 24)
         Me.SystemManagToolStripMenuItem.Text = "系统管理"
         '
         'PasswrodToolStripMenuItem
         '
         Me.PasswrodToolStripMenuItem.Name = "PasswrodToolStripMenuItem"
-        Me.PasswrodToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.PasswrodToolStripMenuItem.Size = New System.Drawing.Size(174, 26)
         Me.PasswrodToolStripMenuItem.Text = "密码修改"
         '
         'SysLogToolStripMenuItem
         '
         Me.SysLogToolStripMenuItem.Name = "SysLogToolStripMenuItem"
-        Me.SysLogToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.SysLogToolStripMenuItem.Size = New System.Drawing.Size(174, 26)
         Me.SysLogToolStripMenuItem.Text = "操作日志"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(145, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(171, 6)
         '
         'InitToolStripMenuItem
         '
         Me.InitToolStripMenuItem.Name = "InitToolStripMenuItem"
-        Me.InitToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.InitToolStripMenuItem.Size = New System.Drawing.Size(174, 26)
         Me.InitToolStripMenuItem.Text = "初始化系统"
         '
         'LogicCheckToolStripMenuItem
         '
         Me.LogicCheckToolStripMenuItem.Name = "LogicCheckToolStripMenuItem"
-        Me.LogicCheckToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.LogicCheckToolStripMenuItem.Size = New System.Drawing.Size(174, 26)
         Me.LogicCheckToolStripMenuItem.Text = "数据逻辑纠错"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(145, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(171, 6)
         '
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(148, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(174, 26)
         Me.ExitToolStripMenuItem1.Text = "退出"
         '
         'JczlToolStripMenuItem
         '
         Me.JczlToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BmToolStripMenuItem, Me.LbToolStripMenuItem, Me.ZdToolStripMenuItem, Me.ImportToolStripMenuItem})
         Me.JczlToolStripMenuItem.Name = "JczlToolStripMenuItem"
-        Me.JczlToolStripMenuItem.Size = New System.Drawing.Size(68, 21)
+        Me.JczlToolStripMenuItem.Size = New System.Drawing.Size(81, 24)
         Me.JczlToolStripMenuItem.Text = "基础资料"
         '
         'BmToolStripMenuItem
         '
         Me.BmToolStripMenuItem.Name = "BmToolStripMenuItem"
-        Me.BmToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.BmToolStripMenuItem.Size = New System.Drawing.Size(189, 26)
         Me.BmToolStripMenuItem.Text = "部门及人员管理"
         '
         'LbToolStripMenuItem
         '
         Me.LbToolStripMenuItem.Name = "LbToolStripMenuItem"
-        Me.LbToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.LbToolStripMenuItem.Size = New System.Drawing.Size(189, 26)
         Me.LbToolStripMenuItem.Text = "资产类别管理"
         '
         'ZdToolStripMenuItem
         '
         Me.ZdToolStripMenuItem.Name = "ZdToolStripMenuItem"
-        Me.ZdToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.ZdToolStripMenuItem.Size = New System.Drawing.Size(189, 26)
         Me.ZdToolStripMenuItem.Text = "通用信息管理"
         '
         'ImportToolStripMenuItem
         '
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(189, 26)
         Me.ImportToolStripMenuItem.Text = "数据导入"
         '
         'zcrkToolStripMenuItem
         '
-        Me.zcrkToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ZcrkToolStripMenuItem1})
+        Me.zcrkToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ZcrkToolStripMenuItem1, Me.rkzcfpToolStripMenuItem3, Me.llrkzcToolStripMenuItem3})
         Me.zcrkToolStripMenuItem.Name = "zcrkToolStripMenuItem"
-        Me.zcrkToolStripMenuItem.Size = New System.Drawing.Size(68, 21)
+        Me.zcrkToolStripMenuItem.Size = New System.Drawing.Size(81, 24)
         Me.zcrkToolStripMenuItem.Text = "资产入库"
         '
         'ZcrkToolStripMenuItem1
         '
         Me.ZcrkToolStripMenuItem1.Name = "ZcrkToolStripMenuItem1"
-        Me.ZcrkToolStripMenuItem1.Size = New System.Drawing.Size(124, 22)
+        Me.ZcrkToolStripMenuItem1.Size = New System.Drawing.Size(189, 26)
         Me.ZcrkToolStripMenuItem1.Text = "资产入库"
         '
         'ZcglToolStripMenuItem
         '
         Me.ZcglToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExploreZCToolStripMenuItem})
         Me.ZcglToolStripMenuItem.Name = "ZcglToolStripMenuItem"
-        Me.ZcglToolStripMenuItem.Size = New System.Drawing.Size(68, 21)
+        Me.ZcglToolStripMenuItem.Size = New System.Drawing.Size(81, 24)
         Me.ZcglToolStripMenuItem.Text = "资产管理"
         '
         'ExploreZCToolStripMenuItem
         '
         Me.ExploreZCToolStripMenuItem.Name = "ExploreZCToolStripMenuItem"
-        Me.ExploreZCToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.ExploreZCToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
         Me.ExploreZCToolStripMenuItem.Text = "资产信息浏览"
         '
         'zcczToolStripMenuItem
         '
         Me.zcczToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.资产报废ToolStripMenuItem})
         Me.zcczToolStripMenuItem.Name = "zcczToolStripMenuItem"
-        Me.zcczToolStripMenuItem.Size = New System.Drawing.Size(68, 21)
+        Me.zcczToolStripMenuItem.Size = New System.Drawing.Size(81, 24)
         Me.zcczToolStripMenuItem.Text = "资产处置"
         '
         '资产报废ToolStripMenuItem
         '
         Me.资产报废ToolStripMenuItem.Name = "资产报废ToolStripMenuItem"
-        Me.资产报废ToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.资产报废ToolStripMenuItem.Size = New System.Drawing.Size(144, 26)
         Me.资产报废ToolStripMenuItem.Text = "资产报废"
         '
         'ToolsToolStripMenuItem
         '
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CaclToolStripMenuItem, Me.TxtToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(68, 21)
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(81, 24)
         Me.ToolsToolStripMenuItem.Text = "实用工具"
         '
         'CaclToolStripMenuItem
         '
         Me.CaclToolStripMenuItem.Name = "CaclToolStripMenuItem"
-        Me.CaclToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.CaclToolStripMenuItem.Size = New System.Drawing.Size(129, 26)
         Me.CaclToolStripMenuItem.Text = "计算器"
         '
         'TxtToolStripMenuItem
         '
         Me.TxtToolStripMenuItem.Name = "TxtToolStripMenuItem"
-        Me.TxtToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.TxtToolStripMenuItem.Size = New System.Drawing.Size(129, 26)
         Me.TxtToolStripMenuItem.Text = "记事本"
         '
         'ViewMenu
         '
         Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolBarToolStripMenuItem, Me.StatusBarToolStripMenuItem})
         Me.ViewMenu.Name = "ViewMenu"
-        Me.ViewMenu.Size = New System.Drawing.Size(60, 21)
+        Me.ViewMenu.Size = New System.Drawing.Size(71, 24)
         Me.ViewMenu.Text = "视图(&V)"
         '
         'ToolBarToolStripMenuItem
@@ -266,7 +259,7 @@ Partial Class MDIParent1
         Me.ToolBarToolStripMenuItem.CheckOnClick = True
         Me.ToolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ToolBarToolStripMenuItem.Name = "ToolBarToolStripMenuItem"
-        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
         Me.ToolBarToolStripMenuItem.Text = "工具栏(&T)"
         '
         'StatusBarToolStripMenuItem
@@ -275,76 +268,21 @@ Partial Class MDIParent1
         Me.StatusBarToolStripMenuItem.CheckOnClick = True
         Me.StatusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.StatusBarToolStripMenuItem.Name = "StatusBarToolStripMenuItem"
-        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
         Me.StatusBarToolStripMenuItem.Text = "状态栏(&S)"
-        '
-        'WindowsMenu
-        '
-        Me.WindowsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewWindowToolStripMenuItem, Me.CascadeToolStripMenuItem, Me.TileVerticalToolStripMenuItem, Me.TileHorizontalToolStripMenuItem, Me.CloseAllToolStripMenuItem, Me.ArrangeIconsToolStripMenuItem, Me.HideToolStripMenuItem, Me.ShowToolStripMenuItem})
-        Me.WindowsMenu.Name = "WindowsMenu"
-        Me.WindowsMenu.Size = New System.Drawing.Size(64, 21)
-        Me.WindowsMenu.Text = "窗口(&W)"
-        '
-        'NewWindowToolStripMenuItem
-        '
-        Me.NewWindowToolStripMenuItem.Name = "NewWindowToolStripMenuItem"
-        Me.NewWindowToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.NewWindowToolStripMenuItem.Text = "新建窗口(&N)"
-        '
-        'CascadeToolStripMenuItem
-        '
-        Me.CascadeToolStripMenuItem.Name = "CascadeToolStripMenuItem"
-        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.CascadeToolStripMenuItem.Text = "层叠(&C)"
-        '
-        'TileVerticalToolStripMenuItem
-        '
-        Me.TileVerticalToolStripMenuItem.Name = "TileVerticalToolStripMenuItem"
-        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.TileVerticalToolStripMenuItem.Text = "垂直平铺(&V)"
-        '
-        'TileHorizontalToolStripMenuItem
-        '
-        Me.TileHorizontalToolStripMenuItem.Name = "TileHorizontalToolStripMenuItem"
-        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.TileHorizontalToolStripMenuItem.Text = "水平平铺(&H)"
-        '
-        'CloseAllToolStripMenuItem
-        '
-        Me.CloseAllToolStripMenuItem.Name = "CloseAllToolStripMenuItem"
-        Me.CloseAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.CloseAllToolStripMenuItem.Text = "全部关闭(&L)"
-        '
-        'ArrangeIconsToolStripMenuItem
-        '
-        Me.ArrangeIconsToolStripMenuItem.Name = "ArrangeIconsToolStripMenuItem"
-        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.ArrangeIconsToolStripMenuItem.Text = "排列图标(&A)"
-        '
-        'HideToolStripMenuItem
-        '
-        Me.HideToolStripMenuItem.Name = "HideToolStripMenuItem"
-        Me.HideToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.HideToolStripMenuItem.Text = "隐藏左边菜单"
-        '
-        'ShowToolStripMenuItem
-        '
-        Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
-        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.ShowToolStripMenuItem.Text = "显示左边菜单"
         '
         'HelpMenu
         '
         Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentsToolStripMenuItem, Me.IndexToolStripMenuItem, Me.SearchToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem})
         Me.HelpMenu.Name = "HelpMenu"
-        Me.HelpMenu.Size = New System.Drawing.Size(61, 21)
+        Me.HelpMenu.Size = New System.Drawing.Size(73, 24)
         Me.HelpMenu.Text = "帮助(&H)"
         '
         'ContentsToolStripMenuItem
         '
         Me.ContentsToolStripMenuItem.Name = "ContentsToolStripMenuItem"
         Me.ContentsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F1), System.Windows.Forms.Keys)
-        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
         Me.ContentsToolStripMenuItem.Text = "目录(&C)"
         '
         'IndexToolStripMenuItem
@@ -352,7 +290,7 @@ Partial Class MDIParent1
         Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
         Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
         Me.IndexToolStripMenuItem.Text = "索引(&I)"
         '
         'SearchToolStripMenuItem
@@ -360,34 +298,35 @@ Partial Class MDIParent1
         Me.SearchToolStripMenuItem.Image = CType(resources.GetObject("SearchToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SearchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
         Me.SearchToolStripMenuItem.Text = "搜索(&S)"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(163, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(198, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
         Me.AboutToolStripMenuItem.Text = "关于(&A) ..."
         '
         'StatusStrip
         '
         Me.StatusStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 396)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 497)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(738, 22)
+        Me.StatusStrip.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
+        Me.StatusStrip.Size = New System.Drawing.Size(984, 25)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
         'ToolStripStatusLabel
         '
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
-        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(32, 17)
+        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 20)
         Me.ToolStripStatusLabel.Text = "状态"
         '
         'SplitContainer1
@@ -395,7 +334,8 @@ Partial Class MDIParent1
         Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 56)
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 59)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -404,9 +344,8 @@ Partial Class MDIParent1
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Size = New System.Drawing.Size(738, 340)
+        Me.SplitContainer1.Size = New System.Drawing.Size(984, 438)
         Me.SplitContainer1.SplitterDistance = 216
-        Me.SplitContainer1.SplitterWidth = 3
         Me.SplitContainer1.TabIndex = 9
         '
         'TreeView1
@@ -419,6 +358,7 @@ Partial Class MDIParent1
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.ItemHeight = 36
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
+        Me.TreeView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TreeView1.Name = "TreeView1"
         TreeNode1.Name = "部门及人员管理"
         TreeNode1.Text = "部门及人员管理"
@@ -429,7 +369,7 @@ Partial Class MDIParent1
         TreeNode4.Name = "节点2"
         TreeNode4.Text = "基础资料管理"
         TreeNode5.Name = "设备入库"
-        TreeNode5.Text = "设备入库"
+        TreeNode5.Text = "新设备入库"
         TreeNode6.Name = "新入库设备分配"
         TreeNode6.Text = "新入库设备分配"
         TreeNode7.Name = "查看入库设备"
@@ -455,7 +395,7 @@ Partial Class MDIParent1
         Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode8, TreeNode13, TreeNode16})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.ShowRootLines = False
-        Me.TreeView1.Size = New System.Drawing.Size(214, 338)
+        Me.TreeView1.Size = New System.Drawing.Size(214, 436)
         Me.TreeView1.TabIndex = 0
         '
         'ImageList1
@@ -543,23 +483,36 @@ Partial Class MDIParent1
         '
         Me.ToolStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.PrintToolStripButton, Me.PrintPreviewToolStripButton, Me.ToolStripSeparator2, Me.HelpToolStripButton, Me.ToolStripButton1})
-        Me.ToolStrip.Location = New System.Drawing.Point(0, 25)
+        Me.ToolStrip.Location = New System.Drawing.Point(0, 28)
         Me.ToolStrip.Name = "ToolStrip"
-        Me.ToolStrip.Size = New System.Drawing.Size(738, 31)
+        Me.ToolStrip.Size = New System.Drawing.Size(984, 31)
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
         '
+        'rkzcfpToolStripMenuItem3
+        '
+        Me.rkzcfpToolStripMenuItem3.Name = "rkzcfpToolStripMenuItem3"
+        Me.rkzcfpToolStripMenuItem3.Size = New System.Drawing.Size(189, 26)
+        Me.rkzcfpToolStripMenuItem3.Text = "新入库资产分配"
+        '
+        'llrkzcToolStripMenuItem3
+        '
+        Me.llrkzcToolStripMenuItem3.Name = "llrkzcToolStripMenuItem3"
+        Me.llrkzcToolStripMenuItem3.Size = New System.Drawing.Size(189, 26)
+        Me.llrkzcToolStripMenuItem3.Text = "浏览入库资产"
+        '
         'MDIParent1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(738, 418)
+        Me.ClientSize = New System.Drawing.Size(984, 522)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "MDIParent1"
         Me.Text = "长沙市电子计算站：IT设备管理系统"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -582,13 +535,6 @@ Partial Class MDIParent1
     Friend WithEvents SearchToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ArrangeIconsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CloseAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents NewWindowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents WindowsMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CascadeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TileVerticalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TileHorizontalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
     Friend WithEvents ToolStripStatusLabel As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
@@ -602,8 +548,6 @@ Partial Class MDIParent1
     Friend WithEvents LbToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ZcglToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExploreZCToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents HideToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ShowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SystemManagToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents InitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -633,5 +577,7 @@ Partial Class MDIParent1
     Friend WithEvents HelpToolStripButton As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStrip As System.Windows.Forms.ToolStrip
+    Friend WithEvents rkzcfpToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents llrkzcToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -51,6 +51,9 @@
         DataGridView1.Columns(16).HeaderText = "资产来源"
         DataGridView1.Columns(17).HeaderText = "设备型号"
         DataGridView1.Columns(18).HeaderText = "品牌"
+
+        DataGridView1.Columns(17).DisplayIndex = 3
+        DataGridView1.Columns(14).DisplayIndex = 4
         'DataGridView1.Columns(3).Frozen = True
         'DataGridView1.Columns
 
