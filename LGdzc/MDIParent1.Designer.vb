@@ -33,9 +33,9 @@ Partial Class MDIParent1
         Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("新入库设备分配")
         Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("查看入库设备")
         Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("入库设备管理", New System.Windows.Forms.TreeNode() {TreeNode5, TreeNode6, TreeNode7})
-        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产信息管理")
+        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("设备信息管理")
         Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("闲置设备再分配")
-        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("资产调拨")
+        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("设备调拨")
         Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("归还设备")
         Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("在用设备管理", New System.Windows.Forms.TreeNode() {TreeNode9, TreeNode10, TreeNode11, TreeNode12})
         Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("数据备份")
@@ -57,6 +57,8 @@ Partial Class MDIParent1
         Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.zcrkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZcrkToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.rkzcfpToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.llrkzcToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZcglToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExploreZCToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.zcczToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -89,8 +91,6 @@ Partial Class MDIParent1
         Me.HelpToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.rkzcfpToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.llrkzcToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -201,6 +201,18 @@ Partial Class MDIParent1
         Me.ZcrkToolStripMenuItem1.Size = New System.Drawing.Size(189, 26)
         Me.ZcrkToolStripMenuItem1.Text = "资产入库"
         '
+        'rkzcfpToolStripMenuItem3
+        '
+        Me.rkzcfpToolStripMenuItem3.Name = "rkzcfpToolStripMenuItem3"
+        Me.rkzcfpToolStripMenuItem3.Size = New System.Drawing.Size(189, 26)
+        Me.rkzcfpToolStripMenuItem3.Text = "新入库资产分配"
+        '
+        'llrkzcToolStripMenuItem3
+        '
+        Me.llrkzcToolStripMenuItem3.Name = "llrkzcToolStripMenuItem3"
+        Me.llrkzcToolStripMenuItem3.Size = New System.Drawing.Size(189, 26)
+        Me.llrkzcToolStripMenuItem3.Text = "浏览入库资产"
+        '
         'ZcglToolStripMenuItem
         '
         Me.ZcglToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExploreZCToolStripMenuItem})
@@ -211,7 +223,7 @@ Partial Class MDIParent1
         'ExploreZCToolStripMenuItem
         '
         Me.ExploreZCToolStripMenuItem.Name = "ExploreZCToolStripMenuItem"
-        Me.ExploreZCToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.ExploreZCToolStripMenuItem.Size = New System.Drawing.Size(174, 26)
         Me.ExploreZCToolStripMenuItem.Text = "资产信息浏览"
         '
         'zcczToolStripMenuItem
@@ -259,7 +271,7 @@ Partial Class MDIParent1
         Me.ToolBarToolStripMenuItem.CheckOnClick = True
         Me.ToolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ToolBarToolStripMenuItem.Name = "ToolBarToolStripMenuItem"
-        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(148, 26)
         Me.ToolBarToolStripMenuItem.Text = "工具栏(&T)"
         '
         'StatusBarToolStripMenuItem
@@ -268,7 +280,7 @@ Partial Class MDIParent1
         Me.StatusBarToolStripMenuItem.CheckOnClick = True
         Me.StatusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.StatusBarToolStripMenuItem.Name = "StatusBarToolStripMenuItem"
-        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(148, 26)
         Me.StatusBarToolStripMenuItem.Text = "状态栏(&S)"
         '
         'HelpMenu
@@ -282,7 +294,7 @@ Partial Class MDIParent1
         '
         Me.ContentsToolStripMenuItem.Name = "ContentsToolStripMenuItem"
         Me.ContentsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F1), System.Windows.Forms.Keys)
-        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
+        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
         Me.ContentsToolStripMenuItem.Text = "目录(&C)"
         '
         'IndexToolStripMenuItem
@@ -290,7 +302,7 @@ Partial Class MDIParent1
         Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
         Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
+        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
         Me.IndexToolStripMenuItem.Text = "索引(&I)"
         '
         'SearchToolStripMenuItem
@@ -298,18 +310,18 @@ Partial Class MDIParent1
         Me.SearchToolStripMenuItem.Image = CType(resources.GetObject("SearchToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SearchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
         Me.SearchToolStripMenuItem.Text = "搜索(&S)"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(198, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(194, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(201, 30)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
         Me.AboutToolStripMenuItem.Text = "关于(&A) ..."
         '
         'StatusStrip
@@ -335,7 +347,7 @@ Partial Class MDIParent1
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 59)
-        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -358,7 +370,7 @@ Partial Class MDIParent1
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.ItemHeight = 36
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
-        Me.TreeView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TreeView1.Margin = New System.Windows.Forms.Padding(4)
         Me.TreeView1.Name = "TreeView1"
         TreeNode1.Name = "部门及人员管理"
         TreeNode1.Text = "部门及人员管理"
@@ -368,7 +380,7 @@ Partial Class MDIParent1
         TreeNode3.Text = "常用字典信息管理"
         TreeNode4.Name = "节点2"
         TreeNode4.Text = "基础资料管理"
-        TreeNode5.Name = "设备入库"
+        TreeNode5.Name = "新设备入库"
         TreeNode5.Text = "新设备入库"
         TreeNode6.Name = "新入库设备分配"
         TreeNode6.Text = "新入库设备分配"
@@ -376,12 +388,12 @@ Partial Class MDIParent1
         TreeNode7.Text = "查看入库设备"
         TreeNode8.Name = "节点4"
         TreeNode8.Text = "入库设备管理"
-        TreeNode9.Name = "资产信息管理"
-        TreeNode9.Text = "资产信息管理"
+        TreeNode9.Name = "设备信息管理"
+        TreeNode9.Text = "设备信息管理"
         TreeNode10.Name = "闲置设备再分配"
         TreeNode10.Text = "闲置设备再分配"
-        TreeNode11.Name = "资产调拨"
-        TreeNode11.Text = "资产调拨"
+        TreeNode11.Name = "设备调拨"
+        TreeNode11.Text = "设备调拨"
         TreeNode12.Name = "归还设备"
         TreeNode12.Text = "归还设备"
         TreeNode13.Name = "Node2"
@@ -489,18 +501,6 @@ Partial Class MDIParent1
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
         '
-        'rkzcfpToolStripMenuItem3
-        '
-        Me.rkzcfpToolStripMenuItem3.Name = "rkzcfpToolStripMenuItem3"
-        Me.rkzcfpToolStripMenuItem3.Size = New System.Drawing.Size(189, 26)
-        Me.rkzcfpToolStripMenuItem3.Text = "新入库资产分配"
-        '
-        'llrkzcToolStripMenuItem3
-        '
-        Me.llrkzcToolStripMenuItem3.Name = "llrkzcToolStripMenuItem3"
-        Me.llrkzcToolStripMenuItem3.Size = New System.Drawing.Size(189, 26)
-        Me.llrkzcToolStripMenuItem3.Text = "浏览入库资产"
-        '
         'MDIParent1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
@@ -512,7 +512,7 @@ Partial Class MDIParent1
         Me.Controls.Add(Me.StatusStrip)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "MDIParent1"
         Me.Text = "长沙市电子计算站：IT设备管理系统"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

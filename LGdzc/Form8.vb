@@ -174,7 +174,7 @@
         SaveData()
         'MsgBox(GetZCBH("200232"))
         GetKuCunDevice()
-        SetNew()
+
     End Sub
 
     Private Sub SaveData()
@@ -213,8 +213,8 @@
 
         Try
             '如果资产编号为空，部门为空，责任人为空则返回
-            If TextBox6.Text = "" Or ComboBoxTreeBM.Text = "" Or ComboBox3.Text = "" Then
-                MsgBox("资产入库编号，归属部门，责任人不能为空", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告")
+            If Trim(TextBox6.Text) = "" Or Trim(ComboBoxTreeBM.Text) = "" Or Trim(ComboBox3.Text) = "" Or Trim(TextBox9.Text) = "" Then
+                MsgBox("资产入库编号、归属部门、责任人和分配数量不能为空", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告")
                 Return
             End If
 
@@ -247,8 +247,8 @@
             ossn = TextBox2.Text
             sbsn = TextBox1.Text
             If zcsl > oldKucun Then
-
-                MsgBox("分配数量大于库存数量")
+                MsgBox("分配数量大于库存数量", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告")
+                TextBox9.Focus()
                 Return
             Else
                 newKucun = oldKucun - zcsl
@@ -291,6 +291,7 @@
             'DGV1.DataSource = ds.Tables(0)
             MsgBox("设备分配成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
             'MsgBox("你确认要删除该记录吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok
+            SetNew()
         Finally
             'If Not (SQLconn Is Nothing) Then SQLconn.Dispose()
             'SQLconn = Nothing

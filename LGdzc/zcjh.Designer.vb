@@ -24,8 +24,8 @@ Partial Class zcjh
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(zcjh))
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode3})
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode1})
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -112,7 +112,7 @@ Partial Class zcjh
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(1521, 319)
+        Me.DataGridView1.Size = New System.Drawing.Size(1521, 318)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
@@ -123,7 +123,7 @@ Partial Class zcjh
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1529, 345)
+        Me.GroupBox2.Size = New System.Drawing.Size(1529, 344)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "资产信息"
@@ -184,7 +184,7 @@ Partial Class zcjh
         Me.SplitContainer3.Panel2.Controls.Add(Me.Label4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button7)
         Me.SplitContainer3.Size = New System.Drawing.Size(1529, 680)
-        Me.SplitContainer3.SplitterDistance = 345
+        Me.SplitContainer3.SplitterDistance = 344
         Me.SplitContainer3.SplitterWidth = 5
         Me.SplitContainer3.TabIndex = 7
         '
@@ -253,7 +253,7 @@ Partial Class zcjh
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(97, 15)
         Me.Label5.TabIndex = 169
-        Me.Label5.Text = "流转后的状态"
+        Me.Label5.Text = "回收后的状态"
         '
         'ComboBox1
         '
@@ -545,7 +545,7 @@ Partial Class zcjh
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(82, 15)
         Me.Label8.TabIndex = 111
-        Me.Label8.Text = "接收责任人"
+        Me.Label8.Text = "保管责任人"
         '
         'Label4
         '
@@ -555,7 +555,7 @@ Partial Class zcjh
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(67, 15)
         Me.Label4.TabIndex = 110
-        Me.Label4.Text = "调入部门"
+        Me.Label4.Text = "回收部门"
         '
         'Button7
         '
@@ -583,12 +583,12 @@ Partial Class zcjh
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Margin = New System.Windows.Forms.Padding(4)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode3.ImageKey = "(默认值)"
-        TreeNode3.Name = "测试"
-        TreeNode3.Text = "节点0"
-        TreeNode4.Name = ""
-        TreeNode4.Text = "根节点0"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
+        TreeNode1.ImageKey = "(默认值)"
+        TreeNode1.Name = "测试"
+        TreeNode1.Text = "节点0"
+        TreeNode2.Name = ""
+        TreeNode2.Text = "根节点0"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.Size = New System.Drawing.Size(167, 710)
         Me.TreeView1.StateImageList = Me.ImageList1
@@ -680,14 +680,14 @@ Partial Class zcjh
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(171, 6)
         '
-        'zclygh
+        'zcjh
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1701, 710)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "zclygh"
+        Me.Name = "zcjh"
         Me.Text = "资产调拨"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

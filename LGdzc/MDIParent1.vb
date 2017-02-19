@@ -180,7 +180,7 @@ Public Class MDIParent1
         TreeView1.ImageList = ImageList1
         SelectedNode.SelectedImageIndex = 1
         Select Case SelectedNode.Text
-            Case "资产信息管理"
+            Case "设备信息管理"
                 'fm = New Form3()
                 'Me.OpenChildWindow(fm)
                 Jump(Of Form3)()
@@ -200,7 +200,7 @@ Public Class MDIParent1
                 Jump(Of Form7)()
                 'fm = New Form7()
                 'Me.OpenChildWindow(fm)
-            Case "设备入库"
+            Case "新设备入库"
                 Jump(Of Form9)()
                 'fm = New Form9()
                 'Me.OpenChildWindow(fm)
@@ -216,7 +216,7 @@ Public Class MDIParent1
                 Jump(Of zcjh)()
                 'fm = New zcjh()
                 'Me.OpenChildWindow(fm)
-            Case "资产调拨"
+            Case "设备调拨"
                 Jump(Of zclygh)()
                 'fm = New zclygh()
                 'Me.OpenChildWindow(fm)

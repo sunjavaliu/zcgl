@@ -397,6 +397,7 @@
     <Content Include="ico\ml.ico" />
     <Content Include="ico\rw.ico" />
     <Content Include="ico\xm.ico" />
+    <Content Include="www.ico.la_8859244b7b3ecb900447471f28731acb_16X16.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

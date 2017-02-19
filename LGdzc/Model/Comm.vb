@@ -76,7 +76,7 @@ Module Comm
         Dim iSeconds As Long
 
         iSeconds = (Now.Ticks - d1970.Ticks) / 10000000
-        zcbh = "TJJ" + DateTime.Now.ToString("yyyyMMddHHmmss") + lbid + CStr(iSeconds)
+        zcbh = "T" + DateTime.Now.ToString("yyyyMMddHHmmss") + lbid + CStr(iSeconds)
         Return zcbh
     End Function
 
@@ -88,7 +88,7 @@ Module Comm
         Dim iSeconds As Long
 
         iSeconds = (Now.Ticks - d1970.Ticks) / 10000000
-        RKBH = "RKBH" + DateTime.Now.ToString("yyyyMMddHHmmss") + CStr(iSeconds)
+        RKBH = "R" + DateTime.Now.ToString("yyyyMMddHHmmss") + CStr(iSeconds)
         Return RKBH
     End Function
 
