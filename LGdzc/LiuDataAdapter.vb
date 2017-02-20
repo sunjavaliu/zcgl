@@ -1,7 +1,7 @@
 ﻿Imports System.Data
 
-#Const IS_MYSQL_DB = False
-#Const IS_SQLITE_DB = True
+#Const IS_MYSQL_DB = True
+#Const IS_SQLITE_DB = False
 
 
 
@@ -12,7 +12,7 @@ Public Class LiuDataAdapter
     'Dim SqliteStrConn As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
 
     'Dim MysqlStrConn As String = "Database='testgdzc';Data Source='10.43.18.42';User Id='mysql';Password='mysqlpwd';charset='utf8';pooling=true"
-
+    Dim howUpdate As Integer
 
 #If IS_SQLITE_DB Then
     Private Adapter As SQLite.SQLiteDataAdapter=new SQLite.SQLiteDataAdapter()

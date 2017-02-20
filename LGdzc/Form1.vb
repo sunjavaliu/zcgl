@@ -450,6 +450,8 @@
     Private Sub SetNew()
         TextBox3.Text = ""
         TextBox5.Text = ""
+        ComboBox1.Text = ""
+        ComboBoxTreeBM.Text = ""
     End Sub
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
 
@@ -519,9 +521,10 @@
         ComboBoxTreeBM.Enabled = False
         ComboBox1.Enabled = False
         Button3.Enabled = False
+        Button3.Text = "保存"
     End Sub
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        Button3.Visible = False
+        SetAddEditDisable()
         SetNew()
     End Sub
 
