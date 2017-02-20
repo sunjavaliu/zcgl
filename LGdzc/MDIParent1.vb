@@ -175,7 +175,6 @@ Public Class MDIParent1
   
     Private Sub TreeView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TreeView1.MouseDoubleClick
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
-        Dim fm As Form
 
         TreeView1.ImageList = ImageList1
         SelectedNode.SelectedImageIndex = 1

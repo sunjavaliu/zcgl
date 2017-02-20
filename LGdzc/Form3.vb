@@ -177,29 +177,33 @@
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Dim i, rowN As Integer
         Dim tmpList As New List(Of DataGridViewRow)()
+        If DataGridView1.SelectedRows.Count > 0 Then
 
-        If MsgBox("你确认要删除该记录吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
-            '删除选中行
-            rowN = DataGridView1.Rows.Count
-            rowN = rowN - 1
-            For i = rowN To 0 Step -1
-                If DataGridView1.Rows(i).Selected = True Then
-                    DataGridView1.Rows.RemoveAt(DataGridView1.Rows(i).Index)
-                    'G_dt_ry.[Delete]("id="+dataGridv_AdminIma.Rows[i].Cells[0].Value.ToString())
-                    'Debug.Print(i)
-                    'MsgBox(DataGridView1.Rows(i).Cells(0).Value.ToString())
-                    'tmpList.Add(DataGridView1.Rows(i))
-                End If
+            If MsgBox("你确认要删除该记录吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
+                '删除选中行
+                rowN = DataGridView1.Rows.Count
+                rowN = rowN - 1
+                For i = rowN To 0 Step -1
+                    If DataGridView1.Rows(i).Selected = True Then
+                        DataGridView1.Rows.RemoveAt(DataGridView1.Rows(i).Index)
+                        'G_dt_ry.[Delete]("id="+dataGridv_AdminIma.Rows[i].Cells[0].Value.ToString())
+                        'Debug.Print(i)
+                        'MsgBox(DataGridView1.Rows(i).Cells(0).Value.ToString())
+                        'tmpList.Add(DataGridView1.Rows(i))
+                    End If
 
 
 
-            Next
-            'DataGridView1.Rows.Remove(tmpList)
-            'DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
-            '数据库中进行删除()
-            'Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
-            sda_ry.Update(G_dt_ry)
-            MsgBox("删除成功")
+                Next
+                'DataGridView1.Rows.Remove(tmpList)
+                'DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
+                '数据库中进行删除()
+                'Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
+                sda_ry.Update(G_dt_ry)
+                'MsgBox("删除成功")
+            End If
+        Else
+            MsgBox("您未选择将要删除的记录。" & vbCrLf & "请在记录的最前面空白区选择整条记录，然后点击删除按钮！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告")
         End If
 
     End Sub
