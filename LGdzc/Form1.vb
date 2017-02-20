@@ -351,7 +351,7 @@
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         'DataGridView1.CellValueChanged()
-        Dim rs As DataGridViewRow
+        'Dim rs As DataGridViewRow
         Debug.Print(DataGridView1.Rows.Count())
         'For Each rs In DataGridView1.Rows
 

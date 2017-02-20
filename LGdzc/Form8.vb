@@ -96,8 +96,14 @@
 
     End Sub
 
+    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+        FenPeiZC()
+    End Sub
 
-    Private Sub FenPeiSheBei()
+
+    Private Sub FenPeiZC()
+        If DataGridView1.SelectedRows(0).IsNewRow Then Return '空行直接返回
+
         oldKucun = CInt(DataGridView1.SelectedRows(0).Cells(14).Value.ToString)
         If oldKucun < 1 Then
 
@@ -107,10 +113,12 @@
         End If
 
         'DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-        TextBox3.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
-        TextBox10.Text = DataGridView1.SelectedRows(0).Cells(8).Value.ToString()
         TextBox17.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
-        TextBox5.Text = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
+        TextBox3.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
+        TextBox5.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
+        TextBox10.Text = DataGridView1.SelectedRows(0).Cells(8).Value.ToString()
+
+
         TextBox18.Text = DataGridView1.SelectedRows(0).Cells(10).Value.ToString()
         TextBox4.Text = DataGridView1.SelectedRows(0).Cells(13).Value.ToString()
         'DateTimePicker1.Text = DateTime.Parse(DataGridView1.SelectedRows(0).Cells(8).Value.ToString())
@@ -125,13 +133,8 @@
         'TextBox11.Text = CInt(TextBox10.Text) * CInt(TextBox9.Text)
     End Sub
 
-
-    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
-        FenPeiSheBei()
-    End Sub
-
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
-        FenPeiSheBei()
+        FenPeiZC()
     End Sub
 
     Private Sub Form8_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -140,7 +143,7 @@
         OnComboBoxTreeViewTextUpdate()   '激活OnComboBoxTreeViewTextUpdate事件
     End Sub
 
-    Private Sub TextBox9_KeyPress(sender As Object, e As KeyPressEventArgs)
+    Private Sub TextBox9_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox9.KeyPress
         IsInputNum(e)
     End Sub
 
@@ -149,7 +152,8 @@
         JiSuanZongjia()
     End Sub
 
-    Private Sub TextBox9_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
+
+    Private Sub TextBox9_TextChanged(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
         JiSuanZongjia()
     End Sub
 
@@ -197,30 +201,26 @@
         Dim bmmc As String '部门名称
         Dim zrr As String  '责任人
         Dim cfwz As String '存放位置
-        Dim meno As String
-        Dim txt1 As String
-        Dim txt2 As String
-        Dim txt3 As String
-        Dim txt4 As String
-        Dim txt5 As String
-        Dim txt6 As String
-        Dim txt7 As String
-        Dim txt8 As String
-        Dim num1 As String
-        Dim num2 As String
-        Dim num3 As String
-        Dim num4 As String
-        Dim num5 As String
-        Dim num6 As String
         Dim log As String   '资产流转日志，格式：bmbh,zrr@bmbh,zrr....往后递增
         Dim rkbh As String  '入库编号
-
+        Dim zcxh As String  '资产型号
+        Dim zcpp As String  '资产品牌   
+        Dim pz As String    '配置
+        Dim sbsn As String  '设备SN
+        Dim ossn As String  '操作系统SN
 
         Dim newKucun As Integer = 0 '新库存数量
 
         Try
-            zcmc = TextBox3.Text
-            lbid = ""
+            '如果资产编号为空，部门为空，责任人为空则返回
+            If Trim(TextBox6.Text) = "" Or Trim(ComboBoxTreeBM.Text) = "" Or Trim(ComboBox3.Text) = "" Or Trim(TextBox9.Text) = "" Then
+                MsgBox("资产入库编号、归属部门、责任人和分配数量不能为空", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告")
+                Return
+            End If
+
+            zcmc = TextBox5.Text
+
+            lbid = TextBox3.Text
 
             zcbh = GetZCBH(lbid)
 
@@ -234,32 +234,21 @@
 
             zcdj = TextBox10.Text
             zczj = TextBox11.Text
-            zczt = "使用"
+            zczt = "在用"   '这里应该从数据库里面获取资产状态的值
             bmbh = ComboBoxTreeBM.TreeView.SelectedNode.Name
             bmmc = ComboBoxTreeBM.Text
             zrr = ComboBox3.Text
             cfwz = ""
-            meno = ""
-            txt1 = ""
-            txt2 = ""
-            txt3 = ""
-            txt4 = ""
-            txt5 = ""
-            txt6 = ""
-            txt7 = ""
-            txt8 = ""
-            num1 = ""
-            num2 = ""
-            num3 = ""
-            num4 = ""
-            num5 = ""
-            num6 = ""
-            log = bmmc + zrr + DateTimePicker2.Text
+            log = DateTimePicker2.Text + bmmc + zrr
             rkbh = TextBox6.Text
-
+            zcxh = TextBox8.Text
+            zcpp = TextBox12.Text
+            pz = TextBox4.Text
+            ossn = TextBox2.Text
+            sbsn = TextBox1.Text
             If zcsl > oldKucun Then
-
-                MsgBox("分配数量大于库存数量")
+                MsgBox("分配数量大于库存数量", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告")
+                TextBox9.Focus()
                 Return
             Else
                 newKucun = oldKucun - zcsl
@@ -274,7 +263,7 @@
             'SQLite可以在字段上加单引号，MYsql就不行
             'CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','djrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
 
-            CommandText = "insert into zc (zcbh,zcmc,lbid,lbmc,jldw,gzrq,djrq,zcly,zcsl,zcdj,zczj,zczt,bmbh,bmmc,zrr,cfwz,meno,txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8,num1,num2,num3,num4,num5,num6,log,rkbh) values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
+            CommandText = "insert into zc (zcbh,zcmc,lbid,lbmc,jldw,gzrq,djrq,zcly,zcsl,zcdj,zczj,zczt,bmbh,bmmc,zrr,cfwz,log,rkbh,zcxh,zcpp,pz,devicesn,ossn) values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + log + "','" + rkbh + "','" + zcxh + "','" + zcpp + "','" + pz + "','" + sbsn + "','" + ossn + "')"
 
             'ComboBoxTreeLB.Text +"','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ")"
             'Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
@@ -300,8 +289,9 @@
             'SQLite.SQLiteHelper.ExecuteDataset(constr, CommandType.Text, Sql)
             'salda.Fill(ds, 0)
             'DGV1.DataSource = ds.Tables(0)
-            MsgBox("添加成功！")
-
+            MsgBox("设备分配成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
+            'MsgBox("你确认要删除该记录吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok
+            SetNew()
         Finally
             'If Not (SQLconn Is Nothing) Then SQLconn.Dispose()
             'SQLconn = Nothing
@@ -319,7 +309,7 @@
         End If
     End Sub
     Private Sub ComboBoxTreeViewTextUpdate()
-    
+
 
         Dim dt = New DataTable()
         'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
@@ -340,7 +330,7 @@
             ComboBox3.Text = ""
         End If
     End Sub
- 
+
     Private Sub SetNew()
         TextBox3.Text = ""
         TextBox17.Text = ""
@@ -348,7 +338,7 @@
         DateTimePicker1.Text = ""
         DateTimePicker2.Text = ""
         TextBox7.Text = ""
-        TextBox9.Text = ""
+        'TextBox9.Text = ""
         TextBox10.Text = ""
         TextBox11.Text = ""
         ComboBox3.Text = ""
@@ -356,5 +346,3 @@
         TextBox6.Text = ""
     End Sub
 End Class
-
-
