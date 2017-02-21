@@ -54,6 +54,8 @@
 
         DataGridView1.Columns(17).DisplayIndex = 3
         DataGridView1.Columns(14).DisplayIndex = 4
+        DataGridView1.Columns(9).DisplayIndex = 5
+
         'DataGridView1.Columns(3).Frozen = True
         'DataGridView1.Columns
 
@@ -187,6 +189,10 @@
 
     Private Sub DataGridView1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles DataGridView1.KeyPress
         IsEditCell = True
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ExportToCSV(DataGridView1)
     End Sub
 End Class
 

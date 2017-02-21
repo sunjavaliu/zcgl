@@ -43,8 +43,8 @@
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
 
         '库存大于0的才能进行分配，否则不显示
-        'Dim sql As String = "select * from rk where kucun>0 order by id desc"
-        Dim sql As String = "select * from rk order by id desc"
+        Dim sql As String = "select * from rk where kucun>0 order by id desc"
+        'Dim sql As String = "select * from rk  order by id desc"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
         Dim sda As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
@@ -84,6 +84,9 @@
         DataGridView1.Columns(18).HeaderText = "资产品牌"
         'DataGridView1.Columns(3).Frozen = True
 
+        DataGridView1.Columns(17).DisplayIndex = 1
+        DataGridView1.Columns(14).DisplayIndex = 2
+        DataGridView1.Columns(9).DisplayIndex = 3
 
         'dataAdapter.SelectCommand = cmd
         'dataAdapter.Fill(dst, "info")
@@ -344,5 +347,9 @@
         ComboBox3.Text = ""
         DateTimePicker2.Text = ""
         TextBox6.Text = ""
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ExportToCSV(DataGridView1)
     End Sub
 End Class
