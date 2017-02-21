@@ -11,6 +11,11 @@
             dt.Clear()
             Sda.Fill(dt)
             dg.DataSource = dt
+
+            '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+            SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+            'SetDataGridViewHidenColumn(DataGridView1, Me.Text)
+
             dg.Columns(0).ReadOnly = True
             dg.Columns(1).ReadOnly = True
             dg.Columns(0).HeaderText = "ID"
@@ -26,6 +31,7 @@
         'sql = "select * from  zd "
         'OpenDataBase2DataGrideView(sda, G_dt, DataGridView1, sql)
 
+
         TreeView1.ExpandAll()
 
     End Sub
@@ -39,23 +45,12 @@
         End If
 
         OpenDataBase2DataGrideView(sda, G_dt, DataGridView1, sql)
+
         tip = "当前正在查看【" + SelectedNode.Text + "】的信息，【ID】和【项目名称】不能编辑，双击【项目内容】单元格可进行添加或修改。"
         Label1.Text = tip
     End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub DataGridView1_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs)
-        'DataGridView1.Columns(1).
-    End Sub
-
-
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
-
-    End Sub
+ 
+ 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs)
         Me.Close()
@@ -83,10 +78,7 @@
         DataGridView1.Rows(e.RowIndex).Cells(1).Value = TreeView1.SelectedNode.Text
         ' .Rows[index].Cells[0].Value = dr[0].ToString();
     End Sub
-
-    Private Sub DataGridView1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
+ 
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
         Dim i, rowN As Integer
@@ -106,10 +98,7 @@
             MsgBox("删除成功")
         End If
     End Sub
-
-    Private Sub SplitContainer2_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer2.Panel2.Paint
-
-    End Sub
+ 
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         ExportToCSV(DataGridView1)

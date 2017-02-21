@@ -31,6 +31,10 @@ Public Class ComboBoxTreeView
     'End Sub
 
     Public Sub treeView_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs)
+        If (TreeView.SelectedNode Is Nothing) Then
+            'MsgBox("没有选中节点！")
+            Return
+        End If
         Me.Text = TreeView.SelectedNode.Text
         dropDownTree.Close()
     End Sub

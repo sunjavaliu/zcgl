@@ -22,20 +22,7 @@ Module Defined
         Dim zrr As String
         Dim cfwz As String
         Dim meno As String
-        Dim txt1 As String
-        Dim txt2 As String
-        Dim txt3 As String
-        Dim txt4 As String
-        Dim txt5 As String
-        Dim txt6 As String
-        Dim txt7 As String
-        Dim txt8 As String
-        Dim num1 As Integer
-        Dim num2 As Integer
-        Dim num3 As Integer
-        Dim num4 As Integer
-        Dim num5 As Integer
-        Dim num6 As Integer
+
         Sub Initialize()
             id = -99999
             zcbh = ""

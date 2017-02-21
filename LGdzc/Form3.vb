@@ -96,6 +96,13 @@
         sda_ry.Fill(G_dt_ry)
 
         DataGridView1.DataSource = G_dt_ry
+
+
+        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+
+
+
         DataGridView1.Columns(0).ReadOnly = True
 
         'DataGridView1.Columns("ID").HeaderText = "序号"
@@ -127,12 +134,13 @@
         DataGridView1.Columns(21).HeaderText = "配置"
         DataGridView1.Columns(22).HeaderText = "设备序列号"
         DataGridView1.Columns(23).HeaderText = "操作系统序列号"
+        DataGridView1.Columns(24).HeaderText = "备注"
 
         '更改显示序号
-        DataGridView1.Columns(14).DisplayIndex = 1
-        DataGridView1.Columns(15).DisplayIndex = 2
-        DataGridView1.Columns(19).DisplayIndex = 3
-        DataGridView1.Columns(12).DisplayIndex = 4
+        'DataGridView1.Columns(14).DisplayIndex = 1
+        'DataGridView1.Columns(15).DisplayIndex = 2
+        'DataGridView1.Columns(19).DisplayIndex = 3
+        'DataGridView1.Columns(12).DisplayIndex = 4
 
         'DataGridView1.Columns("zcbh").HeaderText = "资产编号"
         'DataGridView1.Columns("zcmc").HeaderText = "资产名称"

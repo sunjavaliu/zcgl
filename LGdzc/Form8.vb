@@ -60,6 +60,10 @@
         DataGridView1.DataSource = TB
 
 
+        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+ 
+
 
         DataGridView1.Columns(0).ReadOnly = True
         DataGridView1.Columns(0).HeaderText = "ID"
@@ -80,13 +84,15 @@
         DataGridView1.Columns(14).HeaderText = "库存"
         DataGridView1.Columns(15).HeaderText = "入库编号"
         DataGridView1.Columns(16).HeaderText = "资产来源"
-        DataGridView1.Columns(17).HeaderText = "资产型号"
-        DataGridView1.Columns(18).HeaderText = "资产品牌"
-        'DataGridView1.Columns(3).Frozen = True
+        DataGridView1.Columns(17).HeaderText = "设备型号"
+        DataGridView1.Columns(18).HeaderText = "品牌"
+        DataGridView1.Columns(19).HeaderText = "备注"
 
-        DataGridView1.Columns(17).DisplayIndex = 1
-        DataGridView1.Columns(14).DisplayIndex = 2
-        DataGridView1.Columns(9).DisplayIndex = 3
+        'DataGridView1.Columns(3).Frozen = True
+        'DataGridView1.Columns(0).DisplayIndex = 0
+        'DataGridView1.Columns(17).DisplayIndex = 1
+        'DataGridView1.Columns(14).DisplayIndex = 2
+        'DataGridView1.Columns(9).DisplayIndex = 3
 
         'dataAdapter.SelectCommand = cmd
         'dataAdapter.Fill(dst, "info")
@@ -130,6 +136,7 @@
         TextBox7.Text = DataGridView1.SelectedRows(0).Cells(16).Value.ToString()
         TextBox8.Text = DataGridView1.SelectedRows(0).Cells(17).Value.ToString()
         TextBox12.Text = DataGridView1.SelectedRows(0).Cells(18).Value.ToString()
+        TextBox13.Text = DataGridView1.SelectedRows(0).Cells(19).Value.ToString()
 
         Rk_tab_id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
 
@@ -141,6 +148,8 @@
     End Sub
 
     Private Sub Form8_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
         DisplayBMTree()
         GetKuCunDevice()
         OnComboBoxTreeViewTextUpdate()   '激活OnComboBoxTreeViewTextUpdate事件
@@ -252,7 +261,7 @@
             ossn = TextBox2.Text
             sbsn = TextBox1.Text
 
-            memo = TextBox10.Text
+            memo = TextBox13.Text
 
             If zcsl > oldKucun Then
                 MsgBox("分配数量大于库存数量", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告")
@@ -271,7 +280,7 @@
             'SQLite可以在字段上加单引号，MYsql就不行
             'CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','djrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
 
-            CommandText = "insert into zc (zcbh,zcmc,lbid,lbmc,jldw,gzrq,djrq,zcly,zcsl,zcdj,zczj,zczt,bmbh,bmmc,zrr,cfwz,log,rkbh,zcxh,zcpp,pz,devicesn,ossn，memo) values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + log + "','" + rkbh + "','" + zcxh + "','" + zcpp + "','" + pz + "','" + sbsn + "','" + ossn + "'，" + memo + "')"
+            CommandText = "insert into zc (zcbh,zcmc,lbid,lbmc,jldw,gzrq,djrq,zcly,zcsl,zcdj,zczj,zczt,bmbh,bmmc,zrr,cfwz,log,rkbh,zcxh,zcpp,pz,devicesn,ossn,memo) values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + log + "','" + rkbh + "','" + zcxh + "','" + zcpp + "','" + pz + "','" + sbsn + "','" + ossn + "','" + memo + "')"
 
             'ComboBoxTreeLB.Text +"','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ")"
             'Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader
@@ -352,6 +361,7 @@
         ComboBox3.Text = ""
         DateTimePicker2.Text = ""
         TextBox6.Text = ""
+        TextBox13.Text = ""
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

@@ -178,6 +178,7 @@
 
             'BindTreeView(0, TreeView1, G_dt)
 
+
             OpreaRYDataBase("")
 
             OpreaBMDataBase()
@@ -189,6 +190,8 @@
             TreeView1.ShowNodeToolTips = True
             'TreeView1.Nodes.
             TreeView1.Nodes(0).Expand()
+
+
         Catch ex As SQLite.SQLiteException
             MsgBox(ex.Message)
         End Try
@@ -273,6 +276,12 @@
 
 
         DataGridView1.DataSource = G_dt_ry
+
+        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+        'SetDataGridViewHidenColumn(DataGridView1, Me.Text)
+
+
         DataGridView1.Columns(0).ReadOnly = True
         DataGridView1.Columns(0).HeaderText = "内部ID(不可编辑)"
         DataGridView1.Columns(1).HeaderText = "姓名"
@@ -454,13 +463,7 @@
         ComboBox1.Text = ""
         ComboBoxTreeBM.Text = ""
     End Sub
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
 
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
 
   
 
@@ -529,13 +532,7 @@
         SetNew()
     End Sub
 
-    Private Sub TextBox5_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox5.KeyPress
 
-    End Sub
-
-    Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
-
-    End Sub
 End Class
 
 

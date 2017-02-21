@@ -163,16 +163,17 @@
     <Compile Include="AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Class\DataGridViewColumnSelector.vb" />
     <Compile Include="Form10.Designer.vb">
       <DependentUpon>Form10.vb</DependentUpon>
     </Compile>
     <Compile Include="Form10.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LiuDataAdapter.vb" />
-    <Compile Include="MySqlHelper.vb" />
-    <Compile Include="SQLiteHelper.vb" />
+    <Compile Include="Class\LiuDataAdapter.vb" />
+    <Compile Include="Class\MySqlHelper.vb" />
+    <Compile Include="Class\SQLiteHelper.vb" />
+    <Compile Include="Model\MD5.vb" />
     <Compile Include="xzsb.Designer.vb">
       <DependentUpon>xzsb.vb</DependentUpon>
     </Compile>
@@ -263,7 +264,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Model\Defined.vb" />
-    <Compile Include="Model\ExcelReader.vb" />
+    <Compile Include="Class\ExcelReader.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

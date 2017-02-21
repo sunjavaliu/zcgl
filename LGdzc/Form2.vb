@@ -61,6 +61,10 @@
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
+ 
+
+
+
             BindTreeView(0, TreeView1, G_dt)
             'OpreaRYDataBase("")
             'System.Threading.Thread.Sleep(10000)
@@ -69,6 +73,7 @@
             DisableWrite()
             TreeView1.ShowNodeToolTips = True
             TreeView1.Nodes(0).Expand()
+
             'TreeView1.ExpandAll()
         Catch ex As SQLite.SQLiteException
             MsgBox(ex.Message)
@@ -135,6 +140,10 @@
         sda.FillSchema(G_dt, SchemaType.Mapped)
         sda.Fill(G_dt)
         DataGridView1.DataSource = G_dt
+
+        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+
         DataGridView1.Columns(0).ReadOnly = True
         DataGridView1.Columns(0).HeaderText = "内部ID"
         DataGridView1.Columns(1).HeaderText = "资产类别代码"

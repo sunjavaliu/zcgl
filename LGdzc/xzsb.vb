@@ -25,6 +25,8 @@
     End Sub
     Private Sub xzsb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+
+
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             'BindTreeView(0, TreeView1, G_dt)
             OpreaZCDataBase("")
@@ -98,7 +100,15 @@
         sda_zc.FillSchema(G_dt_zc, SchemaType.Mapped)
         sda_zc.Fill(G_dt_zc)
 
+
+
+
+
         DataGridView1.DataSource = G_dt_zc
+
+        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+
         DataGridView1.Columns(0).ReadOnly = True
         DataGridView1.Columns(0).HeaderText = "ID"
 
@@ -125,11 +135,13 @@
         DataGridView1.Columns(21).HeaderText = "配置"
         DataGridView1.Columns(22).HeaderText = "设备序列号"
         DataGridView1.Columns(23).HeaderText = "操作系统序列号"
+        DataGridView1.Columns(24).HeaderText = "备注"
+
         '更改显示序号
-        DataGridView1.Columns(14).DisplayIndex = 1
-        DataGridView1.Columns(15).DisplayIndex = 2
-        DataGridView1.Columns(19).DisplayIndex = 3
-        DataGridView1.Columns(12).DisplayIndex = 4
+        'DataGridView1.Columns(14).DisplayIndex = 1
+        'DataGridView1.Columns(15).DisplayIndex = 2
+        'DataGridView1.Columns(19).DisplayIndex = 3
+        'DataGridView1.Columns(12).DisplayIndex = 4
         'DataGridView1.Columns(3).Frozen = True
         'G_dt.Load(reader)
     End Sub

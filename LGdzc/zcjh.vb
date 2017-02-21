@@ -25,6 +25,8 @@
     End Sub
     Private Sub zcjh_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+ 
+
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             'BindTreeView(0, TreeView1, G_dt)
             OpreaZCDataBase("")
@@ -99,6 +101,11 @@
         sda_zc.Fill(G_dt_zc)
 
         DataGridView1.DataSource = G_dt_zc
+
+        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+
+
         DataGridView1.Columns(0).ReadOnly = True
         DataGridView1.Columns(0).HeaderText = "ID"
 
@@ -125,11 +132,14 @@
         DataGridView1.Columns(21).HeaderText = "配置"
         DataGridView1.Columns(22).HeaderText = "设备序列号"
         DataGridView1.Columns(23).HeaderText = "操作系统序列号"
+        DataGridView1.Columns(24).HeaderText = "备注"
+
         '更改显示序号
-        DataGridView1.Columns(14).DisplayIndex = 1
-        DataGridView1.Columns(15).DisplayIndex = 2
-        DataGridView1.Columns(19).DisplayIndex = 3
-        DataGridView1.Columns(12).DisplayIndex = 4
+        'DataGridView1.Columns(0).DisplayIndex = 0
+        'DataGridView1.Columns(14).DisplayIndex = 1
+        'DataGridView1.Columns(15).DisplayIndex = 2
+        'DataGridView1.Columns(19).DisplayIndex = 3
+        'DataGridView1.Columns(12).DisplayIndex = 4
         'DataGridView1.Columns(3).Frozen = True
         'G_dt.Load(reader)
     End Sub
@@ -188,11 +198,14 @@
         Dim log As String
         Dim zcbh As String
         Dim pz As String
+        Dim memo As String
+
         zcbh = TextBox3.Text
         pz = TextBox8.Text
         If zcbh = "" Then Return
+        memo = TextBox13.Text
         log = DataGridView1.SelectedRows(0).Cells(17).Value.ToString() + "->" + DateTimePicker2.Text + ComboBoxTreeBM.Text + ComboBox3.Text
-        sql = "update zc set bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',bmmc='" + ComboBoxTreeBM.Text + "', log='" + log + "', zrr='" + ComboBox3.Text + "' ,zczt='" + ComboBox1.Text + "',pz='" + pz + "'  where zcbh='" + zcbh + "'"
+        sql = "update zc set bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',bmmc='" + ComboBoxTreeBM.Text + "', log='" + log + "', zrr='" + ComboBox3.Text + "' ,zczt='" + ComboBox1.Text + "',pz='" + pz + "',memo='" + memo + "'  where zcbh='" + zcbh + "'"
         sda_zc.ExecuteNonQuery(sql)
 
         'If selectRowNum = -1 Then Return
@@ -239,6 +252,7 @@
         TextBox9.Text = DataGridView1.SelectedRows(0).Cells(9).Value.ToString()            '领用数量
         TextBox4.Text = DataGridView1.SelectedRows(0).Cells(22).Value.ToString()    '设备序列号
         TextBox5.Text = DataGridView1.SelectedRows(0).Cells(20).Value.ToString()        '资产品牌
+        TextBox13.Text = DataGridView1.SelectedRows(0).Cells(21).Value.ToString
     End Sub
 
     Private Sub SetNew()
@@ -249,7 +263,7 @@
         TextBox11.Text = ""
 
         TextBox10.Text = ""
-
+        TextBox13.Text = ""
 
         TextBox18.Text = ""
 

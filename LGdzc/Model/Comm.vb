@@ -232,5 +232,23 @@ Module Comm
     End Function
 
 
+    'Public Sub SetDataGridViewHidenColumn(dt As DataGridView, Optional xmlfile As String = ".\a")
+    Public Sub SetDataGridViewHidenColumn(dt As DataGridView, xmlfile As String)
 
+        xmlfile = xmlfile & ".xml"
+
+        'Dim descBytes() As Byte = System.Text.Encoding.Unicode.GetBytes(xmlfile)
+        'Dim t As String
+        't = Convert.ToBase64String(descBytes)
+        'xmlfile = t & ".xml"
+
+        Dim CS As DataGridViewColumnSelector = New DataGridViewColumnSelector(dt, xmlfile)
+
+
+        'Dim cs As New DataGridViewColumnSelector()
+        'cs.DataGridView = dt
+        'cs.MaxHeight = 900
+        'cs.Width = 150
+    End Sub
+     
 End Module

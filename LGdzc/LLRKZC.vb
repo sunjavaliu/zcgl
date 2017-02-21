@@ -28,6 +28,10 @@
         DataGridView1.DataSource = TB
 
 
+        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+
+
         'DataGridView1.Rows(0).Cells(0).Height = 90
         DataGridView1.ColumnHeadersHeight = 46
         DataGridView1.Columns(0).ReadOnly = True
@@ -51,10 +55,11 @@
         DataGridView1.Columns(16).HeaderText = "资产来源"
         DataGridView1.Columns(17).HeaderText = "设备型号"
         DataGridView1.Columns(18).HeaderText = "品牌"
+        DataGridView1.Columns(19).HeaderText = "备注"
 
-        DataGridView1.Columns(17).DisplayIndex = 3
-        DataGridView1.Columns(14).DisplayIndex = 4
-        DataGridView1.Columns(9).DisplayIndex = 5
+        'DataGridView1.Columns(17).DisplayIndex = 3
+        'DataGridView1.Columns(14).DisplayIndex = 4
+        'DataGridView1.Columns(9).DisplayIndex = 5
 
         'DataGridView1.Columns(3).Frozen = True
         'DataGridView1.Columns
@@ -76,7 +81,7 @@
   
 
     Private Sub LLRKZC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+ 
         GetKuCun()
     End Sub
 
