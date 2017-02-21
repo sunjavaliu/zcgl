@@ -84,9 +84,9 @@
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String
         If bmbh = "" Or bmbh = "1" Then
-            sql = "select * from zc where zczt='闲置'"
+            sql = "select * from zc where zczt like '%闲置%'"
         Else
-            sql = "select * from zc where  zczt='闲置' and bmbh=" + bmbh
+            sql = "select * from zc where  zczt like '%闲置%' and bmbh=" + bmbh
         End If
 
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)

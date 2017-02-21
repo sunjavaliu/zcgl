@@ -31,15 +31,15 @@ Public Class ExcelReader
         Select Case fileName.Split("."c)(1)
             Case "xls"
                 connString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & filePath & ";Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'"
-                fileType = fileType.xls
+                fileType = FileTypeS.xls
                 Exit Select
             Case "xlsx"
                 connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & filePath & ";Extended Properties='Excel 12.0;HDR=Yes;IMEX=1;'"
-                fileType = fileType.xlsx
+                fileType = FileTypeS.xlsx
                 Exit Select
             Case "csv"
                 connString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & filePath.Remove(filePath.LastIndexOf("\") + 1) & ";Extended Properties='Text;FMT=Delimited;HDR=YES;'"
-                fileType = fileType.csv
+                fileType = FileTypeS.csv
                 Exit Select
         End Select
     End Sub
@@ -56,7 +56,7 @@ Public Class ExcelReader
 
                 Dim schemaTable As DataTable = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, Nothing)
 
-                Dim tableName As String = If(fileType = fileType.csv, fileName, schemaTable.Rows(0)(2).ToString().Trim())
+                Dim tableName As String = If(fileType = FileTypeS.csv, fileName, schemaTable.Rows(0)(2).ToString().Trim())
 
                 Dim strExcel As String = String.Empty
 

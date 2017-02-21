@@ -169,7 +169,7 @@
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         'Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
         sda_ry.Update(G_dt_ry)
-        MsgBox("更新成功")
+        MsgBox("更新成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
         OpreaRYDataBase("")
     End Sub
 

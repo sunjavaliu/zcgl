@@ -24,12 +24,13 @@ Partial Class zclygh
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(zclygh))
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode3})
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode1})
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -82,7 +83,8 @@ Partial Class zclygh
         Me.ExpandAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CollapseAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,7 +116,7 @@ Partial Class zclygh
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(1014, 184)
+        Me.DataGridView1.Size = New System.Drawing.Size(936, 184)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
@@ -123,7 +125,7 @@ Partial Class zclygh
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1020, 204)
+        Me.GroupBox2.Size = New System.Drawing.Size(942, 204)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "资产信息"
@@ -142,6 +144,8 @@ Partial Class zclygh
         '
         'SplitContainer3.Panel2
         '
+        Me.SplitContainer3.Panel2.Controls.Add(Me.Label19)
+        Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox13)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button1)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Label16)
         Me.SplitContainer3.Panel2.Controls.Add(Me.TextBox3)
@@ -183,9 +187,18 @@ Partial Class zclygh
         Me.SplitContainer3.Panel2.Controls.Add(Me.Label8)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Label4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button7)
-        Me.SplitContainer3.Size = New System.Drawing.Size(1020, 539)
+        Me.SplitContainer3.Size = New System.Drawing.Size(942, 539)
         Me.SplitContainer3.SplitterDistance = 204
         Me.SplitContainer3.TabIndex = 7
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(651, 198)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 176
+        Me.Button1.Text = "导出数据"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label16
         '
@@ -206,7 +219,7 @@ Partial Class zclygh
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(737, 59)
+        Me.TextBox2.Location = New System.Drawing.Point(783, 59)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
         Me.TextBox2.Size = New System.Drawing.Size(117, 21)
@@ -215,7 +228,7 @@ Partial Class zclygh
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(670, 63)
+        Me.Label2.Location = New System.Drawing.Point(696, 63)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(65, 12)
         Me.Label2.TabIndex = 172
@@ -241,18 +254,18 @@ Partial Class zclygh
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(863, 90)
+        Me.Label5.Location = New System.Drawing.Point(697, 117)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(77, 12)
         Me.Label5.TabIndex = 169
-        Me.Label5.Text = "流转后的状态"
+        Me.Label5.Text = "调拨后的状态"
         '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(941, 87)
+        Me.ComboBox1.Location = New System.Drawing.Point(783, 113)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(105, 20)
+        Me.ComboBox1.Size = New System.Drawing.Size(117, 20)
         Me.ComboBox1.TabIndex = 168
         '
         'TextBox7
@@ -309,7 +322,7 @@ Partial Class zclygh
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(420, 146)
+        Me.Label22.Location = New System.Drawing.Point(28, 227)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(53, 12)
         Me.Label22.TabIndex = 160
@@ -407,10 +420,11 @@ Partial Class zclygh
         '
         'TextBox8
         '
-        Me.TextBox8.Location = New System.Drawing.Point(478, 140)
+        Me.TextBox8.Location = New System.Drawing.Point(86, 221)
         Me.TextBox8.Multiline = True
         Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(357, 80)
+        Me.TextBox8.ReadOnly = True
+        Me.TextBox8.Size = New System.Drawing.Size(315, 80)
         Me.TextBox8.TabIndex = 140
         '
         'TextBox12
@@ -477,7 +491,7 @@ Partial Class zclygh
         '
         'Button9
         '
-        Me.Button9.Location = New System.Drawing.Point(854, 140)
+        Me.Button9.Location = New System.Drawing.Point(478, 198)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(75, 23)
         Me.Button9.TabIndex = 141
@@ -487,7 +501,7 @@ Partial Class zclygh
         'ComboBox3
         '
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(737, 87)
+        Me.ComboBox3.Location = New System.Drawing.Point(783, 86)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(117, 20)
         Me.ComboBox3.TabIndex = 109
@@ -502,7 +516,7 @@ Partial Class zclygh
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(670, 90)
+        Me.Label8.Location = New System.Drawing.Point(696, 90)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(65, 12)
         Me.Label8.TabIndex = 111
@@ -519,7 +533,7 @@ Partial Class zclygh
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(854, 196)
+        Me.Button7.Location = New System.Drawing.Point(824, 198)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(75, 23)
         Me.Button7.TabIndex = 9
@@ -541,12 +555,12 @@ Partial Class zclygh
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode3.ImageKey = "(默认值)"
-        TreeNode3.Name = "测试"
-        TreeNode3.Text = "节点0"
-        TreeNode4.Name = ""
-        TreeNode4.Text = "根节点0"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
+        TreeNode1.ImageKey = "(默认值)"
+        TreeNode1.Name = "测试"
+        TreeNode1.Text = "节点0"
+        TreeNode2.Name = ""
+        TreeNode2.Text = "根节点0"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.Size = New System.Drawing.Size(167, 568)
         Me.TreeView1.StateImageList = Me.ImageList1
@@ -567,7 +581,7 @@ Partial Class zclygh
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1191, 568)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1113, 568)
         Me.SplitContainer1.SplitterDistance = 167
         Me.SplitContainer1.TabIndex = 4
         '
@@ -582,7 +596,7 @@ Partial Class zclygh
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.SplitContainer3)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1020, 568)
+        Me.SplitContainer2.Size = New System.Drawing.Size(942, 568)
         Me.SplitContainer2.SplitterDistance = 25
         Me.SplitContainer2.TabIndex = 0
         '
@@ -634,20 +648,28 @@ Partial Class zclygh
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(145, 6)
         '
-        'Button1
+        'Label19
         '
-        Me.Button1.Location = New System.Drawing.Point(854, 168)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 176
-        Me.Button1.Text = "导出数据"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(420, 144)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(29, 12)
+        Me.Label19.TabIndex = 178
+        Me.Label19.Text = "备注"
+        '
+        'TextBox13
+        '
+        Me.TextBox13.Location = New System.Drawing.Point(478, 140)
+        Me.TextBox13.Multiline = True
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(422, 45)
+        Me.TextBox13.TabIndex = 177
         '
         'zclygh
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1191, 568)
+        Me.ClientSize = New System.Drawing.Size(1113, 568)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "zclygh"
         Me.Text = "资产调拨"
@@ -727,4 +749,6 @@ Partial Class zclygh
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
 End Class

@@ -188,11 +188,14 @@
         Dim log As String
         Dim zcbh As String
         Dim pz As String
+        Dim memo As String
+
         zcbh = TextBox3.Text
         pz = TextBox8.Text
         If zcbh = "" Then Return
+        memo = TextBox13.Text
         log = DataGridView1.SelectedRows(0).Cells(17).Value.ToString() + "->" + DateTimePicker2.Text + ComboBoxTreeBM.Text + ComboBox3.Text
-        sql = "update zc set bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',bmmc='" + ComboBoxTreeBM.Text + "', log='" + log + "', zrr='" + ComboBox3.Text + "' ,zczt='" + ComboBox1.Text + "',pz='" + pz + "'  where zcbh='" + zcbh + "'"
+        sql = "update zc set bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',bmmc='" + ComboBoxTreeBM.Text + "', log='" + log + "', zrr='" + ComboBox3.Text + "' ,zczt='" + ComboBox1.Text + "',pz='" + pz + "',memo='" + memo + "'  where zcbh='" + zcbh + "'"
         sda_zc.ExecuteNonQuery(sql)
 
         'If selectRowNum = -1 Then Return

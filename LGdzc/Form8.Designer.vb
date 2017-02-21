@@ -25,6 +25,7 @@ Partial Class Form8
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
@@ -63,7 +64,8 @@ Partial Class Form8
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -100,6 +102,8 @@ Partial Class Form8
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label17)
+        Me.GroupBox2.Controls.Add(Me.TextBox13)
         Me.GroupBox2.Controls.Add(Me.Button3)
         Me.GroupBox2.Controls.Add(Me.TextBox12)
         Me.GroupBox2.Controls.Add(Me.Label16)
@@ -148,6 +152,15 @@ Partial Class Form8
         Me.GroupBox2.TabIndex = 102
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "分配资产"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(889, 175)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(104, 20)
+        Me.Button3.TabIndex = 138
+        Me.Button3.Text = "导出列表数据"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'TextBox12
         '
@@ -219,7 +232,7 @@ Partial Class Form8
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(889, 186)
+        Me.Button2.Location = New System.Drawing.Point(889, 214)
         Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(104, 20)
@@ -361,6 +374,7 @@ Partial Class Form8
         '
         Me.TextBox9.Location = New System.Drawing.Point(703, 75)
         Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.ReadOnly = True
         Me.TextBox9.Size = New System.Drawing.Size(105, 21)
         Me.TextBox9.TabIndex = 1
         Me.TextBox9.Text = "1"
@@ -377,7 +391,7 @@ Partial Class Form8
         Me.TextBox4.Location = New System.Drawing.Point(166, 136)
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(712, 71)
+        Me.TextBox4.Size = New System.Drawing.Size(712, 55)
         Me.TextBox4.TabIndex = 6
         '
         'TextBox3
@@ -469,14 +483,22 @@ Partial Class Form8
         Me.Button1.Text = "分配"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button3
+        'TextBox13
         '
-        Me.Button3.Location = New System.Drawing.Point(889, 161)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(104, 20)
-        Me.Button3.TabIndex = 138
-        Me.Button3.Text = "导出列表数据"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.TextBox13.Location = New System.Drawing.Point(166, 197)
+        Me.TextBox13.Multiline = True
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(712, 38)
+        Me.TextBox13.TabIndex = 139
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(71, 197)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(29, 12)
+        Me.Label17.TabIndex = 140
+        Me.Label17.Text = "备注"
         '
         'Form8
         '
@@ -537,4 +559,6 @@ Partial Class Form8
     Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
 End Class

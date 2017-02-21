@@ -1,7 +1,7 @@
 ﻿Imports System.Data
 
-#Const IS_MYSQL_DB = True
-#Const IS_SQLITE_DB = False
+#Const IS_MYSQL_DB = False
+#Const IS_SQLITE_DB = True
 
 
 

@@ -148,7 +148,8 @@
                 Me.SaveDelDB(SelectedNode)
                 TreeView1.Nodes.Remove(SelectedNode)
             Else
-                MsgBox("该节点为根节点或含有下级子节点，请删除所有下级节点才能删除该节点！")
+
+                MsgBox("该节点为根节点或含有下级子节点，请删除所有下级节点才能删除该节点！！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
             End If
         End If
     End Sub
@@ -342,7 +343,7 @@
             'DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
             '数据库中进行删除()
             sda_ry.Update(G_dt_ry)
-            MsgBox("删除成功")
+            MsgBox("删除成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
             Button3.Visible = False
         End If
 
