@@ -110,7 +110,7 @@ Public Class DataGridViewColumnSelector
         AddHandler mDataGridView.ColumnDisplayIndexChanged, New DataGridViewColumnEventHandler(AddressOf mDataGridView_ColumnDisplayIndexChanged)
         mDataGridView.ShowCellToolTips = True
         For i As Integer = 0 To mDataGridView.Columns.Count - 1
-            mDataGridView.Columns(i).ToolTipText = "拖动列可保存列排序信息，在表格的左上角空白区点击右键可以隐藏列信息"
+            mDataGridView.Columns(i).ToolTipText = "拖动列可保存列排序信息。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "在表格的左上角空白区点击右键可以隐藏列信息"
         Next
     End Sub
     ' When user checks / unchecks a checkbox, the related column visibility is 

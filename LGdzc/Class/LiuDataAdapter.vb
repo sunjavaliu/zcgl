@@ -1,12 +1,6 @@
 ﻿Imports System.Data
 
-#Const IS_MYSQL_DB = False
 #Const IS_SQLITE_DB = True
-
-
-
-
-
 
 Public Class LiuDataAdapter
     'Dim SqliteStrConn As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
@@ -95,7 +89,7 @@ Public Class LiuDataAdapter
 #End If
 
         howUpdate = cmd.ExecuteNonQuery()
-
+        'cmd.ExecuteScalar()
         Try
             conn.Close()
         Catch

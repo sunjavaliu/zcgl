@@ -421,15 +421,27 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
 
         Dim sql As String
+
+        Dim xm As String
+        Dim xb As String
         Dim bmbh As String
-        If ComboBoxTreeBM.TreeView.SelectedNode Is Nothing Or TextBox3.Text = "" Or ComboBoxTreeBM.Text = "" Then
+        Dim tel As String
+        Dim bmmc As String
+
+
+        If ComboBoxTreeBM.TreeView.SelectedNode Is Nothing Or Trim(TextBox3.Text) = "" Or Trim(ComboBoxTreeBM.Text) = "" Then
             MsgBox("姓名和所属部门不能为空！")
             Return
         End If
-        bmbh = ComboBoxTreeBM.TreeView.SelectedNode.Name
+
+        xm = Trim(TextBox3.Text)
+        xb = Trim(ComboBox1.Text)
+        bmbh = Trim(ComboBoxTreeBM.TreeView.SelectedNode.Name)
+        tel = Trim(TextBox5.Text)
+        bmmc = Trim(ComboBoxTreeBM.Text)
 
         If Button3.Text = "保存新增信息" Then
-            sql = "insert into bm_ry(xm,xb,bmbh,tel) values ('" + TextBox3.Text + "','" + ComboBox1.Text + "','" + bmbh + "','" + TextBox5.Text + "')"
+            sql = "insert into bm_ry(xm,xb,bmbh,tel) values ('" + xm + "','" + xb + "','" + bmbh + "','" + tel + "')"
             sda_ry.ExecuteNonQuery(sql)
             UpdateDB_BMRY_ZC()
             '添加信息后将光标定在最后一行
@@ -437,10 +449,12 @@
 
             'MsgBox("添加成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
 
-        End If
-        If Button3.Text = "保存修改信息" Then
-            'sql = "insert into bm_ry(xm,xb,bmbh,tel) values ('" + TextBox3.Text + "','" + ComboBox1.Text + "','" + bmbh + "','" + TextBox5.Text + "')"
-            sql = "update bm_ry set xm='" + TextBox3.Text + "',xb='" + ComboBox1.Text + "',bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',tel='" + TextBox5.Text + "' where id=" + modifyID
+        ElseIf Button3.Text = "保存修改信息" Then
+            'sql = "insert into bm_ry(xm,xb,bmbh,tel) values ('" + xm + "','" + xb + "','" + bmbh + "','" + tel + "')"
+
+
+
+            sql = "update bm_ry set xm='" + xm + "',xb='" + xb + "',bmbh='" + bmbh + "',tel='" + tel + "' where id=" + modifyID
             sda_ry.ExecuteNonQuery(sql)
             UpdateDB_BMRY_ZC()
             modifyID = "NULL"
@@ -449,6 +463,16 @@
             DataGridView1.CurrentCell = DataGridView1(0, selectRow)
 
             'MsgBox("添加成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
+            '修改人员信息后，资产里面同样要修改
+
+            '
+
+            sql = "update zc set bmbh='" + bmbh + "', bmmc='" + bmmc + "' where zrr='" + xm + "'"
+            Dim updateCount As Integer
+            updateCount = sda_ry.ExecuteNonQuery(sql)
+            If updateCount > 0 Then
+                MsgBox(xm + "下有" + CStr(updateCount) + "台设备同步更新了信息！")
+            End If
 
         End If
 
@@ -472,6 +496,18 @@
         Button3.Visible = True
 
         SetAddEditEnable()
+        Dim sql As String
+        Dim xm As String
+        xm = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
+        sql = "select * from zc where zrr='" + xm + "'"
+        Dim updateCount As Integer
+
+        updateCount = sda_ry.ExecuteNonQuery(sql)
+        If updateCount > 0 Then
+            MsgBox(xm + "下有" + CStr(updateCount) + "台设备不能修改姓名信息！")
+            TextBox3.Enabled = False
+        End If
+
         selectRow = DataGridView1.SelectedRows(0).Index
         modifyID = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
 

@@ -1,6 +1,13 @@
-﻿
+﻿'#Const IS_MYSQL_DB = False
+#Const IS_SQLITE_DB = True
+
 Module Defined
 
+#If IS_SQLITE_DB Then
+    Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
+#Else
+    Public CONN_STR As String = "Database='testgdzc';Data Source='10.43.18.42';User Id='mysql';Password='mysqlpwd';charset='utf8';pooling=true"
+#End If
 
     '#Const IS_SQLITE_DB =TRUE
     '定义资产结构体
@@ -41,8 +48,7 @@ Module Defined
     Public Const ZC_FROM = "资产来源"
     Public Const CAIGOUFANGSHI = "采购方式"
 
-    'Public CONN_STR As String = "Database='testgdzc';Data Source='10.43.18.42';User Id='mysql';Password='mysqlpwd';charset='utf8';pooling=true"
 
-    Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
+
 
 End Module

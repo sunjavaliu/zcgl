@@ -117,7 +117,7 @@
         DataGridView1.Columns(6).HeaderText = "购置日期"
         DataGridView1.Columns(7).HeaderText = "登记日期"
         DataGridView1.Columns(8).HeaderText = "资产来源"
-        DataGridView1.Columns(9).HeaderText = "领用数量"
+        DataGridView1.Columns(9).HeaderText = "数量"
         DataGridView1.Columns(10).HeaderText = "单价"
         DataGridView1.Columns(11).HeaderText = "总价"
         DataGridView1.Columns(12).HeaderText = "资产状态"
