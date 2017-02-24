@@ -252,7 +252,7 @@
             bmbh = ComboBoxTreeBM.TreeView.SelectedNode.Name
             bmmc = ComboBoxTreeBM.Text
             zrr = ComboBox3.Text
-            cfwz = ""
+            cfwz = TextBox14.Text
             log = DateTimePicker2.Text + bmmc + zrr
             rkbh = TextBox6.Text
             zcxh = TextBox8.Text
@@ -346,6 +346,7 @@
             MsgBox("该部门下没有人员信息，请先添加人员信息")
             ComboBox3.Text = ""
         End If
+        ComboBox3.Text = ""
     End Sub
 
     Private Sub SetNew()
@@ -367,4 +368,6 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         ExportToCSV(DataGridView1)
     End Sub
+
+
 End Class

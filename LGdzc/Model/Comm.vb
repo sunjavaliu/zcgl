@@ -113,6 +113,7 @@ Module Comm
             'MsgBox("该部门下没有人员信息，请先添加人员信息")
             combox.Text = ""
         End If
+        combox.Text = ""
     End Sub
 
     '导出CSV数据

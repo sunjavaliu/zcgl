@@ -119,4 +119,10 @@
     End Sub
  
  
+    Private Sub TextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox3.KeyPress
+        If e.KeyChar = Chr(13) Then
+            TextBox3.Text = TextBox9.Text + TextBox6.Text + ComboBoxTreeLB.Text
+        End If
+
+    End Sub
 End Class

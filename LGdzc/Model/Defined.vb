@@ -1,8 +1,10 @@
 ﻿'#Const IS_MYSQL_DB = False
-#Const IS_SQLITE_DB = True
+'                     True                          
+'
+#Const IS_SQLITE_DB = False
 
 Module Defined
-
+    'Public IF_COMPILE As Boolean = True
 #If IS_SQLITE_DB Then
     Public CONN_STR As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
 #Else

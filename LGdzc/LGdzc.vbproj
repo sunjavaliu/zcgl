@@ -164,6 +164,7 @@
     <Compile Include="AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Class\ComboboxItem.vb" />
     <Compile Include="Class\DataGridViewColumnSelector.vb" />
     <Compile Include="Form10.Designer.vb">
       <DependentUpon>Form10.vb</DependentUpon>

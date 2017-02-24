@@ -16,6 +16,7 @@
     'Dim sda_ry As LiuDataAdapter
     Dim ComboBoxTreeBM As ComboBoxTreeView
     Dim oldName As String           ' 修改前的姓名
+    Dim oldBMBH As String           '老的部门编号
     Dim modifyID As String          '修改的ID信息
     ''' <summary>
     ''' 右键弹出窗口
@@ -338,6 +339,10 @@
             rowN = rowN - 1
             For i = rowN To 0 Step -1
                 If DataGridView1.Rows(i).Selected = True Then
+                    selectRow = i - 1
+
+                    If selectRow < 1 Then selectRow = 0
+
                     DataGridView1.Rows.RemoveAt(DataGridView1.Rows(i).Index)
                     'G_dt_ry.[Delete]("id="+dataGridv_AdminIma.Rows[i].Cells[0].Value.ToString())
                     'Debug.Print(i)
@@ -352,8 +357,11 @@
             'DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
             '数据库中进行删除()
             sda_ry.Update(G_dt_ry)
+            OpreaRYDataBase(G_BMBH)
+            DataGridView1.CurrentCell = DataGridView1(0, selectRow)
             MsgBox("删除成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
             Button3.Visible = False
+
         End If
 
     End Sub
@@ -430,7 +438,7 @@
 
 
         If ComboBoxTreeBM.TreeView.SelectedNode Is Nothing Or Trim(TextBox3.Text) = "" Or Trim(ComboBoxTreeBM.Text) = "" Then
-            MsgBox("姓名和所属部门不能为空！")
+            MsgBox("姓名和所属部门不能为空！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
             Return
         End If
 
@@ -445,7 +453,7 @@
             sda_ry.ExecuteNonQuery(sql)
             UpdateDB_BMRY_ZC()
             '添加信息后将光标定在最后一行
-            DataGridView1.CurrentCell = DataGridView1(0, DataGridView1.Rows.Count - 1)
+            selectRow = DataGridView1.Rows.Count - 1
 
             'MsgBox("添加成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
 
@@ -459,27 +467,34 @@
             UpdateDB_BMRY_ZC()
             modifyID = "NULL"
 
-            '修改信息后将光标定在修改的行上
-            DataGridView1.CurrentCell = DataGridView1(0, selectRow)
+
 
             'MsgBox("添加成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
             '修改人员信息后，资产里面同样要修改
 
-            '
-
-            sql = "update zc set bmbh='" + bmbh + "', bmmc='" + bmmc + "' where zrr='" + xm + "'"
-            Dim updateCount As Integer
-            updateCount = sda_ry.ExecuteNonQuery(sql)
-            If updateCount > 0 Then
-                MsgBox(xm + "下有" + CStr(updateCount) + "台设备同步更新了信息！")
+            '如果部门编号发生了改变就需要更新资产信息库
+            If bmbh <> oldBMBH Then
+                sql = "update zc set bmbh='" + bmbh + "', bmmc='" + bmmc + "' where zrr='" + xm + "'"
+                Dim updateCount As Integer
+                updateCount = sda_ry.ExecuteNonQuery(sql)
+                If updateCount > 0 Then
+                    MsgBox(xm + "下有" + CStr(updateCount) + "台设备同步更新了信息！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
+                End If
+            End If
             End If
 
-        End If
+            '将老的部门编号设置为空
+            oldBMBH = ""
 
-        Button3.Text = "保存"
-        Button3.Enabled = False
-        SetNew()
-        SetAddEditDisable()
+            OpreaRYDataBase(G_BMBH)
+
+            '修改信息后将光标定在修改的行上
+            DataGridView1.CurrentCell = DataGridView1(0, selectRow)
+
+            Button3.Text = "保存"
+            Button3.Enabled = False
+            SetNew()
+            SetAddEditDisable()
     End Sub
     Private Sub SetNew()
         TextBox3.Text = ""
@@ -502,9 +517,9 @@
         sql = "select * from zc where zrr='" + xm + "'"
         Dim updateCount As Integer
 
-        updateCount = sda_ry.ExecuteNonQuery(sql)
+        updateCount = sda_ry.GetSelectCount(sql)
         If updateCount > 0 Then
-            MsgBox(xm + "下有" + CStr(updateCount) + "台设备不能修改姓名信息！")
+            MsgBox("【" + xm + "】下有" + CStr(updateCount) + "台设备,不能修改姓名信息！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
             TextBox3.Enabled = False
         End If
 
@@ -518,12 +533,12 @@
         'ComboBoxTreeBM.TreeView.SelectedNode.Name = DataGridView1.SelectedRows(0).Cells(3).Value.ToString
         'DataGridView1.Enabled = False
 
-        Dim bmbh As String = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
+        Dim bmbhTMP As String = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
 
         ComboBoxTreeBM.TreeView.Focus()
         For i As Integer = 0 To ComboBoxTreeBM.TreeView.Nodes.Count - 1
             For j As Integer = 0 To ComboBoxTreeBM.TreeView.Nodes(i).Nodes.Count - 1
-                If ComboBoxTreeBM.TreeView.Nodes(i).Nodes(j).Name = bmbh Then
+                If ComboBoxTreeBM.TreeView.Nodes(i).Nodes(j).Name = bmbhTMP Then
                     ComboBoxTreeBM.TreeView.SelectedNode = ComboBoxTreeBM.TreeView.Nodes(i).Nodes(j)
                     ComboBoxTreeBM.Text = ComboBoxTreeBM.TreeView.Nodes(i).Nodes(j).Text
                     '选中
@@ -534,8 +549,8 @@
                 End If
             Next
         Next
-
-
+        oldBMBH = bmbhTMP
+        'DataGridView1.CurrentCell = DataGridView1(0, selectRow)
 
 
     End Sub
@@ -567,7 +582,6 @@
         SetAddEditDisable()
         SetNew()
     End Sub
-
 
 End Class
 

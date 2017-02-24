@@ -352,7 +352,7 @@ Partial Class Form1
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"男", "女"})
         Me.ComboBox1.Location = New System.Drawing.Point(93, 42)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(76, 20)
         Me.ComboBox1.TabIndex = 116
@@ -371,7 +371,7 @@ Partial Class Form1
         '
         Me.TextBox5.Enabled = False
         Me.TextBox5.Location = New System.Drawing.Point(275, 42)
-        Me.TextBox5.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox5.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(188, 21)
         Me.TextBox5.TabIndex = 114
@@ -399,7 +399,7 @@ Partial Class Form1
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(533, 78)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(138, 23)
         Me.Button3.TabIndex = 110
@@ -427,7 +427,7 @@ Partial Class Form1
         '
         Me.TextBox3.Enabled = False
         Me.TextBox3.Location = New System.Drawing.Point(93, 8)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(76, 21)
         Me.TextBox3.TabIndex = 10

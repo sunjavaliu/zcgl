@@ -11,6 +11,7 @@
     Dim G_dt_ry As DataTable = New DataTable()
 
 
+
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
@@ -23,12 +24,22 @@
             DataGridView1.Columns(0).ToolTipText = "双击单元格进行操作"
             'TreeView1.Nodes.
             TreeView1.Nodes(0).Expand()
+
+            GetComboBoxDICT("xh", "xh", ComboBox1)
+
+            GetComboBoxDICT("lbmc", "lbmc", ComboBox2)
+
+            ComboBox1.Text = ""
+            ComboBox2.Text = ""
+            TextBox1.Text = ""
+
+
         Catch ex As SQLite.SQLiteException
             MsgBox(ex.Message)
         End Try
 
     End Sub
-    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs)
         If (Not Char.IsNumber(e.KeyChar) And e.KeyChar <> Chr(8)) Then
             e.Handled = True
         Else
@@ -60,16 +71,22 @@
 
 
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
+        Dim selectBMBH As String    '选择的部门ID
+        Dim selectBMMC As String    '选择的部门名称
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
-        TextBox1.Text = SelectedNode.Name
-        TextBox2.Text = SelectedNode.Text
+
+        selectBMBH = SelectedNode.Name
+        selectBMMC = SelectedNode.Text
+        'TextBox1.Text = SelectedNode.Name
+        'TextBox2.Text = SelectedNode.Text
+
         'sda_ry = SQLite.SQLiteDataAdapter("select * from bm_ry where bmbh=" + SelectedNode.Name, CONN_STR)
         'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_ry)
         'sda_ry.SelectCommand.ExecuteReader("select * from bm_ry where bmbh=" + SelectedNode.Name)
         'sda_ry.Fill(G_dt_ry)
         'DataGridView1.DataSource = G_dt_ry
         'DataGridView1.Refresh()
-        OpreaRYDataBase(SelectedNode.Name)
+        OpreaRYDataBase(selectBMBH)
     End Sub
 
 
@@ -256,6 +273,74 @@
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs)
+        ExportToCSV(DataGridView1)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim sql As String = ""
+        Dim sqlwhere As String = ""
+        Dim sqlxh As String = ""
+        Dim sqllb As String = ""
+        Dim sqlzrr As String = ""
+        sql = "select * from zc   "
+        If ComboBox1.Text <> "" Then sqlxh = "zcxh='" + ComboBox1.Text + "'"
+        If ComboBox2.Text <> "" Then sqllb = "lbmc='" + ComboBox2.Text + "'"
+        If TextBox1.Text <> "" Then sqlzrr = "zrr like '%" + TextBox1.Text + "%'"
+
+        If sqlxh <> "" Then sqlwhere = sqlxh
+
+        If sqllb <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqllb
+            Else
+                sqlwhere = sqlwhere + " and " + sqllb
+            End If
+
+        End If
+
+        If sqlzrr <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqlzrr
+            Else
+                sqlwhere = sqlwhere + " and " + sqlzrr
+            End If
+
+        End If
+
+        sql = sql + " where " + sqlwhere
+
+        Dim querysql As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
+        Dim dt As DataTable = New DataTable()
+        querysql.Fill(dt)
+        DataGridView1.DataSource = dt
+
+
+    End Sub
+
+    Public Sub GetComboBoxDICT(DisplayMember As String, tablename As String, combox As ComboBox)
+        Dim dt = New DataTable()
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        '打开连接
+        'conn.Open()
+        'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
+        Dim sql As String = "select " + DisplayMember + " from " + tablename
+        'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
+        'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
+        Dim sda = New LiuDataAdapter(sql, CONN_STR)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
+
+        sda.Fill(dt)
+        combox.DataSource = dt
+        combox.DisplayMember = DisplayMember
+        If dt.Rows.Count = 0 Then
+            'MsgBox("该部门下没有人员信息，请先添加人员信息")
+            combox.Text = ""
+        End If
+    End Sub
+ 
+    Private Sub Button8_Click_1(sender As Object, e As EventArgs) Handles Button8.Click
         ExportToCSV(DataGridView1)
     End Sub
 End Class

@@ -83,6 +83,15 @@
     Private Sub LLRKZC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
  
         GetKuCun()
+
+        ComboBox1.Items.Add(New ComboboxItem("对所有单元格自动调整列宽", DataGridViewAutoSizeColumnsMode.AllCells))
+        ComboBox1.Items.Add(New ComboboxItem("对内容单元格自动调整列宽", DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader))
+        ComboBox1.Items.Add(New ComboboxItem("对标题单元格自动调整", DataGridViewAutoSizeColumnsMode.ColumnHeader))
+        ComboBox1.Items.Add(New ComboboxItem("对可见单元格自动调整列宽，含标题", DataGridViewAutoSizeColumnsMode.DisplayedCells))
+        ComboBox1.Items.Add(New ComboboxItem("对可见单元格自动调整列宽，不含标题", DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader))
+        ComboBox1.Items.Add(New ComboboxItem("列宽正好填充控件的显示区域", DataGridViewAutoSizeColumnsMode.Fill))
+        ComboBox1.Items.Add(New ComboboxItem("列宽不自动调整", DataGridViewAutoSizeColumnsMode.None))
+
     End Sub
 
 
@@ -199,6 +208,25 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         ExportToCSV(DataGridView1)
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
+        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        'DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader
+
+
+
+
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim dis As Integer = DirectCast(ComboBox1.SelectedItem, ComboboxItem).Value
+        DataGridView1.AutoSizeColumnsMode = dis
+    End Sub
 End Class
+
+
+
+
 
 

@@ -1,6 +1,6 @@
 ﻿Imports System.Data
 
-#Const IS_SQLITE_DB = True
+#Const IS_SQLITE_DB = False
 
 Public Class LiuDataAdapter
     'Dim SqliteStrConn As String = "Data Source=" + Application.StartupPath + "\\..\\..\\..\\db\\lgdzc.db"
@@ -99,5 +99,28 @@ Public Class LiuDataAdapter
         Return howUpdate
     End Function
 
+
+
+    Public Function GetSelectCount(SQL As String)
+
+#If IS_SQLITE_DB Then
+        Adapter = New SQLite.SQLiteDataAdapter(SQL, CONN_STR)
+#Else
+        Adapter = New MySql.Data.MySqlClient.MySqlDataAdapter(sql, CONN_STR)
+#End If
+
+        'Adapter.SelectCommand = SQL
+        Dim myDataSet As DataSet = New DataSet()
+        Adapter.Fill(myDataSet)
+        howUpdate = myDataSet.Tables(0).Rows.Count
+        'cmd.ExecuteScalar()
+        Try
+            Adapter.Dispose()
+        Catch
+            Adapter.Dispose()
+            Throw
+        End Try
+        Return howUpdate
+    End Function
 End Class
 

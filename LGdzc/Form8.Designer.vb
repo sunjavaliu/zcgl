@@ -25,6 +25,8 @@ Partial Class Form8
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -64,8 +66,8 @@ Partial Class Form8
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -102,6 +104,8 @@ Partial Class Form8
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.TextBox14)
+        Me.GroupBox2.Controls.Add(Me.Label18)
         Me.GroupBox2.Controls.Add(Me.Label17)
         Me.GroupBox2.Controls.Add(Me.TextBox13)
         Me.GroupBox2.Controls.Add(Me.Button3)
@@ -153,9 +157,26 @@ Partial Class Form8
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "分配资产"
         '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(71, 197)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(29, 12)
+        Me.Label17.TabIndex = 140
+        Me.Label17.Text = "备注"
+        '
+        'TextBox13
+        '
+        Me.TextBox13.Location = New System.Drawing.Point(166, 197)
+        Me.TextBox13.Multiline = True
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(712, 38)
+        Me.TextBox13.TabIndex = 139
+        '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(889, 175)
+        Me.Button3.Location = New System.Drawing.Point(901, 175)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(104, 20)
         Me.Button3.TabIndex = 138
@@ -232,7 +253,7 @@ Partial Class Form8
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(889, 214)
+        Me.Button2.Location = New System.Drawing.Point(901, 214)
         Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(104, 20)
@@ -258,7 +279,7 @@ Partial Class Form8
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(900, 75)
+        Me.TextBox1.Location = New System.Drawing.Point(900, 40)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(105, 21)
         Me.TextBox1.TabIndex = 2
@@ -266,7 +287,7 @@ Partial Class Form8
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(825, 78)
+        Me.Label1.Location = New System.Drawing.Point(825, 44)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(65, 12)
         Me.Label1.TabIndex = 126
@@ -283,7 +304,7 @@ Partial Class Form8
         '
         'TextBox18
         '
-        Me.TextBox18.Location = New System.Drawing.Point(900, 42)
+        Me.TextBox18.Location = New System.Drawing.Point(900, 12)
         Me.TextBox18.Name = "TextBox18"
         Me.TextBox18.ReadOnly = True
         Me.TextBox18.Size = New System.Drawing.Size(105, 21)
@@ -432,7 +453,7 @@ Partial Class Form8
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(825, 45)
+        Me.Label7.Location = New System.Drawing.Point(825, 16)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(53, 12)
         Me.Label7.TabIndex = 106
@@ -476,29 +497,28 @@ Partial Class Form8
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(889, 136)
+        Me.Button1.Location = New System.Drawing.Point(901, 136)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(104, 20)
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "分配"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'TextBox13
+        'Label18
         '
-        Me.TextBox13.Location = New System.Drawing.Point(166, 197)
-        Me.TextBox13.Multiline = True
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(712, 38)
-        Me.TextBox13.TabIndex = 139
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(825, 79)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(53, 12)
+        Me.Label18.TabIndex = 141
+        Me.Label18.Text = "存放位置"
         '
-        'Label17
+        'TextBox14
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(71, 197)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(29, 12)
-        Me.Label17.TabIndex = 140
-        Me.Label17.Text = "备注"
+        Me.TextBox14.Location = New System.Drawing.Point(900, 75)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(105, 21)
+        Me.TextBox14.TabIndex = 142
         '
         'Form8
         '
@@ -561,4 +581,6 @@ Partial Class Form8
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox14 As System.Windows.Forms.TextBox
+    Friend WithEvents Label18 As System.Windows.Forms.Label
 End Class
