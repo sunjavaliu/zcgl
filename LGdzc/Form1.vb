@@ -11,6 +11,7 @@
     Dim G_dt_ry As DataTable = New DataTable()
 
     Dim selectRow As Integer
+    Dim selectCell As Integer
 
     Dim G_BMBH As String                '部门编号全局信息
     'Dim sda_ry As LiuDataAdapter
@@ -353,12 +354,14 @@
 
 
             Next
+            selectCell = DataGridView1.CurrentCell.ColumnIndex
+
             'DataGridView1.Rows.Remove(tmpList)
             'DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
             '数据库中进行删除()
             sda_ry.Update(G_dt_ry)
             OpreaRYDataBase(G_BMBH)
-            DataGridView1.CurrentCell = DataGridView1(0, selectRow)
+            DataGridView1.CurrentCell = DataGridView1(selectCell, selectRow)
             MsgBox("删除成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
             Button3.Visible = False
 
@@ -488,13 +491,14 @@
 
             OpreaRYDataBase(G_BMBH)
 
-            '修改信息后将光标定在修改的行上
-            DataGridView1.CurrentCell = DataGridView1(0, selectRow)
+        '修改信息后将光标定在修改的行上
+        DataGridView1.CurrentCell = DataGridView1(selectCell, selectRow)
+ 
 
-            Button3.Text = "保存"
-            Button3.Enabled = False
-            SetNew()
-            SetAddEditDisable()
+        Button3.Text = "保存"
+        Button3.Enabled = False
+        SetNew()
+        SetAddEditDisable()
     End Sub
     Private Sub SetNew()
         TextBox3.Text = ""
@@ -503,8 +507,6 @@
         ComboBoxTreeBM.Text = ""
     End Sub
 
-
-  
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         Button3.Text = "保存修改信息"
@@ -519,11 +521,13 @@
 
         updateCount = sda_ry.GetSelectCount(sql)
         If updateCount > 0 Then
-            MsgBox("【" + xm + "】下有" + CStr(updateCount) + "台设备,不能修改姓名信息！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
+            'MsgBox("【" + xm + "】下有" + CStr(updateCount) + "台设备,不能修改姓名信息！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
             TextBox3.Enabled = False
         End If
 
         selectRow = DataGridView1.SelectedRows(0).Index
+        selectCell = DataGridView1.CurrentCell.ColumnIndex
+
         modifyID = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
 
         TextBox3.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
@@ -534,7 +538,7 @@
         'DataGridView1.Enabled = False
 
         Dim bmbhTMP As String = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
-
+        oldBMBH = bmbhTMP
         ComboBoxTreeBM.TreeView.Focus()
         For i As Integer = 0 To ComboBoxTreeBM.TreeView.Nodes.Count - 1
             For j As Integer = 0 To ComboBoxTreeBM.TreeView.Nodes(i).Nodes.Count - 1
@@ -545,13 +549,10 @@
                     'treeView.Nodes[i].Nodes[j].Checked = true;
                     ComboBoxTreeBM.TreeView.Nodes(i).Expand()
                     '展开父级
-                    Return
+                    Exit For
                 End If
             Next
         Next
-        oldBMBH = bmbhTMP
-        'DataGridView1.CurrentCell = DataGridView1(0, selectRow)
-
 
     End Sub
 
