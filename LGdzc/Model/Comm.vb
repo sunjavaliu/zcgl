@@ -303,5 +303,24 @@ Module Comm
         DataGridView1.Columns(25).HeaderText = "财政编码"
     End Sub
 
+    Public Sub GetComboBoxDICT(DisplayMember As String, tablename As String, combox As ComboBox)
+        Dim dt = New DataTable()
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        '打开连接
+        'conn.Open()
+        'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
+        Dim sql As String = "select " + DisplayMember + " from " + tablename + " order by " + DisplayMember
+        'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
+        'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
+        Dim sda = New LiuDataAdapter(sql, CONN_STR)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
 
+        sda.Fill(dt)
+        combox.DataSource = dt
+        combox.DisplayMember = DisplayMember
+        If dt.Rows.Count = 0 Then
+            'MsgBox("该部门下没有人员信息，请先添加人员信息")
+            combox.Text = ""
+        End If
+    End Sub
 End Module

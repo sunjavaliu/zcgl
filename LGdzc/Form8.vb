@@ -160,6 +160,8 @@
         '绑定常用数据字典，设备的存放位置
         GetComboBoxDICT(CUN_FANG_WEI_ZHI, ComboBox2)
 
+
+
         '设置DataGridView显示风格
         SetDataGridViewStyle(DataGridView1)
     End Sub

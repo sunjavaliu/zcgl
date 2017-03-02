@@ -13,6 +13,9 @@
     Dim sda_BM As LiuDataAdapter   ';//全局变量
     Dim dt_BM As DataTable = New DataTable()
 
+    Dim sda_BMRY As LiuDataAdapter   ';//全局变量
+    Dim dt_BMRY As DataTable = New DataTable()
+
     Dim bmbh As String = ""   '部门编号
     Dim selectRowNum As Integer = -1 '选中的行数
     Private Sub DisplayBMTree()
@@ -30,8 +33,9 @@
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             'BindTreeView(0, TreeView1, G_dt)
             OpreaZCDataBase("")
-            OpreaBMDataBase()
-            CommBindTreeView(0, TreeView1, dt_BM, "parentBMBH", "0", "BMMC", "BMBH")
+            GetDepartmentAndPersonnelTree()
+            GetDepartmentTree()
+            CommBindTreeView(0, TreeView1, dt_BMRY, "parentBMBH", "0", "BMMC", "BMBH")
             TreeView1.ShowNodeToolTips = True
             DataGridView1.ShowCellToolTips = True
             DataGridView1.Columns(0).ToolTipText = "双击单元格进行编辑操作"
@@ -42,21 +46,47 @@
             GetComboBoxDICT(ZC_STATE, ComboBox1)
             '设置DataGridView显示风格
             SetDataGridViewStyle(DataGridView1)
+
+            GetComboBoxDICT("xh", "xh", ComboBox5)
+
+            GetComboBoxDICT("lbmc", "lbmc", ComboBox4)
+
+            GetComboBoxDICT("zcmc", "zcmc", ComboBox2)
+
+            ComboBox5.Text = ""
+            ComboBox2.Text = ""
+            ComboBox4.Text = ""
+            TextBox14.Text = ""
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
     End Sub
 
+    ''' <summary>
+    ''' 
+    ''' 获取部门和人员信息树
+    ''' </summary>
+    ''' <remarks></remarks>
 
+    Private Sub GetDepartmentAndPersonnelTree()
 
-    Private Sub OpreaBMDataBase()
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
-        '打开连接
-        conn.Open()
-        'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         'Dim sql As String = "select * from bm"
         Dim sql As String = "select * from v_bm"
+        'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
+        'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
+        sda_BMRY = New LiuDataAdapter(sql, CONN_STR)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
+
+        sda_BMRY.Fill(dt_BMRY)
+
+        'G_dt.Load(reader)
+    End Sub
+
+    Private Sub GetDepartmentTree()
+
+        Dim sql As String = "select * from bm"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
         sda_BM = New LiuDataAdapter(sql, CONN_STR)
@@ -274,6 +304,61 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ExportToCSV(DataGridView1)
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim sql As String = ""
+        Dim sqlwhere As String = ""
+        Dim sqlxh As String = ""
+        Dim sqllb As String = ""
+        Dim sqlzrr As String = ""
+        Dim sqlzcmc As String = ""
+        sql = "select * from zc   "
+        If Trim(ComboBox5.Text) <> "" Then sqlxh = "zcxh='" + Trim(ComboBox5.Text) + "'"
+        If Trim(ComboBox4.Text) <> "" Then sqllb = "lbmc='" + Trim(ComboBox4.Text) + "'"
+        If Trim(ComboBox2.Text) <> "" Then sqlzcmc = "zcmc='" + Trim(ComboBox2.Text) + "'"
+        If Trim(TextBox14.Text) <> "" Then sqlzrr = "zrr like '%" + Trim(TextBox14.Text) + "%'"
+
+        If sqlxh <> "" Then sqlwhere = sqlxh
+
+        If sqllb <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqllb
+            Else
+                sqlwhere = sqlwhere + " and " + sqllb
+            End If
+
+        End If
+
+        If sqlzcmc <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqlzcmc
+            Else
+                sqlwhere = sqlwhere + " and " + sqlzcmc
+            End If
+
+        End If
+
+        If sqlzrr <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqlzrr
+            Else
+                sqlwhere = sqlwhere + " and " + sqlzrr
+            End If
+
+        End If
+
+        sql = sql + " where " + sqlwhere
+
+ 
+
+        sda_zc = New LiuDataAdapter(sql, CONN_STR)
+        G_dt_zc.Clear()
+        sda_zc.Fill(G_dt_zc)
+        DataGridView1.DataSource = G_dt_zc
     End Sub
 End Class
 

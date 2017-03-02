@@ -334,26 +334,7 @@
 
     End Sub
 
-    Public Sub GetComboBoxDICT(DisplayMember As String, tablename As String, combox As ComboBox)
-        Dim dt = New DataTable()
-        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
-        '打开连接
-        'conn.Open()
-        'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
-        Dim sql As String = "select " + DisplayMember + " from " + tablename + " order by " + DisplayMember
-        'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
-        'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
-        Dim sda = New LiuDataAdapter(sql, CONN_STR)
-        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda)
 
-        sda.Fill(dt)
-        combox.DataSource = dt
-        combox.DisplayMember = DisplayMember
-        If dt.Rows.Count = 0 Then
-            'MsgBox("该部门下没有人员信息，请先添加人员信息")
-            combox.Text = ""
-        End If
-    End Sub
  
     Private Sub Button8_Click_1(sender As Object, e As EventArgs) Handles Button8.Click
         ExportToCSV(DataGridView1)
@@ -376,6 +357,33 @@
 
     End Sub
 
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+
+    End Sub
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+
+    End Sub
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+
+    End Sub
+    Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
+
+    End Sub
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
 End Class
 
 
