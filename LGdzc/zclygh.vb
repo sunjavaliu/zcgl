@@ -55,7 +55,8 @@
         '打开连接
         conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
-        Dim sql As String = "select * from bm"
+        'Dim sql As String = "select * from bm"
+        Dim sql As String = "select * from v_bm"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
         sda_BM = New LiuDataAdapter(sql, CONN_STR)
@@ -68,6 +69,7 @@
 
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
+        Dim selectBMMC As String
         'sda_ry = SQLite.SQLiteDataAdapter("select * from bm_ry where bmbh=" + SelectedNode.Name, CONN_STR)
         'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_ry)
         'sda_ry.SelectCommand.ExecuteReader("select * from bm_ry where bmbh=" + SelectedNode.Name)
@@ -75,9 +77,30 @@
         'DataGridView1.DataSource = G_dt_ry
         'DataGridView1.Refresh()
         bmbh = SelectedNode.Name
-        OpreaZCDataBase(bmbh)
-    End Sub
+        selectBMMC = SelectedNode.Text
 
+        '如果下级子节点的个数为0表示就是末级节点
+        If SelectedNode.Nodes.Count = 0 Then
+            '获取个人拥有的设备
+            GetZcInfo4Name(selectBMMC)
+        Else
+            '获取部门拥有的设备
+            OpreaZCDataBase(bmbh)
+        End If
+
+
+    End Sub
+    Private Sub GetZcInfo4Name(name As String)
+
+        Dim sql As String
+        sql = "select * from zc where zrr='" + name + "'"
+        'commSQL = sql
+        sda_zc = New LiuDataAdapter(sql, CONN_STR)
+        G_dt_zc.Clear()
+        sda_zc.Fill(G_dt_zc)
+        DataGridView1.DataSource = G_dt_zc
+
+    End Sub
 
     Private Sub OpreaZCDataBase(bmbh As String)
 
@@ -108,33 +131,8 @@
         SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
 
         DataGridView1.Columns(0).ReadOnly = True
-        DataGridView1.Columns(0).HeaderText = "ID"
-
-        DataGridView1.Columns(1).HeaderText = "资产编号"
-        DataGridView1.Columns(2).HeaderText = "资产名称"
-        DataGridView1.Columns(3).HeaderText = "资产类别编号（国标）"
-        DataGridView1.Columns(4).HeaderText = "资产类别名称（国标）"
-        DataGridView1.Columns(5).HeaderText = "计量单位"
-        DataGridView1.Columns(6).HeaderText = "购置日期"
-        DataGridView1.Columns(7).HeaderText = "登记日期"
-        DataGridView1.Columns(8).HeaderText = "资产来源"
-        DataGridView1.Columns(9).HeaderText = "数量"
-        DataGridView1.Columns(10).HeaderText = "单价"
-        DataGridView1.Columns(11).HeaderText = "总价"
-        DataGridView1.Columns(12).HeaderText = "资产状态"
-        DataGridView1.Columns(13).HeaderText = "部门编号"
-        DataGridView1.Columns(14).HeaderText = "部门名称"
-        DataGridView1.Columns(15).HeaderText = "责任人"
-        DataGridView1.Columns(16).HeaderText = "存放位置"
-        DataGridView1.Columns(17).HeaderText = "流转记录"
-        DataGridView1.Columns(18).HeaderText = "入库编号"
-        DataGridView1.Columns(19).HeaderText = "设备型号"
-        DataGridView1.Columns(20).HeaderText = "设备品牌"
-        DataGridView1.Columns(21).HeaderText = "配置"
-        DataGridView1.Columns(22).HeaderText = "设备序列号"
-        DataGridView1.Columns(23).HeaderText = "操作系统序列号"
-        DataGridView1.Columns(24).HeaderText = "备注"
-        DataGridView1.Columns(25).HeaderText = "财政编码"
+        '设置资产表的列标题
+        SetColumnsTitle4ZC(DataGridView1)
 
         '更改显示序号
         'DataGridView1.Columns(0).DisplayIndex = 0
