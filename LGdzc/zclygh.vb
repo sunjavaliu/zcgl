@@ -134,6 +134,7 @@
         DataGridView1.Columns(22).HeaderText = "设备序列号"
         DataGridView1.Columns(23).HeaderText = "操作系统序列号"
         DataGridView1.Columns(24).HeaderText = "备注"
+        DataGridView1.Columns(25).HeaderText = "财政编码"
 
         '更改显示序号
         'DataGridView1.Columns(0).DisplayIndex = 0

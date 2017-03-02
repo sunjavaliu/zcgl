@@ -22,6 +22,18 @@ Public Class LiuDataAdapter
         Adapter = New MySql.Data.MySqlClient.MySqlDataAdapter(sql, CONN_STR)
 #End If
 
+        'Adapter.InsertCommand
+
+    End Sub
+
+    Public Sub QueryDataGridView(sql As String, CONN_STR As String)
+
+#If IS_SQLITE_DB Then
+    Adapter = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+#Else
+        Adapter = New MySql.Data.MySqlClient.MySqlDataAdapter(sql, CONN_STR)
+        'Adapter.
+#End If
 
         'Adapter.InsertCommand
 

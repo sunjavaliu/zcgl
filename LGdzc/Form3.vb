@@ -10,7 +10,7 @@
     Dim sda_ry As LiuDataAdapter   ';//全局变量
     Dim G_dt_ry As DataTable = New DataTable()
 
-
+    Dim commSQL As String   '全局SQL
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -61,6 +61,9 @@
         conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String = "select * from bm"
+
+        'Dim sql As String = "select * from v_bmry"
+
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
         sda = New LiuDataAdapter(sql, CONN_STR)
@@ -97,9 +100,9 @@
     Private Sub OpreaRYDataBase(bmbh As String)
 
 
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
         '打开连接
-        conn.Open()
+        'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String
         If bmbh = "" Or bmbh = "1" Then
@@ -107,6 +110,10 @@
         Else
             sql = "select * from zc where bmbh=" + bmbh
         End If
+
+
+        commSQL = sql
+
 
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
@@ -156,6 +163,110 @@
         DataGridView1.Columns(22).HeaderText = "设备序列号"
         DataGridView1.Columns(23).HeaderText = "操作系统序列号"
         DataGridView1.Columns(24).HeaderText = "备注"
+        DataGridView1.Columns(25).HeaderText = "财政编码"
+
+        '更改显示序号
+        'DataGridView1.Columns(14).DisplayIndex = 1
+        'DataGridView1.Columns(15).DisplayIndex = 2
+        'DataGridView1.Columns(19).DisplayIndex = 3
+        'DataGridView1.Columns(12).DisplayIndex = 4
+
+        'DataGridView1.Columns("zcbh").HeaderText = "资产编号"
+        'DataGridView1.Columns("zcmc").HeaderText = "资产名称"
+        'DataGridView1.Columns("lbid").HeaderText = "资产类别编号（国标）"
+        'DataGridView1.Columns("lbmc").HeaderText = "资产类别名称（国标）"
+        'DataGridView1.Columns("jldw").HeaderText = "计量单位"
+        'DataGridView1.Columns("gzrq").HeaderText = "购置日期"
+        'DataGridView1.Columns("djrq").HeaderText = "登记日期"
+        'DataGridView1.Columns("zcly").HeaderText = "资产来源"
+        'DataGridView1.Columns("zcsl").HeaderText = "购置数量"
+        'DataGridView1.Columns("zcdj").HeaderText = "单价"
+        'DataGridView1.Columns("zczj").HeaderText = "总价"
+        'DataGridView1.Columns("zczt").HeaderText = "资产状态"
+        'DataGridView1.Columns("bmbh").HeaderText = "部门编号"
+        'DataGridView1.Columns("bmmc").HeaderText = "部门名称"
+        'DataGridView1.Columns("zrr").HeaderText = "责任人"
+        'DataGridView1.Columns("cfwz").HeaderText = "存放位置"
+        'DataGridView1.Columns("log").HeaderText = "流转记录"
+        'DataGridView1.Columns("rkbh").HeaderText = "入库编号"
+        'DataGridView1.Columns("zcxh").HeaderText = "设备型号"
+        'DataGridView1.Columns("zcpp").HeaderText = "设备品牌"
+        'DataGridView1.Columns("pz").HeaderText = "配置"
+        'DataGridView1.Columns("devicesn").HeaderText = "设备序列号"
+        'DataGridView1.Columns("ossn").HeaderText = "操作系统序列号"
+
+        'DataGridView1.Columns("ossn").Width=
+        'DataGridView1.Columns(3).Frozen = True
+        'G_dt.Load(reader)
+    End Sub
+
+    Private Sub ReOpenDB(sql As String)
+
+
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        '打开连接
+        'conn.Open()
+        'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
+        'Dim sql As String
+        'If bmbh = "" Or bmbh = "1" Then
+        '    sql = "select * from zc"
+        'Else
+        '    sql = "select * from zc where bmbh=" + bmbh
+        'End If
+
+
+        'commSQL = sql
+
+
+        'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
+        'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
+        sda_ry = New LiuDataAdapter(sql, CONN_STR)
+
+
+        G_dt_ry.Clear()
+        sda_ry.Fill(G_dt_ry)
+
+        DataGridView1.DataSource = G_dt_ry
+
+
+        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+
+
+
+        DataGridView1.Columns(0).ReadOnly = True
+
+        'DataGridView1.Columns("ID").HeaderText = "序号"
+
+
+
+        DataGridView1.Columns(0).HeaderText = "ID"
+
+        DataGridView1.Columns(1).HeaderText = "资产编号"
+        DataGridView1.Columns(2).HeaderText = "资产名称"
+        DataGridView1.Columns(3).HeaderText = "资产类别编号（国标）"
+        DataGridView1.Columns(4).HeaderText = "资产类别名称（国标）"
+        DataGridView1.Columns(5).HeaderText = "计量单位"
+        DataGridView1.Columns(6).HeaderText = "购置日期"
+        DataGridView1.Columns(7).HeaderText = "登记日期"
+        DataGridView1.Columns(8).HeaderText = "资产来源"
+        DataGridView1.Columns(9).HeaderText = "数量"
+        DataGridView1.Columns(10).HeaderText = "单价"
+        DataGridView1.Columns(11).HeaderText = "总价"
+        DataGridView1.Columns(12).HeaderText = "资产状态"
+        DataGridView1.Columns(13).HeaderText = "部门编号"
+        DataGridView1.Columns(14).HeaderText = "部门名称"
+        DataGridView1.Columns(15).HeaderText = "责任人"
+        DataGridView1.Columns(16).HeaderText = "存放位置"
+        DataGridView1.Columns(17).HeaderText = "流转记录"
+        DataGridView1.Columns(18).HeaderText = "入库编号"
+        DataGridView1.Columns(19).HeaderText = "设备型号"
+        DataGridView1.Columns(20).HeaderText = "设备品牌"
+        DataGridView1.Columns(21).HeaderText = "配置"
+        DataGridView1.Columns(22).HeaderText = "设备序列号"
+        DataGridView1.Columns(23).HeaderText = "操作系统序列号"
+        DataGridView1.Columns(24).HeaderText = "备注"
+        DataGridView1.Columns(25).HeaderText = "财政编码"
 
         '更改显示序号
         'DataGridView1.Columns(14).DisplayIndex = 1
@@ -194,12 +305,12 @@
 
 
 
-
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         'Dim SCB = New SQLite.SQLiteCommandBuilder(sda_ry)
-        sda_ry.Update(G_dt_ry)
+        Dim UpdateCount As Integer
+        UpdateCount = sda_ry.Update(G_dt_ry)
         MsgBox("更新成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
-        OpreaRYDataBase("")
+        ReOpenDB(commSQL)
     End Sub
 
 
@@ -267,13 +378,8 @@
         TreeView1.CollapseAll()
     End Sub
 
-    Private Sub TreeView1_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseDoubleClick
-
-    End Sub
-
     Private Sub Button3_Click(sender As Object, e As EventArgs)
         Form7.ShowDialog()
-
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs)
@@ -327,11 +433,22 @@
 
         sql = sql + " where " + sqlwhere
 
+        commSQL = sql
+
         Dim querysql As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
         Dim dt As DataTable = New DataTable()
-        querysql.Fill(dt)
-        DataGridView1.DataSource = dt
 
+        sda_ry = New LiuDataAdapter(sql, CONN_STR)
+        G_dt_ry.Clear()
+        sda_ry.Fill(G_dt_ry)
+        DataGridView1.DataSource = G_dt_ry
+
+
+        'Dim querysql As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
+        'Dim dt As DataTable = New DataTable()
+
+        'querysql.Fill(dt)
+        'DataGridView1.DataSource = dt
 
     End Sub
 
