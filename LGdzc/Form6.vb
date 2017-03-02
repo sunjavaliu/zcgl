@@ -33,7 +33,8 @@
 
 
         TreeView1.ExpandAll()
-
+        '设置DataGridView显示风格
+        SetDataGridViewStyle(DataGridView1)
     End Sub
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
         Dim sql, tip As String

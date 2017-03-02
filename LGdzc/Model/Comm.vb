@@ -1,8 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 
 Module Comm
-
-
     Public Sub IsInputNum(e As KeyPressEventArgs)
         If (Not Char.IsNumber(e.KeyChar) And e.KeyChar <> Chr(8)) Then
             e.Handled = True
@@ -251,5 +249,28 @@ Module Comm
         'cs.MaxHeight = 900
         'cs.Width = 150
     End Sub
-     
+
+    ''' <summary>
+    ''' 设置显示风格
+    ''' 
+    ''' </summary>
+    ''' <param name="DataGridView1"></param>
+    ''' <remarks></remarks>
+    Public Sub SetDataGridViewStyle(DataGridView1 As DataGridView)
+        'DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None '//列宽不自动调整,手工添加列
+        DataGridView1.RowHeadersWidth = 30 '//行标题宽度固定12
+        DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing '//不能用鼠标调整列标头宽度
+        DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.LemonChiffon '//奇数行背景色
+        DataGridView1.BackgroundColor = Color.White '//控件背景色
+        DataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter '//列标题居中显示
+        DataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter '//单元格内容居中显示
+
+
+        'DataGridView1.AutoGenerateColumns = False '//不自动创建列
+        'DataGridView1.AllowUserToAddRows = False '//不启用添加
+        'DataGridView1.ReadOnly = True '//不启用编辑
+        'DataGridView1.AllowUserToDeleteRows = False '//不启用删除
+        'DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect '//单击单元格选中整行
+        'DataGridView1.MultiSelect = False '//不能多选
+    End Sub
 End Module

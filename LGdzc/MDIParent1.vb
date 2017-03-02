@@ -221,6 +221,8 @@ Public Class MDIParent1
                 'Me.OpenChildWindow(fm)
             Case "闲置设备再分配"
                 Jump(Of xzsb)()
+            Case "查看入库与分配信息"
+                Jump(Of LLRKINFO)()
         End Select
     End Sub
     Private Sub OpenChildWindow(f As Form)

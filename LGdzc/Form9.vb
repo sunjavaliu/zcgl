@@ -133,7 +133,9 @@
     Private Sub TextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox3.KeyPress
         If e.KeyChar = Chr(13) Then
             TextBox3.Text = TextBox9.Text + TextBox6.Text + ComboBoxTreeLB.Text
+            TextBox4.Focus()
         End If
 
     End Sub
+
 End Class

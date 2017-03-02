@@ -40,6 +40,9 @@
             DisplayBMTree()
             OnComboBoxTreeViewTextUpdate()
             GetComboBoxDICT(ZC_STATE, ComboBox1)
+            '设置DataGridView显示风格
+            SetDataGridViewStyle(DataGridView1)
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

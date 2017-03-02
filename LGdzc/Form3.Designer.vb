@@ -24,8 +24,8 @@ Partial Class Form3
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form3))
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode3})
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode1})
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -55,6 +55,8 @@ Partial Class Form3
         Me.ExpandAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CollapseAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,7 +98,7 @@ Partial Class Form3
         Me.DataGridView1.Location = New System.Drawing.Point(3, 17)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(900, 358)
+        Me.DataGridView1.Size = New System.Drawing.Size(900, 326)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
@@ -105,7 +107,7 @@ Partial Class Form3
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(906, 378)
+        Me.GroupBox2.Size = New System.Drawing.Size(906, 346)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "资产信息"
@@ -129,8 +131,8 @@ Partial Class Form3
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button6)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button4)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button5)
-        Me.SplitContainer3.Size = New System.Drawing.Size(906, 425)
-        Me.SplitContainer3.SplitterDistance = 378
+        Me.SplitContainer3.Size = New System.Drawing.Size(906, 393)
+        Me.SplitContainer3.SplitterDistance = 346
         Me.SplitContainer3.TabIndex = 7
         '
         'Button8
@@ -171,6 +173,8 @@ Partial Class Form3
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ComboBox3)
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.ComboBox2)
@@ -178,24 +182,24 @@ Partial Class Form3
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(906, 54)
+        Me.GroupBox1.Size = New System.Drawing.Size(906, 88)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "查询信息"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(522, 23)
+        Me.TextBox1.Location = New System.Drawing.Point(348, 50)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 21)
+        Me.TextBox1.Size = New System.Drawing.Size(219, 21)
         Me.TextBox1.TabIndex = 6
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(627, 22)
+        Me.Button1.Location = New System.Drawing.Point(597, 49)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 5
@@ -205,23 +209,23 @@ Partial Class Form3
         'ComboBox2
         '
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(304, 23)
+        Me.ComboBox2.Location = New System.Drawing.Point(348, 24)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(165, 20)
+        Me.ComboBox2.Size = New System.Drawing.Size(219, 20)
         Me.ComboBox2.TabIndex = 4
         '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(74, 23)
+        Me.ComboBox1.Location = New System.Drawing.Point(64, 50)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(173, 20)
+        Me.ComboBox1.Size = New System.Drawing.Size(219, 20)
         Me.ComboBox1.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(475, 27)
+        Me.Label3.Location = New System.Drawing.Point(296, 54)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(41, 12)
         Me.Label3.TabIndex = 2
@@ -230,7 +234,7 @@ Partial Class Form3
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(245, 27)
+        Me.Label2.Location = New System.Drawing.Point(296, 28)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 12)
         Me.Label2.TabIndex = 1
@@ -239,7 +243,7 @@ Partial Class Form3
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 27)
+        Me.Label1.Location = New System.Drawing.Point(5, 54)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 12)
         Me.Label1.TabIndex = 0
@@ -260,12 +264,12 @@ Partial Class Form3
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode3.ImageKey = "(默认值)"
-        TreeNode3.Name = "测试"
-        TreeNode3.Text = "节点0"
-        TreeNode4.Name = ""
-        TreeNode4.Text = "根节点0"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
+        TreeNode1.ImageKey = "(默认值)"
+        TreeNode1.Name = "测试"
+        TreeNode1.Text = "节点0"
+        TreeNode2.Name = ""
+        TreeNode2.Text = "根节点0"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.Size = New System.Drawing.Size(180, 485)
         Me.TreeView1.StateImageList = Me.ImageList1
@@ -306,7 +310,7 @@ Partial Class Form3
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.SplitContainer3)
         Me.SplitContainer2.Size = New System.Drawing.Size(906, 485)
-        Me.SplitContainer2.SplitterDistance = 56
+        Me.SplitContainer2.SplitterDistance = 88
         Me.SplitContainer2.TabIndex = 0
         '
         'DelSubToolStripMenuItem
@@ -356,6 +360,23 @@ Partial Class Form3
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(145, 6)
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(64, 24)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(219, 20)
+        Me.ComboBox3.TabIndex = 8
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(5, 28)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(53, 12)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "设备名称"
         '
         'Form3
         '
@@ -415,4 +436,6 @@ Partial Class Form3
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class

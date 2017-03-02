@@ -29,10 +29,14 @@
 
             GetComboBoxDICT("lbmc", "lbmc", ComboBox2)
 
+            GetComboBoxDICT("zcmc", "zcmc", ComboBox3)
+
             ComboBox1.Text = ""
             ComboBox2.Text = ""
+            ComboBox3.Text = ""
             TextBox1.Text = ""
-
+            '设置DataGridView显示风格
+            SetDataGridViewStyle(DataGridView1)
 
         Catch ex As SQLite.SQLiteException
             MsgBox(ex.Message)
@@ -183,7 +187,7 @@
         'DataGridView1.Columns("devicesn").HeaderText = "设备序列号"
         'DataGridView1.Columns("ossn").HeaderText = "操作系统序列号"
 
-
+        'DataGridView1.Columns("ossn").Width=
         'DataGridView1.Columns(3).Frozen = True
         'G_dt.Load(reader)
     End Sub
@@ -282,10 +286,12 @@
         Dim sqlxh As String = ""
         Dim sqllb As String = ""
         Dim sqlzrr As String = ""
+        Dim sqlzcmc As String = ""
         sql = "select * from zc   "
-        If ComboBox1.Text <> "" Then sqlxh = "zcxh='" + ComboBox1.Text + "'"
-        If ComboBox2.Text <> "" Then sqllb = "lbmc='" + ComboBox2.Text + "'"
-        If TextBox1.Text <> "" Then sqlzrr = "zrr like '%" + TextBox1.Text + "%'"
+        If Trim(ComboBox1.Text) <> "" Then sqlxh = "zcxh='" + Trim(ComboBox1.Text) + "'"
+        If Trim(ComboBox2.Text) <> "" Then sqllb = "lbmc='" + Trim(ComboBox2.Text) + "'"
+        If Trim(ComboBox3.Text) <> "" Then sqlzcmc = "zcmc='" + Trim(ComboBox3.Text) + "'"
+        If Trim(TextBox1.Text) <> "" Then sqlzrr = "zrr like '%" + Trim(TextBox1.Text) + "%'"
 
         If sqlxh <> "" Then sqlwhere = sqlxh
 
@@ -295,6 +301,16 @@
                 sqlwhere = sqllb
             Else
                 sqlwhere = sqlwhere + " and " + sqllb
+            End If
+
+        End If
+
+        If sqlzcmc <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqlzcmc
+            Else
+                sqlwhere = sqlwhere + " and " + sqlzcmc
             End If
 
         End If
@@ -325,7 +341,7 @@
         '打开连接
         'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
-        Dim sql As String = "select " + DisplayMember + " from " + tablename
+        Dim sql As String = "select " + DisplayMember + " from " + tablename + " order by " + DisplayMember
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
         Dim sda = New LiuDataAdapter(sql, CONN_STR)
@@ -343,6 +359,24 @@
     Private Sub Button8_Click_1(sender As Object, e As EventArgs) Handles Button8.Click
         ExportToCSV(DataGridView1)
     End Sub
+
+    ''' <summary>
+    ''' 调整list的高度
+    ''' 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub ComboBox3_DrawItem(sender As Object, e As DrawItemEventArgs) Handles ComboBox3.DrawItem
+        If e.Index < 0 Then
+            Return
+        End If
+        e.DrawBackground()
+        e.DrawFocusRectangle()
+        e.Graphics.DrawString(ComboBox3.Items(e.Index).ToString(), e.Font, New SolidBrush(e.ForeColor), e.Bounds.X, e.Bounds.Y + 50)
+
+    End Sub
+
 End Class
 
 

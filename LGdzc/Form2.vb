@@ -75,6 +75,10 @@
             TreeView1.Nodes(0).Expand()
 
             'TreeView1.ExpandAll()
+
+
+            '设置DataGridView显示风格
+            SetDataGridViewStyle(DataGridView1)
         Catch ex As SQLite.SQLiteException
             MsgBox(ex.Message)
         End Try
@@ -89,6 +93,7 @@
     End Sub
     Private Sub SaveModiDB(dataNode As TreeNode, ParentID As Integer)
         Dim rows() As DataRow = G_dt.Select("lbdm=" + dataNode.Name)
+
         Dim row As DataRow
         For Each row In rows
             row("lbmc") = dataNode.Text
@@ -117,7 +122,7 @@
         Dim sql As String
 
         If bmbh = "" Or bmbh = "1" Then
-            sql = "select * from lb"
+            sql = "select * from lb order by lbdm"
         Else
             Dim tmpI, MAXBH As Integer
             tmpI = CInt(bmbh)
@@ -129,7 +134,7 @@
             If tmpI Mod 100000 = 0 Then MAXBH = tmpI + 99999
             If tmpI Mod 1000000 = 0 Then MAXBH = tmpI + 999999
 
-            sql = "select * from lb  where lbdm >= " + bmbh + " and lbdm<=" + MAXBH.ToString
+            sql = "select * from lb  where lbdm >= " + bmbh + " and lbdm<=" + MAXBH.ToString + " order by lbdm"
             Debug.Print(sql)
         End If
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
@@ -139,6 +144,8 @@
         G_dt.Clear()
         sda.FillSchema(G_dt, SchemaType.Mapped)
         sda.Fill(G_dt)
+
+
         DataGridView1.DataSource = G_dt
 
         '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
@@ -149,6 +156,7 @@
         DataGridView1.Columns(1).HeaderText = "资产类别代码"
         DataGridView1.Columns(2).HeaderText = "资产类别名称"
         DataGridView1.Columns(3).HeaderText = "所属上级类别代码"
+        DataGridView1.Columns(4).HeaderText = "备注"
 
     End Sub
 
@@ -303,7 +311,7 @@
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
+        sda.Update(G_dt)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

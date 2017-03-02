@@ -109,6 +109,13 @@ Public Class DataGridViewColumnSelector
         'mDataGridView.ColumnDisplayIndexChanged += New DataGridViewColumnEventHandler(AddressOf mDataGridView_ColumnDisplayIndexChanged)
         AddHandler mDataGridView.ColumnDisplayIndexChanged, New DataGridViewColumnEventHandler(AddressOf mDataGridView_ColumnDisplayIndexChanged)
         mDataGridView.ShowCellToolTips = True
+
+
+        'RemoveHandler mDataGridView.ColumnWidthChanged, New DataGridViewColumnEventHandler(AddressOf mDataGridView_ColumnWidthChanged)
+
+        AddHandler mDataGridView.ColumnWidthChanged, New DataGridViewColumnEventHandler(AddressOf mDataGridView_ColumnWidthChanged)
+
+
         For i As Integer = 0 To mDataGridView.Columns.Count - 1
             mDataGridView.Columns(i).ToolTipText = "拖动列可保存列排序信息。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "在表格的左上角空白区点击右键可以隐藏列信息"
         Next
@@ -134,11 +141,17 @@ Public Class DataGridViewColumnSelector
             dt.Columns.Add("Index", GetType(Int32))
             dt.Columns.Add("DisplayIndex", GetType(Int32))
             dt.Columns.Add("Visable", GetType(Boolean))
+            dt.Columns.Add("Width", GetType(Int32))
+
+
+
+
             For Each col As DataGridViewColumn In mDataGridView.Columns
                 Dim dr As DataRow = dt.NewRow()
                 dr(0) = col.Index
                 dr(1) = col.DisplayIndex
                 dr(2) = col.Visible
+                dr(3) = col.Width
                 dt.Rows.Add(dr)
             Next
             dt.WriteXml(xmlFile)
@@ -154,10 +167,17 @@ Public Class DataGridViewColumnSelector
                 Dim index As Integer = Integer.Parse(dr(0).ToString())
                 Dim displayIndex As Integer = Integer.Parse(dr(1).ToString())
                 Dim visable As Boolean = Boolean.Parse(dr(2).ToString())
+                Dim Width As Integer = Integer.Parse(dr(3).ToString())
                 mDataGridView.Columns(index).DisplayIndex = displayIndex
                 mDataGridView.Columns(index).Visible = visable
+                mDataGridView.Columns(index).Width = Width
+
             Next
         End If
+    End Sub
+
+    Private Sub mDataGridView_ColumnWidthChanged()
+        WriteToXml()
     End Sub
 
 End Class

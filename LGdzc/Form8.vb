@@ -153,6 +153,15 @@
         DisplayBMTree()
         GetKuCunDevice()
         OnComboBoxTreeViewTextUpdate()   '激活OnComboBoxTreeViewTextUpdate事件
+
+        '绑定常用数据字典，资产状态
+        GetComboBoxDICT(ZC_STATE, ComboBox1)
+
+        '绑定常用数据字典，设备的存放位置
+        GetComboBoxDICT(CUN_FANG_WEI_ZHI, ComboBox2)
+
+        '设置DataGridView显示风格
+        SetDataGridViewStyle(DataGridView1)
     End Sub
 
     Private Sub TextBox9_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox9.KeyPress
@@ -227,8 +236,8 @@
 
         Try
             '如果资产编号为空，部门为空，责任人为空则返回
-            If Trim(TextBox6.Text) = "" Or Trim(ComboBoxTreeBM.Text) = "" Or Trim(ComboBox3.Text) = "" Or Trim(TextBox9.Text) = "" Then
-                MsgBox("资产入库编号、归属部门、责任人和分配数量不能为空", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告")
+            If Trim(TextBox6.Text) = "" Or Trim(ComboBoxTreeBM.Text) = "" Or Trim(ComboBox3.Text) = "" Or Trim(TextBox9.Text) = "" Or Trim(ComboBox1.Text) = "" Then
+                MsgBox("资产入库编号、归属部门、责任人、分配数量和资产状态不能为空", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告")
                 Return
             End If
 
@@ -248,11 +257,12 @@
 
             zcdj = TextBox10.Text
             zczj = TextBox11.Text
-            zczt = "在用"   '这里应该从数据库里面获取资产状态的值
+            'zczt = "在用"   '这里应该从数据库里面获取资产状态的值
+            zczt = ComboBox1.Text
             bmbh = ComboBoxTreeBM.TreeView.SelectedNode.Name
             bmmc = ComboBoxTreeBM.Text
             zrr = ComboBox3.Text
-            cfwz = TextBox14.Text
+            cfwz = ComboBox2.Text
             log = DateTimePicker2.Text + bmmc + zrr
             rkbh = TextBox6.Text
             zcxh = TextBox8.Text

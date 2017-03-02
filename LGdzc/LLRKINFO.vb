@@ -1,4 +1,4 @@
-﻿Public Class LLRKZC
+﻿Public Class LLRKINFO
     Dim sda As LiuDataAdapter
     Dim IsEditCell As Boolean = False
     Dim TB As DataTable
@@ -78,10 +78,10 @@
 
 
 
-  
 
-    Private Sub LLRKZC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
- 
+
+    Private Sub LLRKINFO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         GetKuCun()
 
         ComboBox1.Items.Add(New ComboboxItem("对所有单元格自动调整列宽", DataGridViewAutoSizeColumnsMode.AllCells))
@@ -98,7 +98,7 @@
 
         '设置DataGridView显示风格
         SetDataGridViewStyle(DataGridView1)
- 
+
 
     End Sub
 
@@ -290,13 +290,13 @@
         Dim sql As String
         Dim sdazrr As LiuDataAdapter
         Dim tb As DataTable = New DataTable
-        sql = "select zrr from zc where rkbh='" + DataGridView1.SelectedRows(0).Cells(15).Value.ToString() + "'"
+        sql = "select * from zc where rkbh='" + DataGridView1.SelectedRows(0).Cells(15).Value.ToString() + "'"
         'MsgBox(sql)
         sdazrr = New LiuDataAdapter(sql, CONN_STR)
         sdazrr.Fill(tb)
-        ListBox1.DataSource = tb
-        ListBox1.DisplayMember = "zrr"
-        ListBox1.Refresh()
+        DataGridView2.DataSource = tb
+
+        DataGridView2.Refresh()
 
     End Sub
 

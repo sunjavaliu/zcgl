@@ -49,6 +49,7 @@ Module Defined
     Public Const JILIANGDANWEI = "计量单位"
     Public Const ZC_FROM = "资产来源"
     Public Const CAIGOUFANGSHI = "采购方式"
+    Public Const CUN_FANG_WEI_ZHI = "存放位置"
 
 
 

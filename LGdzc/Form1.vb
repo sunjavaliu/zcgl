@@ -193,6 +193,8 @@
             'TreeView1.Nodes.
             TreeView1.Nodes(0).Expand()
 
+            '设置DataGridView显示风格
+            SetDataGridViewStyle(DataGridView1)
 
         Catch ex As SQLite.SQLiteException
             MsgBox(ex.Message)
@@ -492,8 +494,9 @@
             OpreaRYDataBase(G_BMBH)
 
         '修改信息后将光标定在修改的行上
-        DataGridView1.CurrentCell = DataGridView1(selectCell, selectRow)
- 
+        If DataGridView1(selectCell, selectRow).Visible = True Then
+            DataGridView1.CurrentCell = DataGridView1(selectCell, selectRow)
+        End If
 
         Button3.Text = "保存"
         Button3.Enabled = False

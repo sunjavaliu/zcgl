@@ -175,6 +175,12 @@
     <Compile Include="Class\LiuDataAdapter.vb" />
     <Compile Include="Class\MySqlHelper.vb" />
     <Compile Include="Class\SQLiteHelper.vb" />
+    <Compile Include="LLRKINFO.Designer.vb">
+      <DependentUpon>LLRKINFO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LLRKINFO.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="xzsb.Designer.vb">
       <DependentUpon>xzsb.vb</DependentUpon>
     </Compile>
@@ -307,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LLRKINFO.resx">
+      <DependentUpon>LLRKINFO.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xzsb.resx">
       <DependentUpon>xzsb.vb</DependentUpon>

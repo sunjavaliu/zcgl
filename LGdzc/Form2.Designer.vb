@@ -24,8 +24,8 @@ Partial Class Form2
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode3})
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode1})
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -81,12 +81,11 @@ Partial Class Form2
         '
         'Button4
         '
-        Me.Button4.Enabled = False
         Me.Button4.Location = New System.Drawing.Point(150, 17)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 7
-        Me.Button4.Text = "修改"
+        Me.Button4.Text = "更新保存"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'DataGridView1
@@ -244,12 +243,12 @@ Partial Class Form2
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode3.ImageKey = "(默认值)"
-        TreeNode3.Name = "测试"
-        TreeNode3.Text = "节点0"
-        TreeNode4.Name = ""
-        TreeNode4.Text = "根节点0"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
+        TreeNode1.ImageKey = "(默认值)"
+        TreeNode1.Name = "测试"
+        TreeNode1.Text = "节点0"
+        TreeNode2.Name = ""
+        TreeNode2.Text = "根节点0"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.Size = New System.Drawing.Size(286, 459)
         Me.TreeView1.StateImageList = Me.ImageList1

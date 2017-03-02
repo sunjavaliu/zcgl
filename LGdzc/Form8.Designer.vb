@@ -25,6 +25,7 @@ Partial Class Form8
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TextBox13 = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -66,8 +67,9 @@ Partial Class Form8
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -104,7 +106,9 @@ Partial Class Form8
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.TextBox14)
+        Me.GroupBox2.Controls.Add(Me.ComboBox2)
+        Me.GroupBox2.Controls.Add(Me.ComboBox1)
+        Me.GroupBox2.Controls.Add(Me.Label19)
         Me.GroupBox2.Controls.Add(Me.Label18)
         Me.GroupBox2.Controls.Add(Me.Label17)
         Me.GroupBox2.Controls.Add(Me.TextBox13)
@@ -156,6 +160,15 @@ Partial Class Form8
         Me.GroupBox2.TabIndex = 102
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "分配资产"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(825, 79)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(53, 12)
+        Me.Label18.TabIndex = 141
+        Me.Label18.Text = "存放位置"
         '
         'Label17
         '
@@ -504,21 +517,30 @@ Partial Class Form8
         Me.Button1.Text = "分配"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Label18
+        'Label19
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(825, 79)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(53, 12)
-        Me.Label18.TabIndex = 141
-        Me.Label18.Text = "存放位置"
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(898, 110)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(29, 12)
+        Me.Label19.TabIndex = 143
+        Me.Label19.Text = "状态"
         '
-        'TextBox14
+        'ComboBox1
         '
-        Me.TextBox14.Location = New System.Drawing.Point(900, 75)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(105, 21)
-        Me.TextBox14.TabIndex = 142
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(934, 108)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(71, 20)
+        Me.ComboBox1.TabIndex = 144
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(900, 76)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(105, 20)
+        Me.ComboBox2.TabIndex = 145
         '
         'Form8
         '
@@ -581,6 +603,8 @@ Partial Class Form8
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox14 As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
 End Class

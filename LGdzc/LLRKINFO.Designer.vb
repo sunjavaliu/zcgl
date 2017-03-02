@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class LLRKZC
+Partial Class LLRKINFO
     Inherits System.Windows.Forms.Form
 
     'Form 重写 Dispose，以清理组件列表。
@@ -26,6 +26,7 @@ Partial Class LLRKZC
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -33,11 +34,11 @@ Partial Class LLRKZC
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -45,6 +46,7 @@ Partial Class LLRKZC
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SplitContainer1
@@ -61,6 +63,7 @@ Partial Class LLRKZC
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ListBox1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Button4)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label1)
@@ -69,7 +72,7 @@ Partial Class LLRKZC
         Me.SplitContainer1.Panel2.Controls.Add(Me.Button2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Button1)
         Me.SplitContainer1.Size = New System.Drawing.Size(1071, 493)
-        Me.SplitContainer1.SplitterDistance = 428
+        Me.SplitContainer1.SplitterDistance = 326
         Me.SplitContainer1.SplitterWidth = 3
         Me.SplitContainer1.TabIndex = 102
         '
@@ -81,7 +84,7 @@ Partial Class LLRKZC
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1047, 405)
+        Me.GroupBox1.Size = New System.Drawing.Size(1047, 303)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "查看入库资产"
@@ -97,12 +100,21 @@ Partial Class LLRKZC
         Me.DataGridView1.Location = New System.Drawing.Point(3, 17)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(1041, 385)
+        Me.DataGridView1.Size = New System.Drawing.Size(1041, 283)
         Me.DataGridView1.TabIndex = 4
+        '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 12
+        Me.ListBox1.Location = New System.Drawing.Point(871, 112)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(120, 52)
+        Me.ListBox1.TabIndex = 8
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(223, 11)
+        Me.Button4.Location = New System.Drawing.Point(219, 116)
         Me.Button4.Margin = New System.Windows.Forms.Padding(2)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(100, 31)
@@ -113,7 +125,7 @@ Partial Class LLRKZC
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(484, 20)
+        Me.Label1.Location = New System.Drawing.Point(480, 125)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(77, 12)
         Me.Label1.TabIndex = 5
@@ -122,14 +134,14 @@ Partial Class LLRKZC
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(567, 17)
+        Me.ComboBox1.Location = New System.Drawing.Point(563, 122)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(249, 20)
         Me.ComboBox1.TabIndex = 4
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(119, 11)
+        Me.Button3.Location = New System.Drawing.Point(115, 116)
         Me.Button3.Margin = New System.Windows.Forms.Padding(2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(100, 31)
@@ -139,7 +151,7 @@ Partial Class LLRKZC
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(15, 11)
+        Me.Button2.Location = New System.Drawing.Point(11, 116)
         Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(100, 31)
@@ -149,7 +161,7 @@ Partial Class LLRKZC
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(327, 11)
+        Me.Button1.Location = New System.Drawing.Point(323, 116)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(100, 31)
@@ -163,11 +175,22 @@ Partial Class LLRKZC
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(197, 76)
         '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(196, 22)
+        Me.ToolStripMenuItem3.Text = "选定这行"
+        '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(196, 22)
         Me.ToolStripMenuItem1.Text = "查询该设备分配的人员"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(193, 6)
         '
         'ToolStripMenuItem2
         '
@@ -175,33 +198,23 @@ Partial Class LLRKZC
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(196, 22)
         Me.ToolStripMenuItem2.Text = "删除这笔入库信息"
         '
-        'ToolStripSeparator1
+        'DataGridView2
         '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(193, 6)
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.RowTemplate.Height = 23
+        Me.DataGridView2.Size = New System.Drawing.Size(1071, 106)
+        Me.DataGridView2.TabIndex = 9
         '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(196, 22)
-        Me.ToolStripMenuItem3.Text = "选定这行"
-        '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 12
-        Me.ListBox1.Location = New System.Drawing.Point(875, 7)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(120, 52)
-        Me.ListBox1.TabIndex = 8
-        '
-        'LLRKZC
+        'LLRKINFO
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1071, 493)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.Name = "LLRKZC"
+        Me.Name = "LLRKINFO"
         Me.Text = "浏览入库资产"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.SplitContainer1.Panel1.ResumeLayout(False)
@@ -212,6 +225,7 @@ Partial Class LLRKZC
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -230,4 +244,5 @@ Partial Class LLRKZC
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
 End Class
