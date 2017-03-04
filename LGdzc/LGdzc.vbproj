@@ -181,6 +181,12 @@
     <Compile Include="LLRKINFO.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LoginForm1.Designer.vb">
+      <DependentUpon>LoginForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="xzsb.Designer.vb">
       <DependentUpon>xzsb.vb</DependentUpon>
     </Compile>
@@ -317,6 +323,9 @@
     <EmbeddedResource Include="LLRKINFO.resx">
       <DependentUpon>LLRKINFO.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm1.resx">
+      <DependentUpon>LoginForm1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="xzsb.resx">
       <DependentUpon>xzsb.vb</DependentUpon>
     </EmbeddedResource>
@@ -410,11 +419,11 @@
     <Content Include="ico\ml.ico" />
     <Content Include="ico\rw.ico" />
     <Content Include="ico\xm.ico" />
+    <None Include="Resources\timg.jpg" />
+    <None Include="Resources\log.png" />
     <Content Include="www.ico.la_8859244b7b3ecb900447471f28731acb_16X16.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

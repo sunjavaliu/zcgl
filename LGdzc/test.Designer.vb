@@ -25,31 +25,33 @@ Partial Class test
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.aaa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bbb = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PresentAddress = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.ccc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Column2 = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(16, 410)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button1.Location = New System.Drawing.Point(12, 328)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 28)
+        Me.Button1.Size = New System.Drawing.Size(75, 22)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(16, 357)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button2.Location = New System.Drawing.Point(12, 286)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 28)
+        Me.Button2.Size = New System.Drawing.Size(75, 22)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Button2"
         Me.Button2.UseVisualStyleBackColor = True
@@ -57,13 +59,23 @@ Partial Class test
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.aaa, Me.bbb, Me.Column1, Me.PresentAddress, Me.ccc})
-        Me.DataGridView1.Location = New System.Drawing.Point(16, 15)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.aaa, Me.bbb, Me.Column1, Me.PresentAddress, Me.ccc, Me.Column2, Me.Column3})
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 12)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(1095, 295)
+        Me.DataGridView1.Size = New System.Drawing.Size(821, 236)
         Me.DataGridView1.TabIndex = 2
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"asdf", "asdffffffff", "adaaaaaaaaaa"})
+        Me.ComboBox1.Location = New System.Drawing.Point(421, 286)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 20)
+        Me.ComboBox1.TabIndex = 3
         '
         'aaa
         '
@@ -92,26 +104,26 @@ Partial Class test
         Me.ccc.HeaderText = "ccc"
         Me.ccc.Name = "ccc"
         '
-        'ComboBox1
+        'Column2
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"asdf", "asdffffffff", "adaaaaaaaaaa"})
-        Me.ComboBox1.Location = New System.Drawing.Point(561, 357)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(160, 23)
-        Me.ComboBox1.TabIndex = 3
+        Me.Column2.HeaderText = "Column2"
+        Me.Column2.Name = "Column2"
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Column3"
+        Me.Column3.Name = "Column3"
         '
         'test
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1127, 465)
+        Me.ClientSize = New System.Drawing.Size(845, 372)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "test"
         Me.Text = "Form8"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -127,4 +139,6 @@ Partial Class test
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PresentAddress As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents ccc As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewButtonColumn
+    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewButtonColumn
 End Class
