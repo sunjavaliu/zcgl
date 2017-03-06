@@ -164,8 +164,6 @@ Module Comm
                     sw.WriteLine(columnValue)
                 End If
             Next
-            sw.Close()
-            myStream.Close()
         Catch e As Exception
             MessageBox.Show(e.ToString())
         Finally
@@ -232,7 +230,7 @@ Module Comm
 
 
     'Public Sub SetDataGridViewHidenColumn(dt As DataGridView, Optional xmlfile As String = ".\a")
-    Public Sub SetDataGridViewHidenColumn(dt As DataGridView, xmlfile As String)
+    Public Sub SetDataGridViewHidenColumn(ByRef dt As DataGridView, xmlfile As String)
 
         xmlfile = xmlfile & ".xml"
 
@@ -256,7 +254,7 @@ Module Comm
     ''' </summary>
     ''' <param name="DataGridView1"></param>
     ''' <remarks></remarks>
-    Public Sub SetDataGridViewStyle(DataGridView1 As DataGridView)
+    Public Sub SetDataGridViewStyle(ByRef DataGridView1 As DataGridView)
         'DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None '//列宽不自动调整,手工添加列
         DataGridView1.RowHeadersWidth = 30 '//行标题宽度固定12
         DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing '//不能用鼠标调整列标头宽度

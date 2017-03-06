@@ -5,7 +5,7 @@
     Private dt_LB As DataTable = New DataTable()
     Private Sub SetNewAdd()
         ComboBoxTreeLB.Text = ""
-        ComboBoxTreeLB.TreeView.SelectedNode.Name = ""
+        'ComboBoxTreeLB.TreeView.SelectedNode.Name = ""
         TextBox3.Text = ""
         ComboBox3.Text = ""
         TextBox4.Text = ""
@@ -138,7 +138,7 @@
  
     Private Sub TextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox3.KeyPress
         If e.KeyChar = Chr(13) Then
-            TextBox3.Text = TextBox9.Text + TextBox6.Text + ComboBoxTreeLB.Text
+            TextBox3.Text = TextBox9.Text + " " + TextBox6.Text + " " + ComboBoxTreeLB.Text
             TextBox4.Focus()
         End If
 
@@ -148,4 +148,13 @@
         DateTimePicker1.Format = DateTimePickerFormat.Long
         DateTimePicker1.CustomFormat = Nothing
     End Sub
+
+    Private Sub TextBox9_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox9.KeyPress
+        If e.KeyChar = Chr(13) Then
+
+            TextBox3.Focus()
+        End If
+    End Sub
+
+
 End Class

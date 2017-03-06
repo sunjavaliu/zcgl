@@ -28,8 +28,7 @@
         DataGridView1.DataSource = TB
 
 
-        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
-        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+
 
 
         'DataGridView1.Rows(0).Cells(0).Height = 90
@@ -57,6 +56,12 @@
         DataGridView1.Columns(18).HeaderText = "品牌"
         DataGridView1.Columns(19).HeaderText = "备注"
 
+
+
+        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString() + "DataGridView1")
+
+
         'DataGridView1.Columns(17).DisplayIndex = 3
         'DataGridView1.Columns(14).DisplayIndex = 4
         'DataGridView1.Columns(9).DisplayIndex = 5
@@ -76,10 +81,6 @@
     End Sub
 
 
-
-
-
-
     Private Sub LLRKINFO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         GetKuCun()
@@ -93,12 +94,23 @@
         ComboBox1.Items.Add(New ComboboxItem("列宽不自动调整", DataGridViewAutoSizeColumnsMode.None))
 
 
+        GetComboBoxDICT("xh", "xh", ComboBox4)
+
+        GetComboBoxDICT("lbmc", "lbmc", ComboBox2)
+
+        GetComboBoxDICT("zcmc", "zcmc", ComboBox3)
+
+        ComboBox1.Text = ""
+        ComboBox2.Text = ""
+        ComboBox3.Text = ""
+
+
         'DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
         DataGridView1.Rows(0).ContextMenuStrip = Me.ContextMenuStrip1
 
         '设置DataGridView显示风格
         SetDataGridViewStyle(DataGridView1)
-
+        SetDataGridViewStyle(DataGridView2)
 
     End Sub
 
@@ -193,21 +205,6 @@
 
     Private Sub DataGridView1_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseUp
 
-        'if (e.Button == System.Windows.Forms.MouseButtons.Left)
-        '   {
-        '       this.contextMenuStrip1.Show(pictureBox1,new Point(e.X, e.Y));
-        '   }
-
-        'If e.Button = Windows.Forms.MouseButtons.Right Then
-        '    Me.ContextMenuStrip1.Show(Me, e.)
-        '    'Me.ContextMenuStrip1.Show(Me, DataGridView1.PointToScreen(New Point(System.Windows.Forms.Cursor.Position.X, System.Windows.Forms.Cursor.Position.Y)))
-
-        '    'MsgBox(DataGridView1.PointToScreen(New Point(System.Windows.Forms.Cursor.Position.X.ToString(), System.Windows.Forms.Cursor.Position.Y.ToString)))
-
-        'End If
-
-
-
         If e.Button = MouseButtons.Right Then
             If e.RowIndex >= 0 Then
                 '若行已是选中状态就不再进行设置
@@ -217,7 +214,9 @@
                 End If
                 '只选中一行时设置活动单元格
                 If DataGridView1.SelectedRows.Count = 1 Then
-                    DataGridView1.CurrentCell = DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex)
+                    If e.ColumnIndex >= 0 Then
+                        DataGridView1.CurrentCell = DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex)
+                    End If
                 End If
                 '弹出操作菜单
                 ContextMenuStrip1.Show(MousePosition.X, MousePosition.Y)
@@ -298,10 +297,73 @@
 
         DataGridView2.Refresh()
 
+        SetColumnsTitle4ZC(DataGridView2)
+        SetDataGridViewHidenColumn(DataGridView2, Me.Name.ToString() + "DataGridView2")
+
     End Sub
 
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
         ContextMenuStrip1.Close()
+    End Sub
+
+ 
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim sql As String = ""
+        Dim sqlwhere As String = ""
+        Dim sqlxh As String = ""
+        Dim sqllb As String = ""
+        Dim sqlzrr As String = ""
+        Dim sqlzcmc As String = ""
+        sql = "select * from rk   "
+        If Trim(ComboBox1.Text) <> "" Then sqlxh = "zcxh='" + Trim(ComboBox1.Text) + "'"
+        If Trim(ComboBox2.Text) <> "" Then sqllb = "lbmc='" + Trim(ComboBox2.Text) + "'"
+        If Trim(ComboBox3.Text) <> "" Then sqlzcmc = "zcmc='" + Trim(ComboBox3.Text) + "'"
+        'If Trim(TextBox1.Text) <> "" Then sqlzrr = "zrr like '%" + Trim(TextBox1.Text) + "%'"
+
+        If sqlxh <> "" Then sqlwhere = sqlxh
+
+        If sqllb <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqllb
+            Else
+                sqlwhere = sqlwhere + " and " + sqllb
+            End If
+
+        End If
+
+        If sqlzcmc <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqlzcmc
+            Else
+                sqlwhere = sqlwhere + " and " + sqlzcmc
+            End If
+
+        End If
+
+        If sqlzrr <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqlzrr
+            Else
+                sqlwhere = sqlwhere + " and " + sqlzrr
+            End If
+
+        End If
+
+        sql = sql + " where " + sqlwhere
+
+        'commSQL = sql
+
+        Dim querysql As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
+        'Dim dt As DataTable = New DataTable()
+
+        querysql = New LiuDataAdapter(sql, CONN_STR)
+        TB.Clear()
+        querysql.Fill(TB)
+        DataGridView1.DataSource = TB
     End Sub
 End Class
 

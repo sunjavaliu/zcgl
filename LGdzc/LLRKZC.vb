@@ -28,8 +28,7 @@
         DataGridView1.DataSource = TB
 
 
-        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
-        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+
 
 
         'DataGridView1.Rows(0).Cells(0).Height = 90
@@ -56,6 +55,12 @@
         DataGridView1.Columns(17).HeaderText = "设备型号"
         DataGridView1.Columns(18).HeaderText = "品牌"
         DataGridView1.Columns(19).HeaderText = "备注"
+
+
+
+        '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
+
 
         'DataGridView1.Columns(17).DisplayIndex = 3
         'DataGridView1.Columns(14).DisplayIndex = 4
@@ -98,7 +103,8 @@
 
         '设置DataGridView显示风格
         SetDataGridViewStyle(DataGridView1)
- 
+
+
 
     End Sub
 

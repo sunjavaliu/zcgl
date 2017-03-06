@@ -284,9 +284,6 @@
             End If
 
 
-            'SQLconn.ConnectionString = CONN_STR '链接数据库  
-            'SQLconn.Open()
-            'sqlcmd.Connection = SQLconn
             Dim CommandText As String
 
             'SQLite可以在字段上加单引号，MYsql就不行
@@ -309,10 +306,6 @@
 
             CommandText = "update rk set kucun= " + newKucun.ToString + "  where id=" + Rk_tab_id
             salda.ExecuteNonQuery(CommandText)
-
-            'sqlExecuteQuery.ExecuteNonQuery()
-            'SQLconn2.Close()
-
 
 
             'SQLite.SQLiteHelper.ExecuteDataset(constr, CommandType.Text, Sql)
