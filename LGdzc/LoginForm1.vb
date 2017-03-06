@@ -1,4 +1,5 @@
-﻿Public Class LoginForm1
+﻿Imports System.Security.Cryptography
+Public Class LoginForm1
 
     ' TODO:  插入代码，以使用提供的用户名和密码执行自定义的身份验证
     ' (请参见 http://go.microsoft.com/fwlink/?LinkId=35339)。 
@@ -9,13 +10,22 @@
     ' 如用户名、显示名等
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
+        Dim sql, username, password As String
 
+        username = UsernameTextBox.Text
+        password = PasswordTextBox.Text
+        sql = "select * from user where username='" + username + "' and password='" + GetMd5HashStr(password) + "'"
+        MsgBox(sql)
+        'Dim aa As md5
+        'Me.Close()
+        'EncodeMD5 =
+        'Me.Hide()
+        MDIParent1.Show()
         Me.Close()
+
     End Sub
 
-    Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.Close()
-    End Sub
+ 
 
     Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.Text = My.Application.Info.Title + "--->登陆"

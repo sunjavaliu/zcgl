@@ -187,28 +187,17 @@
     <Compile Include="LoginForm1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Model\MD5.vb" />
     <Compile Include="xzsb.Designer.vb">
       <DependentUpon>xzsb.vb</DependentUpon>
     </Compile>
     <Compile Include="xzsb.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="zcjh.Designer.vb">
-      <DependentUpon>zcjh.vb</DependentUpon>
-    </Compile>
-    <Compile Include="zcjh.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="zclygh.Designer.vb">
       <DependentUpon>zclygh.vb</DependentUpon>
     </Compile>
     <Compile Include="zclygh.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LLRKZC.Designer.vb">
-      <DependentUpon>LLRKZC.vb</DependentUpon>
-    </Compile>
-    <Compile Include="LLRKZC.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form8.Designer.vb">
@@ -329,9 +318,6 @@
     <EmbeddedResource Include="xzsb.resx">
       <DependentUpon>xzsb.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="zcjh.resx">
-      <DependentUpon>zcjh.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="zclygh.resx">
       <DependentUpon>zclygh.vb</DependentUpon>
     </EmbeddedResource>
@@ -346,9 +332,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form7.resx">
       <DependentUpon>Form7.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LLRKZC.resx">
-      <DependentUpon>LLRKZC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form8.resx">
       <DependentUpon>Form8.vb</DependentUpon>
@@ -421,7 +404,6 @@
     <Content Include="ico\xm.ico" />
     <None Include="Resources\timg.jpg" />
     <None Include="Resources\log.png" />
-    <Content Include="www.ico.la_8859244b7b3ecb900447471f28731acb_16X16.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

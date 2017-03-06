@@ -363,7 +363,11 @@
             '数据库中进行删除()
             sda_ry.Update(G_dt_ry)
             OpreaRYDataBase(G_BMBH)
-            DataGridView1.CurrentCell = DataGridView1(selectCell, selectRow)
+
+            If (DataGridView1(selectCell, selectRow).Visible) Then
+                DataGridView1.CurrentCell = DataGridView1(selectCell, selectRow)
+            End If
+
             MsgBox("删除成功！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "成功")
             Button3.Visible = False
 

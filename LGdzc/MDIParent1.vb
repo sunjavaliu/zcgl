@@ -207,14 +207,6 @@ Public Class MDIParent1
                 Jump(Of Form8)()
                 'fm = New Form8()
                 'Me.OpenChildWindow(fm)
-            Case "查看入库设备"
-                Jump(Of LLRKZC)()
-                'fm = New LLRKZC()
-                'Me.OpenChildWindow(fm)
-            Case "归还设备"
-                Jump(Of zcjh)()
-                'fm = New zcjh()
-                'Me.OpenChildWindow(fm)
             Case "设备调拨"
                 Jump(Of zclygh)()
                 'fm = New zclygh()
@@ -241,6 +233,8 @@ Public Class MDIParent1
     End Sub
 
     Private Sub MDIParent1_Load(sender As Object, e As EventArgs) Handles Me.Load
+        'LoginForm1.ShowDialog()
+
         TreeView1.ExpandAll()
     End Sub
 
@@ -265,7 +259,4 @@ Public Class MDIParent1
         Jump(Of Form8)()
     End Sub
 
-    Private Sub llrkzcToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles llrkzcToolStripMenuItem3.Click
-        Jump(Of LLRKZC)()
-    End Sub
 End Class

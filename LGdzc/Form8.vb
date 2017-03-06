@@ -5,6 +5,7 @@
     Dim ComboBoxTreeBM As ComboBoxTreeView
     Dim Rk_tab_id As String = "" '保存入库表中选择行的ID表属性
     Dim oldKucun As Integer = 0  '保存旧库数量属性
+    Dim SelectedRowIndex As Integer '选择的行索引
 
     Private Sub DisplayBMTree()
         ComboBoxTreeBM = New ComboBoxTreeView()
@@ -53,10 +54,6 @@
         'sda.Fill(G_dt)
         sda.Fill(TB)
 
-
-
-
-
         DataGridView1.DataSource = TB
 
 
@@ -88,20 +85,12 @@
         DataGridView1.Columns(18).HeaderText = "品牌"
         DataGridView1.Columns(19).HeaderText = "备注"
 
-        'DataGridView1.Columns(3).Frozen = True
-        'DataGridView1.Columns(0).DisplayIndex = 0
-        'DataGridView1.Columns(17).DisplayIndex = 1
-        'DataGridView1.Columns(14).DisplayIndex = 2
-        'DataGridView1.Columns(9).DisplayIndex = 3
-
-        'dataAdapter.SelectCommand = cmd
-        'dataAdapter.Fill(dst, "info")
-        'dt = dst.Tables("info")
-        'sqlConnection1.Close()   '关闭数据库   
-
-
-        'DataGridView1.AutoGenerateColumns = True '自动创建列   
-        'DataGridView1.DataSource = sda
+        For i = 0 To 19
+            If (DataGridView1(i, SelectedRowIndex).Visible) Then
+                DataGridView1.CurrentCell = DataGridView1(i, SelectedRowIndex)
+                Return
+            End If
+        Next
 
     End Sub
 
@@ -112,6 +101,8 @@
 
     Private Sub FenPeiZC()
         If DataGridView1.SelectedRows(0).IsNewRow Then Return '空行直接返回
+
+        SelectedRowIndex = DataGridView1.SelectedRows(0).Index
 
         oldKucun = CInt(DataGridView1.SelectedRows(0).Cells(14).Value.ToString)
         If oldKucun < 1 Then
@@ -373,6 +364,5 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         ExportToCSV(DataGridView1)
     End Sub
-
 
 End Class

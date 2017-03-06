@@ -25,6 +25,9 @@ Partial Class Form8
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TextBox13 = New System.Windows.Forms.TextBox()
@@ -67,9 +70,6 @@ Partial Class Form8
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -160,6 +160,31 @@ Partial Class Form8
         Me.GroupBox2.TabIndex = 102
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "分配资产"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(900, 76)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(105, 20)
+        Me.ComboBox2.TabIndex = 145
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(934, 108)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(71, 20)
+        Me.ComboBox1.TabIndex = 144
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(898, 110)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(29, 12)
+        Me.Label19.TabIndex = 143
+        Me.Label19.Text = "状态"
         '
         'Label18
         '
@@ -516,31 +541,6 @@ Partial Class Form8
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "分配"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(898, 110)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(29, 12)
-        Me.Label19.TabIndex = 143
-        Me.Label19.Text = "状态"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(934, 108)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(71, 20)
-        Me.ComboBox1.TabIndex = 144
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(900, 76)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(105, 20)
-        Me.ComboBox2.TabIndex = 145
         '
         'Form8
         '

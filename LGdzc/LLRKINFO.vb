@@ -316,7 +316,7 @@
         Dim sqlzrr As String = ""
         Dim sqlzcmc As String = ""
         sql = "select * from rk   "
-        If Trim(ComboBox1.Text) <> "" Then sqlxh = "zcxh='" + Trim(ComboBox1.Text) + "'"
+        If Trim(ComboBox4.Text) <> "" Then sqlxh = "zcxh='" + Trim(ComboBox4.Text) + "'"
         If Trim(ComboBox2.Text) <> "" Then sqllb = "lbmc='" + Trim(ComboBox2.Text) + "'"
         If Trim(ComboBox3.Text) <> "" Then sqlzcmc = "zcmc='" + Trim(ComboBox3.Text) + "'"
         'If Trim(TextBox1.Text) <> "" Then sqlzrr = "zrr like '%" + Trim(TextBox1.Text) + "%'"
@@ -353,17 +353,23 @@
 
         End If
 
-        sql = sql + " where " + sqlwhere
+        If sqlwhere <> "" Then
+            sql = sql + " where " + sqlwhere
+        End If
 
         'commSQL = sql
 
         Dim querysql As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
         'Dim dt As DataTable = New DataTable()
-
+        'MsgBox(sql)
         querysql = New LiuDataAdapter(sql, CONN_STR)
+
         TB.Clear()
         querysql.Fill(TB)
         DataGridView1.DataSource = TB
+
+
+
     End Sub
 End Class
 

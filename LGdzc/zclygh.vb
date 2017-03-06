@@ -351,9 +351,10 @@
 
         End If
 
-        sql = sql + " where " + sqlwhere
+        If sqlwhere <> "" Then
+            sql = sql + " where " + sqlwhere
+        End If
 
- 
 
         sda_zc = New LiuDataAdapter(sql, CONN_STR)
         G_dt_zc.Clear()
