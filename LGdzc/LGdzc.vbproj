@@ -24,11 +24,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <TargetCulture>zh-CN</TargetCulture>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.0.2.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
-    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -115,22 +113,6 @@
     <PlatformTarget>x86</PlatformTarget>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>06966E8C8A1D994872001B3A3576227819272EFA</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>LGdzc_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <TargetZone>LocalIntranet</TargetZone>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
@@ -197,6 +179,12 @@
       <DependentUpon>LLRKINFO.vb</DependentUpon>
     </Compile>
     <Compile Include="LLRKINFO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm1.Designer.vb">
+      <DependentUpon>LoginForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="xzsb.Designer.vb">
@@ -335,6 +323,9 @@
     <EmbeddedResource Include="LLRKINFO.resx">
       <DependentUpon>LLRKINFO.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm1.resx">
+      <DependentUpon>LoginForm1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="xzsb.resx">
       <DependentUpon>xzsb.vb</DependentUpon>
     </EmbeddedResource>
@@ -387,7 +378,6 @@
   <ItemGroup>
     <None Include="DB\Lgdzc.db" />
     <None Include="DB\字段定义.xlsx" />
-    <None Include="LGdzc_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -429,10 +419,11 @@
     <Content Include="ico\ml.ico" />
     <Content Include="ico\rw.ico" />
     <Content Include="ico\xm.ico" />
+    <None Include="Resources\timg.jpg" />
+    <None Include="Resources\log.png" />
+    <Content Include="www.ico.la_8859244b7b3ecb900447471f28731acb_16X16.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
