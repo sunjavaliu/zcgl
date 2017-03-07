@@ -2,6 +2,8 @@
     Dim sda As LiuDataAdapter
     Dim IsEditCell As Boolean = False
     Dim TB As DataTable
+    Dim czzc As zcglStruct
+
     Private Sub GetKuCun()
         'MsgBox(System.Environment.GetEnvironmentVariable("SYSTEMROOT"))
         TB = New DataTable()
@@ -12,7 +14,7 @@
         'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         'Dim sql As String = "select * from rk where kucun>0 order by id desc"
-        Dim sql As String = "select * from rk order by id desc"
+        Dim sql As String = "select * from zc order by id desc"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
         sda = New LiuDataAdapter(sql, CONN_STR)
@@ -34,27 +36,29 @@
         'DataGridView1.Rows(0).Cells(0).Height = 90
         DataGridView1.ColumnHeadersHeight = 46
         DataGridView1.Columns(0).ReadOnly = True
-        DataGridView1.Columns(0).HeaderText = "ID"
+        SetColumnsTitle4ZC(DataGridView1)
 
-        DataGridView1.Columns(1).HeaderText = "资产类别编号（国标）"
-        DataGridView1.Columns(2).HeaderText = "资产类别名称（国标）"
-        DataGridView1.Columns(3).HeaderText = "资产名称"
-        DataGridView1.Columns(4).HeaderText = "采购方式"
-        DataGridView1.Columns(5).HeaderText = "供货商"
-        DataGridView1.Columns(6).HeaderText = "购置日期"
-        DataGridView1.Columns(7).HeaderText = "到货日期"
-        DataGridView1.Columns(8).HeaderText = "单价"
-        DataGridView1.Columns(9).HeaderText = "采购数量"
-        DataGridView1.Columns(10).HeaderText = "计量单位"
-        DataGridView1.Columns(11).HeaderText = "签收人"
-        DataGridView1.Columns(12).HeaderText = "采购项目名称"
-        DataGridView1.Columns(13).HeaderText = "简单配置"
-        DataGridView1.Columns(14).HeaderText = "库存"
-        DataGridView1.Columns(15).HeaderText = "入库编号"
-        DataGridView1.Columns(16).HeaderText = "资产来源"
-        DataGridView1.Columns(17).HeaderText = "设备型号"
-        DataGridView1.Columns(18).HeaderText = "品牌"
-        DataGridView1.Columns(19).HeaderText = "备注"
+        'DataGridView1.Columns(0).HeaderText = "ID"
+
+        'DataGridView1.Columns(1).HeaderText = "资产类别编号（国标）"
+        'DataGridView1.Columns(2).HeaderText = "资产类别名称（国标）"
+        'DataGridView1.Columns(3).HeaderText = "资产名称"
+        'DataGridView1.Columns(4).HeaderText = "采购方式"
+        'DataGridView1.Columns(5).HeaderText = "供货商"
+        'DataGridView1.Columns(6).HeaderText = "购置日期"
+        'DataGridView1.Columns(7).HeaderText = "到货日期"
+        'DataGridView1.Columns(8).HeaderText = "单价"
+        'DataGridView1.Columns(9).HeaderText = "采购数量"
+        'DataGridView1.Columns(10).HeaderText = "计量单位"
+        'DataGridView1.Columns(11).HeaderText = "签收人"
+        'DataGridView1.Columns(12).HeaderText = "采购项目名称"
+        'DataGridView1.Columns(13).HeaderText = "简单配置"
+        'DataGridView1.Columns(14).HeaderText = "库存"
+        'DataGridView1.Columns(15).HeaderText = "入库编号"
+        'DataGridView1.Columns(16).HeaderText = "资产来源"
+        'DataGridView1.Columns(17).HeaderText = "设备型号"
+        'DataGridView1.Columns(18).HeaderText = "品牌"
+        'DataGridView1.Columns(19).HeaderText = "备注"
 
 
 
@@ -197,8 +201,8 @@
         Dim upSDA As LiuDataAdapter = New LiuDataAdapter
         sda.Update(TB)
 
-        sql = "UPDATE zc ,rk set  zc.jldw= rk.jldw ,zc.lbid=rk.lbid,zc.lbmc=rk.lbmc,zc.pz=rk.pz,zc.zcdj=rk.price,zc.zcmc=rk.zcmc,zc.zcxh=rk.zcxh,zc.zcpp=rk.zcpp,zc.gzrq=rk.gzrq where rk.rkbh=zc.rkbh"
-        upSDA.ExecuteNonQuery(sql)
+        'sql = "UPDATE zc ,rk set  zc.jldw= rk.jldw ,zc.lbid=rk.lbid,zc.lbmc=rk.lbmc,zc.pz=rk.pz,zc.zcdj=rk.price,zc.zcmc=rk.zcmc,zc.zcxh=rk.zcxh,zc.zcpp=rk.zcpp,zc.gzrq=rk.gzrq where rk.rkbh=zc.rkbh"
+        'upSDA.ExecuteNonQuery(sql)
 
         MsgBox("入库记录已经更新成功，并将领用记录中的计量单位，类别ID等信息也同步更新！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
 
@@ -347,7 +351,7 @@
         Dim sqllb As String = ""
         Dim sqlzrr As String = ""
         Dim sqlzcmc As String = ""
-        sql = "select * from rk   "
+        sql = "select * from zc   "
         If Trim(ComboBox4.Text) <> "" Then sqlxh = "zcxh='" + Trim(ComboBox4.Text) + "'"
         If Trim(ComboBox2.Text) <> "" Then sqllb = "lbmc='" + Trim(ComboBox2.Text) + "'"
         If Trim(ComboBox3.Text) <> "" Then sqlzcmc = "zcmc='" + Trim(ComboBox3.Text) + "'"
@@ -518,6 +522,68 @@
 
 
 
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim cz As zcglStruct = New zcglStruct
+        Dim total As Double = 0.0
+        Dim FenPeiZiChan As List(Of zcglStruct) = New List(Of zcglStruct)
+
+        Dim tmp As zcglStruct
+        Dim sql, zcbhStr As String
+        'For i = 0 To DataGridView2.RowCount - 1
+        'cz.dj = DataGridView2.SelectedRows(0).Cells()
+        'Next
+
+        If DataGridView2.SelectedRows.Count > 0 Then
+
+            cz.czbh = DataGridView2.SelectedRows(0).Cells(1).Value
+            cz.dj = DataGridView2.SelectedRows(0).Cells(4).Value
+            cz.gzrq = DataGridView2.SelectedRows(0).Cells(7).Value
+
+            If DataGridView1.SelectedRows.Count > 1 Then
+                For i = 0 To DataGridView1.RowCount - 1
+                    If DataGridView1.Rows(i).Selected Then
+                        tmp = New zcglStruct
+                        tmp.gzrq = DataGridView1.Rows(i).Cells(6).Value
+                        tmp.dj = DataGridView1.Rows(i).Cells(10).Value
+                        tmp.zcbh = DataGridView1.Rows(i).Cells(1).Value
+                        zcbhStr = zcbhStr + "'" + tmp.zcbh + "',"
+                        Dim rq As DateTime
+                        'rq = Format(cz.gzrq, "yyyy年mm月dd日")
+                        'rq = Date.ToString("yyyy年MM月", DateTimeFormatInfo.InvariantInfo)
+                        rq = Convert.ToDateTime(cz.gzrq)
+
+                        If rq.ToLongDateString().ToString() = tmp.gzrq Then
+
+                            FenPeiZiChan.Add(tmp)
+                            total = total + CDbl(tmp.dj)
+
+                        End If
+                    End If
+                Next
+
+
+                'If total = CDbl(cz.dj) Then
+                sql = "update zc set czbh='" + cz.czbh + "' where zcbh in (" + zcbhStr + "'')"
+                Dim sd As LiuDataAdapter = New LiuDataAdapter
+                sd.ExecuteNonQuery(sql)
+                Debug.Print(sql)
+                MsgBox(sql)
+                'End If
+
+            End If
+
+
+
+            'For Each s In DataGridView1.SelectedRows
+            '    'DataGridView1.SelectedRows(i).Cells()
+            '    Debug.Print(s)
+            'Next
+        End If
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+
+    End Sub
 End Class
 
 

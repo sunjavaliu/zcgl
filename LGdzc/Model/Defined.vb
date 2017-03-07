@@ -38,6 +38,13 @@ Module Defined
         End Sub
 
     End Structure
+
+    Public Structure zcglStruct
+        Dim czbh As String  '财政编号
+        Dim zcbh As String  '资产编号
+        Dim dj As String    '单价
+        Dim gzrq As String  '购置日期   
+    End Structure
     'Public zcData As ZcInfo
 
     Public Const TREE_NONE = 0

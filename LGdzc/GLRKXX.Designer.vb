@@ -48,6 +48,7 @@ Partial Class GLRKXX
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button7 = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -78,8 +79,8 @@ Partial Class GLRKXX
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1071, 493)
-        Me.SplitContainer1.SplitterDistance = 350
+        Me.SplitContainer1.Size = New System.Drawing.Size(1087, 557)
+        Me.SplitContainer1.SplitterDistance = 301
         Me.SplitContainer1.SplitterWidth = 3
         Me.SplitContainer1.TabIndex = 102
         '
@@ -100,12 +101,14 @@ Partial Class GLRKXX
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.DataGridView1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1044, 335)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1060, 286)
         Me.SplitContainer2.SplitterDistance = 70
         Me.SplitContainer2.TabIndex = 6
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button7)
+        Me.GroupBox1.Controls.Add(Me.Button6)
         Me.GroupBox1.Controls.Add(Me.ComboBox3)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Button5)
@@ -122,10 +125,10 @@ Partial Class GLRKXX
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1044, 70)
+        Me.GroupBox1.Size = New System.Drawing.Size(1060, 70)
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "已入库资产"
+        Me.GroupBox1.Text = "未关联的资产-时间格式有要求需要注意"
         '
         'ComboBox3
         '
@@ -252,10 +255,12 @@ Partial Class GLRKXX
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(11, 14)
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(870, 194)
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(1060, 212)
         Me.DataGridView1.TabIndex = 5
         '
         'GroupBox2
@@ -263,18 +268,17 @@ Partial Class GLRKXX
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.Button6)
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1047, 134)
+        Me.GroupBox2.Size = New System.Drawing.Size(1063, 248)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "已分配的人员"
+        Me.GroupBox2.Text = "财政资产信息"
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(962, 73)
+        Me.Button6.Location = New System.Drawing.Point(959, 12)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 23)
         Me.Button6.TabIndex = 11
@@ -287,11 +291,15 @@ Partial Class GLRKXX
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.AllowUserToOrderColumns = True
+        Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(14, 20)
+        Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView2.Location = New System.Drawing.Point(3, 17)
+        Me.DataGridView2.MultiSelect = False
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowTemplate.Height = 23
-        Me.DataGridView2.Size = New System.Drawing.Size(942, 105)
+        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView2.Size = New System.Drawing.Size(1057, 228)
         Me.DataGridView2.TabIndex = 10
         '
         'ContextMenuStrip1
@@ -323,11 +331,20 @@ Partial Class GLRKXX
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(196, 22)
         Me.ToolStripMenuItem2.Text = "删除这笔入库信息"
         '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(866, 11)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(87, 23)
+        Me.Button7.TabIndex = 37
+        Me.Button7.Text = "关联资产信息"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
         'GLRKXX
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1071, 493)
+        Me.ClientSize = New System.Drawing.Size(1087, 557)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "GLRKXX"
         Me.Text = "关联入库资产"
@@ -374,4 +391,5 @@ Partial Class GLRKXX
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 End Class
