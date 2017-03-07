@@ -215,6 +215,8 @@ Public Class MDIParent1
                 Jump(Of xzsb)()
             Case "查看入库与分配信息"
                 Jump(Of LLRKINFO)()
+            Case "财政设备信息关联"
+                Jump(Of GLRKXX)()
         End Select
     End Sub
     Private Sub OpenChildWindow(f As Form)

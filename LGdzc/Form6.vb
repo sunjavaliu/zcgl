@@ -40,7 +40,7 @@
         Dim sql, tip As String
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
         If SelectedNode.Text = "常用字典信息" Then
-            sql = "select * from  zd"
+            sql = "select * from  zd order by item"
         Else
             sql = "select * from  zd where item like '%" + SelectedNode.Text + "%'"
         End If
@@ -71,7 +71,16 @@
         Me.Dispose()
         Me.Close()
     End Sub
-
+    ''' <summary>
+    ''' 
+    ''' 显示行号
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DataGridView1.RowsAdded
+        DisplayDataGridViewRowNumber(DataGridView1, e)
+    End Sub
     Private Sub DataGridView1_CellBeginEdit1(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridView1.CellBeginEdit
         'Dim i As Integer
         'i = DataGridView1.SelectedRows.Item

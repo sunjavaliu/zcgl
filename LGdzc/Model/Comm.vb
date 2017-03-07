@@ -256,7 +256,8 @@ Module Comm
     ''' <remarks></remarks>
     Public Sub SetDataGridViewStyle(ByRef DataGridView1 As DataGridView)
         'DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None '//列宽不自动调整,手工添加列
-        DataGridView1.RowHeadersWidth = 30 '//行标题宽度固定12
+
+        DataGridView1.RowHeadersWidth = 60 '//行标题宽度固定12
         DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing '//不能用鼠标调整列标头宽度
         DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.LemonChiffon '//奇数行背景色
         DataGridView1.BackgroundColor = Color.White '//控件背景色
@@ -321,4 +322,20 @@ Module Comm
             combox.Text = ""
         End If
     End Sub
+
+    Public Sub DisplayDataGridViewRowNumber(dgv As DataGridView, e As DataGridViewRowsAddedEventArgs)
+        If e.RowCount > 0 Then
+            For i As Integer = 0 To e.RowCount - 1
+                dgv.Rows(e.RowIndex + i).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight
+                dgv.Rows(e.RowIndex + i).HeaderCell.Value = (e.RowIndex + i + 1).ToString()
+            Next
+
+            For i As Integer = e.RowIndex + e.RowCount To dgv.Rows.Count - 1
+                dgv.Rows(i).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight
+                dgv.Rows(i).HeaderCell.Value = (i + 1).ToString()
+            Next
+        End If
+    End Sub
+
+
 End Module

@@ -24,8 +24,8 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode3})
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("节点0")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("根节点0", New System.Windows.Forms.TreeNode() {TreeNode1})
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AddSideWaysToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -143,12 +143,12 @@ Partial Class Form1
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode3.ImageKey = "(默认值)"
-        TreeNode3.Name = "测试"
-        TreeNode3.Text = "节点0"
-        TreeNode4.Name = ""
-        TreeNode4.Text = "根节点0"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
+        TreeNode1.ImageKey = "(默认值)"
+        TreeNode1.Name = "测试"
+        TreeNode1.Text = "节点0"
+        TreeNode2.Name = ""
+        TreeNode2.Text = "根节点0"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.Size = New System.Drawing.Size(190, 471)
         Me.TreeView1.StateImageList = Me.ImageList1

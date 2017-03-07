@@ -1,4 +1,4 @@
-﻿Public Class LLRKINFO
+﻿Public Class GLRKXX
     Dim sda As LiuDataAdapter
     Dim IsEditCell As Boolean = False
     Dim TB As DataTable
@@ -321,6 +321,14 @@
     Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DataGridView1.RowsAdded
         DisplayDataGridViewRowNumber(DataGridView1, e)
     End Sub
+
+
+
+
+
+
+
+ 
     ''' <summary>
     ''' 
     ''' 显示行号
@@ -395,6 +403,121 @@
 
 
     End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim zcxxTb As DataTable = New DataTable
+        Dim sql As String
+        sql = "select * from czzcinfo"
+        Dim zcxx As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
+        'Dim dt As DataTable = New DataTable()
+        'MsgBox(sql)
+        zcxx = New LiuDataAdapter(sql, CONN_STR)
+
+        zcxxTb.Clear()
+        zcxx.Fill(zcxxTb)
+        DataGridView2.DataSource = zcxxTb
+    End Sub
+
+    ''' <summary>
+    ''' 以下三个是实现
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    'Private Sub DataGridView2_MouseDown(sender As Object, e As MouseEventArgs) Handles DataGridView2.MouseDown
+    '    Dim a As New List(Of String)()
+    '    Dim info As DataGridView.HitTestInfo = DataGridView2.HitTest(e.X, e.Y)
+    '    a.Add(DataGridView2.Rows(info.RowIndex).Cells(0).Value.ToString())
+    '    a.Add(DataGridView2.Rows(info.RowIndex).Cells(1).Value.ToString())
+    '    a.Add(DataGridView2.Rows(info.RowIndex).Cells(2).Value.ToString())
+
+    '    DataGridView2.DoDragDrop(a, DragDropEffects.Move)
+    '    DataGridView2.Rows.RemoveAt(info.RowIndex)
+    'End Sub
+
+    'Private Sub DataGridView1_DragDrop(sender As Object, e As DragEventArgs) Handles DataGridView1.DragDrop
+    '    'MsgBox("bb")
+    '    Dim robj As List(Of String) = DirectCast(e.Data.GetData(GetType(List(Of String))), List(Of String))
+    '    Dim b As Object() = {robj(0), robj(1), robj(2)}
+    '    DataGridView1.Rows.Add(b)
+
+    'End Sub
+
+    'Private Sub DataGridView1_DragEnter(sender As Object, e As DragEventArgs) Handles DataGridView1.DragEnter
+    '    'MsgBox("aa")
+    '    Dim bIsList As Boolean = (e.Data.GetDataPresent(GetType(List(Of String))) = True)
+    '    If bIsList Then
+    '        e.Effect = DragDropEffects.Move
+    '    End If
+    'End Sub
+
+    Dim str1 As String = ""
+    '全局变量，存放拖动单元格value      
+    Dim nRow As Integer
+    '记录被拖动单元格行标
+    Dim nColumn As Integer
+    '记录被拖动单元格列标
+    Private Sub DataGridView2_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseDown
+
+
+
+        nRow = e.RowIndex
+        nColumn = e.ColumnIndex
+        If Me.DataGridView2.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
+            str1 = Me.DataGridView2.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
+        End If
+
+    End Sub
+
+    Private Sub DataGridView2_CellMouseMove(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseMove
+
+        If e.Button = MouseButtons.Left Then
+            If str1 <> "" Then
+                DataGridView2.DoDragDrop(str1, DragDropEffects.Move)
+            End If
+        End If
+    End Sub
+
+
+
+    Private Function GetRowFromPoint(x As Integer, y As Integer) As Point
+        Dim nX As Integer = -1
+        Dim nY As Integer = -1
+        For i As Integer = 0 To DataGridView1.RowCount - 1
+            Dim rec As Rectangle = DataGridView1.GetRowDisplayRectangle(i, False)
+
+            If DataGridView1.RectangleToScreen(rec).Contains(x, y) Then
+                nX = i
+            End If
+        Next
+        For nI As Integer = 0 To DataGridView1.Columns.Count - 1
+            Dim rec As Rectangle = DataGridView1.GetColumnDisplayRectangle(nI, False)
+            If DataGridView1.RectangleToScreen(rec).Contains(x, y) Then
+                nY = nI
+            End If
+        Next
+        Return New Point(nX, nY)
+    End Function
+
+    Private Sub DataGridView1_DragOver(sender As Object, e As DragEventArgs) Handles DataGridView1.DragOver
+
+        If e.Data.GetDataPresent(GetType(String)) Then
+            e.Effect = DragDropEffects.Move
+        End If
+
+    End Sub
+
+
+    Private Sub DataGridView1_DragDrop(sender As Object, e As DragEventArgs) Handles DataGridView1.DragDrop
+
+        Dim point As Point = GetRowFromPoint(e.X, e.Y)
+        'Me.DataGridView1.Rows(nRow).Cells(nColumn).Value = Nothing
+        Me.DataGridView1.Rows(point.X).Cells(point.Y).Value = str1
+
+    End Sub
+
+
+
 End Class
 
 

@@ -196,7 +196,16 @@
             ComboBox3.Text = ""
         End If
     End Sub
-
+    ''' <summary>
+    ''' 
+    ''' 显示行号
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DataGridView1.RowsAdded
+        DisplayDataGridViewRowNumber(DataGridView1, e)
+    End Sub
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
 
         Dim sql As String

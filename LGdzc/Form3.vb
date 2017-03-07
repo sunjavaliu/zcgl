@@ -234,7 +234,16 @@
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
         'MsgBox("DataGridView1_CellDoubleClick")
     End Sub
-
+    ''' <summary>
+    ''' 
+    ''' 显示行号
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DataGridView1.RowsAdded
+        DisplayDataGridViewRowNumber(DataGridView1, e)
+    End Sub
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         Form4.StartPosition = FormStartPosition.CenterScreen
         Form4.ShowDialog()  '被ShowDialog出来的窗体关闭后实际只是被隐藏了，而没有被销毁。既并没有执行Dispose。

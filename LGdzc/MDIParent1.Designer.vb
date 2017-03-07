@@ -36,10 +36,11 @@ Partial Class MDIParent1
         Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("设备信息管理")
         Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("闲置设备再分配")
         Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("设备调拨")
-        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("在用设备管理", New System.Windows.Forms.TreeNode() {TreeNode9, TreeNode10, TreeNode11})
-        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("数据备份")
-        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("数据导入")
-        Dim TreeNode15 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("系统管理", New System.Windows.Forms.TreeNode() {TreeNode13, TreeNode14})
+        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("财政设备信息关联")
+        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("在用设备管理", New System.Windows.Forms.TreeNode() {TreeNode9, TreeNode10, TreeNode11, TreeNode12})
+        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("数据备份")
+        Dim TreeNode15 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("数据导入")
+        Dim TreeNode16 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("系统管理", New System.Windows.Forms.TreeNode() {TreeNode14, TreeNode15})
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.SystemManagToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PasswrodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -390,15 +391,17 @@ Partial Class MDIParent1
         TreeNode10.Text = "闲置设备再分配"
         TreeNode11.Name = "设备调拨"
         TreeNode11.Text = "设备调拨"
-        TreeNode12.Name = "Node2"
-        TreeNode12.Text = "在用设备管理"
-        TreeNode13.Name = "数据备份"
-        TreeNode13.Text = "数据备份"
-        TreeNode14.Name = "数据导入"
-        TreeNode14.Text = "数据导入"
-        TreeNode15.Name = "系统管理"
-        TreeNode15.Text = "系统管理"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode8, TreeNode12, TreeNode15})
+        TreeNode12.Name = "财政设备信息关联"
+        TreeNode12.Text = "财政设备信息关联"
+        TreeNode13.Name = "Node2"
+        TreeNode13.Text = "在用设备管理"
+        TreeNode14.Name = "数据备份"
+        TreeNode14.Text = "数据备份"
+        TreeNode15.Name = "数据导入"
+        TreeNode15.Text = "数据导入"
+        TreeNode16.Name = "系统管理"
+        TreeNode16.Text = "系统管理"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode8, TreeNode13, TreeNode16})
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.ShowRootLines = False
         Me.TreeView1.Size = New System.Drawing.Size(158, 338)

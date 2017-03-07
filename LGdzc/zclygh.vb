@@ -305,7 +305,16 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ExportToCSV(DataGridView1)
     End Sub
-
+    ''' <summary>
+    ''' 
+    ''' 显示行号
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DataGridView1.RowsAdded
+        DisplayDataGridViewRowNumber(DataGridView1, e)
+    End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim sql As String = ""
         Dim sqlwhere As String = ""

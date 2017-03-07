@@ -157,6 +157,7 @@
         DataGridView1.Columns(2).HeaderText = "资产类别名称"
         DataGridView1.Columns(3).HeaderText = "所属上级类别代码"
         DataGridView1.Columns(4).HeaderText = "备注"
+        DataGridView1.Refresh()
 
     End Sub
 
@@ -322,6 +323,10 @@
         ExportToCSV(DataGridView1)
     End Sub
 
+    Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DataGridView1.RowsAdded
+        DisplayDataGridViewRowNumber(DataGridView1, e)
+    End Sub
+
     'Private Sub SaveCsv(ByVal dt As DataTable, ByVal csvPath As String, ByVal RecName As String)
     '    Dim enc As System.Text.Encoding = _
     '        System.Text.Encoding.GetEncoding("UTF-8")
@@ -455,4 +460,7 @@
 
     
 
+    Private Sub DataGridView1_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridView1.RowStateChanged
+
+    End Sub
 End Class

@@ -1,11 +1,12 @@
-﻿Public Class Form1
+﻿
+Public Class Form1
 
     Private TreeOperateType As String
 
     Dim sda As LiuDataAdapter  ';//全局变量
 
     Dim G_dt As DataTable = New DataTable()
- 
+
     Dim sda_ry As LiuDataAdapter   ';//全局变量
 
     Dim G_dt_ry As DataTable = New DataTable()
@@ -295,6 +296,8 @@
         'DataGridView1.Rows(selectRow).Selected = True
         'DataGridView1.FirstDisplayedScrollingRowIndex = DataGridView1.Rows(selectRow).Index
         DataGridView1.Refresh()
+
+
         'G_dt.Load(reader)
     End Sub
 
@@ -490,12 +493,12 @@
                     MsgBox(xm + "下有" + CStr(updateCount) + "台设备同步更新了信息！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
                 End If
             End If
-            End If
+        End If
 
-            '将老的部门编号设置为空
-            oldBMBH = ""
+        '将老的部门编号设置为空
+        oldBMBH = ""
 
-            OpreaRYDataBase(G_BMBH)
+        OpreaRYDataBase(G_BMBH)
 
         '修改信息后将光标定在修改的行上
         If DataGridView1(selectCell, selectRow).Visible = True Then
@@ -590,6 +593,34 @@
         SetAddEditDisable()
         SetNew()
     End Sub
+
+    Private Sub DataGridView1_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridView1.RowStateChanged
+        'e.Row.HeaderCell.Value = String.Format("{0}", e.Row.Index + 1)
+        'DataGridView1.Refresh()
+    End Sub
+
+    ''' <summary>
+    ''' 
+    ''' 但DataGridView默认没有设置显示行号的属性。
+    ''' 在DataGridView的RowPostPaint事件中进行绘制，实现其效果：
+    ''' 但是效率非常低
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub DataGridView1_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridView1.RowPostPaint
+
+        'Dim b As SolidBrush = New SolidBrush(DataGridView1.RowHeadersDefaultCellStyle.ForeColor)
+        'e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), DataGridView1.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4)
+
+    End Sub
+
+    Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DataGridView1.RowsAdded
+
+        DisplayDataGridViewRowNumber(DataGridView1, e)
+    End Sub
+ 
+
 
 End Class
 
