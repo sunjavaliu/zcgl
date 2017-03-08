@@ -26,6 +26,8 @@ Partial Class GLRKXX
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -41,14 +43,12 @@ Partial Class GLRKXX
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Button7 = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -129,6 +129,24 @@ Partial Class GLRKXX
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "未关联的资产-时间格式有要求需要注意"
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(866, 11)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(87, 23)
+        Me.Button7.TabIndex = 37
+        Me.Button7.Text = "关联资产信息"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(959, 12)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.TabIndex = 11
+        Me.Button6.Text = "Button6"
+        Me.Button6.UseVisualStyleBackColor = True
         '
         'ComboBox3
         '
@@ -271,19 +289,10 @@ Partial Class GLRKXX
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1063, 248)
+        Me.GroupBox2.Size = New System.Drawing.Size(1063, 249)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "财政资产信息"
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(959, 12)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 11
-        Me.Button6.Text = "Button6"
-        Me.Button6.UseVisualStyleBackColor = True
         '
         'DataGridView2
         '
@@ -299,7 +308,7 @@ Partial Class GLRKXX
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowTemplate.Height = 23
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(1057, 228)
+        Me.DataGridView2.Size = New System.Drawing.Size(1057, 229)
         Me.DataGridView2.TabIndex = 10
         '
         'ContextMenuStrip1
@@ -330,15 +339,6 @@ Partial Class GLRKXX
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(196, 22)
         Me.ToolStripMenuItem2.Text = "删除这笔入库信息"
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(866, 11)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(87, 23)
-        Me.Button7.TabIndex = 37
-        Me.Button7.Text = "关联资产信息"
-        Me.Button7.UseVisualStyleBackColor = True
         '
         'GLRKXX
         '

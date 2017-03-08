@@ -14,7 +14,7 @@
         'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         'Dim sql As String = "select * from rk where kucun>0 order by id desc"
-        Dim sql As String = "select * from zc order by id desc"
+        Dim sql As String = "select * from zc where   czbh is null or czbh='' order by  zcdj desc "
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
         sda = New LiuDataAdapter(sql, CONN_STR)
@@ -88,6 +88,7 @@
     Private Sub LLRKINFO_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         GetKuCun()
+        GetCZInfo()
 
         ComboBox1.Items.Add(New ComboboxItem("对所有单元格自动调整列宽", DataGridViewAutoSizeColumnsMode.AllCells))
         ComboBox1.Items.Add(New ComboboxItem("对内容单元格自动调整列宽", DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader))
@@ -115,7 +116,8 @@
         '设置DataGridView显示风格
         SetDataGridViewStyle(DataGridView1)
         SetDataGridViewStyle(DataGridView2)
-
+        SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString() + "DataGridView1")
+        SetDataGridViewHidenColumn(DataGridView2, Me.Name.ToString() + "DataGridView2")
     End Sub
 
 
@@ -332,7 +334,7 @@
 
 
 
- 
+
     ''' <summary>
     ''' 
     ''' 显示行号
@@ -409,9 +411,13 @@
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        GetCZInfo()
+    End Sub
+
+    Private Sub GetCZInfo()
         Dim zcxxTb As DataTable = New DataTable
         Dim sql As String
-        sql = "select * from czzcinfo"
+        sql = "select * from czzcinfo where isconnect is null or isconnect ='' or isconnect=false  order by dj desc "
         Dim zcxx As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
         'Dim dt As DataTable = New DataTable()
         'MsgBox(sql)
@@ -419,7 +425,27 @@
 
         zcxxTb.Clear()
         zcxx.Fill(zcxxTb)
+
         DataGridView2.DataSource = zcxxTb
+
+
+        SetColumnsTitle4CZ(DataGridView2)
+
+    End Sub
+
+    Public Sub SetColumnsTitle4CZ(DataGridView1 As DataGridView)
+        DataGridView1.Columns(0).HeaderText = "资产名称"
+        DataGridView1.Columns(1).HeaderText = "资产代码"
+        DataGridView1.Columns(2).HeaderText = "类别代码（国标）"
+        DataGridView1.Columns(3).HeaderText = "类别名称（国标）"
+        DataGridView1.Columns(4).HeaderText = "单价"
+        DataGridView1.Columns(5).HeaderText = "数量"
+        DataGridView1.Columns(6).HeaderText = "总价"
+        DataGridView1.Columns(7).HeaderText = "购置日期"
+        DataGridView1.Columns(8).HeaderText = "登记日期"
+        DataGridView1.Columns(9).HeaderText = "资产信息"
+        DataGridView1.Columns(10).HeaderText = "是否关联"
+
     End Sub
 
     ''' <summary>
@@ -455,80 +481,82 @@
     '    End If
     'End Sub
 
-    Dim str1 As String = ""
-    '全局变量，存放拖动单元格value      
-    Dim nRow As Integer
-    '记录被拖动单元格行标
-    Dim nColumn As Integer
-    '记录被拖动单元格列标
-    Private Sub DataGridView2_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseDown
+    'Dim str1 As String = ""
+    ''全局变量，存放拖动单元格value      
+    'Dim nRow As Integer
+    ''记录被拖动单元格行标
+    'Dim nColumn As Integer
+    ''记录被拖动单元格列标
+    'Private Sub DataGridView2_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseDown
 
 
 
-        nRow = e.RowIndex
-        nColumn = e.ColumnIndex
-        If Me.DataGridView2.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
-            str1 = Me.DataGridView2.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
-        End If
+    '    nRow = e.RowIndex
+    '    nColumn = e.ColumnIndex
+    '    If Me.DataGridView2.Rows(e.RowIndex).Cells(e.ColumnIndex).Value IsNot Nothing Then
+    '        str1 = Me.DataGridView2.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString()
+    '    End If
 
-    End Sub
+    'End Sub
 
-    Private Sub DataGridView2_CellMouseMove(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseMove
+    'Private Sub DataGridView2_CellMouseMove(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseMove
 
-        If e.Button = MouseButtons.Left Then
-            If str1 <> "" Then
-                DataGridView2.DoDragDrop(str1, DragDropEffects.Move)
-            End If
-        End If
-    End Sub
-
-
-
-    Private Function GetRowFromPoint(x As Integer, y As Integer) As Point
-        Dim nX As Integer = -1
-        Dim nY As Integer = -1
-        For i As Integer = 0 To DataGridView1.RowCount - 1
-            Dim rec As Rectangle = DataGridView1.GetRowDisplayRectangle(i, False)
-
-            If DataGridView1.RectangleToScreen(rec).Contains(x, y) Then
-                nX = i
-            End If
-        Next
-        For nI As Integer = 0 To DataGridView1.Columns.Count - 1
-            Dim rec As Rectangle = DataGridView1.GetColumnDisplayRectangle(nI, False)
-            If DataGridView1.RectangleToScreen(rec).Contains(x, y) Then
-                nY = nI
-            End If
-        Next
-        Return New Point(nX, nY)
-    End Function
-
-    Private Sub DataGridView1_DragOver(sender As Object, e As DragEventArgs) Handles DataGridView1.DragOver
-
-        If e.Data.GetDataPresent(GetType(String)) Then
-            e.Effect = DragDropEffects.Move
-        End If
-
-    End Sub
+    '    If e.Button = MouseButtons.Left Then
+    '        If str1 <> "" Then
+    '            DataGridView2.DoDragDrop(str1, DragDropEffects.Move)
+    '        End If
+    '    End If
+    'End Sub
 
 
-    Private Sub DataGridView1_DragDrop(sender As Object, e As DragEventArgs) Handles DataGridView1.DragDrop
 
-        Dim point As Point = GetRowFromPoint(e.X, e.Y)
-        'Me.DataGridView1.Rows(nRow).Cells(nColumn).Value = Nothing
-        Me.DataGridView1.Rows(point.X).Cells(point.Y).Value = str1
+    'Private Function GetRowFromPoint(x As Integer, y As Integer) As Point
+    '    Dim nX As Integer = -1
+    '    Dim nY As Integer = -1
+    '    For i As Integer = 0 To DataGridView1.RowCount - 1
+    '        Dim rec As Rectangle = DataGridView1.GetRowDisplayRectangle(i, False)
 
-    End Sub
+    '        If DataGridView1.RectangleToScreen(rec).Contains(x, y) Then
+    '            nX = i
+    '        End If
+    '    Next
+    '    For nI As Integer = 0 To DataGridView1.Columns.Count - 1
+    '        Dim rec As Rectangle = DataGridView1.GetColumnDisplayRectangle(nI, False)
+    '        If DataGridView1.RectangleToScreen(rec).Contains(x, y) Then
+    '            nY = nI
+    '        End If
+    '    Next
+    '    Return New Point(nX, nY)
+    'End Function
+
+    'Private Sub DataGridView1_DragOver(sender As Object, e As DragEventArgs) Handles DataGridView1.DragOver
+
+    '    If e.Data.GetDataPresent(GetType(String)) Then
+    '        e.Effect = DragDropEffects.Move
+    '    End If
+
+    'End Sub
+
+
+    'Private Sub DataGridView1_DragDrop(sender As Object, e As DragEventArgs) Handles DataGridView1.DragDrop
+
+    '    Dim point As Point = GetRowFromPoint(e.X, e.Y)
+    '    'Me.DataGridView1.Rows(nRow).Cells(nColumn).Value = Nothing
+    '    Me.DataGridView1.Rows(point.X).Cells(point.Y).Value = str1
+
+    'End Sub
 
 
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Dim cz As zcglStruct = New zcglStruct
         Dim total As Double = 0.0
-        Dim FenPeiZiChan As List(Of zcglStruct) = New List(Of zcglStruct)
+        'Dim FenPeiZiChan As List(Of zcglStruct) = New List(Of zcglStruct)
 
         Dim tmp As zcglStruct
-        Dim sql, zcbhStr As String
+        Dim sql, zcbhStr, rkbhStr As String
+        zcbhStr = ""
+        rkbhStr = ""
         'For i = 0 To DataGridView2.RowCount - 1
         'cz.dj = DataGridView2.SelectedRows(0).Cells()
         'Next
@@ -538,15 +566,18 @@
             cz.czbh = DataGridView2.SelectedRows(0).Cells(1).Value
             cz.dj = DataGridView2.SelectedRows(0).Cells(4).Value
             cz.gzrq = DataGridView2.SelectedRows(0).Cells(7).Value
+            cz.sl = DataGridView2.SelectedRows(0).Cells(5).Value
 
-            If DataGridView1.SelectedRows.Count > 1 Then
+            If DataGridView1.SelectedRows.Count > 0 Then
                 For i = 0 To DataGridView1.RowCount - 1
                     If DataGridView1.Rows(i).Selected Then
                         tmp = New zcglStruct
                         tmp.gzrq = DataGridView1.Rows(i).Cells(6).Value
                         tmp.dj = DataGridView1.Rows(i).Cells(10).Value
                         tmp.zcbh = DataGridView1.Rows(i).Cells(1).Value
+                        tmp.rkbh = DataGridView1.Rows(i).Cells(18).Value
                         zcbhStr = zcbhStr + "'" + tmp.zcbh + "',"
+                        rkbhStr = rkbhStr + "'" + tmp.rkbh + "',"
                         Dim rq As DateTime
                         'rq = Format(cz.gzrq, "yyyy年mm月dd日")
                         'rq = Date.ToString("yyyy年MM月", DateTimeFormatInfo.InvariantInfo)
@@ -554,22 +585,43 @@
 
                         If rq.ToLongDateString().ToString() = tmp.gzrq Then
 
-                            FenPeiZiChan.Add(tmp)
+                            'FenPeiZiChan.Add(tmp)
                             total = total + CDbl(tmp.dj)
+
+                        Else
+                            MsgBox("购置日期不一致")
 
                         End If
                     End If
                 Next
 
 
-                'If total = CDbl(cz.dj) Then
-                sql = "update zc set czbh='" + cz.czbh + "' where zcbh in (" + zcbhStr + "'')"
-                Dim sd As LiuDataAdapter = New LiuDataAdapter
-                sd.ExecuteNonQuery(sql)
-                Debug.Print(sql)
-                MsgBox(sql)
-                'End If
+                If total = cz.dj * cz.sl Then
+                    sql = "update zc set czbh='" + cz.czbh + "' where zcbh in (" + zcbhStr + "'')"
+                    Dim sd As LiuDataAdapter = New LiuDataAdapter
+                    sd.ExecuteNonQuery(sql)
+                    'Debug.Print(sql)
+                    'MsgBox(sql)
+                    'End If
 
+                    sql = "update czzcinfo set isconnect=true where zcdm='" + cz.czbh + "'"
+                    Dim czSDA As LiuDataAdapter = New LiuDataAdapter
+                    czSDA.ExecuteNonQuery(sql)
+
+                    'sql = "UPDATE RK SET czbh='" + cz.czbh + "' where rkbh in (" + rkbhStr + "'')"
+                    'Dim rkSDA As LiuDataAdapter
+                    'rkSDA.ExecuteNonQuery(sql)
+
+                    MsgBox("关联成功")
+
+                    GetKuCun()
+                    GetCZInfo()
+
+
+
+                Else
+                    MsgBox("总价不一致啊")
+                End If
             End If
 
 

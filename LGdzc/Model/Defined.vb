@@ -42,8 +42,10 @@ Module Defined
     Public Structure zcglStruct
         Dim czbh As String  '财政编号
         Dim zcbh As String  '资产编号
-        Dim dj As String    '单价
-        Dim gzrq As String  '购置日期   
+        Dim dj As Double    '单价
+        Dim gzrq As String  '购置日期  
+        Dim rkbh As String  '入库编号
+        Dim sl As Integer '数量
     End Structure
     'Public zcData As ZcInfo
 
