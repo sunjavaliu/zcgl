@@ -145,7 +145,7 @@ Partial Class GLRKXX
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 23)
         Me.Button6.TabIndex = 11
-        Me.Button6.Text = "Button6"
+        Me.Button6.Text = "刷新"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'ComboBox3
@@ -219,6 +219,7 @@ Partial Class GLRKXX
         '
         'Button4
         '
+        Me.Button4.Enabled = False
         Me.Button4.Location = New System.Drawing.Point(880, 39)
         Me.Button4.Margin = New System.Windows.Forms.Padding(2)
         Me.Button4.Name = "Button4"
@@ -237,6 +238,7 @@ Partial Class GLRKXX
         '
         'Button2
         '
+        Me.Button2.Enabled = False
         Me.Button2.Location = New System.Drawing.Point(722, 39)
         Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
@@ -289,7 +291,7 @@ Partial Class GLRKXX
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1063, 249)
+        Me.GroupBox2.Size = New System.Drawing.Size(1063, 251)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "财政资产信息"
@@ -308,7 +310,7 @@ Partial Class GLRKXX
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowTemplate.Height = 23
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(1057, 229)
+        Me.DataGridView2.Size = New System.Drawing.Size(1057, 231)
         Me.DataGridView2.TabIndex = 10
         '
         'ContextMenuStrip1

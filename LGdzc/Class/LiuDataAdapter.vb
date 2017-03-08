@@ -83,7 +83,7 @@ Public Class LiuDataAdapter
     End Function
 
 
-    Public Function ExecuteNonQuery(SQL As String)
+    Public Function ExecuteNonQuery(SQL As String) As Integer
 #If IS_SQLITE_DB Then
         Dim conn As SQLite.SQLiteConnection = New SQLite.SQLiteConnection()
         Dim howUpdate As Integer
@@ -113,12 +113,12 @@ Public Class LiuDataAdapter
 
 
 
-    Public Function GetSelectCount(SQL As String)
+    Public Function GetSelectCount(SQL As String) As Integer
 
 #If IS_SQLITE_DB Then
         Adapter = New SQLite.SQLiteDataAdapter(SQL, CONN_STR)
 #Else
-        Adapter = New MySql.Data.MySqlClient.MySqlDataAdapter(sql, CONN_STR)
+        Adapter = New MySql.Data.MySqlClient.MySqlDataAdapter(SQL, CONN_STR)
 #End If
 
         'Adapter.SelectCommand = SQL

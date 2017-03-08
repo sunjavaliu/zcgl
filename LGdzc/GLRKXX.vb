@@ -411,6 +411,7 @@
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        GetKuCun()
         GetCZInfo()
     End Sub
 
@@ -588,9 +589,12 @@
                             'FenPeiZiChan.Add(tmp)
                             total = total + CDbl(tmp.dj)
 
-                        Else
-                            MsgBox("购置日期不一致")
+                        ElseIf MsgBox("资产编号为：" + tmp.zcbh + "的设备，购置日期不一致，是否强制关联？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
 
+                            total = total + CDbl(tmp.dj)
+                        Else
+                            MsgBox("关联不成功")
+                            Return
                         End If
                     End If
                 Next

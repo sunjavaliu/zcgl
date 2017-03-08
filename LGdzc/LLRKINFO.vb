@@ -195,12 +195,13 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim sql As String
         Dim upSDA As LiuDataAdapter = New LiuDataAdapter
+        Dim iCount As Integer
         sda.Update(TB)
 
         sql = "UPDATE zc ,rk set  zc.jldw= rk.jldw ,zc.lbid=rk.lbid,zc.lbmc=rk.lbmc,zc.pz=rk.pz,zc.zcdj=rk.price,zc.zcmc=rk.zcmc,zc.zcxh=rk.zcxh,zc.zcpp=rk.zcpp,zc.gzrq=rk.gzrq where rk.rkbh=zc.rkbh"
-        upSDA.ExecuteNonQuery(sql)
+        iCount = upSDA.ExecuteNonQuery(sql)
 
-        MsgBox("入库记录已经更新成功，并将领用记录中的计量单位，类别ID等信息也同步更新！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
+        MsgBox("入库记录已经更新成功，并将领用记录中的计量单位，类别ID等【" + CStr(iCount) + "条】信息也同步更新！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
 
         IsEditCell = False
     End Sub
