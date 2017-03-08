@@ -77,14 +77,7 @@ Partial Class zclygh
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
-        Me.DelSubToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddSubToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddSideWaysToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ExpandAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CollapseAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TextBox14 = New System.Windows.Forms.TextBox()
@@ -94,7 +87,14 @@ Partial Class zclygh
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DelSubToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddSubToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddSideWaysToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ExpandAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CollapseAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,8 +109,8 @@ Partial Class zclygh
         Me.SplitContainer2.Panel1.SuspendLayout()
         Me.SplitContainer2.Panel2.SuspendLayout()
         Me.SplitContainer2.SuspendLayout()
-        Me.ContextMenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ToolStripMenuItem2
@@ -633,53 +633,24 @@ Partial Class zclygh
         Me.SplitContainer2.SplitterDistance = 85
         Me.SplitContainer2.TabIndex = 0
         '
-        'DelSubToolStripMenuItem
+        'GroupBox1
         '
-        Me.DelSubToolStripMenuItem.Name = "DelSubToolStripMenuItem"
-        Me.DelSubToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.DelSubToolStripMenuItem.Text = "删除节点"
-        '
-        'EditToolStripMenuItem
-        '
-        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.EditToolStripMenuItem.Text = "编辑节点"
-        '
-        'AddSubToolStripMenuItem
-        '
-        Me.AddSubToolStripMenuItem.Name = "AddSubToolStripMenuItem"
-        Me.AddSubToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.AddSubToolStripMenuItem.Text = "增加子节点"
-        '
-        'AddSideWaysToolStripMenuItem
-        '
-        Me.AddSideWaysToolStripMenuItem.Name = "AddSideWaysToolStripMenuItem"
-        Me.AddSideWaysToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.AddSideWaysToolStripMenuItem.Text = "添加同级节点"
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddSideWaysToolStripMenuItem, Me.AddSubToolStripMenuItem, Me.EditToolStripMenuItem, Me.ToolStripMenuItem2, Me.ExpandAllToolStripMenuItem, Me.CollapseAllToolStripMenuItem, Me.ToolStripMenuItem1, Me.DelSubToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(149, 148)
-        '
-        'ExpandAllToolStripMenuItem
-        '
-        Me.ExpandAllToolStripMenuItem.Name = "ExpandAllToolStripMenuItem"
-        Me.ExpandAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.ExpandAllToolStripMenuItem.Text = "全部展开"
-        '
-        'CollapseAllToolStripMenuItem
-        '
-        Me.CollapseAllToolStripMenuItem.Name = "CollapseAllToolStripMenuItem"
-        Me.CollapseAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.CollapseAllToolStripMenuItem.Text = "全部折叠"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(145, 6)
+        Me.GroupBox1.Controls.Add(Me.ComboBox2)
+        Me.GroupBox1.Controls.Add(Me.Label20)
+        Me.GroupBox1.Controls.Add(Me.TextBox14)
+        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.ComboBox4)
+        Me.GroupBox1.Controls.Add(Me.ComboBox5)
+        Me.GroupBox1.Controls.Add(Me.Label21)
+        Me.GroupBox1.Controls.Add(Me.Label23)
+        Me.GroupBox1.Controls.Add(Me.Label24)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(945, 85)
+        Me.GroupBox1.TabIndex = 3
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "查询信息"
         '
         'ComboBox2
         '
@@ -757,24 +728,53 @@ Partial Class zclygh
         Me.Label24.TabIndex = 0
         Me.Label24.Text = "设备型号"
         '
-        'GroupBox1
+        'DelSubToolStripMenuItem
         '
-        Me.GroupBox1.Controls.Add(Me.ComboBox2)
-        Me.GroupBox1.Controls.Add(Me.Label20)
-        Me.GroupBox1.Controls.Add(Me.TextBox14)
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.ComboBox4)
-        Me.GroupBox1.Controls.Add(Me.ComboBox5)
-        Me.GroupBox1.Controls.Add(Me.Label21)
-        Me.GroupBox1.Controls.Add(Me.Label23)
-        Me.GroupBox1.Controls.Add(Me.Label24)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(945, 85)
-        Me.GroupBox1.TabIndex = 3
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "查询信息"
+        Me.DelSubToolStripMenuItem.Name = "DelSubToolStripMenuItem"
+        Me.DelSubToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.DelSubToolStripMenuItem.Text = "删除节点"
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.EditToolStripMenuItem.Text = "编辑节点"
+        '
+        'AddSubToolStripMenuItem
+        '
+        Me.AddSubToolStripMenuItem.Name = "AddSubToolStripMenuItem"
+        Me.AddSubToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.AddSubToolStripMenuItem.Text = "增加子节点"
+        '
+        'AddSideWaysToolStripMenuItem
+        '
+        Me.AddSideWaysToolStripMenuItem.Name = "AddSideWaysToolStripMenuItem"
+        Me.AddSideWaysToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.AddSideWaysToolStripMenuItem.Text = "添加同级节点"
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddSideWaysToolStripMenuItem, Me.AddSubToolStripMenuItem, Me.EditToolStripMenuItem, Me.ToolStripMenuItem2, Me.ExpandAllToolStripMenuItem, Me.CollapseAllToolStripMenuItem, Me.ToolStripMenuItem1, Me.DelSubToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(149, 148)
+        '
+        'ExpandAllToolStripMenuItem
+        '
+        Me.ExpandAllToolStripMenuItem.Name = "ExpandAllToolStripMenuItem"
+        Me.ExpandAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.ExpandAllToolStripMenuItem.Text = "全部展开"
+        '
+        'CollapseAllToolStripMenuItem
+        '
+        Me.CollapseAllToolStripMenuItem.Name = "CollapseAllToolStripMenuItem"
+        Me.CollapseAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.CollapseAllToolStripMenuItem.Text = "全部折叠"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(145, 6)
         '
         'zclygh
         '
@@ -800,9 +800,9 @@ Partial Class zclygh
         Me.SplitContainer2.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer2.ResumeLayout(False)
-        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

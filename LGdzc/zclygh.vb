@@ -282,6 +282,7 @@
         TextBox9.Text = DataGridView1.SelectedRows(0).Cells(9).Value.ToString()            '领用数量
         TextBox4.Text = DataGridView1.SelectedRows(0).Cells(22).Value.ToString()    '设备序列号
         TextBox5.Text = DataGridView1.SelectedRows(0).Cells(20).Value.ToString()        '资产品牌
+        TextBox13.Text = DataGridView1.SelectedRows(0).Cells(24).Value.ToString()        '备注
     End Sub
 
     Private Sub SetNew()
@@ -370,6 +371,7 @@
         sda_zc.Fill(G_dt_zc)
         DataGridView1.DataSource = G_dt_zc
     End Sub
+
 End Class
 
 
