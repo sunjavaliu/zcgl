@@ -206,7 +206,7 @@
         'sql = "UPDATE zc ,rk set  zc.jldw= rk.jldw ,zc.lbid=rk.lbid,zc.lbmc=rk.lbmc,zc.pz=rk.pz,zc.zcdj=rk.price,zc.zcmc=rk.zcmc,zc.zcxh=rk.zcxh,zc.zcpp=rk.zcpp,zc.gzrq=rk.gzrq where rk.rkbh=zc.rkbh"
         'upSDA.ExecuteNonQuery(sql)
 
-        MsgBox("入库记录已经更新成功，并将领用记录中的计量单位，类别ID等信息也同步更新！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
+        MsgBox("领用记录已经更新成功，入库记录是否也更新呢？", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
 
         IsEditCell = False
     End Sub
