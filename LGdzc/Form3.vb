@@ -190,18 +190,25 @@
         ReOpenDB(commSQL)
     End Sub
 
-
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub DelRecord()
         Dim i, rowN As Integer
         Dim tmpList As New List(Of DataGridViewRow)()
+        Dim rkbh, sql As String
+        Dim updateSDA As LiuDataAdapter
+
         If DataGridView1.SelectedRows.Count > 0 Then
 
-            If MsgBox("你确认要删除该记录吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
+            If MsgBox("你确认要删除该记录，且入库吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
                 '删除选中行
                 rowN = DataGridView1.Rows.Count
                 rowN = rowN - 1
                 For i = rowN To 0 Step -1
                     If DataGridView1.Rows(i).Selected = True Then
+                        rkbh = DataGridView1.Rows(i).Cells(18).Value.ToString
+                        sql = "update rk set kucun=kucun+1 where rkbh='" + rkbh + "'"
+                        updateSDA = New LiuDataAdapter
+                        updateSDA.ExecuteNonQuery(sql)
+
                         DataGridView1.Rows.RemoveAt(DataGridView1.Rows(i).Index)
                         'G_dt_ry.[Delete]("id="+dataGridv_AdminIma.Rows[i].Cells[0].Value.ToString())
                         'Debug.Print(i)
@@ -222,7 +229,11 @@
         Else
             MsgBox("您未选择将要删除的记录。" & vbCrLf & "请在记录的最前面空白区选择整条记录，然后点击删除按钮！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告")
         End If
+    End Sub
 
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+
+        DelRecord()
     End Sub
 
 
@@ -230,7 +241,7 @@
         'MsgBox("DataGridView1_CellContentClick标题单击")
     End Sub
 
- 
+
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
         'MsgBox("DataGridView1_CellDoubleClick")
     End Sub
@@ -344,7 +355,7 @@
     End Sub
 
 
- 
+
     Private Sub Button8_Click_1(sender As Object, e As EventArgs) Handles Button8.Click
         ExportToCSV(DataGridView1)
     End Sub
@@ -366,31 +377,8 @@
 
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
 
-    End Sub
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
-    End Sub
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-
-    End Sub
-    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
-
-    End Sub
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-
-    End Sub
-    Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
-
-    End Sub
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
     End Sub
 End Class
