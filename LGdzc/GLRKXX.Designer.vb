@@ -238,7 +238,6 @@ Partial Class GLRKXX
         '
         'Button2
         '
-        Me.Button2.Enabled = False
         Me.Button2.Location = New System.Drawing.Point(722, 39)
         Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
@@ -291,7 +290,7 @@ Partial Class GLRKXX
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1063, 251)
+        Me.GroupBox2.Size = New System.Drawing.Size(1063, 252)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "财政资产信息"
@@ -310,7 +309,7 @@ Partial Class GLRKXX
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowTemplate.Height = 23
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(1057, 231)
+        Me.DataGridView2.Size = New System.Drawing.Size(1057, 232)
         Me.DataGridView2.TabIndex = 10
         '
         'ContextMenuStrip1

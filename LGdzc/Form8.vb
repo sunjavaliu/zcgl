@@ -63,27 +63,7 @@
 
 
         DataGridView1.Columns(0).ReadOnly = True
-        DataGridView1.Columns(0).HeaderText = "ID"
 
-        DataGridView1.Columns(1).HeaderText = "资产类别编号（国标）"
-        DataGridView1.Columns(2).HeaderText = "资产类别名称（国标）"
-        DataGridView1.Columns(3).HeaderText = "资产名称"
-        DataGridView1.Columns(4).HeaderText = "采购方式"
-        DataGridView1.Columns(5).HeaderText = "供货商"
-        DataGridView1.Columns(6).HeaderText = "购置日期"
-        DataGridView1.Columns(7).HeaderText = "到货日期"
-        DataGridView1.Columns(8).HeaderText = "单价"
-        DataGridView1.Columns(9).HeaderText = "采购数量"
-        DataGridView1.Columns(10).HeaderText = "计量单位"
-        DataGridView1.Columns(11).HeaderText = "签收人"
-        DataGridView1.Columns(12).HeaderText = "采购项目名称"
-        DataGridView1.Columns(13).HeaderText = "简单配置"
-        DataGridView1.Columns(14).HeaderText = "库存"
-        DataGridView1.Columns(15).HeaderText = "入库编号"
-        DataGridView1.Columns(16).HeaderText = "资产来源"
-        DataGridView1.Columns(17).HeaderText = "设备型号"
-        DataGridView1.Columns(18).HeaderText = "品牌"
-        DataGridView1.Columns(19).HeaderText = "备注"
 
         For i = 0 To 19
             If (DataGridView1(i, SelectedRowIndex).Visible) Then
@@ -122,7 +102,7 @@
         TextBox18.Text = DataGridView1.SelectedRows(0).Cells(10).Value.ToString()
         TextBox4.Text = DataGridView1.SelectedRows(0).Cells(13).Value.ToString()
         'DateTimePicker1.Text = DateTime.Parse(DataGridView1.SelectedRows(0).Cells(8).Value.ToString())
-        DateTimePicker1.Value = CDate(DataGridView1.SelectedRows(0).Cells(6).Value.ToString())
+        DateTimePicker1.Value = CDate(DataGridView1.SelectedRows(0).Cells(21).Value.ToString())
         TextBox6.Text = DataGridView1.SelectedRows(0).Cells(15).Value.ToString()
         TextBox7.Text = DataGridView1.SelectedRows(0).Cells(16).Value.ToString()
         TextBox8.Text = DataGridView1.SelectedRows(0).Cells(17).Value.ToString()
@@ -130,6 +110,8 @@
         TextBox13.Text = DataGridView1.SelectedRows(0).Cells(19).Value.ToString()
 
         Rk_tab_id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+
+
 
         'TextBox11.Text = CInt(TextBox10.Text) * CInt(TextBox9.Text)
     End Sub
@@ -155,6 +137,8 @@
 
         '设置DataGridView显示风格
         SetDataGridViewStyle(DataGridView1)
+
+        SetColumns4RK(DataGridView1)
     End Sub
 
     Private Sub TextBox9_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox9.KeyPress
@@ -232,6 +216,7 @@
         Dim sbsn As String  '设备SN
         Dim ossn As String  '操作系统SN
         Dim memo As String  '备注
+        Dim sjgzrq As String '实际购置日期
 
 
         Dim newKucun As Integer = 0 '新库存数量
@@ -253,6 +238,8 @@
             lbmc = TextBox17.Text
             jldw = TextBox18.Text
             gzrq = DateTimePicker1.Text
+            sjgzrq = DateTimePicker1.Text
+
             djrq = DateTimePicker2.Text
             zcly = TextBox7.Text
             zcsl = TextBox9.Text
@@ -289,7 +276,7 @@
             'SQLite可以在字段上加单引号，MYsql就不行
             'CommandText = "insert into zc ('zcbh','zcmc','lbid','lbmc','jldw','gzrq','djrq','zcly','zcsl','zcdj','zczj','zczt','bmbh','bmmc','zrr','cfwz','meno','txt1','txt2','txt3','txt4','txt5','txt6','txt7','txt8','num1','num2','num3','num4','num5','num6','log','rkbh') values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + meno + "','" + txt1 + "','" + txt2 + "','" + txt3 + "','" + txt4 + "','" + txt5 + "','" + txt6 + "','" + txt7 + "','" + txt8 + "','" + num1 + "','" + num2 + "','" + num3 + "','" + num4 + "','" + num5 + "','" + num6 + "','" + log + "','" + rkbh + "')"
 
-            CommandText = "insert into zc (zcbh,zcmc,lbid,lbmc,jldw,gzrq,djrq,zcly,zcsl,zcdj,zczj,zczt,bmbh,bmmc,zrr,cfwz,log,rkbh,zcxh,zcpp,pz,devicesn,ossn,memo) values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + log + "','" + rkbh + "','" + zcxh + "','" + zcpp + "','" + pz + "','" + sbsn + "','" + ossn + "','" + memo + "')"
+            CommandText = "insert into zc (zcbh,zcmc,lbid,lbmc,jldw,gzrq,djrq,zcly,zcsl,zcdj,zczj,zczt,bmbh,bmmc,zrr,cfwz,log,rkbh,zcxh,zcpp,pz,devicesn,ossn,memo,sjgzrq) values('" + zcbh + "','" + zcmc + "','" + lbid + "','" + lbmc + "','" + jldw + "','" + gzrq + "','" + djrq + "','" + zcly + "','" + zcsl + "','" + zcdj + "','" + zczj + "','" + zczt + "','" + bmbh + "','" + bmmc + "','" + zrr + "','" + cfwz + "','" + log + "','" + rkbh + "','" + zcxh + "','" + zcpp + "','" + pz + "','" + sbsn + "','" + ossn + "','" + memo + "','" + sjgzrq + "')"
 
             'ComboBoxTreeLB.Text +"','" + ComboBoxTreeLB.TreeView.SelectedNode.Name + "','" + TextBox3.Text + "','" + ComboBox3.Text + "','" + TextBox4.Text + "','" + DateTimePicker1.Text + "','" + DateTimePicker2.Text + "'," + TextBox5.Text + "," + TextBox1.Text + ",'" + ComboBox2.Text + "','" + TextBox7.Text + "','" + TextBox2.Text + "','" + TextBox8.Text + "'," + TextBox1.Text + ")"
             'Dim sqlreader As SQLite.SQLiteDataReader = sqlcmd.ExecuteReader

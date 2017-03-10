@@ -3,6 +3,8 @@
     Dim IsEditCell As Boolean = False
     Dim TB As DataTable
     Dim czzc As zcglStruct
+    Dim zcRowNum, czRowNum As Integer
+
 
     Private Sub GetKuCun()
         'MsgBox(System.Environment.GetEnvironmentVariable("SYSTEMROOT"))
@@ -37,29 +39,6 @@
         DataGridView1.ColumnHeadersHeight = 46
         DataGridView1.Columns(0).ReadOnly = True
         SetColumnsTitle4ZC(DataGridView1)
-
-        'DataGridView1.Columns(0).HeaderText = "ID"
-
-        'DataGridView1.Columns(1).HeaderText = "资产类别编号（国标）"
-        'DataGridView1.Columns(2).HeaderText = "资产类别名称（国标）"
-        'DataGridView1.Columns(3).HeaderText = "资产名称"
-        'DataGridView1.Columns(4).HeaderText = "采购方式"
-        'DataGridView1.Columns(5).HeaderText = "供货商"
-        'DataGridView1.Columns(6).HeaderText = "购置日期"
-        'DataGridView1.Columns(7).HeaderText = "到货日期"
-        'DataGridView1.Columns(8).HeaderText = "单价"
-        'DataGridView1.Columns(9).HeaderText = "采购数量"
-        'DataGridView1.Columns(10).HeaderText = "计量单位"
-        'DataGridView1.Columns(11).HeaderText = "签收人"
-        'DataGridView1.Columns(12).HeaderText = "采购项目名称"
-        'DataGridView1.Columns(13).HeaderText = "简单配置"
-        'DataGridView1.Columns(14).HeaderText = "库存"
-        'DataGridView1.Columns(15).HeaderText = "入库编号"
-        'DataGridView1.Columns(16).HeaderText = "资产来源"
-        'DataGridView1.Columns(17).HeaderText = "设备型号"
-        'DataGridView1.Columns(18).HeaderText = "品牌"
-        'DataGridView1.Columns(19).HeaderText = "备注"
-
 
 
         '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
@@ -199,7 +178,6 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim sql As String
         Dim upSDA As LiuDataAdapter = New LiuDataAdapter
         sda.Update(TB)
 
@@ -327,13 +305,6 @@
     Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DataGridView1.RowsAdded
         DisplayDataGridViewRowNumber(DataGridView1, e)
     End Sub
-
-
-
-
-
-
-
 
     ''' <summary>
     ''' 
@@ -568,10 +539,12 @@
             cz.dj = DataGridView2.SelectedRows(0).Cells(4).Value
             cz.gzrq = DataGridView2.SelectedRows(0).Cells(7).Value
             cz.sl = DataGridView2.SelectedRows(0).Cells(5).Value
+            czRowNum = DataGridView2.SelectedRows(0).Index
 
             If DataGridView1.SelectedRows.Count > 0 Then
                 For i = 0 To DataGridView1.RowCount - 1
                     If DataGridView1.Rows(i).Selected Then
+                        zcRowNum = i
                         tmp = New zcglStruct
                         tmp.gzrq = DataGridView1.Rows(i).Cells(6).Value
                         tmp.dj = DataGridView1.Rows(i).Cells(10).Value
@@ -620,8 +593,24 @@
 
                     GetKuCun()
                     GetCZInfo()
+                    Dim flag As Boolean
+                    Dim j As Integer
+                    flag = True
+                    j = 0
+                    Do
+                        flag = DataGridView1(j, zcRowNum).Visible
+                        If flag Then DataGridView1.CurrentCell = DataGridView1(j, zcRowNum)
+                        j = j + 1
+                    Loop While Not flag
 
+                    j = 0
+                    Do
+                        flag = DataGridView2(j, czRowNum).Visible
+                        If flag Then DataGridView2.CurrentCell = DataGridView2(j, czRowNum)
+                        j = j + 1
+                    Loop While Not flag
 
+                     
 
                 Else
                     MsgBox("总价不一致啊")
