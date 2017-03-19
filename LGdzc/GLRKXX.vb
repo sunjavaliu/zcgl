@@ -389,7 +389,7 @@
     Private Sub GetCZInfo()
         Dim zcxxTb As DataTable = New DataTable
         Dim sql As String
-        sql = "select * from czzcinfo where isconnect is null or isconnect ='' or isconnect=false  order by dj desc "
+        sql = "select * from czzcinfo where ( isconnect is null or isconnect ='' or isconnect=false ) and meno is null order by dj desc "
         Dim zcxx As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
         'Dim dt As DataTable = New DataTable()
         'MsgBox(sql)
@@ -417,6 +417,7 @@
         DataGridView1.Columns(8).HeaderText = "登记日期"
         DataGridView1.Columns(9).HeaderText = "资产信息"
         DataGridView1.Columns(10).HeaderText = "是否关联"
+        DataGridView1.Columns(11).HeaderText = "备注"
 
     End Sub
 
