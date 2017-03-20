@@ -610,7 +610,7 @@
                         j = j + 1
                     Loop While Not flag
 
-                     
+
 
                 Else
                     MsgBox("总价不一致啊")
