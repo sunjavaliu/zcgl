@@ -60,11 +60,6 @@
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-
- 
-
-
-
             BindTreeView(0, TreeView1, G_dt)
             'OpreaRYDataBase("")
             'System.Threading.Thread.Sleep(10000)
@@ -233,12 +228,6 @@
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
         TextBox1.Text = SelectedNode.Name
         TextBox2.Text = SelectedNode.Text
-        'sda_ry = SQLite.SQLiteDataAdapter("select * from bm_ry where bmbh=" + SelectedNode.Name, CONN_STR)
-        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_ry)
-        'sda_ry.SelectCommand.ExecuteReader("select * from bm_ry where bmbh=" + SelectedNode.Name)
-        'sda_ry.Fill(G_dt_ry)
-        'DataGridView1.DataSource = G_dt_ry
-        'DataGridView1.Refresh()
         OpreaBMDataBase(SelectedNode.Name)
     End Sub
 
@@ -261,8 +250,6 @@
 
                 Me.SaveDelDB(SelectedNode)
                 TreeView1.Nodes.Remove(SelectedNode)
-
-
             Else
                 MsgBox("该节点为根节点或含有下级子节点，请删除所有下级节点才能删除该节点！")
             End If
@@ -280,13 +267,7 @@
             For i = rowN To 0 Step -1
                 If DataGridView1.Rows(i).Selected = True Then
                     DataGridView1.Rows.RemoveAt(DataGridView1.Rows(i).Index)
-                    'G_dt_ry.[Delete]("id="+dataGridv_AdminIma.Rows[i].Cells[0].Value.ToString())
-                    'Debug.Print(i)
-                    'MsgBox(DataGridView1.Rows(i).Cells(0).Value.ToString())
-                    'tmpList.Add(DataGridView1.Rows(i))
                 End If
-
-
 
             Next
             'DataGridView1.Rows.Remove(tmpList)
@@ -458,9 +439,5 @@
 
     'End Sub
 
-    
 
-    Private Sub DataGridView1_RowStateChanged(sender As Object, e As DataGridViewRowStateChangedEventArgs) Handles DataGridView1.RowStateChanged
-
-    End Sub
 End Class

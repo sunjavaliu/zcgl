@@ -151,7 +151,6 @@ Public Class Form1
                 Me.SaveDelDB(SelectedNode)
                 TreeView1.Nodes.Remove(SelectedNode)
             Else
-
                 MsgBox("该节点为根节点或含有下级子节点，请删除所有下级节点才能删除该节点！！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
             End If
         End If
@@ -161,7 +160,6 @@ Public Class Form1
         TreeOperateType = TREE_NONE
     End Sub
 
-
     Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
         EnableWrite()
@@ -169,7 +167,6 @@ Public Class Form1
         TextBox2.Text = SelectedNode.Text
         TreeOperateType = TREE_UPDATE_NODE
         TextBox1.Enabled = False
-
     End Sub
 
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
@@ -178,15 +175,9 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-
-            'BindTreeView(0, TreeView1, G_dt)
-
-
             OpreaRYDataBase("")
-
             OpreaBMDataBase()
             CommBindTreeView(0, TreeView1, G_dt, "parentBMBH", "0", "BMMC", "BMBH")
-
             DisplayBMTree()
             ComboBoxTreeBM.Enabled = False
             DisableWrite()
@@ -228,39 +219,19 @@ Public Class Form1
         '所以, 一般先用FillSchema来填入详细的元数据信息, 再用Fill来填充数据,
         sda.FillSchema(G_dt, SchemaType.Mapped)
         '#############################################################################################################
-
-
         sda.Fill(G_dt)
-
-        'G_dt.Load(reader)
     End Sub
-
-
-
-
 
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
         Dim SelectedNode As TreeNode = TreeView1.SelectedNode
         TextBox1.Text = SelectedNode.Name
         TextBox2.Text = SelectedNode.Text
-        'sda_ry = SQLite.SQLiteDataAdapter("select * from bm_ry where bmbh=" + SelectedNode.Name, CONN_STR)
-        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_ry)
-        'sda_ry.SelectCommand.ExecuteReader("select * from bm_ry where bmbh=" + SelectedNode.Name)
-        'sda_ry.Fill(G_dt_ry)
-        'DataGridView1.DataSource = G_dt_ry
-        'DataGridView1.Refresh()
         G_BMBH = SelectedNode.Name
         OpreaRYDataBase(G_BMBH)
     End Sub
 
 
     Private Sub OpreaRYDataBase(bmbh As String)
-
-
-        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
-        '打开连接
-        'conn.Open()
-        'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String
         If bmbh = "" Or bmbh = "1" Then
             sql = "select * from bm_ry"
@@ -268,17 +239,12 @@ Public Class Form1
             sql = "select * from bm_ry where bmbh=" + bmbh
         End If
 
-        'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
-        'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
         sda_ry = New LiuDataAdapter(sql, CONN_STR)
 
         G_dt_ry.Clear()
 
         sda_ry.FillSchema(G_dt_ry, SchemaType.Mapped)
         sda_ry.Fill(G_dt_ry)
-
-
-
 
         DataGridView1.DataSource = G_dt_ry
 
@@ -380,19 +346,6 @@ Public Class Form1
 
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        'DataGridView1.CellValueChanged()
-        'Dim rs As DataGridViewRow
-        Debug.Print(DataGridView1.Rows.Count())
-        'For Each rs In DataGridView1.Rows
-
-        '    If rs.State = DataRowState.Added Or rs.State = DataRowState.Detached Or rs.State = DataRowState.Modified Then
-        '        Debug.Print("bianji")
-        '    Else
-        '        Debug.Print("meiyou bianji")
-        '    End If
-
-
-        'Next
         If DataGridView1.IsCurrentCellInEditMode Then
             If MsgBox("放弃正在编辑的数据吗？", MsgBoxStyle.OkCancel + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "警告") = MsgBoxResult.Ok Then
                 Me.Dispose()
@@ -616,12 +569,8 @@ Public Class Form1
     End Sub
 
     Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DataGridView1.RowsAdded
-
         DisplayDataGridViewRowNumber(DataGridView1, e)
     End Sub
- 
-
-
 End Class
 
 

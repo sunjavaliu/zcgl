@@ -34,27 +34,7 @@
         'DataGridView1.Rows(0).Cells(0).Height = 90
         DataGridView1.ColumnHeadersHeight = 46
         DataGridView1.Columns(0).ReadOnly = True
-        DataGridView1.Columns(0).HeaderText = "ID"
-
-        DataGridView1.Columns(1).HeaderText = "资产类别编号（国标）"
-        DataGridView1.Columns(2).HeaderText = "资产类别名称（国标）"
-        DataGridView1.Columns(3).HeaderText = "资产名称"
-        DataGridView1.Columns(4).HeaderText = "采购方式"
-        DataGridView1.Columns(5).HeaderText = "供货商"
-        DataGridView1.Columns(6).HeaderText = "购置日期"
-        DataGridView1.Columns(7).HeaderText = "到货日期"
-        DataGridView1.Columns(8).HeaderText = "单价"
-        DataGridView1.Columns(9).HeaderText = "采购数量"
-        DataGridView1.Columns(10).HeaderText = "计量单位"
-        DataGridView1.Columns(11).HeaderText = "签收人"
-        DataGridView1.Columns(12).HeaderText = "采购项目名称"
-        DataGridView1.Columns(13).HeaderText = "简单配置"
-        DataGridView1.Columns(14).HeaderText = "库存"
-        DataGridView1.Columns(15).HeaderText = "入库编号"
-        DataGridView1.Columns(16).HeaderText = "资产来源"
-        DataGridView1.Columns(17).HeaderText = "设备型号"
-        DataGridView1.Columns(18).HeaderText = "品牌"
-        DataGridView1.Columns(19).HeaderText = "备注"
+        SetColumns4RK(DataGridView1)
 
 
 
