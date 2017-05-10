@@ -421,12 +421,13 @@
 
     End Sub
 
-    ''' <summary>
-    ''' 以下三个是实现
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
+    '
+    ' <summary>
+    ' 以下三个是实现
+    ' </summary>
+    ' <param name="sender"></param>
+    ' <param name="e"></param>
+    ' <remarks></remarks>
     'Private Sub DataGridView2_MouseDown(sender As Object, e As MouseEventArgs) Handles DataGridView2.MouseDown
     '    Dim a As New List(Of String)()
     '    Dim info As DataGridView.HitTestInfo = DataGridView2.HitTest(e.X, e.Y)
