@@ -9,7 +9,7 @@ Public Class LiuDataAdapter
     Dim howUpdate As Integer
 
 #If IS_SQLITE_DB Then
-    Private Adapter As SQLite.SQLiteDataAdapter=new SQLite.SQLiteDataAdapter()
+    'Private Adapter As SQLite.SQLiteDataAdapter=new SQLite.SQLiteDataAdapter()
 #Else
     Private Adapter As MySql.Data.MySqlClient.MySqlDataAdapter
 #End If
@@ -17,7 +17,7 @@ Public Class LiuDataAdapter
     Public Sub New(sql As String, CONN_STR As String)
 
 #If IS_SQLITE_DB Then
-    Adapter = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+    'Adapter = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
 #Else
         Adapter = New MySql.Data.MySqlClient.MySqlDataAdapter(sql, CONN_STR)
 #End If
@@ -29,7 +29,7 @@ Public Class LiuDataAdapter
     Public Sub QueryDataGridView(sql As String, CONN_STR As String)
 
 #If IS_SQLITE_DB Then
-    Adapter = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
+    'Adapter = New SQLite.SQLiteDataAdapter(sql, CONN_STR)
 #Else
         Adapter = New MySql.Data.MySqlClient.MySqlDataAdapter(sql, CONN_STR)
         'Adapter.
@@ -42,7 +42,7 @@ Public Class LiuDataAdapter
     Public Sub New()
 
 #If IS_SQLITE_DB Then
-    Adapter = New SQLite.SQLiteDataAdapter()
+    'Adapter = New SQLite.SQLiteDataAdapter()
 #Else
         Adapter = New MySql.Data.MySqlClient.MySqlDataAdapter()
 #End If
@@ -52,7 +52,7 @@ Public Class LiuDataAdapter
     End Sub
     Public Function Update(dataTable As DataTable) As Integer
 #If IS_SQLITE_DB Then
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(Adapter)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(Adapter)
 #Else
         Dim scb As MySql.Data.MySqlClient.MySqlCommandBuilder = New MySql.Data.MySqlClient.MySqlCommandBuilder(Adapter)
 #End If
@@ -70,27 +70,22 @@ Public Class LiuDataAdapter
     End Function
     Public Function Fill(dataTable As DataTable) As Integer
 #If IS_SQLITE_DB Then
-        Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(Adapter)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(Adapter)
 #Else
         Dim scb As MySql.Data.MySqlClient.MySqlCommandBuilder = New MySql.Data.MySqlClient.MySqlCommandBuilder(Adapter)
 #End If
 
         Return Adapter.Fill(dataTable)
     End Function
-    Public Function GetConn() As String
-
-        Return ""
-    End Function
-
 
     Public Function ExecuteNonQuery(SQL As String) As Integer
 #If IS_SQLITE_DB Then
-        Dim conn As SQLite.SQLiteConnection = New SQLite.SQLiteConnection()
-        Dim howUpdate As Integer
-        conn.ConnectionString = CONN_STR
-        conn.Open()
+        'Dim conn As SQLite.SQLiteConnection = New SQLite.SQLiteConnection()
+        'Dim howUpdate As Integer
+        'conn.ConnectionString = CONN_STR
+        'conn.Open()
 
-        Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(SQL, conn)
+        'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(SQL, conn)
 #Else
         Dim conn As MySql.Data.MySqlClient.MySqlConnection = New MySql.Data.MySqlClient.MySqlConnection()
 
@@ -116,7 +111,7 @@ Public Class LiuDataAdapter
     Public Function GetSelectCount(SQL As String) As Integer
 
 #If IS_SQLITE_DB Then
-        Adapter = New SQLite.SQLiteDataAdapter(SQL, CONN_STR)
+        'Adapter = New SQLite.SQLiteDataAdapter(SQL, CONN_STR)
 #Else
         Adapter = New MySql.Data.MySqlClient.MySqlDataAdapter(SQL, CONN_STR)
 #End If

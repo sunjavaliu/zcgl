@@ -74,7 +74,7 @@
 
             '设置DataGridView显示风格
             SetDataGridViewStyle(DataGridView1)
-        Catch ex As SQLite.SQLiteException
+        Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub

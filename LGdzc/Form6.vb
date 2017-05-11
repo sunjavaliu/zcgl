@@ -21,7 +21,7 @@
             dg.Columns(0).HeaderText = "ID"
             dg.Columns(1).HeaderText = "项目名称"
             dg.Columns(2).HeaderText = "项目内容"
-        Catch ex As SQLite.SQLiteException
+        Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 

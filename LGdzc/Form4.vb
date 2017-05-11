@@ -77,7 +77,7 @@
             SQLda.Fill(dt)
 
 
-        Catch ex As SQLite.SQLiteException
+        Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
@@ -126,7 +126,7 @@
             'Me.BindingSource1 = bs
 
             'TextBox1.DataBindings.Add("Text", bs, "zcbh", True)
-        Catch ex As SQLite.SQLiteException
+        Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
@@ -135,9 +135,9 @@
 
 
     Private Sub OpreaBMDataBase()
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
         '打开连接
-        conn.Open()
+        'conn.Open()
         'Dim cmd As SQLite.SQLiteCommand = New SQLite.SQLiteCommand(conn)
         Dim sql As String = "select * from bm"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)

@@ -188,7 +188,7 @@ Public Class Form1
             '设置DataGridView显示风格
             SetDataGridViewStyle(DataGridView1)
 
-        Catch ex As SQLite.SQLiteException
+        Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
@@ -197,9 +197,9 @@ Public Class Form1
 
 
     Private Sub OpreaBMDataBase()
-        Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
+        'Dim conn As Data.SQLite.SQLiteConnection = New Data.SQLite.SQLiteConnection(CONN_STR)
         '打开连接
-        conn.Open()
+        'conn.Open()
         Dim sql As String = "select * from bm"
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
