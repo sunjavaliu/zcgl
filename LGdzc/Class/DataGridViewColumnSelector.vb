@@ -169,7 +169,7 @@ Public Class DataGridViewColumnSelector
                 Dim visable As Boolean = Boolean.Parse(dr(2).ToString())
                 Dim Width As Integer = Integer.Parse(dr(3).ToString())
 
-                If mDataGridView.Columns(index) Is Nothing Then
+                If mDataGridView.Columns(index) IsNot Nothing Then
                     mDataGridView.Columns(index).Visible = visable
                     mDataGridView.Columns(index).DisplayIndex = displayIndex
                     mDataGridView.Columns(index).Width = Width

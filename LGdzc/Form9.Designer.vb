@@ -60,6 +60,8 @@ Partial Class Form9
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.osversion = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -73,6 +75,8 @@ Partial Class Form9
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.osversion)
+        Me.GroupBox1.Controls.Add(Me.Label17)
         Me.GroupBox1.Controls.Add(Me.Label16)
         Me.GroupBox1.Controls.Add(Me.TextBox6)
         Me.GroupBox1.Controls.Add(Me.TextBox9)
@@ -108,7 +112,7 @@ Partial Class Form9
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(27, 30)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(866, 475)
+        Me.GroupBox1.Size = New System.Drawing.Size(866, 487)
         Me.GroupBox1.TabIndex = 96
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "新资产入库"
@@ -139,7 +143,7 @@ Partial Class Form9
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(50, 352)
+        Me.Label15.Location = New System.Drawing.Point(50, 394)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(29, 12)
         Me.Label15.TabIndex = 130
@@ -147,7 +151,7 @@ Partial Class Form9
         '
         'TextBox10
         '
-        Me.TextBox10.Location = New System.Drawing.Point(134, 352)
+        Me.TextBox10.Location = New System.Drawing.Point(134, 394)
         Me.TextBox10.Multiline = True
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.Size = New System.Drawing.Size(583, 47)
@@ -311,7 +315,7 @@ Partial Class Form9
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(297, 417)
+        Me.Button4.Location = New System.Drawing.Point(297, 459)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 11
@@ -320,7 +324,7 @@ Partial Class Form9
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(477, 417)
+        Me.Button3.Location = New System.Drawing.Point(477, 459)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 12
@@ -404,6 +408,22 @@ Partial Class Form9
         Me.Label11.TabIndex = 126
         Me.Label11.Text = "设备型号"
         '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(396, 357)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(77, 12)
+        Me.Label17.TabIndex = 132
+        Me.Label17.Text = "操作系统版本"
+        '
+        'osversion
+        '
+        Me.osversion.Location = New System.Drawing.Point(476, 354)
+        Me.osversion.Name = "osversion"
+        Me.osversion.Size = New System.Drawing.Size(239, 21)
+        Me.osversion.TabIndex = 133
+        '
         'Form9
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -458,4 +478,6 @@ Partial Class Form9
     Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents osversion As System.Windows.Forms.TextBox
 End Class

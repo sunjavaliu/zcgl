@@ -117,6 +117,7 @@ Module Comm
     '导出CSV数据
     Public Sub ExportToCSV(ByVal dgv As DataGridView, Optional ByVal strfilename As String = "")
         Dim saveFileDialog As New SaveFileDialog()
+        Dim cellContent As String
         'saveFileDialog.Filter = "Execl files (*.xls)|*.xls"
         saveFileDialog.Filter = "CSV文件(*.csv)|*.csv|所有文件(*.*)|*.*"
         saveFileDialog.FilterIndex = 0
@@ -155,7 +156,14 @@ Module Comm
                     If dgv.Rows(j).Cells(k).Value Is Nothing Then
                         columnValue += ","
                     Else
-                        columnValue += dgv.Rows(j).Cells(k).FormattedValue.ToString.Trim()
+
+                        cellContent = dgv.Rows(j).Cells(k).FormattedValue.ToString.Trim()
+                        Debug.Print(cellContent)
+                        '如果内容中含有换行字符就需要加 双引号 
+                        If InStr(1, cellContent, Chr(13), CompareMethod.Text) > 0 Then
+                            cellContent = Chr(34) + cellContent + Chr(34)
+                        End If
+                        columnValue += cellContent
                     End If
                 Next
 
