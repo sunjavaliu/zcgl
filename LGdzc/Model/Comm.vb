@@ -309,6 +309,8 @@ Module Comm
         DataGridView1.Columns(24).HeaderText = "备注"
         DataGridView1.Columns(25).HeaderText = "财政编码"
         DataGridView1.Columns(26).HeaderText = "招标日期/实际收货日期"
+        DataGridView1.Columns(27).HeaderText = "操作系统版本"
+        DataGridView1.Columns(28).HeaderText = "最近操作时间"
     End Sub
 
 
@@ -336,6 +338,7 @@ Module Comm
         DataGridView1.Columns(19).HeaderText = "备注"
         DataGridView1.Columns(20).HeaderText = "财政编码"
         DataGridView1.Columns(21).HeaderText = "招标日期/实际收货日期"
+        DataGridView1.Columns(22).HeaderText = "操作系统版本"
 
     End Sub
     Public Sub GetComboBoxDICT(DisplayMember As String, tablename As String, combox As ComboBox)

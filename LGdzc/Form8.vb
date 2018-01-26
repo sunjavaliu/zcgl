@@ -103,11 +103,13 @@
         TextBox4.Text = DataGridView1.SelectedRows(0).Cells(13).Value.ToString()
         'DateTimePicker1.Text = DateTime.Parse(DataGridView1.SelectedRows(0).Cells(8).Value.ToString())
         DateTimePicker1.Value = CDate(DataGridView1.SelectedRows(0).Cells(21).Value.ToString())
+        DateTimePicker3.Value = CDate(DataGridView1.SelectedRows(0).Cells(6).Value.ToString())
         TextBox6.Text = DataGridView1.SelectedRows(0).Cells(15).Value.ToString()
         TextBox7.Text = DataGridView1.SelectedRows(0).Cells(16).Value.ToString()
         TextBox8.Text = DataGridView1.SelectedRows(0).Cells(17).Value.ToString()
         TextBox12.Text = DataGridView1.SelectedRows(0).Cells(18).Value.ToString()
         TextBox13.Text = DataGridView1.SelectedRows(0).Cells(19).Value.ToString()
+
 
         Rk_tab_id = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
 
@@ -160,7 +162,7 @@
 
     Private Sub JiSuanZongjia()
         If TextBox9.Text <> "" And TextBox10.Text <> "" Then
-            TextBox11.Text = CInt(TextBox10.Text) * CInt(TextBox9.Text)
+            TextBox11.Text = CDbl(TextBox10.Text) * CDbl(TextBox9.Text)
         Else
             TextBox11.Text = ""
         End If
@@ -240,7 +242,7 @@
 
             lbmc = TextBox17.Text
             jldw = TextBox18.Text
-            gzrq = DateTimePicker1.Text
+            gzrq = DateTimePicker3.Text
             sjgzrq = DateTimePicker1.Text
 
             djrq = DateTimePicker2.Text
@@ -367,5 +369,4 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         ExportToCSV(DataGridView1)
     End Sub
-
 End Class

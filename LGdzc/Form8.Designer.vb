@@ -25,6 +25,10 @@ Partial Class Form8
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.osversion = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -70,8 +74,6 @@ Partial Class Form8
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.osversion = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -108,6 +110,8 @@ Partial Class Form8
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.DateTimePicker3)
+        Me.GroupBox2.Controls.Add(Me.Label23)
         Me.GroupBox2.Controls.Add(Me.osversion)
         Me.GroupBox2.Controls.Add(Me.Label21)
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
@@ -164,6 +168,39 @@ Partial Class Form8
         Me.GroupBox2.TabIndex = 102
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "分配资产"
+        '
+        'DateTimePicker3
+        '
+        Me.DateTimePicker3.Enabled = False
+        Me.DateTimePicker3.Location = New System.Drawing.Point(130, 107)
+        Me.DateTimePicker3.Name = "DateTimePicker3"
+        Me.DateTimePicker3.Size = New System.Drawing.Size(105, 21)
+        Me.DateTimePicker3.TabIndex = 149
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(33, 110)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(77, 12)
+        Me.Label23.TabIndex = 148
+        Me.Label23.Text = "财政购置日期"
+        '
+        'osversion
+        '
+        Me.osversion.Location = New System.Drawing.Point(130, 137)
+        Me.osversion.Name = "osversion"
+        Me.osversion.Size = New System.Drawing.Size(295, 21)
+        Me.osversion.TabIndex = 147
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(33, 140)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(77, 12)
+        Me.Label21.TabIndex = 146
+        Me.Label21.Text = "操作系统版本"
         '
         'ComboBox2
         '
@@ -305,15 +342,15 @@ Partial Class Form8
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(130, 106)
+        Me.TextBox2.Location = New System.Drawing.Point(557, 137)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(295, 21)
+        Me.TextBox2.Size = New System.Drawing.Size(321, 21)
         Me.TextBox2.TabIndex = 3
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(33, 109)
+        Me.Label20.Location = New System.Drawing.Point(462, 140)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(89, 12)
         Me.Label20.TabIndex = 128
@@ -546,22 +583,6 @@ Partial Class Form8
         Me.Button1.Text = "分配"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(33, 140)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(77, 12)
-        Me.Label21.TabIndex = 146
-        Me.Label21.Text = "操作系统版本"
-        '
-        'osversion
-        '
-        Me.osversion.Location = New System.Drawing.Point(130, 137)
-        Me.osversion.Name = "osversion"
-        Me.osversion.Size = New System.Drawing.Size(295, 21)
-        Me.osversion.TabIndex = 147
-        '
         'Form8
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -629,4 +650,6 @@ Partial Class Form8
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents osversion As System.Windows.Forms.TextBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents DateTimePicker3 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label23 As System.Windows.Forms.Label
 End Class

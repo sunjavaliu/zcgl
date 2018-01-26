@@ -328,7 +328,7 @@
 
         End If
 
-        sql = sql + " where " + sqlwhere
+        If sqlwhere <> "" Then sql = sql + " where " + sqlwhere
 
         commSQL = sql
 
