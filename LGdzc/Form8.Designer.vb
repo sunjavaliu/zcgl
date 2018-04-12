@@ -230,7 +230,7 @@ Partial Class Form8
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(825, 79)
+        Me.Label18.Location = New System.Drawing.Point(825, 78)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(53, 12)
         Me.Label18.TabIndex = 141
@@ -358,7 +358,7 @@ Partial Class Form8
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(900, 40)
+        Me.TextBox1.Location = New System.Drawing.Point(900, 42)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(105, 21)
         Me.TextBox1.TabIndex = 2
@@ -366,7 +366,7 @@ Partial Class Form8
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(825, 44)
+        Me.Label1.Location = New System.Drawing.Point(825, 47)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(65, 12)
         Me.Label1.TabIndex = 126
@@ -427,12 +427,12 @@ Partial Class Form8
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(53, 12)
         Me.Label13.TabIndex = 119
-        Me.Label13.Text = "资产总价"
+        Me.Label13.Text = "设备总价"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(645, 45)
+        Me.Label12.Location = New System.Drawing.Point(645, 47)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(29, 12)
         Me.Label12.TabIndex = 118
@@ -545,7 +545,7 @@ Partial Class Form8
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(53, 12)
         Me.Label5.TabIndex = 105
-        Me.Label5.Text = "资产名称"
+        Me.Label5.Text = "设备名称"
         '
         'Label4
         '
@@ -561,9 +561,9 @@ Partial Class Form8
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(33, 47)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(53, 12)
+        Me.Label3.Size = New System.Drawing.Size(77, 12)
         Me.Label3.TabIndex = 103
-        Me.Label3.Text = "资产类别"
+        Me.Label3.Text = "资产类别名称"
         '
         'Label2
         '
@@ -572,7 +572,7 @@ Partial Class Form8
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 12)
         Me.Label2.TabIndex = 102
-        Me.Label2.Text = "资产名称"
+        Me.Label2.Text = "资产类别"
         '
         'Button1
         '

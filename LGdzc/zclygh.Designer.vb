@@ -116,7 +116,7 @@ Partial Class zclygh
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(145, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(143, 6)
         '
         'DataGridView1
         '
@@ -236,7 +236,7 @@ Partial Class zclygh
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(53, 12)
         Me.Label16.TabIndex = 175
-        Me.Label16.Text = "资产编号"
+        Me.Label16.Text = "设备编号"
         '
         'TextBox3
         '
@@ -388,7 +388,7 @@ Partial Class zclygh
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(53, 12)
         Me.Label13.TabIndex = 156
-        Me.Label13.Text = "资产总价"
+        Me.Label13.Text = "设备总价"
         '
         'Label12
         '
@@ -498,16 +498,16 @@ Partial Class zclygh
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(53, 12)
         Me.Label15.TabIndex = 145
-        Me.Label15.Text = "资产品牌"
+        Me.Label15.Text = "设备品牌"
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(27, 42)
+        Me.Label17.Location = New System.Drawing.Point(5, 42)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(53, 12)
+        Me.Label17.Size = New System.Drawing.Size(77, 12)
         Me.Label17.TabIndex = 143
-        Me.Label17.Text = "资产类别"
+        Me.Label17.Text = "资产类别名称"
         '
         'Label18
         '
@@ -516,7 +516,7 @@ Partial Class zclygh
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(53, 12)
         Me.Label18.TabIndex = 142
-        Me.Label18.Text = "资产名称"
+        Me.Label18.Text = "资产类别"
         '
         'Button9
         '
@@ -667,7 +667,7 @@ Partial Class zclygh
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(53, 12)
         Me.Label20.TabIndex = 7
-        Me.Label20.Text = "设备名称"
+        Me.Label20.Text = "资产名称"
         '
         'TextBox14
         '
@@ -731,25 +731,25 @@ Partial Class zclygh
         'DelSubToolStripMenuItem
         '
         Me.DelSubToolStripMenuItem.Name = "DelSubToolStripMenuItem"
-        Me.DelSubToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.DelSubToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.DelSubToolStripMenuItem.Text = "删除节点"
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.EditToolStripMenuItem.Text = "编辑节点"
         '
         'AddSubToolStripMenuItem
         '
         Me.AddSubToolStripMenuItem.Name = "AddSubToolStripMenuItem"
-        Me.AddSubToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.AddSubToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.AddSubToolStripMenuItem.Text = "增加子节点"
         '
         'AddSideWaysToolStripMenuItem
         '
         Me.AddSideWaysToolStripMenuItem.Name = "AddSideWaysToolStripMenuItem"
-        Me.AddSideWaysToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.AddSideWaysToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.AddSideWaysToolStripMenuItem.Text = "添加同级节点"
         '
         'ContextMenuStrip1
@@ -757,24 +757,24 @@ Partial Class zclygh
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddSideWaysToolStripMenuItem, Me.AddSubToolStripMenuItem, Me.EditToolStripMenuItem, Me.ToolStripMenuItem2, Me.ExpandAllToolStripMenuItem, Me.CollapseAllToolStripMenuItem, Me.ToolStripMenuItem1, Me.DelSubToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(149, 148)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(147, 148)
         '
         'ExpandAllToolStripMenuItem
         '
         Me.ExpandAllToolStripMenuItem.Name = "ExpandAllToolStripMenuItem"
-        Me.ExpandAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.ExpandAllToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.ExpandAllToolStripMenuItem.Text = "全部展开"
         '
         'CollapseAllToolStripMenuItem
         '
         Me.CollapseAllToolStripMenuItem.Name = "CollapseAllToolStripMenuItem"
-        Me.CollapseAllToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.CollapseAllToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.CollapseAllToolStripMenuItem.Text = "全部折叠"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(145, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(143, 6)
         '
         'zclygh
         '

@@ -9,9 +9,36 @@
 
     Dim sda_ry As LiuDataAdapter   ';//全局变量
     Dim G_dt_ry As DataTable = New DataTable()
+    Private ComboBoxTreeLB As ComboBoxTreeView
+    Private dt_LB As DataTable = New DataTable()
+    Private sda_LB As LiuDataAdapter   ';//全局变量
 
     Dim commSQL As String   '全局SQL
+    Private Sub OpreaLBDataBase(bmbh As String)
+        Dim sql As String
 
+        If bmbh = "" Or bmbh = "1" Then
+            sql = "select * from lb"
+        Else
+            Dim tmpI, MAXBH As Integer
+            tmpI = CInt(bmbh)
+            If tmpI Mod 1 = 0 Then MAXBH = tmpI
+            If tmpI Mod 10 = 0 Then MAXBH = tmpI + 9
+            If tmpI Mod 100 = 0 Then MAXBH = tmpI + 99
+            If tmpI Mod 1000 = 0 Then MAXBH = tmpI + 999
+            If tmpI Mod 10000 = 0 Then MAXBH = tmpI + 9999
+            If tmpI Mod 100000 = 0 Then MAXBH = tmpI + 99999
+            If tmpI Mod 1000000 = 0 Then MAXBH = tmpI + 999999
+
+            sql = "select * from lb  where lbdm >= " + bmbh + " and lbdm<=" + MAXBH.ToString
+            Debug.Print(sql)
+        End If
+        sda_LB = New LiuDataAdapter(sql, CONN_STR)
+        'Dim scb As SQLite.SQLiteCommandBuilder = New SQLite.SQLiteCommandBuilder(sda_LB)
+        dt_LB.Clear()
+        sda_LB.Fill(dt_LB)
+
+    End Sub
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
@@ -31,12 +58,25 @@
 
             GetComboBoxDICT("zcmc", "zcmc", ComboBox3)
 
+
+            ComboBoxTreeLB = New ComboBoxTreeView()
+            ComboBoxTreeLB.Dock = DockStyle.Fill
+            Me.Panel2.Controls.Add(ComboBoxTreeLB)
+            OpreaLBDataBase("")
+            CommBindTreeView(0, ComboBoxTreeLB.TreeView, dt_LB, "parentlbdm", "0", "lbmc", "lbdm")
+
+
             ComboBox1.Text = ""
             ComboBox2.Text = ""
             ComboBox3.Text = ""
             TextBox1.Text = ""
             '设置DataGridView显示风格
             SetDataGridViewStyle(DataGridView1)
+
+
+
+
+
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -284,17 +324,28 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim zclb_code As String = ""
         Dim sql As String = ""
         Dim sqlwhere As String = ""
         Dim sqlxh As String = ""
         Dim sqllb As String = ""
         Dim sqlzrr As String = ""
         Dim sqlzcmc As String = ""
+        Dim sqllbcode As String = ""
+
+        If Not ComboBoxTreeLB.TreeView.SelectedNode Is Nothing Then
+            zclb_code = ComboBoxTreeLB.TreeView.SelectedNode.Name
+
+            While zclb_code.EndsWith("0")
+                zclb_code = zclb_code.Remove(zclb_code.Length() - 1)
+            End While
+        End If
         sql = "select * from zc   "
-        If Trim(ComboBox1.Text) <> "" Then sqlxh = "zcxh='" + Trim(ComboBox1.Text) + "'"
-        If Trim(ComboBox2.Text) <> "" Then sqllb = "lbmc='" + Trim(ComboBox2.Text) + "'"
-        If Trim(ComboBox3.Text) <> "" Then sqlzcmc = "zcmc='" + Trim(ComboBox3.Text) + "'"
+        If Trim(ComboBox1.Text) <> "" Then sqlxh = "zcxh like  '%" + Trim(ComboBox1.Text) + "%'"
+        If Trim(ComboBox2.Text) <> "" Then sqllb = "lbmc like '%" + Trim(ComboBox2.Text) + "%'"
+        If Trim(ComboBox3.Text) <> "" Then sqlzcmc = "zcmc like '%" + Trim(ComboBox3.Text) + "%'"
         If Trim(TextBox1.Text) <> "" Then sqlzrr = "zrr like '%" + Trim(TextBox1.Text) + "%'"
+        If Trim(zclb_code) <> "" Then sqllbcode = "lbid like '" + Trim(zclb_code) + "%'"
 
         If sqlxh <> "" Then sqlwhere = sqlxh
 
@@ -327,6 +378,17 @@
             End If
 
         End If
+
+        If sqllbcode <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqllbcode
+            Else
+                sqlwhere = sqlwhere + " and " + sqllbcode
+            End If
+
+        End If
+
 
         If sqlwhere <> "" Then sql = sql + " where " + sqlwhere
 

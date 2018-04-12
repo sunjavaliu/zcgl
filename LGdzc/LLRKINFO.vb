@@ -2,6 +2,8 @@
     Dim sda As LiuDataAdapter
     Dim IsEditCell As Boolean = False
     Dim TB As DataTable
+
+
     Private Sub GetKuCun()
         'MsgBox(System.Environment.GetEnvironmentVariable("SYSTEMROOT"))
         TB = New DataTable()
@@ -321,9 +323,9 @@
         Dim sqlzrr As String = ""
         Dim sqlzcmc As String = ""
         sql = "select * from rk   "
-        If Trim(ComboBox4.Text) <> "" Then sqlxh = "zcxh='" + Trim(ComboBox4.Text) + "'"
-        If Trim(ComboBox2.Text) <> "" Then sqllb = "lbmc='" + Trim(ComboBox2.Text) + "'"
-        If Trim(ComboBox3.Text) <> "" Then sqlzcmc = "zcmc='" + Trim(ComboBox3.Text) + "'"
+        If Trim(ComboBox4.Text) <> "" Then sqlxh = "zcxh like '%" + Trim(ComboBox4.Text) + "%'"
+        If Trim(ComboBox2.Text) <> "" Then sqllb = "lbmc like '%" + Trim(ComboBox2.Text) + "%'"
+        If Trim(ComboBox3.Text) <> "" Then sqlzcmc = "zcmc like '%" + Trim(ComboBox3.Text) + "%'"
         'If Trim(TextBox1.Text) <> "" Then sqlzrr = "zrr like '%" + Trim(TextBox1.Text) + "%'"
 
         If sqlxh <> "" Then sqlwhere = sqlxh
@@ -376,6 +378,7 @@
 
 
     End Sub
+
 End Class
 
 

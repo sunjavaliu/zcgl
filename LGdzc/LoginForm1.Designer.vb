@@ -51,7 +51,7 @@ Partial Class LoginForm1
         '
         'OK
         '
-        Me.OK.Image = Global.LGdzc.My.Resources.Resources.log
+        Me.OK.Image = Global.IT设备管理系统.My.Resources.Resources.log
         Me.OK.Location = New System.Drawing.Point(653, 227)
         Me.OK.Name = "OK"
         Me.OK.Size = New System.Drawing.Size(82, 67)
@@ -60,7 +60,7 @@ Partial Class LoginForm1
         'LogoPictureBox
         '
         Me.LogoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LogoPictureBox.Image = Global.LGdzc.My.Resources.Resources.timg
+        Me.LogoPictureBox.Image = Global.IT设备管理系统.My.Resources.Resources.timg
         Me.LogoPictureBox.Location = New System.Drawing.Point(0, 0)
         Me.LogoPictureBox.Name = "LogoPictureBox"
         Me.LogoPictureBox.Size = New System.Drawing.Size(1002, 583)

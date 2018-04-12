@@ -284,7 +284,7 @@ Module Comm
     Public Sub SetColumnsTitle4ZC(DataGridView1 As DataGridView)
         DataGridView1.Columns(0).HeaderText = "ID"
         DataGridView1.Columns(1).HeaderText = "资产编号"
-        DataGridView1.Columns(2).HeaderText = "资产名称"
+        DataGridView1.Columns(2).HeaderText = "设备名称"
         DataGridView1.Columns(3).HeaderText = "资产类别编号（国标）"
         DataGridView1.Columns(4).HeaderText = "资产类别名称（国标）"
         DataGridView1.Columns(5).HeaderText = "计量单位"
@@ -294,7 +294,7 @@ Module Comm
         DataGridView1.Columns(9).HeaderText = "数量"
         DataGridView1.Columns(10).HeaderText = "单价"
         DataGridView1.Columns(11).HeaderText = "总价"
-        DataGridView1.Columns(12).HeaderText = "资产状态"
+        DataGridView1.Columns(12).HeaderText = "设备状态"
         DataGridView1.Columns(13).HeaderText = "部门编号"
         DataGridView1.Columns(14).HeaderText = "部门名称"
         DataGridView1.Columns(15).HeaderText = "责任人"
@@ -319,7 +319,7 @@ Module Comm
 
         DataGridView1.Columns(1).HeaderText = "资产类别编号（国标）"
         DataGridView1.Columns(2).HeaderText = "资产类别名称（国标）"
-        DataGridView1.Columns(3).HeaderText = "资产名称"
+        DataGridView1.Columns(3).HeaderText = "设备名称"
         DataGridView1.Columns(4).HeaderText = "采购方式"
         DataGridView1.Columns(5).HeaderText = "供货商"
         DataGridView1.Columns(6).HeaderText = "财政购置日期"

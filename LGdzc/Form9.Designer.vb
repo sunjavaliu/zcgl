@@ -25,6 +25,8 @@ Partial Class Form9
         Me.components = New System.ComponentModel.Container()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.osversion = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.TextBox9 = New System.Windows.Forms.TextBox()
@@ -60,8 +62,6 @@ Partial Class Form9
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.osversion = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -117,6 +117,22 @@ Partial Class Form9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "新资产入库"
         '
+        'osversion
+        '
+        Me.osversion.Location = New System.Drawing.Point(476, 354)
+        Me.osversion.Name = "osversion"
+        Me.osversion.Size = New System.Drawing.Size(239, 21)
+        Me.osversion.TabIndex = 133
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(396, 357)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(77, 12)
+        Me.Label17.TabIndex = 132
+        Me.Label17.Text = "操作系统版本"
+        '
         'Label16
         '
         Me.Label16.AutoSize = True
@@ -124,7 +140,7 @@ Partial Class Form9
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(341, 12)
         Me.Label16.TabIndex = 129
-        Me.Label16.Text = "资产名称命名规则：品牌+型号+类别名称，按回车键可自动生成"
+        Me.Label16.Text = "设备名称命名规则：品牌+型号+类别名称，按回车键可自动生成"
         '
         'TextBox6
         '
@@ -388,7 +404,7 @@ Partial Class Form9
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 12)
         Me.Label2.TabIndex = 112
-        Me.Label2.Text = "资产名称"
+        Me.Label2.Text = "设备名称"
         '
         'Label12
         '
@@ -397,7 +413,7 @@ Partial Class Form9
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(53, 12)
         Me.Label12.TabIndex = 128
-        Me.Label12.Text = "资产品牌"
+        Me.Label12.Text = "设备品牌"
         '
         'Label11
         '
@@ -407,22 +423,6 @@ Partial Class Form9
         Me.Label11.Size = New System.Drawing.Size(53, 12)
         Me.Label11.TabIndex = 126
         Me.Label11.Text = "设备型号"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(396, 357)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(77, 12)
-        Me.Label17.TabIndex = 132
-        Me.Label17.Text = "操作系统版本"
-        '
-        'osversion
-        '
-        Me.osversion.Location = New System.Drawing.Point(476, 354)
-        Me.osversion.Name = "osversion"
-        Me.osversion.Size = New System.Drawing.Size(239, 21)
-        Me.osversion.TabIndex = 133
         '
         'Form9
         '

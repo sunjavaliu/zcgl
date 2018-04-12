@@ -179,7 +179,7 @@ Public Class MDIParent1
         TreeView1.ImageList = ImageList1
         SelectedNode.SelectedImageIndex = 1
         Select Case SelectedNode.Text
-            Case "设备信息管理"
+            Case "设备信息管理与查询"
                 'fm = New Form3()
                 'Me.OpenChildWindow(fm)
                 Jump(Of Form3)()

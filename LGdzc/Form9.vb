@@ -78,6 +78,7 @@
         ComboBoxTreeLB.Dock = DockStyle.Fill
         Me.Panel2.Controls.Add(ComboBoxTreeLB)
 
+
         DateTimePicker1.Format = DateTimePickerFormat.Custom
         DateTimePicker1.CustomFormat = " "
         'DateTimePicker1.ValueChanged += New EventHandler(DateTimePicker1_ValueChanged)
@@ -86,6 +87,7 @@
 
         OpreaLBDataBase("")
         CommBindTreeView(0, ComboBoxTreeLB.TreeView, dt_LB, "parentlbdm", "0", "lbmc", "lbdm")
+
     End Sub
 
     Private Sub OpreaLBDataBase(bmbh As String)

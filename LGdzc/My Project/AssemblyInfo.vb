@@ -11,8 +11,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("IT设备管理系统")> 
 <Assembly: AssemblyDescription("本系统为内部使用版")> 
 <Assembly: AssemblyCompany("长沙市电子计算站")> 
-<Assembly: AssemblyProduct("LGdzc")> 
-<Assembly: AssemblyCopyright("Copyright ©  2016-2017 程序设计 By 刘权")> 
+<Assembly: AssemblyProduct("IT设备管理系统")> 
+<Assembly: AssemblyCopyright("Copyright ©  2016-2017 程序设计 By Liuu")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 方法是按如下所示使用“*”: 
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.2.0")> 
-<Assembly: AssemblyFileVersion("1.0.2.0")> 
+<Assembly: AssemblyVersion("2.0.2.0")> 
+<Assembly: AssemblyFileVersion("2.0.2.0")> 

@@ -33,7 +33,7 @@ Partial Class MDIParent1
         Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("新入库设备分配")
         Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("查看入库与分配信息")
         Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("入库设备管理", New System.Windows.Forms.TreeNode() {TreeNode5, TreeNode6, TreeNode7})
-        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("设备信息管理")
+        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("设备信息管理与查询")
         Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("闲置设备再分配")
         Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("设备调拨")
         Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("财政设备信息关联")
@@ -385,8 +385,8 @@ Partial Class MDIParent1
         TreeNode7.Text = "查看入库与分配信息"
         TreeNode8.Name = "节点4"
         TreeNode8.Text = "入库设备管理"
-        TreeNode9.Name = "设备信息管理"
-        TreeNode9.Text = "设备信息管理"
+        TreeNode9.Name = "设备信息管理与查询"
+        TreeNode9.Text = "设备信息管理与查询"
         TreeNode10.Name = "闲置设备再分配"
         TreeNode10.Text = "闲置设备再分配"
         TreeNode11.Name = "设备调拨"

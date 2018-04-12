@@ -324,9 +324,9 @@
         Dim sqlzrr As String = ""
         Dim sqlzcmc As String = ""
         sql = "select * from zc   "
-        If Trim(ComboBox5.Text) <> "" Then sqlxh = "zcxh='" + Trim(ComboBox5.Text) + "'"
-        If Trim(ComboBox4.Text) <> "" Then sqllb = "lbmc='" + Trim(ComboBox4.Text) + "'"
-        If Trim(ComboBox2.Text) <> "" Then sqlzcmc = "zcmc='" + Trim(ComboBox2.Text) + "'"
+        If Trim(ComboBox5.Text) <> "" Then sqlxh = "zcxh like '%" + Trim(ComboBox5.Text) + "%'"
+        If Trim(ComboBox4.Text) <> "" Then sqllb = "lbmc like '" + Trim(ComboBox4.Text) + "%'"
+        If Trim(ComboBox2.Text) <> "" Then sqlzcmc = "zcmc like '%" + Trim(ComboBox2.Text) + "%'"
         If Trim(TextBox14.Text) <> "" Then sqlzrr = "zrr like '%" + Trim(TextBox14.Text) + "%'"
 
         If sqlxh <> "" Then sqlwhere = sqlxh

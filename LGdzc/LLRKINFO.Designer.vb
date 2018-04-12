@@ -173,9 +173,9 @@ Partial Class LLRKINFO
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(304, 18)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 12)
+        Me.Label2.Size = New System.Drawing.Size(77, 12)
         Me.Label2.TabIndex = 31
-        Me.Label2.Text = "设备类别"
+        Me.Label2.Text = "资产类别名称"
         '
         'Label3
         '
@@ -265,7 +265,7 @@ Partial Class LLRKINFO
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1047, 130)
+        Me.GroupBox2.Size = New System.Drawing.Size(1047, 134)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "已分配的人员"
@@ -280,7 +280,7 @@ Partial Class LLRKINFO
         Me.DataGridView2.Location = New System.Drawing.Point(3, 17)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowTemplate.Height = 23
-        Me.DataGridView2.Size = New System.Drawing.Size(1041, 110)
+        Me.DataGridView2.Size = New System.Drawing.Size(1041, 114)
         Me.DataGridView2.TabIndex = 10
         '
         'ContextMenuStrip1

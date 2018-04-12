@@ -195,9 +195,9 @@ Partial Class GLRKXX
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(304, 18)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 12)
+        Me.Label2.Size = New System.Drawing.Size(77, 12)
         Me.Label2.TabIndex = 31
-        Me.Label2.Text = "设备类别"
+        Me.Label2.Text = "资产类别名称"
         '
         'Label3
         '
@@ -290,7 +290,7 @@ Partial Class GLRKXX
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1063, 252)
+        Me.GroupBox2.Size = New System.Drawing.Size(1063, 253)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "财政资产信息"
@@ -309,36 +309,36 @@ Partial Class GLRKXX
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowTemplate.Height = 23
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(1057, 232)
+        Me.DataGridView2.Size = New System.Drawing.Size(1057, 233)
         Me.DataGridView2.TabIndex = 10
         '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem1, Me.ToolStripSeparator1, Me.ToolStripMenuItem2})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(197, 76)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(195, 76)
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(196, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(194, 22)
         Me.ToolStripMenuItem3.Text = "选定这行"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(196, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(194, 22)
         Me.ToolStripMenuItem1.Text = "查询该设备分配的人员"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(193, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(191, 6)
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(196, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(194, 22)
         Me.ToolStripMenuItem2.Text = "删除这笔入库信息"
         '
         'GLRKXX

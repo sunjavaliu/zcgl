@@ -57,6 +57,8 @@ Partial Class Form3
         Me.ExpandAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CollapseAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -173,6 +175,8 @@ Partial Class Form3
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Panel2)
+        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.ComboBox3)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
@@ -209,14 +213,14 @@ Partial Class Form3
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(348, 50)
+        Me.TextBox1.Location = New System.Drawing.Point(379, 51)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(219, 21)
         Me.TextBox1.TabIndex = 6
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(597, 49)
+        Me.Button1.Location = New System.Drawing.Point(609, 50)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 5
@@ -226,7 +230,7 @@ Partial Class Form3
         'ComboBox2
         '
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(348, 24)
+        Me.ComboBox2.Location = New System.Drawing.Point(379, 24)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(219, 20)
         Me.ComboBox2.TabIndex = 4
@@ -253,9 +257,9 @@ Partial Class Form3
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(296, 28)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 12)
+        Me.Label2.Size = New System.Drawing.Size(77, 12)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "设备类别"
+        Me.Label2.Text = "资产类别名称"
         '
         'Label1
         '
@@ -378,6 +382,22 @@ Partial Class Form3
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(145, 6)
         '
+        'Panel2
+        '
+        Me.Panel2.Location = New System.Drawing.Point(666, 24)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(234, 20)
+        Me.Panel2.TabIndex = 120
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(607, 28)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(53, 12)
+        Me.Label5.TabIndex = 121
+        Me.Label5.Text = "资产类别"
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -438,4 +458,6 @@ Partial Class Form3
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class
