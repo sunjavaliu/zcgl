@@ -36,14 +36,14 @@ Partial Class LoginForm1
         '
         'UsernameTextBox
         '
-        Me.UsernameTextBox.Location = New System.Drawing.Point(472, 238)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(297, 147)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.Size = New System.Drawing.Size(151, 21)
         Me.UsernameTextBox.TabIndex = 1
         '
         'PasswordTextBox
         '
-        Me.PasswordTextBox.Location = New System.Drawing.Point(472, 272)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(297, 181)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PasswordTextBox.Size = New System.Drawing.Size(151, 21)
@@ -52,7 +52,7 @@ Partial Class LoginForm1
         'OK
         '
         Me.OK.Image = Global.IT设备管理系统.My.Resources.Resources.log
-        Me.OK.Location = New System.Drawing.Point(653, 227)
+        Me.OK.Location = New System.Drawing.Point(478, 135)
         Me.OK.Name = "OK"
         Me.OK.Size = New System.Drawing.Size(82, 67)
         Me.OK.TabIndex = 4
@@ -60,10 +60,10 @@ Partial Class LoginForm1
         'LogoPictureBox
         '
         Me.LogoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LogoPictureBox.Image = Global.IT设备管理系统.My.Resources.Resources.timg
+        Me.LogoPictureBox.Image = Global.IT设备管理系统.My.Resources.Resources.timg2
         Me.LogoPictureBox.Location = New System.Drawing.Point(0, 0)
         Me.LogoPictureBox.Name = "LogoPictureBox"
-        Me.LogoPictureBox.Size = New System.Drawing.Size(1002, 583)
+        Me.LogoPictureBox.Size = New System.Drawing.Size(682, 319)
         Me.LogoPictureBox.TabIndex = 0
         Me.LogoPictureBox.TabStop = False
         '
@@ -72,7 +72,7 @@ Partial Class LoginForm1
         Me.AcceptButton = Me.OK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1002, 583)
+        Me.ClientSize = New System.Drawing.Size(682, 319)
         Me.Controls.Add(Me.PasswordTextBox)
         Me.Controls.Add(Me.UsernameTextBox)
         Me.Controls.Add(Me.OK)

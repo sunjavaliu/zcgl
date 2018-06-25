@@ -1,4 +1,11 @@
 ﻿Imports System.Security.Cryptography
+
+Imports System
+Imports System.Net
+Imports System.Data
+Imports System.Drawing
+Imports System.Net.Sockets
+Imports System.ComponentModel
 Public Class LoginForm1
 
     ' TODO:  插入代码，以使用提供的用户名和密码执行自定义的身份验证
@@ -11,17 +18,37 @@ Public Class LoginForm1
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
         Dim sql, username, password As String
+        Dim updateCount As Integer
+
+
+        'Dim HostName As String
+        Dim HostIP As String   '定义主机IP地址集
+        HostIP = ""
+        Dim addrlist() As IPAddress = Dns.GetHostEntry(Dns.GetHostName).AddressList
+        For j = 0 To addrlist.Length - 1
+            HostIP &= addrlist(j).ToString & "-"
+        Next
+
 
         username = UsernameTextBox.Text
+        LoginUser = username
         password = PasswordTextBox.Text
         sql = "select * from user where username='" + username + "' and password='" + GetMd5HashStr(password) + "'"
-        MsgBox(sql)
-        'Dim aa As md5
-        'Me.Close()
-        'EncodeMD5 =
-        'Me.Hide()
-        MDIParent1.Show()
-        Me.Close()
+
+        Dim querysql As LiuDataAdapter = New LiuDataAdapter(sql, CONN_STR)
+        updateCount = querysql.GetSelectCount(sql)
+        If updateCount > 0 Then
+            'MsgBox("【" + xm + "】下有" + CStr(updateCount) + "台设备,不能修改姓名信息！", MsgBoxStyle.OkOnly + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Information, "提示")
+            Me.DialogResult = Windows.Forms.DialogResult.OK
+            Me.Close()
+            sql = "insert into log(user,status,ip) values('" + LoginUser + "','成功','" + HostIP + "')"
+        Else
+            Me.DialogResult = Windows.Forms.DialogResult.Cancel
+            Me.Dispose()
+            sql = "insert into log(user,status,ip) values('" + LoginUser + "','失败','" + HostIP + "')"
+        End If
+        Dim sd As LiuDataAdapter = New LiuDataAdapter
+        sd.ExecuteNonQuery(sql)
 
     End Sub
 

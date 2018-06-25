@@ -132,7 +132,7 @@ Partial Class Form1
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(845, 471)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1043, 471)
         Me.SplitContainer1.SplitterDistance = 190
         Me.SplitContainer1.TabIndex = 3
         '
@@ -177,7 +177,7 @@ Partial Class Form1
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.SplitContainer3)
-        Me.SplitContainer2.Size = New System.Drawing.Size(651, 471)
+        Me.SplitContainer2.Size = New System.Drawing.Size(849, 471)
         Me.SplitContainer2.SplitterDistance = 56
         Me.SplitContainer2.TabIndex = 0
         '
@@ -192,7 +192,7 @@ Partial Class Form1
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(651, 54)
+        Me.GroupBox1.Size = New System.Drawing.Size(849, 54)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "部门信息"
@@ -276,7 +276,7 @@ Partial Class Form1
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button7)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button6)
         Me.SplitContainer3.Panel2.Controls.Add(Me.Button5)
-        Me.SplitContainer3.Size = New System.Drawing.Size(651, 411)
+        Me.SplitContainer3.Size = New System.Drawing.Size(849, 411)
         Me.SplitContainer3.SplitterDistance = 268
         Me.SplitContainer3.TabIndex = 7
         '
@@ -287,7 +287,7 @@ Partial Class Form1
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(651, 268)
+        Me.GroupBox2.Size = New System.Drawing.Size(849, 268)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "人员信息"
@@ -315,7 +315,7 @@ Partial Class Form1
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 23
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(645, 248)
+        Me.DataGridView1.Size = New System.Drawing.Size(843, 248)
         Me.DataGridView1.TabIndex = 1
         '
         'Button11
@@ -463,7 +463,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(845, 471)
+        Me.ClientSize = New System.Drawing.Size(1043, 471)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Form1"
         Me.Text = "部门及人员管理"

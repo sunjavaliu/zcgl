@@ -18,6 +18,8 @@
 
     Dim bmbh As String = ""   '部门编号
     Dim selectRowNum As Integer = -1 '选中的行数
+
+    Dim operationRecord As Integer  '操作选项记录，如果选择的是部门就是1，如果执行的是查询就是2，刷新的时候按上一次的记录进行刷新
     Private Sub DisplayBMTree()
         ComboBoxTreeBM = New ComboBoxTreeView()
         ComboBoxTreeBM.Dock = DockStyle.Fill
@@ -118,6 +120,7 @@
             OpreaZCDataBase(bmbh)
         End If
 
+        operationRecord = 1
 
     End Sub
     Private Sub GetZcInfo4Name(name As String)
@@ -235,7 +238,7 @@
         If zcbh = "" Then Return
         memo = TextBox13.Text
         log = DataGridView1.SelectedRows(0).Cells(17).Value.ToString() + "->" + DateTimePicker2.Text + ComboBoxTreeBM.Text + ComboBox3.Text
-        sql = "update zc set bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',bmmc='" + ComboBoxTreeBM.Text + "', log='" + log + "', zrr='" + ComboBox3.Text + "' ,zczt='" + ComboBox1.Text + "',pz='" + pz + "',memo='" + memo + "'  where zcbh='" + zcbh + "'"
+        sql = "update zc set bmbh='" + ComboBoxTreeBM.TreeView.SelectedNode.Name + "',bmmc='" + ComboBoxTreeBM.Text + "', log='" + log + "', zrr='" + ComboBox3.Text + "' ,zczt='" + ComboBox1.Text + "' ,operator='" + LoginUser + "',pz='" + pz + "',memo='" + memo + "'  where zcbh='" + zcbh + "'"
         sda_zc.ExecuteNonQuery(sql)
 
         'If selectRowNum = -1 Then Return
@@ -253,7 +256,8 @@
 
         MsgBox("设备由 【" + TextBox2.Text + "】 调拨给 【" + ComboBox3.Text + "】")
         SetNew()
-        OpreaZCDataBase(bmbh)
+        If operationRecord = 1 Then OpreaZCDataBase(bmbh)
+        If operationRecord = 2 Then QueryData()
 
     End Sub
 
@@ -317,6 +321,11 @@
         DisplayDataGridViewRowNumber(DataGridView1, e)
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        operationRecord = 2
+        QueryData()
+    End Sub
+
+    Private Sub QueryData()
         Dim sql As String = ""
         Dim sqlwhere As String = ""
         Dim sqlxh As String = ""
@@ -371,7 +380,6 @@
         sda_zc.Fill(G_dt_zc)
         DataGridView1.DataSource = G_dt_zc
     End Sub
-
 End Class
 
 

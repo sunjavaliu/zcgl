@@ -1,6 +1,7 @@
 ﻿Imports System.Text.RegularExpressions
 
 Module Comm
+    Public LoginUser As String
     Public Sub IsInputNum(e As KeyPressEventArgs)
         If (Not Char.IsNumber(e.KeyChar) And e.KeyChar <> Chr(8)) Then
             e.Handled = True
@@ -268,6 +269,7 @@ Module Comm
         DataGridView1.RowHeadersWidth = 60 '//行标题宽度固定12
         DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing '//不能用鼠标调整列标头宽度
         DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.LemonChiffon '//奇数行背景色
+        'DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.LightSkyBlue
         DataGridView1.BackgroundColor = Color.White '//控件背景色
         DataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter '//列标题居中显示
         DataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter '//单元格内容居中显示
@@ -311,6 +313,7 @@ Module Comm
         DataGridView1.Columns(26).HeaderText = "招标日期/实际收货日期"
         DataGridView1.Columns(27).HeaderText = "操作系统版本"
         DataGridView1.Columns(28).HeaderText = "最近操作时间"
+        DataGridView1.Columns(29).HeaderText = "操作者"
     End Sub
 
 
@@ -339,6 +342,8 @@ Module Comm
         DataGridView1.Columns(20).HeaderText = "财政编码"
         DataGridView1.Columns(21).HeaderText = "招标日期/实际收货日期"
         DataGridView1.Columns(22).HeaderText = "操作系统版本"
+        DataGridView1.Columns(23).HeaderText = "操作时间"
+        DataGridView1.Columns(24).HeaderText = "操作者"
 
     End Sub
     Public Sub GetComboBoxDICT(DisplayMember As String, tablename As String, combox As ComboBox)

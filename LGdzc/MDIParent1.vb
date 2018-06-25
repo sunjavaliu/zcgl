@@ -12,6 +12,7 @@ Public Class MDIParent1
         ChildForm.Text = "窗口 " & m_ChildFormNumber
 
         ChildForm.Show()
+
     End Sub
 
     Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripButton.Click
@@ -217,6 +218,8 @@ Public Class MDIParent1
                 Jump(Of LLRKINFO)()
             Case "财政设备信息关联"
                 Jump(Of GLRKXX)()
+            Case "修改密码"
+                Jump(Of Form5)()
         End Select
     End Sub
     Private Sub OpenChildWindow(f As Form)
@@ -235,9 +238,14 @@ Public Class MDIParent1
     End Sub
 
     Private Sub MDIParent1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'LoginForm1.ShowDialog()
+        If (Windows.Forms.DialogResult.OK = LoginForm1.ShowDialog()) Then
+            TreeView1.ExpandAll()
+            ToolStripStatusLabel.Text = "当前登录用户：" + LoginUser
+        Else
+            Me.Dispose()
+            Me.Close()
+        End If
 
-        TreeView1.ExpandAll()
     End Sub
 
     Private Sub MenuStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip.ItemClicked
@@ -261,4 +269,7 @@ Public Class MDIParent1
         Jump(Of Form8)()
     End Sub
 
+    Private Sub PasswrodToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PasswrodToolStripMenuItem.Click
+
+    End Sub
 End Class
