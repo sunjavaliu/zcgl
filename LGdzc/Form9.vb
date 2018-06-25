@@ -1,6 +1,6 @@
 ﻿Public Class Form9
     Private ComboBoxTreeLB As ComboBoxTreeView
-
+    'liu
     Private sda_LB As LiuDataAdapter   ';//全局变量
     Private dt_LB As DataTable = New DataTable()
     Private Sub SetNewAdd()
