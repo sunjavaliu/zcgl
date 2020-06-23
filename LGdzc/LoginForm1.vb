@@ -43,6 +43,7 @@ Public Class LoginForm1
             Me.Close()
             sql = "insert into log(user,status,ip) values('" + LoginUser + "','成功','" + HostIP + "')"
         Else
+            MsgBox("登录失败！")
             Me.DialogResult = Windows.Forms.DialogResult.Cancel
             Me.Dispose()
             sql = "insert into log(user,status,ip) values('" + LoginUser + "','失败','" + HostIP + "')"

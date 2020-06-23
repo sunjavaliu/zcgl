@@ -157,7 +157,6 @@
     <Import Include="System.Data" />
     <Import Include="System.Data.Sql" />
     <Import Include="System.Data.SqlClient" />
-    <Import Include="System.Data.SQLite" />
     <Import Include="System.Data.SQLite.Generic" />
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />

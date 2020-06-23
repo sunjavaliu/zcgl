@@ -146,9 +146,9 @@
         If bmbh = "" Or bmbh = "1" Then
             sql = "select * from zc"
         Else
-            sql = "select * from zc where bmbh=" + bmbh
+            sql = "select * from zc where bmbh='" + bmbh + "'"
         End If
-
+        Debug.Print(sql)
         'ds = SQLite.SQLiteCommand SQLiteHelper.SQLiteCommandDataSet(DBConStr, sqlStr, Nothing)
         'Dim reader As SQLite.SQLiteDataReader = cmd.ExecuteReader()
         sda_zc = New LiuDataAdapter(sql, CONN_STR)
@@ -159,7 +159,7 @@
         sda_zc.Fill(G_dt_zc)
 
         DataGridView1.DataSource = G_dt_zc
-
+        DataGridView1.Refresh()
         '设置DataGridView可显示隐藏列,用Form的名字保存xml文件
         SetDataGridViewHidenColumn(DataGridView1, Me.Name.ToString())
 

@@ -76,6 +76,11 @@
         ComboBox1.Items.Add(New ComboboxItem("列宽不自动调整", DataGridViewAutoSizeColumnsMode.None))
 
 
+        For i = Year(Now) To 1990 Step -1
+            ComboBox5.Items.Add(i)
+        Next i
+
+
         GetComboBoxDICT("xh", "xh", ComboBox4)
 
         GetComboBoxDICT("lbmc", "lbmc", ComboBox2)
@@ -85,6 +90,7 @@
         ComboBox1.Text = ""
         ComboBox2.Text = ""
         ComboBox3.Text = ""
+        ComboBox5.Text = ""
 
 
         'DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
@@ -93,6 +99,9 @@
         '设置DataGridView显示风格
         SetDataGridViewStyle(DataGridView1)
         SetDataGridViewStyle(DataGridView2)
+
+
+
 
     End Sub
 
@@ -322,10 +331,13 @@
         Dim sqllb As String = ""
         Dim sqlzrr As String = ""
         Dim sqlzcmc As String = ""
+        Dim sqlgzrq As String = ""
         sql = "select * from rk   "
         If Trim(ComboBox4.Text) <> "" Then sqlxh = "zcxh like '%" + Trim(ComboBox4.Text) + "%'"
         If Trim(ComboBox2.Text) <> "" Then sqllb = "lbmc like '%" + Trim(ComboBox2.Text) + "%'"
         If Trim(ComboBox3.Text) <> "" Then sqlzcmc = "zcmc like '%" + Trim(ComboBox3.Text) + "%'"
+        If Trim(ComboBox5.Text) <> "" Then sqlgzrq = "gzrq like '%" + Trim(ComboBox5.Text) + "%'"
+
         'If Trim(TextBox1.Text) <> "" Then sqlzrr = "zrr like '%" + Trim(TextBox1.Text) + "%'"
 
         If sqlxh <> "" Then sqlwhere = sqlxh
@@ -350,6 +362,15 @@
 
         End If
 
+        If sqlgzrq <> "" Then
+
+            If sqlwhere = "" Then
+                sqlwhere = sqlgzrq
+            Else
+                sqlwhere = sqlwhere + " and " + sqlgzrq
+            End If
+
+        End If
         If sqlzrr <> "" Then
 
             If sqlwhere = "" Then

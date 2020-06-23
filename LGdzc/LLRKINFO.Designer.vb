@@ -47,6 +47,8 @@ Partial Class LLRKINFO
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -105,6 +107,8 @@ Partial Class LLRKINFO
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.ComboBox5)
         Me.GroupBox1.Controls.Add(Me.ComboBox3)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Button5)
@@ -265,7 +269,7 @@ Partial Class LLRKINFO
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1047, 134)
+        Me.GroupBox2.Size = New System.Drawing.Size(1047, 135)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "已分配的人员"
@@ -280,7 +284,7 @@ Partial Class LLRKINFO
         Me.DataGridView2.Location = New System.Drawing.Point(3, 17)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowTemplate.Height = 23
-        Me.DataGridView2.Size = New System.Drawing.Size(1041, 114)
+        Me.DataGridView2.Size = New System.Drawing.Size(1041, 115)
         Me.DataGridView2.TabIndex = 10
         '
         'ContextMenuStrip1
@@ -311,6 +315,23 @@ Partial Class LLRKINFO
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(196, 22)
         Me.ToolStripMenuItem2.Text = "删除这笔入库信息"
+        '
+        'ComboBox5
+        '
+        Me.ComboBox5.FormattingEnabled = True
+        Me.ComboBox5.Location = New System.Drawing.Point(722, 15)
+        Me.ComboBox5.Name = "ComboBox5"
+        Me.ComboBox5.Size = New System.Drawing.Size(121, 20)
+        Me.ComboBox5.TabIndex = 37
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(642, 18)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(65, 12)
+        Me.Label5.TabIndex = 38
+        Me.Label5.Text = "按年度查询"
         '
         'LLRKINFO
         '
@@ -362,4 +383,6 @@ Partial Class LLRKINFO
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
 End Class
